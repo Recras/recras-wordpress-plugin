@@ -2,6 +2,7 @@
 
 ## 4.4.0 (unreleased)
 * Add option to hide voucher sale quantity (defaults to 1)
+* Add option to hide discount field during online booking
 
 ## 4.3.0 (2021-05-27)
 * Seamless online booking integration: Swedish translation is now available
