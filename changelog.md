@@ -1,6 +1,9 @@
 # Changelog
 
-## 5.0.0 (2022-05-xx)
+## 5.0.1 (2022-05-17)
+* Fix error when using "Image URL" of a product without image
+
+## 5.0.0 (2022-05-16)
 **Major release** Please read the following changes carefully:
 
 * Seamless online booking integration:
