@@ -137,14 +137,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Fix "Class not found" error when using Composer in a theme
 * Update themes for use in book processes and add two new themes
 
-= 4.6 (highlights) =
-* Book processes can now be integrated through the plugin!
-* Various bug fixes related to online bookings and contact forms
-* PHP 8.0 compatibility
-
-= 4.5 (highlights) =
-* The "Term for number of vouchers" is now used during voucher sales
-* Various bug fixes related to online bookings and contact forms
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
