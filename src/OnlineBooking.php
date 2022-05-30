@@ -84,7 +84,7 @@ class OnlineBooking
 
     private static function generateBookingForm(string $subdomain, int $arrangementID = null, array $libraryOptions = []): string
     {
-        $generatedDivID = uniqid('V');
+        $generatedDivID = uniqid('B');
         $extraOptions = [];
 
         $countryCode = ContactForm::getDefaultCountry();
