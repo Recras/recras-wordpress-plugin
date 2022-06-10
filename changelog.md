@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix error when using "Image URL" of a package without image
+
 ## 5.0.1 (2022-05-17)
 * Fix error when using "Image URL" of a product without image
 

@@ -43,6 +43,9 @@ class Arrangement
                 }
                 return '<img src="https://' . $subdomain . '.recras.nl' . $json->image_filename . '" alt="' . htmlspecialchars(self::displayname($json)) . '">';
             case 'image_url':
+                if (!$json->image_filename) {
+                    return '';
+                }
                 return $json->image_filename;
             case 'location':
                 return self::getLocation($json);
