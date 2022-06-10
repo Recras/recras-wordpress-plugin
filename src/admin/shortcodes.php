@@ -18,7 +18,7 @@
         <li>Title - <kbd>title</kbd>
         <li>Total price excl. VAT - <kbd>price_total_excl_vat</kbd>
         <li>Total price incl. VAT - <kbd>price_total_incl_vat</kbd>
-            <li>Relative image URL - <kbd>image_url</kbd>. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show. E.g. <kbd>&lt;img src="[recras-package id=42 image_url='https://somesite.com/image.png']"&gt;</kbd>
+        <li>Relative image URL - <kbd>image_url</kbd>. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show. E.g. <kbd>&lt;img src="[recras-package id=42 show='image_url']"&gt;</kbd>
     </ol>
     <li>Start time - <kbd>starttime</kbd>, value is a 24-hour time string
     <li>Show header? - <kbd>showheader</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
@@ -52,6 +52,25 @@
     <li>Thank-you page - <kbd>redirect</kbd>
 </ol>
 <p>Example: <kbd>[recras-contact id="17" showtitle="0" showlabels="1" showplaceholders="1" submitText="Go!"]</kbd></p>
+
+
+<hr>
+<h2><?php _e('Products', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Products can be added using the <kbd>recras-product</kbd> shortcode.</p>
+<p>The following options are available:</p>
+<ol class="recrasOptionsList">
+    <li>Product - attribute <kbd>id</kbd>
+    <li>Property to show - <kbd>show</kbd>. This can be any of the following:<ol>
+        <li>Description (long) - <kbd>description_long</kbd>
+        <li>Description (short) - <kbd>description</kbd>
+        <li>Duration - <kbd>duration</kbd>
+        <li>Image tag - <kbd>image_tag</kbd>
+        <li>Image URL - <kbd>image_url</kbd>. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show. E.g. <kbd>&lt;img src="[recras-product id=42 show='image_url']"&gt;</kbd>
+        <li>Minimum amount - <kbd>minimum_amount</kbd>
+        <li>Price (incl. VAT) - <kbd>price_incl_vat</kbd>
+        <li>Title - <kbd>title</kbd>
+    </ol>
+</ol>
 
 
 <hr>

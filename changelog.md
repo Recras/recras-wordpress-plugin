@@ -2,6 +2,8 @@
 
 ## Unreleased
 * Fix error when using "Image URL" of a package without image
+* Add "Products" section to documentation/shortcode pages
+* Fix a small documentation error on the shortcode page
 
 ## 5.0.1 (2022-05-17)
 * Fix error when using "Image URL" of a product without image

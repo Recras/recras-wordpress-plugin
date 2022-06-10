@@ -39,12 +39,12 @@
         <li>Minimum number of persons - the minimum number of persons needed for this package
         <li>Price p.p. excl. VAT - the price per person, excluding VAT
         <li>Price p.p. incl. VAT - same as above, but including VAT
-            <li>Programme - the programme as an HTML table. For styling purposes, the table has a <code>recras-programme</code> class. For multi-day programmes every <code>tr</code> starting on a new day has a <code>new-day</code> class
+        <li>Programme - the programme as an HTML table. For styling purposes, the table has a <code>recras-programme</code> class. For multi-day programmes every <code>tr</code> starting on a new day has a <code>new-day</code> class
         <li>Starting location - the starting location name of this package
         <li>Title - the title (display name) of the package
         <li>Total price excl. VAT - shows the total price, excluding VAT
         <li>Total price incl. VAT - same as above, but including VAT
-            <li>Relative image URL - gives the package image URL, if present. Any surrounding HTML/CSS, such as an <code>&lt;img&gt;</code> tag or <code>background-image</code> attribute will have to be written manually for maximum flexibility. If you just want to output the image, use "Image tag" instead. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show.
+        <li>Relative image URL - gives the package image URL, if present. Any surrounding HTML/CSS, such as an <code>&lt;img&gt;</code> tag or <code>background-image</code> attribute will have to be written manually for maximum flexibility. If you just want to output the image, use "Image tag" instead. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show.
     </ol>
     <li>Start time - only visible when "Programme" is selected - determines the starting time of a package. If not set, it will default to 00:00
     <li>Show header? - only visible when "Programme" is selected - determines if the header should be shown. Enabled by default
@@ -74,6 +74,24 @@
 	<li>Element for single choices - show fields where a single choice is made (i.e. Customer type) as drop-down list (default) or radio buttons.
 	<li>Submit button text - the text for the form submission button. Defaults to "Send"
 	<li>Thank-you page - a page/post that the user is redirected to, after submitting the form successfully.
+</ol>
+
+<hr>
+<h2><?php _e('Products', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Products can be added using the Recras/Product block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-cart"></span> icon in the Classic Editor.</p>
+<p>The following options are available:</p>
+<ol class="recrasOptionsList">
+    <li>Product - <strong>required</strong> what product to use
+    <li>Property to show - <strong>required</strong> what property to show. This can be any of the following:<ol>
+        <li>Description (long) - the long description of this product
+        <li>Description (short) - the short description of this product
+        <li>Duration - the duration of this product
+        <li>Image tag - the product image, if present.
+        <li>Image URL - gives the product image URL, if present. Any surrounding HTML/CSS, such as an <code>&lt;img&gt;</code> tag or <code>background-image</code> attribute will have to be written manually for maximum flexibility. If you just want to output the image, use "Image tag" instead. When using quotation marks, be sure to use different marks in the shortcode and the surrounding code, or the image will not show.
+        <li>Minimum amount - the minimum amount needed for this product
+        <li>Price (incl. VAT) - the product price, including VAT
+        <li>Title - the title (display name) of the product
+    </ol>
 </ol>
 
 <hr>
