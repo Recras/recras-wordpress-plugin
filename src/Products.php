@@ -55,8 +55,6 @@ class Products
                 return $product->afbeelding_href;
             case 'minimum_amount':
                 return '<span class="recras-amount">' . $product->minimum_aantal . '</span>';
-            case 'price_excl_vat':
-                return 'Price excl. VAT is not supported anymore. Price incl. VAT is ' . Price::format($product->verkoop);
             case 'price_incl_vat':
                 return Price::format($product->verkoop);
             case 'title':
@@ -149,7 +147,7 @@ class Products
      */
     public static function getValidOptions(): array
     {
-        return ['description', 'description_long', 'duration', 'image_tag', 'image_url', 'minimum_amount', 'price_excl_vat', 'price_incl_vat', 'title'];
+        return ['description', 'description_long', 'duration', 'image_tag', 'image_url', 'minimum_amount', 'price_incl_vat', 'title'];
     }
 
 
