@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/bookprocess', {
-    title: wp.i18n.__('Book process', TEXT_DOMAIN) + ' (beta)',
+    title: wp.i18n.__('Book process', TEXT_DOMAIN),
     icon: 'editor-ul',
     category: 'recras',
     example: {
@@ -48,7 +48,7 @@ registerGutenbergBlock('recras/bookprocess', {
 
         retval.push(
             recrasHelper.elementText(
-                'Recras - ' + wp.i18n.__('Book process', TEXT_DOMAIN) + ' (beta)'
+                'Recras - ' + wp.i18n.__('Book process', TEXT_DOMAIN)
             )
         );
 

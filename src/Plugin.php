@@ -113,7 +113,7 @@ class Plugin
         );
 
         $this->addClassicEditorSubmenuPage(__('Package', $this::TEXT_DOMAIN), 'form-arrangement', [Arrangement::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Book process', $this::TEXT_DOMAIN) . ' (beta)', 'form-bookprocess', [Bookprocess::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Book process', $this::TEXT_DOMAIN), 'form-bookprocess', [Bookprocess::class, 'showForm']);
         $this->addClassicEditorSubmenuPage(__('Contact form', $this::TEXT_DOMAIN), 'form-contact', [ContactForm::class, 'showForm']);
         $this->addClassicEditorSubmenuPage(__('Online booking', $this::TEXT_DOMAIN), 'form-booking', [OnlineBooking::class, 'showForm']);
         $this->addClassicEditorSubmenuPage(__('Product', $this::TEXT_DOMAIN), 'form-product', [Products::class, 'showForm']);
@@ -182,7 +182,7 @@ class Plugin
             'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
             'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
             'online_booking' => __('Online booking', $this::TEXT_DOMAIN),
-            'bookprocess' => __('Book process', $this::TEXT_DOMAIN) . ' (beta)',
+            'bookprocess' => __('Book process', $this::TEXT_DOMAIN),
             'package' => __('Package', $this::TEXT_DOMAIN),
             'package_availability' => __('Package availability', $this::TEXT_DOMAIN),
             'product' => __('Product', $this::TEXT_DOMAIN),
