@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.0.2 (2022-06-13)
 * Fix error when using "Image URL" of a package without image
 * Add "Products" section to documentation/shortcode pages
 * Fix a small documentation error on the shortcode page

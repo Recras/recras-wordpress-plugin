@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.0
-Stable tag: 5.0.1
+Stable tag: 5.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 5.0.2 =
+* Fix error when using "Image URL" of a package without image
+* Add "Products" section to documentation/shortcode pages
+* Fix a small documentation error on the shortcode page
 
 = 5.0.1 =
 * Fix error when using "Image URL" of a product without image
