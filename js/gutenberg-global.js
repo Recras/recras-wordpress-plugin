@@ -280,6 +280,9 @@ const recrasStore = registerStore('recras/store', {
                 try {
                     let pagesNew = yield recrasActions.fetchAPI('wp/v2/pages?' + params);
                     pages.push(...pagesNew);
+                    if (pagesNew.length === 0) {
+                        isDone = true;
+                    }
                     ++page;
                 } catch (e) {
                     if (e.code === 'rest_post_invalid_page_number') {
@@ -301,8 +304,11 @@ const recrasStore = registerStore('recras/store', {
             while (!isDone) {
                 const params = paramsWithPage(page);
                 try {
-                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/posts?' + params);
-                    posts.push(...pagesNew);
+                    let postsNew = yield recrasActions.fetchAPI('wp/v2/posts?' + params);
+                    posts.push(...postsNew);
+                    if (postsNew.length === 0) {
+                        isDone = true;
+                    }
                     ++page;
                 } catch (e) {
                     if (e.code === 'rest_post_invalid_page_number') {

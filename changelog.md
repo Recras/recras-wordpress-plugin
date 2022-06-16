@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.3 (2022-06-16)
+* Fix fetching pages/posts for thank-you page in edge cases
+
 ## 5.0.2 (2022-06-13)
 * Fix error when using "Image URL" of a package without image
 * Add "Products" section to documentation/shortcode pages
