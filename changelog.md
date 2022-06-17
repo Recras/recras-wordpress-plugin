@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.4 (2022-06-17)
+* Fix Gutenberg toggles not working in some cases
+
 ## 5.0.3 (2022-06-16)
 * Fix fetching pages/posts for thank-you page in edge cases
 

@@ -219,14 +219,15 @@ class Settings
 
     /**
      * Parse a boolean value
+     * @param bool|string $value
      */
-    public static function parseBoolean(string $value): bool
+    public static function parseBoolean($value): bool
     {
-        $bool = true;
-        if (isset($value) && ($value == 'false' || $value == 0 || $value == 'no')) {
-            $bool = false;
+        $falseValues = [false, 'false', 0, '0', 'no'];
+        if (isset($value) && in_array($value, $falseValues)) {
+            return false;
         }
-        return $bool;
+        return true;
     }
 
     private static function registerSetting(string $name, $default, string $type = 'string', callable $sanitizeCallback = null): void
