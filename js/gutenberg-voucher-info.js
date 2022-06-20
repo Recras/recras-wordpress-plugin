@@ -16,7 +16,7 @@ registerGutenbergBlock('recras/voucher-info', {
 
     edit: withSelect((select) => {
         return {
-            voucherTemplates: select('recras/store').fetchVoucherTemplates(),
+            voucherTemplates: select('recras/store').fetchVoucherTemplates(false),
         }
     })(props => {
         if (!recrasOptions.subdomain) {

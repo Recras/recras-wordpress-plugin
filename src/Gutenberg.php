@@ -4,8 +4,6 @@ namespace Recras;
 class Gutenberg
 {
     private const ENDPOINT_NAMESPACE = 'recras';
-    private const GUTENBERG_SCRIPT_VERSION = '5.0.3';
-
 
     public static function addBlocks(): void
     {
@@ -20,7 +18,7 @@ class Gutenberg
                 'wp-element',
                 'wp-i18n',
             ],
-            self::GUTENBERG_SCRIPT_VERSION,
+            '5.0.5',
             true
         );
         wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
@@ -63,11 +61,11 @@ class Gutenberg
             ],
             'voucher-info' => [
                 'callback' => [Vouchers::class, 'renderVoucherInfo'],
-                'version' => '4.1.3',
+                'version' => '5.0.5',
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '4.4.0',
+                'version' => '5.0.5',
             ],
         ];
         foreach ($gutenbergBlocks as $key => $block) {

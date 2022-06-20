@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.5 (2022-06-20)
+* Fix showing a list of vouchers for the voucher sales module
+
 ## 5.0.4 (2022-06-17)
 * Fix Gutenberg toggles not working in some cases
 

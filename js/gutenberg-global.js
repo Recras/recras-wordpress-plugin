@@ -332,9 +332,16 @@ const recrasStore = registerStore('recras/store', {
 
             return recrasActions.setProducts(products);
         },
-        * fetchVoucherTemplates(state) {
+        * fetchVoucherTemplates(includeEmpty) {
             let vouchers = yield recrasActions.fetchAPI('recras/vouchers');
             vouchers = Object.values(vouchers).map(mapVoucherTemplate);
+
+            if (includeEmpty) {
+                vouchers.unshift({
+                    name: '',
+                    id: 0,
+                });
+            }
 
             return recrasActions.setVoucherTemplates(vouchers);
         },
