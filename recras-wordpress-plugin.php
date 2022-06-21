@@ -15,6 +15,8 @@ Domain Path: /lang
 // Debugging
 if (WP_DEBUG) {
     error_reporting(-1);
+}
+if (WP_DEBUG_DISPLAY) {
     ini_set('display_errors', 'On');
 }
 
