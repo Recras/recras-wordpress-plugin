@@ -46,9 +46,14 @@ class Vouchers
 
     /**
      * Add the [recras-vouchers] shortcode
+     * @param array|string $attributes
      */
-    public static function renderVoucherSales(array $attributes): string
+    public static function renderVoucherSales($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
@@ -85,7 +90,7 @@ class Vouchers
         new RecrasVoucher(voucherOptions);
     });
 </script>";
-        $showQuantity = isset($attributes['showquantity']) ? (!!$attributes['showquantity']) : true;
+        $showQuantity = (is_array($attributes) && isset($attributes['showquantity'])) ? (!!$attributes['showquantity']) : true;
         if (!$showQuantity) {
             $html .= '<style>#' . $generatedDivID . ' .recras-contactform > div:first-child { display: none; }</style>';
         }

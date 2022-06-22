@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.6 (2022-06-22)
+* Fix crash when showing the list of vouchers for the voucher sales module
+
 ## 5.0.5 (2022-06-20)
 * Fix showing a list of vouchers for the voucher sales module
 
