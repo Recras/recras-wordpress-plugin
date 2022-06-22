@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Seamless online booking integration: number of people on a package line was used as minimum quantity. This has been fixed
+
 ## 5.0.6 (2022-06-22)
 * Fix crash when showing the list of vouchers for the voucher sales module
 
