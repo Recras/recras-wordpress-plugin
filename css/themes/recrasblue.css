@@ -10,25 +10,23 @@
     line-height: 1.25;
 }
 
-.recras-onlinebooking input:not([type="checkbox"]):not([type="radio"]), .recras-onlinebooking select, .recras-onlinebooking textarea,
-.recras-buy-voucher input:not([type="checkbox"]):not([type="radio"]), .recras-buy-voucher select, .recras-buy-voucher textarea {
+:is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]), select, textarea) {
     background: #fff;
     border: 1px solid hsl(205, 63%, 56%);
     width: 100%;
 }
-.recras-onlinebooking button,
-.recras-buy-voucher button {
+:is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) :is(button, input[type="submit"]) {
     background: hsl(205, 63%, 56%);
     border: 1px solid hsl(205, 63%, 56%);
     color: white;
     text-transform: uppercase;
 }
-.recras-onlinebooking button:hover, .recras-onlinebooking button:active,
-.recras-buy-voucher button:hover, .recras-buy-voucher button:active {
+:is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) :is(button, input[type="submit"]):is(:hover, :active) {
     background-color: hsl(205, 63%, 68%);
 }
-.recras-onlinebooking button[type="submit"], .recras-buy-voucher button[type="submit"] {
+:is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) :is(button, input)[type="submit"] {
     font-size: 1.2em;
+    font-weight: bold;
     margin-top: 0.5em;
     padding: 0.5em 1em;
 }

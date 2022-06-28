@@ -50,6 +50,25 @@ input[type].recras-input-invalid {
 }
 
 
+/*** CONTACT FORMS ***/
+.recras-contact label {
+    display: block;
+}
+.recras-contact ol {
+    list-style: none;
+    padding-left: 0;
+}
+.recras-contact dd {
+    margin-left: 0;
+}
+.recras-contact :is(dd + dt, li + li) {
+    margin-top: 0.5em;
+}
+.recras-contact td {
+    vertical-align: top;
+}
+
+
 /*** BOOK PROCESSES ***/
 #bookprocess, #bookprocess * {
     box-sizing: border-box;
