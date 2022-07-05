@@ -11,14 +11,16 @@
     <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
     <dt><?= __('Use calendar widget', \Recras\Plugin::TEXT_DOMAIN);?></dt>
     <dd>By default, date and time pickers in contact forms use whatever the browser has available. Internet Explorer (all versions) does not have native date/time pickers and only shows a text field. If your website has a lot of visitors from IE, we recommend to enable the date picker we have included with the plugin.<br>
-        <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used during "new style" online booking.
+        <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration.
     </dd>
-    <dt><?= __('Theme for online booking', \Recras\Plugin::TEXT_DOMAIN);?></dt>
-    <dd>Which theme the new online booking method will use.
+    <dt><?= __('Theme for Recras integrations', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dd>Which theme is used for online booking of packages and book processes.
         <ol class="recrasOptionsList">
             <li>No theme - leaves it up to you to properly style it.
             <li>Basic theme - sets some default styling to make it look a bit nicer. You can still override everything with your own CSS.
             <li>Recras Blue - is a theme with blue accents
+            <li>BP Green - is a theme with green accents
+            <li>Reasonably Red - is a theme with red accents
         </ol>
     </dd>
     <dt><?= __('Enable Google Analytics integration?', \Recras\Plugin::TEXT_DOMAIN);?></dt>
@@ -95,8 +97,8 @@
 </ol>
 
 <hr>
-<h2><?php _e('Online booking', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Online booking can be integrated using the Recras/Online booking block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor.</p>
+<h2><?php _e('Online booking of packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Online booking of packages can be integrated using the Recras/Online booking of packages block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
     <li>Integration method - choose seamless for a more modern experience. Choosing iframe uses the setting in your Recras.
@@ -110,7 +112,7 @@
 	<li>Show discount fields - <strong>Note:</strong> this is only available for the seamless online booking method. When disabled, the discount fields are hidden.
     <li>Pre-fill date - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain date.
     <li>Pre-fill time - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain time.
-    <li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the new online booking method.
+    <li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the seamless integration.
 	<li>Auto resize iframe - enabled by default. Disable this if you have more than one Recras iframe on your page. Note: this is only available for the old iframe booking method.
 </ol>
 

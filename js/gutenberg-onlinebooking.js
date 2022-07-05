@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/onlinebooking', {
-    title: wp.i18n.__('Online booking', TEXT_DOMAIN),
+    title: wp.i18n.__('Online booking of packages', TEXT_DOMAIN),
     icon: 'admin-site',
     category: 'recras',
     example: {
@@ -296,7 +296,7 @@ registerGutenbergBlock('recras/onlinebooking', {
             };
         }
 
-        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Online booking', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Online booking of packages', TEXT_DOMAIN)));
         retval.push(createEl(compRadioControl, optionsNewLibraryControl));
         retval.push(recrasHelper.elementInfo(
             wp.i18n.__('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', TEXT_DOMAIN) + '<br>' +

@@ -74,8 +74,8 @@
 
 
 <hr>
-<h2><?php _e('Online booking', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Online booking can be added using the <kbd>recras-booking</kbd> shortcode.</p>
+<h2><?php _e('Online booking of packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Online booking of packages can be added using the <kbd>recras-booking</kbd> shortcode.</p>
 <p>The following options are available. Some options are only available depending on the chosen integration method.</p>
 <ol class="recrasOptionsList">
     <li>Integration method - <kbd>use_new_library</kbd>. Value is either <kbd>1</kbd> (recommended, for seamless integration) or <kbd>0</kbd> (discouraged, for iframe integration)

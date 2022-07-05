@@ -12,8 +12,9 @@ To get started, go to the Recras → Settings page and enter your Recras name. F
 
 This plugin consists of the following "widgets". To use them, you first need to set your Recras name (see paragraph above).
 * Availability calendar
+* Book processes
 * Contact forms
-* Online booking
+* Online booking of packages
 * Packages
 * Products
 * Voucher sales
@@ -24,7 +25,7 @@ Widgets can be added to your site in three ways. Using Gutenberg blocks (recomme
 ### Date/Time picker
 By default, date and time pickers in contact forms use whatever the browser has available. Internet Explorer (all versions) does not have native date/time pickers and only shows a text field. If your website has a lot of visitors from IE, we recommend to enable the date picker we have included with the plugin. You can enable this on the Recras → Settings page. For time inputs, a proper fallback is included.
 
-**Note**: this setting only applies to standalone contact forms, not to contact forms used during "new style" online booking.
+**Note**: this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration.
 
 ### Comparison of date/time inputs with and without setting
 

@@ -1,6 +1,6 @@
 {
   "name": "recras-wordpress-plugin",
-  "version": "3.5.0",
+  "version": "5.0.7",
   "description": "Recras WordPress plugin",
   "main": "index.js",
   "directories": {

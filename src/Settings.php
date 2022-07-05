@@ -13,7 +13,7 @@ class Settings
     public static function addInputAnalytics(array $args): void
     {
         self::addInputCheckbox($args);
-        self::infoText(__('Enabling this will send online booking and voucher sales events to Google Analytics.', Plugin::TEXT_DOMAIN));
+        self::infoText(__('Enabling this will send events from online booking of packages and voucher sales to Google Analytics.', Plugin::TEXT_DOMAIN));
     }
 
 
@@ -278,7 +278,7 @@ class Settings
         self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
         self::addField('recras_decimal', __('Decimal separator', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDecimal']);
         self::addField('recras_datetimepicker', __('Use calendar widget', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
-        self::addField('recras_theme', __('Theme for online booking', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
+        self::addField('recras_theme', __('Theme for Recras integrations', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration?', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
     }
 
