@@ -1,5 +1,9 @@
 /* This file is used by all themes */
 
+:is(.recras-onlinebooking, .recras-contact) * {
+    box-sizing: border-box;
+}
+
 /*** ONLINE BOOKING ***/
 .recras-contactform-required::after {
     content: '*';

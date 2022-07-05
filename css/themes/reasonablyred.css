@@ -1,12 +1,12 @@
-.recras-onlinebooking input, .recras-onlinebooking select, .recras-onlinebooking button, .recras-onlinebooking textarea {
+:is(.recras-onlinebooking, .recras-contact) :is(input, select, button, textarea) {
     font: inherit;
     height: auto;
     padding: 0.5em;
 }
-.recras-onlinebooking input, .recras-onlinebooking select, .recras-onlinebooking button {
+:is(.recras-onlinebooking, .recras-contact) :is(input, select, button) {
     line-height: 1;
 }
-.recras-onlinebooking textarea {
+:is(.recras-onlinebooking, .recras-contact) textarea {
     line-height: 1.25;
 }
 

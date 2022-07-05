@@ -11,7 +11,7 @@
     margin-top: 0.5em;
 }
 
-:is(.recras-onlinebooking, .recras-discounts) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+:is(.recras-onlinebooking, .recras-contact, .recras-discounts) :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
     font: inherit;
 }
 .priceWithoutDiscount, .priceWithDiscount {
