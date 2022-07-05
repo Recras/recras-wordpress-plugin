@@ -193,19 +193,19 @@ class Settings
             ],
             'basic' => [
                 'name' => __('Basic theme', Plugin::TEXT_DOMAIN),
-                'version' => '5.0.0',
+                'version' => '5.1.0',
             ],
             'bpgreen' => [
                 'name' => __('BP Green', Plugin::TEXT_DOMAIN),
-                'version' => '5.0.0',
+                'version' => '5.1.0',
             ],
             'reasonablyred' => [
                 'name' => __('Reasonably Red', Plugin::TEXT_DOMAIN),
-                'version' => '5.0.0',
+                'version' => '5.1.0',
             ],
             'recrasblue' => [
                 'name' => __('Recras Blue', Plugin::TEXT_DOMAIN),
-                'version' => '5.0.0',
+                'version' => '5.1.0',
             ],
         ];
     }
