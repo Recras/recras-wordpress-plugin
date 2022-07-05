@@ -1,3 +1,6 @@
+:is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) {
+    accent-color: hsl(205, 63%, 56%);
+}
 :is(.recras-onlinebooking, .recras-contact) :is(input, select, button, textarea) {
     font: inherit;
     height: auto;
