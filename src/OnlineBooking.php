@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return $html;
     }
 
-    private static function generateIframe(string $subdomain, int $arrangementID, bool $enableResize): string
+    private static function generateIframe(string $subdomain, int $arrangementID = null, bool $enableResize = true): string
     {
         $url = 'https://' . $subdomain . '.recras.nl/onlineboeking';
         if ($arrangementID) {

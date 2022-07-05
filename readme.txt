@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Fix error with online booking iframe
+
 = 5.0.7 =
 * Seamless online booking integration: number of people on a package line was used as minimum quantity. This has been fixed
 

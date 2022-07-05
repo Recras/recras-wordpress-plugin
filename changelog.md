@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix error with online booking iframe
+
 ## 5.0.7 (2022-06-27)
 * Seamless online booking integration: number of people on a package line was used as minimum quantity. This has been fixed
 
