@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 5.1.0 (2022-07-05)
+* "Theme for online booking" has been renamed to "Theme for Recras integrations" and now also applies to contact forms
 * Fix error with online booking iframe
 * Fix green buttons in blue/red themes
 

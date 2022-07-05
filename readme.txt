@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.0
-Stable tag: 5.0.7
+Stable tag: 5.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,7 +80,8 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= Unreleased =
+= 5.1.0 =
+* "Theme for online booking" has been renamed to "Theme for Recras integrations" and now also applies to contact forms
 * Fix error with online booking iframe
 * Fix green buttons in blue/red themes
 
