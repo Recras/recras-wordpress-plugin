@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         $iframeUID = uniqid('robi'); // Recras Online Boeking Iframe
         $html = '';
-        $html .= '<iframe src="' . $url . '" style="width:100%;height:450px" frameborder=0 scrolling="auto" id="' . $iframeUID . '"></iframe>';
+        $html .= '<iframe src="' . $url . '" style="width:100%;height:450px" frameborder=0 scrolling="auto" id="' . $iframeUID . '" sandbox="allow-scripts allow-forms allow-top-navigation"></iframe>';
         if ($enableResize) {
             $html .= <<<SCRIPT
 <script>

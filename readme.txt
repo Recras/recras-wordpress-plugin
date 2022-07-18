@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.0
-Stable tag: 5.1.0
+Stable tag: 5.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 5.1.1 =
+* Fix old online booking in an iframe
+
 = 5.1.0 =
 * "Theme for online booking" has been renamed to "Theme for Recras integrations" and now also applies to contact forms
 * Fix error with online booking iframe
@@ -98,7 +101,7 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Fix Gutenberg toggles not working in some cases
 
 = 5.0.3 =
-* Fix fetching pages/possts for thank-you page in edge cases
+* Fix fetching pages/posts for thank-you page in edge cases
 
 = 5.0.2 =
 * Fix error when using "Image URL" of a package without image

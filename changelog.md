@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.1 (2022-07-18)
+* Fix old online booking in an iframe
+
 ## 5.1.0 (2022-07-05)
 * "Theme for online booking" has been renamed to "Theme for Recras integrations" and now also applies to contact forms
 * Fix error with online booking iframe
