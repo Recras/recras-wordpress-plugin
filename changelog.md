@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Seamless online booking integration: Fix entering DD-MM-YYYY dates by hand
+
 ## 5.1.1 (2022-07-18)
 * Fix old online booking in an iframe
 
