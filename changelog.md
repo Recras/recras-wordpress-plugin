@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.1.2 (2022-07-25)
 * Seamless online booking integration: Fix entering DD-MM-YYYY dates by hand
 
 ## 5.1.1 (2022-07-18)
