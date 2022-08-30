@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.3 (2022-08-30)
+* Improve book process styling
+
 ## 5.1.2 (2022-07-25)
 * Seamless online booking integration: Fix entering DD-MM-YYYY dates by hand
 

@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.0
-Stable tag: 5.1.2
+Stable tag: 5.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 5.1.3 =
+* Improve book process styling
+
 = 5.1.2 =
 * Seamless online booking integration: Fix entering DD-MM-YYYY dates by hand
 
@@ -123,15 +126,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
   * Support for Internet Explorer and old Edge (12-15) has been dropped
 * Plugin now requires PHP 7.1 or higher
 
-= 4.8.2 =
-* Book processes: update styling for empty inputs
-
-= 4.8.1 =
+= 4.8 (highlights) =
+* Book processes: update styling for empty inputs and capacity info in "product with time" blocks
 * Fix loading of book processes on some sites
-
-= 4.8.0 =
 * Seamless online booking integration: add support for GA4
-* Update themes to style the new capacity info in "product with time" blocks in a book process
 
 = 4.7.10 =
 * Fetching thank-you pages is a lot faster now
