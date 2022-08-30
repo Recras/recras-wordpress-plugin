@@ -85,6 +85,10 @@ input[type].recras-input-invalid {
     border-collapse: collapse;
 }
 
+#bookprocess input[disabled] {
+    cursor: not-allowed;
+}
+
 /*** recap ***/
 #recapEle dt {
     color: #666;
@@ -168,8 +172,8 @@ input[type].recras-input-invalid {
 }
 
 /*** discounts ***/
-input.discountInput[disabled] {
-    background: hsl(140, 0%, 75%);
+#bookprocess input.discountInput[disabled] {
+    background: hsl(140, 20%, 75%);
 }
 .recras-discount button {
     color: hsl(0, 58%, 58%);
