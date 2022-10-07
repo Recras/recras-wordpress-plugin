@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.4 (2022-10-07)
+* Voucher sales no longer shows error messages inline, but after the form
+
 ## 5.1.3 (2022-08-30)
 * Improve book process styling
 

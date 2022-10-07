@@ -1,8 +1,8 @@
 === Recras WordPress plugin ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Tested up to: 6.0
-Stable tag: 5.1.3
+Tested up to: 6.1
+Stable tag: 5.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 5.1.4 =
+* Voucher sales no longer shows error messages inline, but after the form
+
 = 5.1.3 =
 * Improve book process styling
 
@@ -94,37 +97,18 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Fix error with online booking iframe
 * Fix green buttons in blue/red themes
 
-= 5.0.7 =
-* Seamless online booking integration: number of people on a package line was used as minimum quantity. This has been fixed
-
-= 5.0.6 =
-* Fix crash when showing the list of vouchers for the voucher sales module
-
-= 5.0.5 =
-* Fix showing a list of vouchers for the voucher sales module
-
-= 5.0.4 =
-* Fix Gutenberg toggles not working in some cases
-
-= 5.0.3 =
-* Fix fetching pages/posts for thank-you page in edge cases
-
-= 5.0.2 =
-* Fix error when using "Image URL" of a package without image
-* Add "Products" section to documentation/shortcode pages
-* Fix a small documentation error on the shortcode page
-
-= 5.0.1 =
-* Fix error when using "Image URL" of a product without image
-
-= 5.0.0 =
+= 5.0 (highlights) =
 **Major release** Please read the following changes carefully:
 
 * Seamless online booking integration:
   * Fix GA4 events
   * Support for Google Analytics v2 has been dropped
   * Support for Internet Explorer and old Edge (12-15) has been dropped
+  * number of people on a package line was used as minimum quantity. This has been fixed
 * Plugin now requires PHP 7.1 or higher
+* Fix error when using "Image URL" of a product/package without image
+* Add "Products" section to documentation/shortcode pages
+* Various small fixes
 
 = 4.8 (highlights) =
 * Book processes: update styling for empty inputs and capacity info in "product with time" blocks
