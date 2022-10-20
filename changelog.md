@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.5 (2022-10-20)
+* Book process: fix date picker button styling
+
 ## 5.1.4 (2022-10-07)
 * Voucher sales no longer shows error messages inline, but after the form
 

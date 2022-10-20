@@ -146,21 +146,6 @@ label[for^='fixedtext_'] {
 #bookprocess input:invalid:not([value='']) {
     border: 2px solid #c00;
 }
-#bookprocess button {
-    background: #ddd;
-    border: 1px solid #bbb;
-    color: #000;
-    margin: 0.5em 0;
-    transition: all 0.2s linear;
-}
-#bookprocess button:active {
-    background: #eee;
-}
-@media (pointer: fine) {
-    #bookprocess button:hover {
-        background: #eee;
-    }
-}
 
 #bookprocess .timeslot-capacity {
     background: hsl(205, 20%, 75%);
