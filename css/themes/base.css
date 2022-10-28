@@ -36,7 +36,7 @@ input[type].recras-input-invalid {
 }
 
 .price-information {
-    color: #666;
+    color: #444;
     font-size: 0.9em;
 }
 
@@ -108,6 +108,9 @@ input[type].recras-input-invalid {
 #bookprocess input[disabled] {
     cursor: not-allowed;
 }
+#bookprocess option[disabled] {
+    color: #ccc;
+}
 
 /*** recap ***/
 #recapEle dt {
@@ -178,10 +181,16 @@ input[type].recras-input-invalid {
     border: 1px solid var(--recras-color-plus-btn-bg, hsl(140, 0%, 80%));
 }
 @media (pointer: fine) {
-    .recras-package .radioWrapper > label:hover,
-    .recras-product_with_time .checkboxWrapper > label:hover {
+    .recras-product_with_time.auto-amount.display-automatic .selectWrapper input:not([disabled]) + label:hover,
+    .recras-package .radioWrapper input:not([disabled]) + label:hover,
+    .recras-product_with_time .checkboxWrapper input:not([disabled]) + label:hover {
         background-color: var(--recras-color-plus-btn-hover-bg, hsl(120, 0%, 40%));
         color: #fff;
+    }
+    .recras-product_with_time.auto-amount.display-automatic .selectWrapper input[disabled] + label,
+    .recras-package .radioWrapper input[disabled] + label,
+    .recras-product_with_time .checkboxWrapper input[disabled] + label {
+        cursor: not-allowed;
     }
 }
 .recras-package :checked + label,
@@ -192,10 +201,18 @@ input[type].recras-input-invalid {
 }
 
 /*** discounts ***/
+#bookprocess .discountInput.valid {
+    border: 2px solid hsl(140, 58%, 58%);
+}
+#bookprocess .discountInput.invalid {
+    border: 2px solid hsl(0, 58%, 58%);
+}
 #bookprocess input.discountInput[disabled] {
+    /* Disabled means a voucher has been successfully applied */
     background: hsl(140, 20%, 75%);
 }
 .recras-discount button {
+    /* This button is to remove an applied voucher */
     color: hsl(0, 58%, 58%);
 }
 

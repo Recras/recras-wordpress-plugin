@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.6 (2022-10-28)
+* Book processes styling update
+
 ## 5.1.5 (2022-10-20)
 * Book process: fix date picker button styling
 
