@@ -1,8 +1,14 @@
+/*** Book processes ***/
 #bookprocess {
-    --recras-icon-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23153851' d='M384 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm120 16c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-48 0c0-110.5-89.5-200-200-200S56 145.5 56 256s89.5 200 200 200 200-89.5 200-200z'%3E%3C/path%3E%3C/svg%3E%0A");
-    --recras-icon-collapse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23153851' d='M140 284c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h232c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H140zm364-28c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-48 0c0-110.5-89.5-200-200-200S56 145.5 56 256s89.5 200 200 200 200-89.5 200-200z'%3E%3C/path%3E%3C/svg%3E%0A");
+    --bp-col-darker: hsl(205, 50%, 40%);
+    --bp-col-dark: hsl(205, 58%, 20%);
+    --bp-col-middle: hsl(205, 63%, 56%);
+    --bp-col-light: hsl(205, 63%, 68%);
+    --bp-col-lighter: hsl(205, 15%, 90%);
 }
 
+
+/*** Online booking, buy voucher, contact forms ***/
 :is(.recras-onlinebooking, .recras-buy-voucher, .recras-contact) {
     accent-color: hsl(205, 63%, 56%);
 }
@@ -122,152 +128,4 @@ p:empty {
 }
 .recras-onlinebooking select {
     border-radius: 0;
-}
-
-
-/*** Book processes ***/
-label[for^='fixedtext_'] {
-    color: #444;
-}
-.recras-required > label[for^='choice_']:not(:empty)::after,
-.recras-required > label[for^='contact']:not(:empty)::after {
-    color: #444;
-}
-
-#bookprocess aside h2 {
-    --recras-color-recap-bg: hsl(205, 58%, 20%);
-}
-
-#bookprocess :is(input, button, select, textarea) {
-    border-radius: 4px;
-}
-#bookprocess :is(input, select, textarea) {
-    background: #fff;
-    color: #000;
-}
-#bookprocess input[disabled] {
-    background: #ccc;
-}
-#bookprocess input:invalid:not([value='']) {
-    border: 2px solid #c00;
-}
-
-#bookprocess .timeslot-capacity {
-    background: hsl(205, 20%, 75%);
-}
-
-#bookprocess .primary {
-    background: hsl(205, 63%, 56%);
-    border-color: hsl(205, 63%, 56%);
-    color: #fff;
-}
-#bookprocess .primary:active {
-    background: hsl(205, 50%, 40%);
-    border-color: hsl(205, 50%, 40%);
-}
-@media (pointer: fine) {
-    #bookprocess .primary:hover {
-        background: hsl(205, 50%, 40%);
-        border-color: hsl(205, 50%, 40%);
-    }
-}
-
-
-
-
-.react-datepicker .react-datepicker__day--keyboard-selected {
-    background-color: transparent;
-    color: #000;
-}
-.react-datepicker .react-datepicker__day--selected {
-    background-color: hsl(205, 63%, 56%);
-    color: #fff;
-}
-.react-datepicker .react-datepicker__day--selected:hover {
-    background-color: hsl(205, 50%, 40%);
-}
-.react-datepicker__day--today::after {
-    border-color: hsl(205, 63%, 56%);
-}
-
-.recras-package, .recras-product_without_time, .recras-product_with_time {
-    --recras-color-plus-btn-bg: hsl(205, 30%, 75%);
-}
-@media (pointer: fine) {
-    .recras-package .radioWrapper > label:hover,
-    .recras-product_with_time .checkboxWrapper > label:hover {
-        --recras-color-plus-btn-hover-bg: hsl(205, 50%, 40%);
-    }
-}
-
-.recras-package :checked + label,
-.recras-product_with_time > div > div :checked + label,
-.recras-product_without_time > div :checked + label {
-    --recras-color-plus-btn-checked-bg: hsl(205, 63%, 56%);
-}
-@media (pointer: fine) {
-    .recras-package .radioWrapper > input + label:hover::after,
-    .recras-product_with_time .checkboxWrapper > input + label:hover::after,
-    .recras-product_without_time > div input + label:hover::after {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
-    }
-    .recras-package .radioWrapper > input:checked + label:hover::after,
-    .recras-product_with_time .checkboxWrapper > input:checked + label:hover::after,
-    .recras-product_without_time > div input:checked + label:hover::after {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h352c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
-    }
-}
-
-.recras-product_with_time > div > div input:disabled + label,
-.recras-product_without_time > div input:disabled + label {
-    border-color: #aaa;
-    background-color: #aaa;
-}
-
-#bookprocess .numberWithPlusMinus input {
-    background-color: #fff;
-    border-color: hsl(205, 63%, 56%);
-    margin: 0;
-}
-#bookprocess .numberWithPlusMinus input:disabled {
-    background-color: #aaa;
-    border-color: #aaa;
-}
-#bookprocess .numberWithPlusMinus button {
-    background-color: hsl(205, 63%, 56%);
-    color: #fff;
-}
-.numberWithPlusMinus input[value=''],
-.numberWithPlusMinus input[value='0'] {
-    border-color: hsl(205, 20%, 75%);
-}
-.numberWithPlusMinus input[value=''] ~ button,
-.numberWithPlusMinus input[value='0'] ~ button {
-    background-color: hsl(205, 30%, 75%);
-    color: #000;
-}
-.numberWithPlusMinus input:placeholder-shown ~ button {
-    background-color: hsl(205, 30%, 75%);
-    color: #000;
-}
-@media (pointer: fine) {
-    .numberWithPlusMinus button:hover {
-        background-color: hsl(
-                180,
-                65%,
-                40%
-        ) !important; /* Important to override styles for empty value */
-    }
-}
-
-#bookprocess .spinner {
-    --recras-color-spinner-base: hsl(205, 63%, 56%);
-    --recras-color-spinner-accent: hsl(205, 60%, 45%);
-}
-
-#bookprocess details {
-    background-color: hsl(205, 15%, 90%);
-}
-#bookprocess summary {
-    color: hsl(205, 58%, 20%);
 }

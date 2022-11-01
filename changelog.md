@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.7 (2022-11-01)
+* Handle book process themes differently, because of an update in Recras
+
 ## 5.1.6 (2022-10-28)
 * Book processes styling update
 
