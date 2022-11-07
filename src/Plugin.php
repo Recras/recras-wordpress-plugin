@@ -277,12 +277,19 @@ class Plugin
         wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, false);
 
-        // Online booking theme
+        // Book process
+        // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
+        $subdomain = Settings::getSubdomain([]);
+        wp_enqueue_style(
+            'recras_bookprocesses_base',
+            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
+        );
+
+        // Integration theme
         $theme = get_option('recras_theme');
         if ($theme) {
             $allowedThemes = Settings::getThemes();
             if ($theme !== 'none' && array_key_exists($theme, $allowedThemes)) {
-                $subdomain = Settings::getSubdomain([]);
                 wp_enqueue_style(
                     'recras_bookprocesses_styling',
                     'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_styling.css'

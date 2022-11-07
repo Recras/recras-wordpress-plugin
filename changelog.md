@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.1.8 (2022-11-07)
+* Fix order of loading book process CSS, fixes specificity issues
+
 ## 5.1.7 (2022-11-01)
 * Handle book process themes differently, because of an update in Recras
 

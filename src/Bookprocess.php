@@ -26,10 +26,6 @@ class Bookprocess
             'recrasreactdatepicker',
             'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
         );
-        wp_enqueue_style(
-            'recras_bookprocesses_base',
-            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
-        );
     }
 
     /**
