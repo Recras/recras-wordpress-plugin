@@ -1,5 +1,5 @@
 /*** Book processes ***/
-#bookprocess {
+.bookprocess {
     --bp-col-darker: hsl(205, 50%, 40%);
     --bp-col-dark: hsl(205, 58%, 20%);
     --bp-col-middle: hsl(205, 63%, 56%);

@@ -83,7 +83,7 @@ class Bookprocess
         }
 
         self::enqueueScripts($subdomain);
-        return '<section id="bookprocess" data-id="' . $attributes['id'] . '" data-url="https://' . $subdomain . '.recras.nl">';
+        return '<section class="bookprocess" data-id="' . $attributes['id'] . '" data-url="https://' . $subdomain . '.recras.nl"></section>';
     }
 
     /**

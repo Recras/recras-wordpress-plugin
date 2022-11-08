@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.2.0 (2022-11-08)
+* It is now possible to integrate multiple book processes on one page
+
 ## 5.1.8 (2022-11-07)
 * Fix order of loading book process CSS, fixes specificity issues
 

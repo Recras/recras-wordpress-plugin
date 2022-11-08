@@ -24,7 +24,7 @@
 
 
 /*** Book processes ***/
-#bookprocess input:invalid:not([value='']) {
+.bookprocess input:invalid:not([value='']) {
     border-color: #c00;
 }
 
