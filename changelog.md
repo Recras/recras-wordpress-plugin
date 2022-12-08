@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.2.1 (2022-11-08)
+* Fix crash when using shortcodes in the wrong way
+
 ## 5.2.0 (2022-11-08)
 * It is now possible to integrate multiple book processes on one page
 

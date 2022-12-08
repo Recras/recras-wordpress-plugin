@@ -56,9 +56,15 @@ class Bookprocess
 
     /**
      * Add the [recras-bookprocess] shortcode
+     *
+     * @param array|string $attributes
      */
-    public static function renderBookprocess(array $attributes): string
+    public static function renderBookprocess($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         $subdomain = Settings::getSubdomain($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();

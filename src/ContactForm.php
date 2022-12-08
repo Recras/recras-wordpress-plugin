@@ -43,9 +43,15 @@ class ContactForm
 
     /**
      * Add the [recras-contact] shortcode
+     *
+     * @param array|string $attributes
      */
-    public static function renderContactForm(array $attributes): string
+    public static function renderContactForm($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }

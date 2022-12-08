@@ -5,8 +5,17 @@ class Vouchers
 {
     private const SHOW_DEFAULT = 'name';
 
-    public static function renderVoucherInfo(array $attributes): string
+    /**
+     * Add the [voucher-info] shortcode
+     *
+     * @param array|string $attributes
+     */
+    public static function renderVoucherInfo($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }
@@ -46,6 +55,7 @@ class Vouchers
 
     /**
      * Add the [recras-vouchers] shortcode
+     *
      * @param array|string $attributes
      */
     public static function renderVoucherSales($attributes): string

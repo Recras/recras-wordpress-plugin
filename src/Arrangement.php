@@ -7,9 +7,15 @@ class Arrangement
 
     /**
      * Add the [recras-package] shortcode
+     *
+     * @param array|string $attributes
      */
-    public static function renderPackage(array $attributes): string
+    public static function renderPackage($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }

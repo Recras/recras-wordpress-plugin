@@ -5,9 +5,15 @@ class OnlineBooking
 {
     /**
      * Add the [recras-booking] shortcode
+     *
+     * @param array|string $attributes
      */
-    public static function renderOnlineBooking(array $attributes): string
+    public static function renderOnlineBooking($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }

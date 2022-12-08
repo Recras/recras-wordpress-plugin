@@ -7,9 +7,15 @@ class Products
 
     /**
      * Add the [recras-product] shortcode
+     *
+     * @param array|string $attributes
      */
-    public static function renderProduct(array $attributes): string
+    public static function renderProduct($attributes): string
     {
+        if (is_string($attributes)) {
+            $attributes = [];
+        }
+
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }
