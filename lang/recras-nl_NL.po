@@ -1012,9 +1012,6 @@ msgstr "Opslaan"
 #~ msgid "OK"
 #~ msgstr "OK"
 
-#~ msgid "Use date/time picker script"
-#~ msgstr "Gebruik datum-/tijdselectiescript"
-
 #~ msgid "Voucher Sales"
 #~ msgstr "Tegoedbonnenverkoop"
 

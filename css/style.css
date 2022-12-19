@@ -11,35 +11,35 @@
 /* Applied to the product description */
 .recras-description {}
 
-/* Applied to the duration of an arrangement or product */
+/* Applied to the duration of a package or product */
 .recras-duration {}
 
 /* Applied to error messages from an unsuccessful form submission */
 .recras-error {}
 
-/* Applied to date/time inputs on a contact form - useful for hooking date/time pickers */
+/* Applied to date/time inputs on a contact form */
 .recras-input-date {}
 .recras-input-time {}
 
 /* Applied to loading animation image */
 .recras-loading {}
 
-/* Applied to the location of an arrangement */
+/* Applied to the location of a package */
 .recras-location {}
 
-/* Applied to the first <tr> in an arrangement programme that falls on a new day */
+/* Applied to the first <tr> in a package programme that falls on a new day */
 .recras-new-day {}
 
-/* Applied to the minimum number of people for an arrangement */
+/* Applied to the minimum number of people for a package */
 .recras-persons {}
 
 /* Used in contact forms for a pre-filled package */
 .recras-prefilled-package {}
 
-/* Applied to the various prices of an arrangement */
+/* Applied to the various prices of a package */
 .recras-price {}
 
-/* Applied to the <table> element of an arrangement programme */
+/* Applied to the <table> element of a package programme */
 .recras-programme {}
 
 /* Added after the <label>s of required elements in a contact form */
@@ -48,5 +48,5 @@
 /* Applied to the "success" message after a successful form submission */
 .recras-success {}
 
-/* Applied to the arrangement/product title */
+/* Applied to the package/product title */
 .recras-title {}

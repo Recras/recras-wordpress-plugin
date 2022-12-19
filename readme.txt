@@ -25,10 +25,10 @@ This plugin consists of the following "widgets". To use them, you first need to 
 
 Widgets can be added to your site in three ways. Using Gutenberg blocks (recommended), using the buttons in the "classic editor" (limited functionality), or by entering the shortcode manually (discouraged).
 
-= Date/Time picker =
-By default, date and time pickers in contact forms use whatever the browser has available. Internet Explorer (all versions) does not have native date/time pickers and only shows a text field. If your website has a lot of visitors from IE, we recommend to enable the date picker we have included with the plugin. You can enable this on the Recras → Settings page. For time inputs, a proper fallback is included.
+= Date picker for contact forms =
+By default, date pickers in contact forms use the browser date picker. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin. You can enable this on the Recras → Settings page.
 
-**Note**: this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration.
+**Note**: this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration or in book processes.
 
 = Styling =
 No custom styling is applied by default, so it will integrate with your site easily. If you want to apply custom styling, see `css/style.css` for all available classes. Be sure to include these styles in your own theme, this stylesheet is not loaded by the plugin!
