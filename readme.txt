@@ -115,60 +115,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Fix error with online booking iframe
 * Fix green buttons in blue/red themes
 
-= 5.0 (highlights) =
-**Major release** Please read the following changes carefully:
-
-* Seamless online booking integration:
-  * Fix GA4 events
-  * Support for Google Analytics v2 has been dropped
-  * Support for Internet Explorer and old Edge (12-15) has been dropped
-  * number of people on a package line was used as minimum quantity. This has been fixed
-* Plugin now requires PHP 7.1 or higher
-* Fix error when using "Image URL" of a product/package without image
-* Add "Products" section to documentation/shortcode pages
-* Various small fixes
-
-= 4.8 (highlights) =
-* Book processes: update styling for empty inputs and capacity info in "product with time" blocks
-* Fix loading of book processes on some sites
-* Seamless online booking integration: add support for GA4
-
-= 4.7.10 =
-* Fetching thank-you pages is a lot faster now
-* Show "Loading data" message while fetching thank-you pages
-
-= 4.7.9 =
-* The changes made in 4.7.7 didn't work properly. Dropdowns now show all pages/posts.
-
-= 4.7.8 =
-* Make default settings work properly
-
-= 4.7.7 =
-* Dropdowns for "Thank-you page" showed 100 pages/posts. This has been increased to 250 of each.
-
-= 4.7.6 =
-* Not released due to an error
-
-= 4.7.5 =
-* Fix page crashing when trying to show the duration of a package where the last line has no end time
-
-= 4.7.4 =
-* Seamless online booking integration: change value of "BuyInProgress" events from package/template ID (bookings/vouchers, respectively) to total price
-
-= 4.7.3 =
-* Fix wrong page width when using an online booking theme
-
-= 4.7.2 =
-* Fix page crashing when trying to show the programme of a multi-day package where the last line has no end time
-* Small styling update for book process calendar
-
-= 4.7.1 =
-* Fix page crashing when trying to show the duration of a package that does not exist
-
-= 4.7.0 =
-* Fix "Class not found" error when using Composer in a theme
-* Update themes for use in book processes and add two new themes
-
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
