@@ -86,36 +86,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = 5.2.0 =
 * It is now possible to integrate multiple book processes on one page
 
-= 5.1.8 =
-* Fix order of loading book process CSS, fixes specificity issues
-
-= 5.1.7 =
-* Handle book process themes differently, because of an update in Recras
-
-= 5.1.6 =
-* Book processes styling update
-
-= 5.1.5 =
-* Book process: fix date picker button styling
-
-= 5.1.4 =
-* Voucher sales no longer shows error messages inline, but after the form
-
-= 5.1.3 =
-* Improve book process styling
-
-= 5.1.2 =
-* Seamless online booking integration: Fix entering DD-MM-YYYY dates by hand
-
-= 5.1.1 =
-* Fix old online booking in an iframe
-
-= 5.1.0 =
-* "Theme for online booking" has been renamed to "Theme for Recras integrations" and now also applies to contact forms
-* Fix error with online booking iframe
-* Fix green buttons in blue/red themes
-
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
