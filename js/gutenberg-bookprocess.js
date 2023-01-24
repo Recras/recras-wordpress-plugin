@@ -5,11 +5,15 @@ registerGutenbergBlock('recras/bookprocess', {
     example: {
         attributes: {
             id: null,
+            initial_widget_value: null,
+            hide_first_widget: false,
         },
     },
 
     attributes: {
         id: recrasHelper.typeString(),
+        initial_widget_value: recrasHelper.typeString(),
+        hide_first_widget: recrasHelper.typeBoolean(false),
     },
 
     edit: withSelect((select) => {
@@ -21,8 +25,10 @@ registerGutenbergBlock('recras/bookprocess', {
             return recrasHelper.elementNoRecrasName();
         }
 
-        const {
+        let {
             id,
+            initial_widget_value,
+            hide_first_widget,
         } = props.attributes;
         const {
             bookprocesses,
@@ -33,12 +39,20 @@ registerGutenbergBlock('recras/bookprocess', {
         };
 
         let retval = [];
+
+        retval.push(
+            recrasHelper.elementText(
+                'Recras - ' + wp.i18n.__('Book process', TEXT_DOMAIN)
+            )
+        );
+
         const optionsIDControl = {
             value: id,
             onChange: function(newVal) {
                 recrasHelper.lockSave('bookprocessID', !newVal);
                 props.setAttributes({
                     id: newVal,
+                    initial_widget_value: null,
                 });
             },
             options: Object.entries(bookprocesses).map(mapBookprocess),
@@ -50,14 +64,75 @@ registerGutenbergBlock('recras/bookprocess', {
                 id: bpArray[0][0],
             });
         }
-
-        retval.push(
-            recrasHelper.elementText(
-                'Recras - ' + wp.i18n.__('Book process', TEXT_DOMAIN)
-            )
-        );
-
         retval.push(createEl(compSelectControl, optionsIDControl));
+
+        let firstWidgetValueToggle = !!initial_widget_value; //TODO: initial_widget_value is empty when toggling, so this is always false
+        //let firstWidgetValueToggle;
+        console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value);
+        if (id) {
+            const firstWidgetType = bookprocesses[id]?.firstWidget;
+            const firstWidgetMayBePrefilled = ['booking.startdate', 'package'].includes(firstWidgetType);
+            if (firstWidgetMayBePrefilled) {
+                const optionsFirstWidgetValueToggle = {
+                    checked: firstWidgetValueToggle,
+                    onChange: function(newVal) {
+                        console.log('Toggling firstWidgetValueToggle to', newVal);
+                        firstWidgetValueToggle = newVal;
+                        if (!newVal) {
+                            props.setAttributes({
+                                initial_widget_value: null,
+                                hide_first_widget: false,
+                            });
+                            initial_widget_value = null;
+                            hide_first_widget = false;
+                        }
+                    },
+                    label: wp.i18n.__('Pre-fill first widget?', TEXT_DOMAIN),
+                };
+                retval.push(createEl(compToggleControl, optionsFirstWidgetValueToggle));
+
+                if (firstWidgetValueToggle || true) { //TODO: DEBUG
+                    if (firstWidgetType === 'booking.startdate') {
+                        const optionsFirstWidgetDateControl = {
+                            locale: dateSettings.l10n.locale,
+                            value: initial_widget_value,
+                            onChange: function(newVal) {
+                                props.setAttributes({
+                                    initial_widget_value: newVal
+                                });
+                            },
+                            label: wp.i18n.__('Initial value', TEXT_DOMAIN),
+                            currentDate: initial_widget_value,
+                        };
+                        retval.push(createEl(compDatePicker, optionsFirstWidgetDateControl));
+                    } else {
+                        // Package
+                        const optionsWidgetValueControl = {
+                            value: initial_widget_value,
+                            onChange: function(newVal) {
+                                props.setAttributes({
+                                    initial_widget_value: newVal
+                                });
+                            },
+                            placeholder: wp.i18n.__('Initial value', TEXT_DOMAIN),
+                            label: wp.i18n.__('Initial value', TEXT_DOMAIN),
+                        };
+                        retval.push(createEl(compTextControl, optionsWidgetValueControl));
+                    }
+
+                    const optionsHideFirstWidgetControl = {
+                        checked: hide_first_widget,
+                        onChange: function(newVal) {
+                            props.setAttributes({
+                                hide_first_widget: newVal,
+                            });
+                        },
+                        label: wp.i18n.__('Hide first widget?', TEXT_DOMAIN),
+                    };
+                    retval.push(createEl(compToggleControl, optionsHideFirstWidgetControl));
+                }
+            }
+        }
 
         return retval;
     }),
