@@ -24,14 +24,18 @@ $processes = $model->getProcesses($subdomain);
                 <?php } ?>
             </select>
         <?php } ?>
-    <dt class="first-widget-value recras-hidden-input">
+    <dt class="first-widget-only recras-hidden-input">
         <label><?php _e('Initial value for first widget', \Recras\Plugin::TEXT_DOMAIN); ?></label>
-        <dd class="first-widget-value recras-hidden-input">
+        <dd class="first-widget-only recras-hidden-input">
             <input id="first_widget_value_package" type="number" min="1" step="1">
             <input id="first_widget_value_date" type="date" min="<?= date('Y-m-d'); ?>">
             <p class="recras-notice">
                 <?php _e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', \Recras\Plugin::TEXT_DOMAIN); ?>
             </p>
+    <dt class="first-widget-only recras-hidden-input">
+        <label for="hide_first_widget"><?php _e('Hide first widget?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <dd class="first-widget-only recras-hidden-input">
+            <dd><input type="checkbox" id="hide_first_widget">
 </dl>
 <button class="button button-primary" id="bp_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
 
@@ -47,7 +51,7 @@ $processes = $model->getProcesses($subdomain);
         <?php
         }
         ?>
-        const toggleEls = [...document.querySelectorAll('.first-widget-value')];
+        const toggleEls = [...document.querySelectorAll('.first-widget-only')];
         const hideToggleEls = function () {
             for (let el of toggleEls) {
                 el.classList.add('recras-hidden-input');
@@ -90,11 +94,19 @@ $processes = $model->getProcesses($subdomain);
 
         let shortcode = '[<?= \Recras\Plugin::SHORTCODE_BOOK_PROCESS; ?> id="' + document.getElementById('bookprocess_id').value + '"';
 
+        let initialValue;
         if (elPackage && elPackage.value) {
-            shortcode += ' initial_widget_value="' + elPackage.value + '"';
+            initialValue = elPackage.value;
         } else if (elDate && elDate.value) {
-            shortcode += ' initial_widget_value="' + elDate.value + '"';
+            initialValue = elDate.value;
         }
+        if (initialValue) {
+            shortcode += ' initial_widget_value="' + initialValue + '"';
+            if (document.getElementById('hide_first_widget').checked) {
+                shortcode += ' hide_first_widget="yes"';
+            }
+        }
+
         shortcode += ']';
 
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
