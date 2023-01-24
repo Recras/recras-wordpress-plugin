@@ -95,8 +95,12 @@ class Bookprocess
 
         self::enqueueScripts($subdomain);
         $initialWidgetValueHtml = '';
+        $extraCSS = '';
         if (isset($attributes['initial_widget_value'])) {
             $initialWidgetValueHtml = ' data-first-widget-value="' . $attributes['initial_widget_value'] . '"';
+            if (isset($attributes['hide_first_widget']) && Settings::parseBoolean($attributes['hide_first_widget'])) {
+                $extraCSS = '<style>.bookprocess[data-id="' . $attributes['id'] . '"] .has-initial-value { display: none; }</style>';
+            }
         }
         return '
             <section
@@ -104,7 +108,8 @@ class Bookprocess
                 data-id="' . $attributes['id'] . '" 
                 data-url="https://' . $subdomain . '.recras.nl"
                 ' . $initialWidgetValueHtml . '
-            ></section>';
+            ></section>
+        ' . $extraCSS;
     }
 
     /**

@@ -224,7 +224,8 @@ class Settings
     public static function parseBoolean($value): bool
     {
         $falseValues = [false, 'false', 0, '0', 'no'];
-        if (isset($value) && in_array($value, $falseValues)) {
+        if (isset($value) && in_array($value, $falseValues, true)) {
+            // Without strict=true, in_array(true, $falseValues) is true!
             return false;
         }
         return true;
