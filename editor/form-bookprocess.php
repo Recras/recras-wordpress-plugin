@@ -13,10 +13,10 @@ $processes = $model->getProcesses($subdomain);
         <dd><?php if (is_string($processes)) { ?>
             <input type="number" id="bookprocess_id" min="1" required>
             <?= $processes; ?>
-        <?php } elseif(is_array($processes)) { ?>
+        <?php } elseif (is_array($processes)) { ?>
             <select id="bookprocess_id" required>
-                <?php foreach ($processes as $ID => $formName) { ?>
-                <option value="<?= $ID; ?>"><?= $formName; ?>
+                <?php foreach ($processes as $ID => $process) { ?>
+                <option value="<?= $ID; ?>"><?= $process->name; ?>
                 <?php } ?>
             </select>
         <?php } ?>

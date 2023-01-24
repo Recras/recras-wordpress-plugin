@@ -28,6 +28,10 @@ registerGutenbergBlock('recras/bookprocess', {
             bookprocesses,
         } = props;
 
+        const mapBookprocess = function(idBookprocess) {
+            return mapSelect(idBookprocess[1].name, idBookprocess[0]);
+        };
+
         let retval = [];
         const optionsIDControl = {
             value: id,
@@ -37,12 +41,13 @@ registerGutenbergBlock('recras/bookprocess', {
                     id: newVal,
                 });
             },
-            options: bookprocesses,
+            options: Object.entries(bookprocesses).map(mapBookprocess),
             label: wp.i18n.__('Book process', TEXT_DOMAIN),
         };
-        if (bookprocesses.length === 1) {
+        if (Object.keys(bookprocesses).length === 1) {
+            let bpArray = Object.entries(bookprocesses);
             props.setAttributes({
-                id: bookprocesses[0].value,
+                id: bpArray[0][0],
             });
         }
 

@@ -89,9 +89,6 @@ const mapSelect = function(label, value) {
         value: value,
     };
 };
-const mapBookprocess = function(idBookprocess) {
-    return mapSelect(idBookprocess[1], idBookprocess[0]);
-};
 const mapContactForm = function(idName) {
     return mapSelect(idName[1], idName[0]);
 };
@@ -242,7 +239,6 @@ const recrasStore = registerStore('recras/store', {
         // * makes it a generator function
         * fetchBookprocesses(state) {
             let bookprocesses = yield recrasActions.fetchAPI('recras/bookprocesses');
-            bookprocesses = Object.entries(bookprocesses).map(mapBookprocess);
 
             return recrasActions.setBookprocesses(bookprocesses);
         },

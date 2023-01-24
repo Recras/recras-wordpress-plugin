@@ -11,7 +11,9 @@ class Bookprocess
         global $recrasPlugin;
 
         $subdomain = get_option('recras_subdomain');
-        return $recrasPlugin->transients->delete($subdomain . '_bookprocesses');
+        $status = $recrasPlugin->transients->delete($subdomain . '_bookprocesses');
+        $status += $recrasPlugin->transients->delete($subdomain . '_bookprocesses_v2');
+        return $status;
     }
 
     public static function enqueueScripts(string $subdomain): void
@@ -37,19 +39,22 @@ class Bookprocess
     {
         global $recrasPlugin;
 
-        $json = $recrasPlugin->transients->get($subdomain . '_bookprocesses');
+        $json = $recrasPlugin->transients->get($subdomain . '_bookprocesses_v2');
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'bookprocesses/book');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            $recrasPlugin->transients->set($subdomain . '_bookprocesses', $json);
+            $recrasPlugin->transients->set($subdomain . '_bookprocesses_v2', $json);
         }
 
         $processes = [];
         foreach ($json->_embedded->bookprocess as $process) {
-            $processes[$process->id] = $process->name;
+            $processes[$process->id] = (object) [
+                'name' => $process->name,
+                'firstWidget' => $process->_extra->first_widget_type ?? null,
+            ];
         }
         return $processes;
     }
