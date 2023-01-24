@@ -8,6 +8,10 @@ if (!$subdomain) {
 $model = new \Recras\Bookprocess();
 $processes = $model->getProcesses($subdomain);
 ?>
+<style id="bookprocess_style">
+    .recras-hidden-input { display: none; }
+</style>
+
 <dl>
     <dt><label for="bookprocess_id"><?php _e('Book process', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><?php if (is_string($processes)) { ?>
@@ -20,12 +24,78 @@ $processes = $model->getProcesses($subdomain);
                 <?php } ?>
             </select>
         <?php } ?>
+    <dt class="first-widget-value recras-hidden-input">
+        <label><?php _e('Initial value for first widget', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <dd class="first-widget-value recras-hidden-input">
+            <input id="first_widget_value_package" type="number" min="1" step="1">
+            <input id="first_widget_value_date" type="date" min="<?= date('Y-m-d'); ?>">
+            <p class="recras-notice">
+                <?php _e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', \Recras\Plugin::TEXT_DOMAIN); ?>
+            </p>
 </dl>
 <button class="button button-primary" id="bp_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
 
 <script>
-    document.getElementById('bp_submit').addEventListener('click', function(){
-        const shortcode = '[<?= \Recras\Plugin::SHORTCODE_BOOK_PROCESS; ?> id="' + document.getElementById('bookprocess_id').value + '"]';
+    function bpIdChange () {
+        const elPackage = document.getElementById('first_widget_value_package');
+        const elDate = document.getElementById('first_widget_value_date');
+        const elId = document.getElementById('bookprocess_id');
+        <?php
+        if (is_array($processes)) {
+        ?>
+        const bookprocesses = <?= json_encode($processes); ?>;
+        <?php
+        }
+        ?>
+        const toggleEls = [...document.querySelectorAll('.first-widget-value')];
+        const hideToggleEls = function () {
+            for (let el of toggleEls) {
+                el.classList.add('recras-hidden-input');
+            }
+        };
+        const showToggleEls = function () {
+            for (let el of toggleEls) {
+                el.classList.remove('recras-hidden-input');
+            }
+        };
+
+        if (bookprocesses && bookprocesses[elId.value]) {
+            switch (bookprocesses[elId.value].firstWidget) {
+                case 'booking.startdate':
+                    showToggleEls();
+                    elPackage.style.display = 'none';
+                    elPackage.value = '';
+                    elDate.style.display = 'inline-block';
+                    break;
+                case 'package':
+                    showToggleEls();
+                    elPackage.style.display = 'inline-block';
+                    elDate.style.display = 'none';
+                    elDate.value = '';
+                    break;
+                default:
+                    hideToggleEls();
+            }
+        } else {
+            hideToggleEls();
+        }
+    }
+
+    document.getElementById('bookprocess_id').addEventListener('change', bpIdChange);
+    bpIdChange();
+
+    document.getElementById('bp_submit').addEventListener('click', function() {
+        const elPackage = document.getElementById('first_widget_value_package');
+        const elDate = document.getElementById('first_widget_value_date');
+
+        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_BOOK_PROCESS; ?> id="' + document.getElementById('bookprocess_id').value + '"';
+
+        if (elPackage && elPackage.value) {
+            shortcode += ' initial_widget_value="' + elPackage.value + '"';
+        } else if (elDate && elDate.value) {
+            shortcode += ' initial_widget_value="' + elDate.value + '"';
+        }
+        shortcode += ']';
 
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
         tb_remove();
