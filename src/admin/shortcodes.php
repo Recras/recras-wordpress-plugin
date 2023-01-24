@@ -29,11 +29,12 @@
 <hr>
 <h2><?php _e('Book processes', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
 <p>Book processes can be added using the <kbd>[recras-bookprocess]</kbd> shortcode.</p>
-<p>The following option is available:</p>
+<p>The following options are available:</p>
 <ol class="recrasOptionsList">
     <li>Book process - <kbd>id</kbd>
+    <li>Initial widget value - <kbd>initial_widget_value</kbd>, value depends on the first widget in the book process. If the first widget is "Booking start date", the value is an ISO 8601 string. If the first widget if "Package selection", the value is the ID of a package. If the first widget is any other type, the value is ignored.
 </ol>
-<p>Example: <kbd>[recras-bookprocess id="9"]</kbd></p>
+<p>Example: <kbd>[recras-bookprocess id="9" initial_widget_value="2023-09-17"]</kbd></p>
 
 
 <hr>

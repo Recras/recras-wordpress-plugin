@@ -89,7 +89,17 @@ class Bookprocess
         }
 
         self::enqueueScripts($subdomain);
-        return '<section class="bookprocess" data-id="' . $attributes['id'] . '" data-url="https://' . $subdomain . '.recras.nl"></section>';
+        $initialWidgetValueHtml = '';
+        if (isset($attributes['initial_widget_value'])) {
+            $initialWidgetValueHtml = ' data-first-widget-value="' . $attributes['initial_widget_value'] . '"';
+        }
+        return '
+            <section
+                class="bookprocess" 
+                data-id="' . $attributes['id'] . '" 
+                data-url="https://' . $subdomain . '.recras.nl"
+                ' . $initialWidgetValueHtml . '
+            ></section>';
     }
 
     /**
