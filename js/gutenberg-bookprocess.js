@@ -67,8 +67,7 @@ registerGutenbergBlock('recras/bookprocess', {
         retval.push(createEl(compSelectControl, optionsIDControl));
 
         let firstWidgetValueToggle = !!initial_widget_value; //TODO: initial_widget_value is empty when toggling, so this is always false
-        //let firstWidgetValueToggle;
-        console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value);
+        console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value); //DEBUG
         if (id) {
             const firstWidgetType = bookprocesses[id]?.firstWidget;
             const firstWidgetMayBePrefilled = ['booking.startdate', 'package'].includes(firstWidgetType);
@@ -76,8 +75,8 @@ registerGutenbergBlock('recras/bookprocess', {
                 const optionsFirstWidgetValueToggle = {
                     checked: firstWidgetValueToggle,
                     onChange: function(newVal) {
-                        console.log('Toggling firstWidgetValueToggle to', newVal);
-                        firstWidgetValueToggle = newVal;
+                        console.log('Toggling firstWidgetValueToggle to', newVal); //DEBUG
+                        //firstWidgetValueToggle = newVal;
                         if (!newVal) {
                             props.setAttributes({
                                 initial_widget_value: null,
@@ -101,12 +100,13 @@ registerGutenbergBlock('recras/bookprocess', {
                                     initial_widget_value: newVal
                                 });
                             },
-                            label: wp.i18n.__('Initial value', TEXT_DOMAIN),
                             currentDate: initial_widget_value,
                         };
-                        retval.push(createEl(compDatePicker, optionsFirstWidgetDateControl));
-                    } else {
-                        // Package
+                        retval.push(recrasHelper.DatePickerControl(
+                            wp.i18n.__('Pre-fill date?', TEXT_DOMAIN),
+                            optionsFirstWidgetDateControl
+                        ));
+                    } else if (firstWidgetType === 'package') {
                         const optionsWidgetValueControl = {
                             value: initial_widget_value,
                             onChange: function(newVal) {
@@ -114,10 +114,12 @@ registerGutenbergBlock('recras/bookprocess', {
                                     initial_widget_value: newVal
                                 });
                             },
-                            placeholder: wp.i18n.__('Initial value', TEXT_DOMAIN),
-                            label: wp.i18n.__('Initial value', TEXT_DOMAIN),
+                            placeholder: wp.i18n.__('Enter the ID of the package', TEXT_DOMAIN),
+                            label: wp.i18n.__('Pre-fill package', TEXT_DOMAIN),
                         };
                         retval.push(createEl(compTextControl, optionsWidgetValueControl));
+                    } else {
+                        retval.push(recrasHelper.elementInfo(wp.i18n.__('Pre-filling a value is unsupported for the first widget in this book process.', TEXT_DOMAIN)));
                     }
 
                     const optionsHideFirstWidgetControl = {

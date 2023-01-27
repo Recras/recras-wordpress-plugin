@@ -18,7 +18,7 @@ class Gutenberg
                 'wp-element',
                 'wp-i18n',
             ],
-            '5.3.0',
+            '5.3.0-alpha',
             true
         );
         wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
@@ -41,7 +41,7 @@ class Gutenberg
             ],
             'bookprocess' => [
                 'callback' => [Bookprocess::class, 'renderBookprocess'],
-                'version' => '5.3.0',
+                'version' => '5.3.0-alpha',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
