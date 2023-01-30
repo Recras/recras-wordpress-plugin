@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.2.2 (2023-01-30)
+* Time fields in contact form was limited to steps of 5 minutes, but browser UI didn't take this into account. Time fields are no longer limited to 5 minute intervals.
+
 ## 5.2.1 (2022-11-08)
 * Fix crash when using shortcodes in the wrong way
 
