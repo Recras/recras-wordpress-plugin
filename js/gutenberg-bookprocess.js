@@ -1,3 +1,5 @@
+window.fetchedPackageOptions = [];
+
 registerGutenbergBlock('recras/bookprocess', {
     title: wp.i18n.__('Book process', TEXT_DOMAIN),
     icon: 'editor-ul',
@@ -58,16 +60,18 @@ registerGutenbergBlock('recras/bookprocess', {
             options: Object.entries(bookprocesses).map(mapBookprocess),
             label: wp.i18n.__('Book process', TEXT_DOMAIN),
         };
-        if (Object.keys(bookprocesses).length === 1) {
+        if (Object.keys(bookprocesses).length > 0) {
             let bpArray = Object.entries(bookprocesses);
-            props.setAttributes({
-                id: bpArray[0][0],
-            });
+            if (Object.keys(bookprocesses).length === 1 || !id) {
+                props.setAttributes({
+                    id: bpArray[0][0],
+                });
+            }
         }
         retval.push(createEl(compSelectControl, optionsIDControl));
 
         let firstWidgetValueToggle = !!initial_widget_value; //TODO: initial_widget_value is empty when toggling, so this is always false
-        console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value); //DEBUG
+        //console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value); //DEBUG
         if (id) {
             const firstWidgetType = bookprocesses[id]?.firstWidget;
             const firstWidgetMayBePrefilled = ['booking.startdate', 'package'].includes(firstWidgetType);
@@ -76,7 +80,7 @@ registerGutenbergBlock('recras/bookprocess', {
                     checked: firstWidgetValueToggle,
                     onChange: function(newVal) {
                         console.log('Toggling firstWidgetValueToggle to', newVal); //DEBUG
-                        //firstWidgetValueToggle = newVal;
+                        firstWidgetValueToggle = newVal;
                         if (!newVal) {
                             props.setAttributes({
                                 initial_widget_value: null,
@@ -107,17 +111,42 @@ registerGutenbergBlock('recras/bookprocess', {
                             optionsFirstWidgetDateControl
                         ));
                     } else if (firstWidgetType === 'package') {
-                        const optionsWidgetValueControl = {
-                            value: initial_widget_value,
-                            onChange: function(newVal) {
+                        if (window.fetchedPackageOptions[id]) {
+                            const optionsPackageIDControl = {
+                                value: initial_widget_value,
+                                onChange: function(newVal) {
+                                    console.log('pck', newVal);
+                                    props.setAttributes({
+                                        initial_widget_value: newVal,
+                                    });
+                                },
+                                options: window.fetchedPackageOptions[id],
+                                label: wp.i18n.__('Package', TEXT_DOMAIN),
+                            };
+                            if (Object.keys(window.fetchedPackageOptions[id]).length === 1) {
                                 props.setAttributes({
-                                    initial_widget_value: newVal
+                                    initial_widget_value: window.fetchedPackageOptions[id].value,
                                 });
-                            },
-                            placeholder: wp.i18n.__('Enter the ID of the package', TEXT_DOMAIN),
-                            label: wp.i18n.__('Pre-fill package', TEXT_DOMAIN),
-                        };
-                        retval.push(createEl(compTextControl, optionsWidgetValueControl));
+                            }
+                            retval.push(createEl(compSelectControl, optionsPackageIDControl));
+                        } else {
+                            //TODO: maybe do this in the backend so we can cache the results
+                            fetch('https://' + recrasOptions.subdomain + '.recras.nl/api2/bookprocesses/book/' + id + '/1', {
+                                method: 'POST',
+                            }).then(res => res.json()).then(json => {
+                                const firstWidget = json.form[0];
+                                if (firstWidget.recrastype === 'package') {
+                                    const options = firstWidget.inputs
+                                        ? firstWidget.inputs.map(pi => pi.inputs[0])
+                                        : firstWidget.options;
+                                    window.fetchedPackageOptions[id] = options;
+                                    props.setAttributes({
+                                        initial_widget_value: options[0].value,
+                                    });
+                                }
+                            });
+                            retval.push(recrasHelper.elementInfo(wp.i18n.__('Fetching allowed packages...', TEXT_DOMAIN)));
+                        }
                     } else {
                         retval.push(recrasHelper.elementInfo(wp.i18n.__('Pre-filling a value is unsupported for the first widget in this book process.', TEXT_DOMAIN)));
                     }
