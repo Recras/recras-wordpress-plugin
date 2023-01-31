@@ -30,21 +30,17 @@ class Plugin
         // Add admin menu pages
         add_action('admin_menu', [&$this, 'addMenuItems']);
 
+        // Settings & page
         add_action('init', [Settings::class, 'registerSettings']);
         add_action('admin_init', [Settings::class, 'registerSettingsPage']);
         add_action('admin_init', [Editor::class, 'addButtons']);
 
-        if (function_exists('register_block_type')) {
-            add_action('init', [Gutenberg::class, 'addBlocks']);
-            add_action('rest_api_init', [Gutenberg::class, 'addEndpoints']);
-            $wpVersion = get_bloginfo('version');
-            if ($wpVersion >= '5.8') {
-                add_filter('block_categories_all', [Gutenberg::class, 'addCategory']);
-            } else {
-                add_filter('block_categories', [Gutenberg::class, 'addCategory']);
-            }
-        }
+        // Gutenberg
+        add_action('init', [Gutenberg::class, 'addBlocks']);
+        add_action('rest_api_init', [Gutenberg::class, 'addEndpoints']);
+        add_filter('block_categories_all', [Gutenberg::class, 'addCategory']);
 
+        // Load scripts
         add_action('admin_enqueue_scripts', [$this, 'loadAdminScripts']);
         add_action('wp_enqueue_scripts', [$this, 'loadScripts']);
 
