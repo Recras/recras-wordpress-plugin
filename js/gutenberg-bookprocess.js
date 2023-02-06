@@ -1,5 +1,3 @@
-window.fetchedPackageOptions = [];
-
 registerGutenbergBlock('recras/bookprocess', {
     title: wp.i18n.__('Book process', TEXT_DOMAIN),
     icon: 'editor-ul',
@@ -70,87 +68,24 @@ registerGutenbergBlock('recras/bookprocess', {
         }
         retval.push(createEl(compSelectControl, optionsIDControl));
 
-        let firstWidgetValueToggle = !!initial_widget_value; //TODO: initial_widget_value is empty when toggling, so this is always false
-        //console.log('firstWidgetValueToggle is ', firstWidgetValueToggle, ', based on ', initial_widget_value); //DEBUG
         if (id) {
             const firstWidgetType = bookprocesses[id]?.firstWidget;
             const firstWidgetMayBePrefilled = ['booking.startdate', 'package'].includes(firstWidgetType);
             if (firstWidgetMayBePrefilled) {
-                const optionsFirstWidgetValueToggle = {
-                    checked: firstWidgetValueToggle,
+                const optionsFirstWidgetValueControl = {
+                    locale: dateSettings.l10n.locale,
+                    value: initial_widget_value,
                     onChange: function(newVal) {
-                        console.log('Toggling firstWidgetValueToggle to', newVal); //DEBUG
-                        firstWidgetValueToggle = newVal;
-                        if (!newVal) {
-                            props.setAttributes({
-                                initial_widget_value: null,
-                                hide_first_widget: false,
-                            });
-                            initial_widget_value = null;
-                            hide_first_widget = false;
-                        }
+                        props.setAttributes({
+                            initial_widget_value: newVal
+                        });
                     },
-                    label: wp.i18n.__('Pre-fill first widget?', TEXT_DOMAIN),
+                    placeholder: wp.i18n.__('Package ID or ISO 8601 date (YYYY-MM-DD)', TEXT_DOMAIN),
+                    label: wp.i18n.__('Prefill value for first widget?', TEXT_DOMAIN),
                 };
-                retval.push(createEl(compToggleControl, optionsFirstWidgetValueToggle));
+                retval.push(createEl(compTextControl, optionsFirstWidgetValueControl));
 
-                if (firstWidgetValueToggle || true) { //TODO: DEBUG
-                    if (firstWidgetType === 'booking.startdate') {
-                        const optionsFirstWidgetDateControl = {
-                            locale: dateSettings.l10n.locale,
-                            value: initial_widget_value,
-                            onChange: function(newVal) {
-                                props.setAttributes({
-                                    initial_widget_value: newVal
-                                });
-                            },
-                            currentDate: initial_widget_value,
-                        };
-                        retval.push(recrasHelper.DatePickerControl(
-                            wp.i18n.__('Pre-fill date?', TEXT_DOMAIN),
-                            optionsFirstWidgetDateControl
-                        ));
-                    } else if (firstWidgetType === 'package') {
-                        if (window.fetchedPackageOptions[id]) {
-                            const optionsPackageIDControl = {
-                                value: initial_widget_value,
-                                onChange: function(newVal) {
-                                    console.log('pck', newVal);
-                                    props.setAttributes({
-                                        initial_widget_value: newVal,
-                                    });
-                                },
-                                options: window.fetchedPackageOptions[id],
-                                label: wp.i18n.__('Package', TEXT_DOMAIN),
-                            };
-                            if (Object.keys(window.fetchedPackageOptions[id]).length === 1) {
-                                props.setAttributes({
-                                    initial_widget_value: window.fetchedPackageOptions[id].value,
-                                });
-                            }
-                            retval.push(createEl(compSelectControl, optionsPackageIDControl));
-                        } else {
-                            //TODO: maybe do this in the backend so we can cache the results
-                            fetch('https://' + recrasOptions.subdomain + '.recras.nl/api2/bookprocesses/book/' + id + '/1', {
-                                method: 'POST',
-                            }).then(res => res.json()).then(json => {
-                                const firstWidget = json.form[0];
-                                if (firstWidget.recrastype === 'package') {
-                                    const options = firstWidget.inputs
-                                        ? firstWidget.inputs.map(pi => pi.inputs[0])
-                                        : firstWidget.options;
-                                    window.fetchedPackageOptions[id] = options;
-                                    props.setAttributes({
-                                        initial_widget_value: options[0].value,
-                                    });
-                                }
-                            });
-                            retval.push(recrasHelper.elementInfo(wp.i18n.__('Fetching allowed packages...', TEXT_DOMAIN)));
-                        }
-                    } else {
-                        retval.push(recrasHelper.elementInfo(wp.i18n.__('Pre-filling a value is unsupported for the first widget in this book process.', TEXT_DOMAIN)));
-                    }
-
+                if (initial_widget_value) {
                     const optionsHideFirstWidgetControl = {
                         checked: hide_first_widget,
                         onChange: function(newVal) {
