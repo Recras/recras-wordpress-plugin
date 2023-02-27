@@ -32,7 +32,7 @@
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
     <li>Book process - <kbd>id</kbd>
-    <li>Initial widget value - <kbd>initial_widget_value</kbd>. Value depends on the first widget in the book process. If the first widget is "Booking start date", the value is an ISO 8601 string. If the first widget if "Package selection", the value is the ID of a package. If the first widget is any other type, the value is ignored.
+    <li>Initial widget value - <kbd>initial_widget_value</kbd>. If the first widget if "Package selection", the value is the ID of a package. If the first widget is any other type, the value is ignored.
     <li>Hide first widget? - <kbd>hide_first_widget</kbd>. Value is either <kbd>1</kbd> (yes) or <kbd>0</kbd> (no, default). This is only used when an initial widget value is present. Be careful, because if this is used when the value is invalid the book process will be unusable!
 </ol>
 <p>Example: <kbd>[recras-bookprocess id="9" initial_widget_value="2023-09-17"]</kbd></p>
