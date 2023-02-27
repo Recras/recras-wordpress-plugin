@@ -3,7 +3,7 @@ namespace Recras;
 
 class Plugin
 {
-    private const LIBRARY_VERSION = '2.0.4';
+    private const LIBRARY_VERSION = '2.0.6';
     public const TEXT_DOMAIN = 'recras';
 
     public const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
