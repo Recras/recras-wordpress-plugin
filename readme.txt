@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.1
-Stable tag: 5.3.0-alpha
+Stable tag: 5.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 5.3.0 =
+* Allow initial value in first widget of a book process, when the first widget is "package selection".
+* Seamless online booking integration: prevent half filled months in date selection
 
 = 5.2.2 =
 * Time fields in contact form was limited to steps of 5 minutes, but browser UI didn't take this into account. Time fields are no longer limited to 5 minute intervals.

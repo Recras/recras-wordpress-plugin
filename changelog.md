@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.3.0 (2023-02-27)
+* Allow initial value in first widget of a book process, when the first widget is "package selection".
+* Seamless online booking integration: prevent half filled months in date selection
+
 ## 5.2.2 (2023-01-30)
 * Time fields in contact form was limited to steps of 5 minutes, but browser UI didn't take this into account. Time fields are no longer limited to 5 minute intervals.
 
