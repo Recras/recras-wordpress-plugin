@@ -70,11 +70,11 @@ registerGutenbergBlock('recras/bookprocess', {
 
         if (id) {
             const firstWidgetType = bookprocesses[id]?.firstWidget;
-            const firstWidgetMayBePrefilled = ['booking.startdate', 'package'].includes(firstWidgetType);
+            const firstWidgetMayBePrefilled = ['package'].includes(firstWidgetType);
             if (firstWidgetMayBePrefilled) {
                 const placeHolderText = (firstWidgetType === 'package')
-                    ? wp.i18n.__('Package ID', TEXT_DOMAIN)
-                    : wp.i18n.__('Date in YYYY-MM-DD format', TEXT_DOMAIN);
+                    ? wp.i18n.__('Enter package ID. Leave empty to not prefill.', TEXT_DOMAIN)
+                    : wp.i18n.__('Enter date in YYYY-MM-DD format. Leave empty to not prefill.', TEXT_DOMAIN);
                 const optionsFirstWidgetValueControl = {
                     locale: dateSettings.l10n.locale,
                     value: initial_widget_value,
@@ -84,7 +84,7 @@ registerGutenbergBlock('recras/bookprocess', {
                         });
                     },
                     placeholder: placeHolderText,
-                    label: wp.i18n.__('Prefill value for first widget?', TEXT_DOMAIN),
+                    label: wp.i18n.__('Prefill value for first widget? (optional)', TEXT_DOMAIN),
                 };
                 retval.push(createEl(compTextControl, optionsFirstWidgetValueControl));
 

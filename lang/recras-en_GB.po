@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-02-07 12:00+0100\n"
-"PO-Revision-Date: 2023-02-07 12:01+0100\n"
+"POT-Creation-Date: 2023-02-27 14:03+0100\n"
+"PO-Revision-Date: 2023-02-27 14:03+0100\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -112,7 +112,7 @@ msgid "No"
 msgstr ""
 
 #: editor/form-arrangement.php:50 editor/form-booking.php:105
-#: editor/form-bookprocess.php:40 editor/form-contact.php:78
+#: editor/form-bookprocess.php:39 editor/form-contact.php:78
 #: editor/form-package-availability.php:34 editor/form-product.php:36
 #: editor/form-voucher-info.php:31 editor/form-voucher-sales.php:42
 msgid "Insert shortcode"
@@ -216,13 +216,13 @@ msgstr ""
 msgid "Initial value for first widget"
 msgstr ""
 
-#: editor/form-bookprocess.php:33
+#: editor/form-bookprocess.php:32
 msgid ""
 "Please note that no validation on this value is performed. Invalid values "
 "may be ignored or may stop the book process from working properly."
 msgstr ""
 
-#: editor/form-bookprocess.php:36 js/gutenberg-bookprocess.js:99
+#: editor/form-bookprocess.php:35 js/gutenberg-bookprocess.js:99
 msgid "Hide first widget?"
 msgstr ""
 
@@ -361,15 +361,15 @@ msgid "Auto resize iframe"
 msgstr ""
 
 #: js/gutenberg-bookprocess.js:76
-msgid "Package ID"
+msgid "Enter package ID. Leave empty to not prefill."
 msgstr ""
 
 #: js/gutenberg-bookprocess.js:77
-msgid "Date in YYYY-MM-DD format"
+msgid "Enter date in YYYY-MM-DD format. Leave empty to not prefill."
 msgstr ""
 
 #: js/gutenberg-bookprocess.js:87
-msgid "Prefill value for first widget?"
+msgid "Prefill value for first widget? (optional)"
 msgstr ""
 
 #: js/gutenberg-contactform.js:61 js/gutenberg-onlinebooking.js:62
