@@ -280,6 +280,7 @@ class Plugin
             'recras_bookprocesses_base',
             'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
         );
+        Bookprocess::enqueueScripts($subdomain);
 
         // Integration theme
         $theme = get_option('recras_theme');

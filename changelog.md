@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.3.1 (2023-03-14)
+* Fix GA4 events not being sent on book process thank-you page
+
 ## 5.3.0 (2023-02-27)
 * Allow initial value in first widget of a book process, when the first widget is "package selection".
 * Seamless online booking integration: prevent half filled months in date selection

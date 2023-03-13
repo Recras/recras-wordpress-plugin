@@ -93,7 +93,6 @@ class Bookprocess
             return __('Error: book process does not exist', Plugin::TEXT_DOMAIN);
         }
 
-        self::enqueueScripts($subdomain);
         $initialWidgetValueHtml = '';
         $extraCSS = '';
         if (isset($attributes['initial_widget_value'])) {
