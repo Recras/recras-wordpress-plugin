@@ -175,7 +175,7 @@ registerGutenbergBlock('recras/contactform', {
                     redirect: newVal
                 });
             },
-            options: pagesPosts,
+            children: pagesPosts,
             placeholder: wp.i18n.__('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
             label: wp.i18n.__('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
             type: 'url',

@@ -48,6 +48,9 @@ const recrasHelper = {
             recrasHelper.elementInfo(wp.i18n.sprintf(wp.i18n.__('Please enter your Recras name in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
         ];
     },
+    elementOption: (value, label) => {
+        return createEl('option', { value: value }, label)
+    },
     elementText: (text) => {
         return createEl(
             'div',
@@ -95,10 +98,8 @@ const mapContactForm = function(idName) {
 const mapPackage = function(pack) {
     return mapSelect(pack.arrangement, pack.id);
 };
-const mapPagesPosts = function(pagePost, prefix) {
-    // SelectControl does not support optgroups :(
-    // https://github.com/WordPress/gutenberg/issues/17032
-    return mapSelect(prefix + pagePost.title.rendered, pagePost.link);
+const mapPagesPosts = function(pagePost) {
+    return recrasHelper.elementOption(pagePost.link, pagePost.title.rendered);
 };
 const mapProduct = function(product) {
     return mapSelect(product.naam, product.id);
@@ -263,10 +264,9 @@ const recrasStore = registerStore('recras/store', {
             return recrasActions.setPackages(packages);
         },
         * fetchPagesPosts(state) {
-            let pagesPosts = [{
-                label: '',
-                value: '',
-            }];
+            let pagesPosts = [
+                recrasHelper.elementOption('', ''),
+            ];
 
             let page = 1;
             let pages = [];
@@ -289,10 +289,8 @@ const recrasStore = registerStore('recras/store', {
                 }
             }
 
-            pages = pages.map(p => {
-                return mapPagesPosts(p, wp.i18n.__('Page: ', TEXT_DOMAIN));
-            });
-            pagesPosts = pagesPosts.concat(pages);
+            pages = pages.map(p => mapPagesPosts(p));
+            pagesPosts.push(createEl('optgroup', { label: wp.i18n.__('Pages', TEXT_DOMAIN) }, pages));
 
             page = 1;
             let posts = [];
@@ -315,10 +313,8 @@ const recrasStore = registerStore('recras/store', {
                 }
             }
 
-            posts = posts.map(p => {
-                return mapPagesPosts(p, wp.i18n.__('Post: ', TEXT_DOMAIN));
-            });
-            pagesPosts = pagesPosts.concat(posts);
+            posts = posts.map(p => mapPagesPosts(p));
+            pagesPosts.push(createEl('optgroup', { label: wp.i18n.__('Posts', TEXT_DOMAIN) }, posts));
 
             return recrasActions.setPagesPosts(pagesPosts);
         },
