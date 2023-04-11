@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-02-27 14:03+0100\n"
-"PO-Revision-Date: 2023-02-27 14:03+0100\n"
+"POT-Creation-Date: 2023-04-11 14:10+0200\n"
+"PO-Revision-Date: 2023-04-11 14:10+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -189,12 +189,12 @@ msgid "Don't redirect"
 msgstr ""
 
 #: editor/form-booking.php:88 editor/form-contact.php:66
-#: editor/form-voucher-sales.php:28
+#: editor/form-voucher-sales.php:28 js/gutenberg-global.js:293
 msgid "Pages"
 msgstr ""
 
 #: editor/form-booking.php:93 editor/form-contact.php:71
-#: editor/form-voucher-sales.php:33
+#: editor/form-voucher-sales.php:33 js/gutenberg-global.js:317
 msgid "Posts"
 msgstr ""
 
@@ -398,14 +398,6 @@ msgstr ""
 #: js/gutenberg-global.js:48 src/Settings.php:151
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
-msgstr ""
-
-#: js/gutenberg-global.js:293
-msgid "Page: "
-msgstr ""
-
-#: js/gutenberg-global.js:319
-msgid "Post: "
 msgstr ""
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
