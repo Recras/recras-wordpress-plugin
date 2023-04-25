@@ -12,14 +12,6 @@ Text Domain: recras
 Domain Path: /lang
 */
 
-// Debugging
-if (WP_DEBUG) {
-    error_reporting(-1);
-}
-if (WP_DEBUG_DISPLAY) {
-    ini_set('display_errors', 'On');
-}
-
 if (!function_exists('add_action')) {
     die('You cannot run this file directly.');
 }

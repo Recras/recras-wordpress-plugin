@@ -3,6 +3,7 @@
 ## Unreleased
 * Thank-you page list is now better split into pages and posts
 * "Basic theme" is now the default instead of "No theme"
+* Disabled displaying errors in WP debug mode
 
 ## 5.3.1 (2023-03-14)
 * Fix GA4 events not being sent on book process thank-you page
