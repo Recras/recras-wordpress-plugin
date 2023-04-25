@@ -260,7 +260,7 @@ class Settings
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
-        self::registerSetting('recras_theme', 'none');
+        self::registerSetting('recras_theme', 'basic');
         self::registerSetting('recras_enable_analytics', false, 'boolean');
     }
 
