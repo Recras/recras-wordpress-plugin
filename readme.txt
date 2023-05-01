@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.2
-Stable tag: 5.3.1
+Stable tag: 5.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,12 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 5.4.0 =
+* Thank-you page list is now better split into pages and posts
+* "Basic theme" is now the default instead of "No theme"
+* Disabled displaying errors in WP debug mode
+* Fix shortcode example for book process initial value
 
 = 5.3.1 =
 * Fix GA4 events not being sent on book process thank-you page

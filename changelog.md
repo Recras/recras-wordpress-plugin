@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.4.0 (2023-05-01)
 * Thank-you page list is now better split into pages and posts
 * "Basic theme" is now the default instead of "No theme"
 * Disabled displaying errors in WP debug mode
