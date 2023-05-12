@@ -18,7 +18,7 @@ class Gutenberg
                 'wp-element',
                 'wp-i18n',
             ],
-            '5.4.0',
+            '5.4.1',
             true
         );
         wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');

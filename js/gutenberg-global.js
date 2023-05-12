@@ -11,7 +11,7 @@ const {
     withSelect,
 } = wp.data;
 
-const dateSettings = wp.date.__experimentalGetSettings();
+const dateSettings = wp.date.getSettings();
 const TEXT_DOMAIN = 'recras';
 
 const recrasHelper = {
