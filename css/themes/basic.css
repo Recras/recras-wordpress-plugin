@@ -28,7 +28,7 @@
     border-color: #c00;
 }
 
-@media (pointer: fine) {
+@media (hover) {
     .recras-package .radioWrapper > input + label:hover::after,
     .recras-product_with_time .checkboxWrapper > input + label:hover::after,
     .recras-product_without_time > div input + label:hover::after {
@@ -73,7 +73,7 @@
     background-color: hsl(140, 0%, 80%);
     color: #000;
 }
-@media (pointer: fine) {
+@media (hover) {
     .numberWithPlusMinus button:hover {
         background-color: hsl(
                 120,
