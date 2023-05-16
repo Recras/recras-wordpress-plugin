@@ -49,6 +49,12 @@ class Settings
         self::infoText(__('Not all browsers have a built-in date picker. Enable this to use a custom widget.', Plugin::TEXT_DOMAIN));
     }
 
+    public static function addInputFixDatepicker(array $args): void
+    {
+        self::addInputCheckbox($args);
+        self::infoText(__('On some websites, the date picker in a book process has a tiny font. Enable this to fix this.', Plugin::TEXT_DOMAIN));
+    }
+
 
     /**
      * Add a decimal separator input field
@@ -260,6 +266,7 @@ class Settings
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
+        self::registerSetting('recras_fix_react_datepicker', false, 'boolean');
         self::registerSetting('recras_theme', 'basic');
         self::registerSetting('recras_enable_analytics', false, 'boolean');
     }
@@ -278,7 +285,8 @@ class Settings
         self::addField('recras_subdomain', __('Recras name', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputSubdomain']);
         self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
         self::addField('recras_decimal', __('Decimal separator', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDecimal']);
-        self::addField('recras_datetimepicker', __('Use calendar widget', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
+        self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
+        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputFixDatepicker']);
         self::addField('recras_theme', __('Theme for Recras integrations', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration?', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
     }

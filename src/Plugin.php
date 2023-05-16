@@ -223,7 +223,7 @@ class Plugin
         ];
 
         // Add Pikaday scripts and Pikaday localisation if the site has "Use calendar widget" enabled
-        if ($value = get_option('recras_datetimepicker')) {
+        if (get_option('recras_datetimepicker')) {
             wp_enqueue_script('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js', [], false, true); // ver=false because it's already in the URL
             wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css', [], false); // ver=false because it's already in the URL
 
@@ -263,6 +263,11 @@ class Plugin
                     __('Sat', $this::TEXT_DOMAIN),
                 ],
             ];
+        }
+
+        // Fix BP date picker for sites that set HTML { font-size: 10px }
+        if (get_option('recras_fix_react_datepicker')) {
+            wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '5.5.0');
         }
 
         // Defer certain scripts
@@ -317,6 +322,7 @@ class Plugin
     {
         delete_option('recras_currency');
         delete_option('recras_datetimepicker');
+        delete_option('recras_fix_react_datepicker');
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
         delete_option('recras_subdomain');
