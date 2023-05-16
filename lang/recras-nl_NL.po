@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-04-11 14:10+0200\n"
-"PO-Revision-Date: 2023-04-11 14:10+0200\n"
+"POT-Creation-Date: 2023-05-16 15:39+0200\n"
+"PO-Revision-Date: 2023-05-16 15:39+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -833,8 +833,8 @@ msgid "Decimal separator"
 msgstr "Decimaalscheiding"
 
 #: src/Settings.php:281 src/admin/documentation.php:12
-msgid "Use calendar widget"
-msgstr "Kalender-widget gebruiken"
+msgid "Use calendar widget for contact forms"
+msgstr "Kalender-widget gebruiken voor contactformulieren"
 
 #: src/Settings.php:282 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
@@ -891,6 +891,9 @@ msgstr "Producten"
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid "Use calendar widget"
+#~ msgstr "Kalender-widget gebruiken"
 
 #~ msgid "Page: "
 #~ msgstr "Pagina: "
