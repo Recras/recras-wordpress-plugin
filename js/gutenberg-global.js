@@ -93,10 +93,17 @@ const mapSelect = function(label, value) {
     };
 };
 const mapContactForm = function(idName) {
-    return mapSelect(idName[1], idName[0]);
+    return mapSelect(idName[1].naam, idName[0]);
 };
 const mapPackage = function(pack) {
     return mapSelect(pack.arrangement, pack.id);
+};
+const mapCFPackages = function(cfPck) {
+    let packages = Object.values(cfPck).map(mapPackage);
+    if (packages.length) {
+        packages.unshift({ label: '', value: 0, });
+    }
+    return packages;
 };
 const mapPagesPosts = function(pagePost) {
     return recrasHelper.elementOption(pagePost.link, pagePost.title.rendered);
@@ -245,7 +252,6 @@ const recrasStore = registerStore('recras/store', {
         },
         * fetchContactForms(state) {
             let forms = yield recrasActions.fetchAPI('recras/contactforms');
-            forms = Object.entries(forms).map(mapContactForm);
 
             return recrasActions.setContactForms(forms);
         },

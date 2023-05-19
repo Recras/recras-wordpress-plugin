@@ -31,7 +31,6 @@ registerGutenbergBlock('recras/contactform', {
     edit: withSelect((select) => {
         return {
             contactForms: select('recras/store').fetchContactForms(),
-            packages: select('recras/store').fetchPackages(true, true),
             pagesPosts: select('recras/store').fetchPagesPosts(),
         }
     })(props => {
@@ -52,9 +51,9 @@ registerGutenbergBlock('recras/contactform', {
         } = props.attributes;
         const {
             contactForms,
-            packages,
             pagesPosts,
         } = props;
+        let packages = [];
 
         if (pagesPosts === undefined || !pagesPosts.length) {
             return [
@@ -62,22 +61,32 @@ registerGutenbergBlock('recras/contactform', {
             ];
         }
 
+        const cfMapped = Object.entries(contactForms).map(mapContactForm);
         let retval = [];
         const optionsIDControl = {
             value: id,
             onChange: function(newVal) {
+                packages = mapCFPackages(contactForms[newVal].Arrangementen);
                 recrasHelper.lockSave('contactFormID', !newVal);
                 props.setAttributes({
                     id: newVal,
                 });
             },
-            options: contactForms,
+            options: cfMapped,
             label: wp.i18n.__('Contact form', TEXT_DOMAIN),
         };
-        if (contactForms.length === 1) {
+        if (cfMapped.length === 1) {
             props.setAttributes({
-                id: contactForms[0].value,
+                id: cfMapped[0].value,
             });
+        }
+        if (id) {
+            packages = mapCFPackages(contactForms[id].Arrangementen);
+            if (packages.length === 0) {
+                props.setAttributes({
+                    arrangement: null,
+                });
+            }
         }
         const optionsShowTitleControl = {
             checked: showtitle,
@@ -187,10 +196,12 @@ registerGutenbergBlock('recras/contactform', {
         retval.push(createEl(compToggleControl, optionsShowTitleControl));
         retval.push(createEl(compToggleControl, optionsShowLabelsControl));
         retval.push(createEl(compToggleControl, optionsShowPlaceholdersControl));
-        retval.push(createEl(compSelectControl, optionsPackageControl));
 
-        retval.push(recrasHelper.elementInfo(wp.i18n.__('Some packages may not be available for all contact forms. You can change this by editing your contact forms in Recras.', TEXT_DOMAIN)));
-        retval.push(recrasHelper.elementInfo(wp.i18n.__('If you are still missing packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
+        if (packages.length) {
+            retval.push(createEl(compSelectControl, optionsPackageControl));
+            retval.push(recrasHelper.elementInfo(wp.i18n.__('Some packages may not be available for all contact forms. You can change this by editing your contact forms in Recras.', TEXT_DOMAIN)));
+            retval.push(recrasHelper.elementInfo(wp.i18n.__('If you are still missing packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
+        }
 
         retval.push(createEl(compSelectControl, optionsElementControl));
         retval.push(createEl(compSelectControl, optionsSingleChoiceControl));

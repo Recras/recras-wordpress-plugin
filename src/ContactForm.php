@@ -638,7 +638,7 @@ class ContactForm
 
         $forms = [];
         foreach ($json as $form) {
-            $forms[$form->id] = $form->naam;
+            $forms[$form->id] = $form;
         }
         return $forms;
     }
