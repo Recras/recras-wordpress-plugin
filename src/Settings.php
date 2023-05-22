@@ -286,7 +286,7 @@ class Settings
         self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
         self::addField('recras_decimal', __('Decimal separator', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDecimal']);
         self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
-        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputFixDatepicker']);
+        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputFixDatepicker']);
         self::addField('recras_theme', __('Theme for Recras integrations', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration?', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
     }

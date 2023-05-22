@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-05-16 15:39+0200\n"
-"PO-Revision-Date: 2023-05-16 15:39+0200\n"
+"POT-Creation-Date: 2023-05-22 09:25+0200\n"
+"PO-Revision-Date: 2023-05-22 09:27+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -189,12 +189,12 @@ msgid "Don't redirect"
 msgstr ""
 
 #: editor/form-booking.php:88 editor/form-contact.php:66
-#: editor/form-voucher-sales.php:28 js/gutenberg-global.js:293
+#: editor/form-voucher-sales.php:28 js/gutenberg-global.js:299
 msgid "Pages"
 msgstr ""
 
 #: editor/form-booking.php:93 editor/form-contact.php:71
-#: editor/form-voucher-sales.php:33 js/gutenberg-global.js:317
+#: editor/form-voucher-sales.php:33 js/gutenberg-global.js:323
 msgid "Posts"
 msgstr ""
 
@@ -227,61 +227,61 @@ msgid "Hide first widget?"
 msgstr ""
 
 #: editor/form-contact.php:15 js/gutenberg-contactform.js:2
-#: js/gutenberg-contactform.js:75 js/gutenberg-contactform.js:184
+#: js/gutenberg-contactform.js:76 js/gutenberg-contactform.js:193
 #: src/Plugin.php:113 src/Plugin.php:178
 msgid "Contact form"
 msgstr ""
 
-#: editor/form-contact.php:26 js/gutenberg-contactform.js:89
+#: editor/form-contact.php:26 js/gutenberg-contactform.js:98
 msgid "Show title?"
 msgstr ""
 
-#: editor/form-contact.php:28 js/gutenberg-contactform.js:98
+#: editor/form-contact.php:28 js/gutenberg-contactform.js:107
 msgid "Show labels?"
 msgstr ""
 
-#: editor/form-contact.php:30 js/gutenberg-contactform.js:107
+#: editor/form-contact.php:30 js/gutenberg-contactform.js:116
 msgid "Show placeholders?"
 msgstr ""
 
-#: editor/form-contact.php:44 js/gutenberg-contactform.js:192
+#: editor/form-contact.php:44 js/gutenberg-contactform.js:202
 msgid ""
 "Some packages may not be available for all contact forms. You can change "
 "this by editing your contact forms in Recras."
 msgstr ""
 
-#: editor/form-contact.php:45 js/gutenberg-contactform.js:193
+#: editor/form-contact.php:45 js/gutenberg-contactform.js:203
 msgid ""
 "If you are still missing packages, make sure in Recras \"May be presented on "
 "a website (via API)\" is enabled on the tab \"Extra settings\" of the "
 "package."
 msgstr ""
 
-#: editor/form-contact.php:47 js/gutenberg-contactform.js:140
+#: editor/form-contact.php:47 js/gutenberg-contactform.js:149
 msgid "HTML element"
 msgstr ""
 
-#: editor/form-contact.php:49 js/gutenberg-contactform.js:129
+#: editor/form-contact.php:49 js/gutenberg-contactform.js:138
 msgid "Definition list"
 msgstr ""
 
-#: editor/form-contact.php:50 js/gutenberg-contactform.js:133
+#: editor/form-contact.php:50 js/gutenberg-contactform.js:142
 msgid "Ordered list"
 msgstr ""
 
-#: editor/form-contact.php:51 js/gutenberg-contactform.js:137
+#: editor/form-contact.php:51 js/gutenberg-contactform.js:146
 msgid "Table"
 msgstr ""
 
-#: editor/form-contact.php:53 js/gutenberg-contactform.js:159
+#: editor/form-contact.php:53 js/gutenberg-contactform.js:168
 msgid "Element for single choices"
 msgstr ""
 
-#: editor/form-contact.php:55 js/gutenberg-contactform.js:152
+#: editor/form-contact.php:55 js/gutenberg-contactform.js:161
 msgid "Drop-down list (Select)"
 msgstr ""
 
-#: editor/form-contact.php:56 js/gutenberg-contactform.js:156
+#: editor/form-contact.php:56 js/gutenberg-contactform.js:165
 msgid "Radio buttons"
 msgstr ""
 
@@ -290,8 +290,8 @@ msgid ""
 "This relates to: customer type, package selection, gender, and single choice"
 msgstr ""
 
-#: editor/form-contact.php:61 js/gutenberg-contactform.js:168
-#: js/gutenberg-contactform.js:169
+#: editor/form-contact.php:61 js/gutenberg-contactform.js:177
+#: js/gutenberg-contactform.js:178
 msgid "Submit button text"
 msgstr ""
 
@@ -372,30 +372,30 @@ msgstr ""
 msgid "Prefill value for first widget? (optional)"
 msgstr ""
 
-#: js/gutenberg-contactform.js:61 js/gutenberg-onlinebooking.js:62
+#: js/gutenberg-contactform.js:60 js/gutenberg-onlinebooking.js:62
 #: js/gutenberg-voucher-sales.js:41
 msgid "Loading data..."
 msgstr ""
 
-#: js/gutenberg-contactform.js:117
+#: js/gutenberg-contactform.js:126
 msgid "Package (optional)"
 msgstr ""
 
-#: js/gutenberg-contactform.js:179 js/gutenberg-onlinebooking.js:232
+#: js/gutenberg-contactform.js:188 js/gutenberg-onlinebooking.js:232
 #: js/gutenberg-voucher-sales.js:71
 msgid "i.e. https://www.recras.com/thanks/"
 msgstr ""
 
-#: js/gutenberg-contactform.js:180 js/gutenberg-onlinebooking.js:233
+#: js/gutenberg-contactform.js:189 js/gutenberg-onlinebooking.js:233
 #: js/gutenberg-voucher-sales.js:72
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr ""
 
-#: js/gutenberg-global.js:46 src/Settings.php:152
+#: js/gutenberg-global.js:46 src/Settings.php:158
 msgid "Recras → Settings menu"
 msgstr ""
 
-#: js/gutenberg-global.js:48 src/Settings.php:151
+#: js/gutenberg-global.js:48 src/Settings.php:157
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr ""
@@ -576,7 +576,7 @@ msgstr ""
 msgid "Cache"
 msgstr ""
 
-#: src/Plugin.php:96 src/Plugin.php:97 src/Settings.php:313
+#: src/Plugin.php:96 src/Plugin.php:97 src/Settings.php:321
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr ""
@@ -748,64 +748,74 @@ msgid ""
 "widget."
 msgstr ""
 
-#: src/Settings.php:65
+#: src/Settings.php:55
+msgid ""
+"On some websites, the date picker in a book process has a tiny font. Enable "
+"this to fix this."
+msgstr ""
+
+#: src/Settings.php:71
 msgid "Used in prices, such as 100,00."
 msgstr ""
 
-#: src/Settings.php:110 src/Settings.php:119 src/Settings.php:128
-#: src/Settings.php:140
+#: src/Settings.php:116 src/Settings.php:125 src/Settings.php:134
+#: src/Settings.php:146
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/Settings.php:191
+#: src/Settings.php:197
 msgid "No theme"
 msgstr ""
 
-#: src/Settings.php:195
+#: src/Settings.php:201
 msgid "Basic theme"
 msgstr ""
 
-#: src/Settings.php:199
+#: src/Settings.php:205
 msgid "BP Green"
 msgstr ""
 
-#: src/Settings.php:203
+#: src/Settings.php:209
 msgid "Reasonably Red"
 msgstr ""
 
-#: src/Settings.php:207
+#: src/Settings.php:213
 msgid "Recras Blue"
 msgstr ""
 
-#: src/Settings.php:272 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:279 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr ""
 
-#: src/Settings.php:278 src/admin/documentation.php:6
+#: src/Settings.php:285 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr ""
 
-#: src/Settings.php:279 src/admin/documentation.php:8
+#: src/Settings.php:286 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr ""
 
-#: src/Settings.php:280 src/admin/documentation.php:10
+#: src/Settings.php:287 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr ""
 
-#: src/Settings.php:281 src/admin/documentation.php:12
+#: src/Settings.php:288 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr ""
 
-#: src/Settings.php:282 src/admin/documentation.php:16
+#: src/Settings.php:289
+msgid "Fix book process datepicker styling"
+msgstr ""
+
+#: src/Settings.php:290 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr ""
 
-#: src/Settings.php:283 src/admin/documentation.php:26
+#: src/Settings.php:291 src/admin/documentation.php:26
 msgid "Enable Google Analytics integration?"
 msgstr ""
 
-#: src/Settings.php:312
+#: src/Settings.php:320
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr ""
