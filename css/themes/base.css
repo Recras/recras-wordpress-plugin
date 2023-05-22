@@ -40,7 +40,10 @@ input[type].recras-input-invalid {
     font-size: 0.9em;
 }
 
-@media (max-width: 640px) {
+.recras-onlinebooking {
+    container-type: inline-size;
+}
+@container (width <= 640px) {
     .recras-amountsform > div {
         grid-template-columns: 1fr 7em;
     }
