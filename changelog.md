@@ -4,6 +4,7 @@
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
 * Gutenberg contact form widget: properly show allowed packages
 * Add option to fix BP date picker styling
+* Plugin now requires PHP 7.2 or higher
 
 ## 5.4.0 (2023-05-01)
 * Thank-you page list is now better split into pages and posts
