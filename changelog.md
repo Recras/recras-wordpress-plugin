@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.5.0 (2023-05-22)
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
 * Gutenberg contact form widget: properly show allowed packages
 * Add option to fix BP date picker styling
