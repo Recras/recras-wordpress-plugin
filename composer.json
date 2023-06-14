@@ -8,7 +8,7 @@
         "wiki": "https://www.recras.com/integrations/recras-wordpress-link/"
     },
     "require": {
-        "composer/installers": "1.9.0",
+        "composer/installers": "2.2.0",
         "ext-ctype": "*",
         "ext-curl": "*",
         "ext-json": "*",
