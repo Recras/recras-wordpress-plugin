@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.2
-Stable tag: 5.5.0
+Stable tag: 5.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,7 +63,7 @@ You can enable basic Google Analytics integration for the booking of packages an
 = Do you support Gutenberg? =
 Yes, since version 2.2.0! Please make sure you use the latest version of the plugin and please report any bugs you encounter.
 
-= Do you support Visual Composer, Brizy, etc. ? =
+= Do you support Visual Composer, Elementor, Brizy, etc. ? =
 We do not support page builders and have no plans to do so.
 
 = Does the plugin support network installations? =
@@ -79,6 +79,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 5.5.1 =
+* Fix "previous/next month" not being visible in a book process when using Elementor
 
 = 5.5.0 =
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)

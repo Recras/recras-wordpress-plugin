@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.5.1 (2023-06-27)
+* Fix "previous/next month" not being visible in a book process when using Elementor
+
 ## 5.5.0 (2023-05-22)
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
 * Gutenberg contact form widget: properly show allowed packages

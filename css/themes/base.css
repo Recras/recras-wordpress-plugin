@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+/*** BOOK PROCESSES ***/
+.bookprocess .react-datepicker__navigation {
+    display: flex; /* Fix Elementor overriding this to block */
+}
+
 /*** ONLINE BOOKING ***/
 .recras-contactform-required::after {
     content: '*';
