@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-05-22 09:26+0200\n"
-"PO-Revision-Date: 2023-05-22 09:27+0200\n"
+"POT-Creation-Date: 2023-08-03 11:49+0200\n"
+"PO-Revision-Date: 2023-08-03 11:50+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -413,11 +413,11 @@ msgstr "bijv. https://www.recras.nl/bedankt/"
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr "Bedanktpagina (optioneel, laat leeg om niet door te sturen)"
 
-#: js/gutenberg-global.js:46 src/Settings.php:158
+#: js/gutenberg-global.js:46 src/Settings.php:162
 msgid "Recras → Settings menu"
 msgstr "menu Recras → Instellingen"
 
-#: js/gutenberg-global.js:48 src/Settings.php:157
+#: js/gutenberg-global.js:48 src/Settings.php:161
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr "Vul je Recras-naam in in het %s voordat je widgets toevoegt."
@@ -609,7 +609,7 @@ msgstr "Instellingen"
 msgid "Cache"
 msgstr "Cache"
 
-#: src/Plugin.php:96 src/Plugin.php:97 src/Settings.php:321
+#: src/Plugin.php:96 src/Plugin.php:97 src/Settings.php:325
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
@@ -771,15 +771,23 @@ msgstr "Za"
 msgid "Error: product does not exist"
 msgstr "Fout: product bestaat niet"
 
-#: src/Settings.php:16
+#: src/Settings.php:17
 msgid ""
-"Enabling this will send events from online booking of packages and voucher "
-"sales to Google Analytics."
+"Enabling this will send events from <strong>online booking of packages</"
+"strong> and <strong>voucher sales</strong> to Google Analytics."
 msgstr ""
-"Dit aanzetten stuurt events van online boeken van arrangementen en "
-"tegoedbonverkoop naar Google Analytics."
+"Dit aanzetten stuurt events van <strong>online boeken van arrangementen</"
+"strong> en <strong>tegoedbonverkoop</strong> naar Google Analytics."
 
-#: src/Settings.php:49
+#: src/Settings.php:19
+msgid ""
+"This option is <strong>not needed when using book processes</strong>. GA is "
+"integrated automatically for them."
+msgstr ""
+"Deze optie is <strong>niet nodig bij het gebruik van boekprocessen</strong>. "
+"GA wordt daar automatisch geïntegreerd."
+
+#: src/Settings.php:53
 msgid ""
 "Not all browsers have a built-in date picker. Enable this to use a custom "
 "widget."
@@ -787,7 +795,7 @@ msgstr ""
 "Niet alle browsers hebben een ingebouwde datumkiezer. Vink dit aan om een "
 "eigen widget te gebruiken."
 
-#: src/Settings.php:55
+#: src/Settings.php:59
 msgid ""
 "On some websites, the date picker in a book process has a tiny font. Enable "
 "this to fix this."
@@ -795,68 +803,68 @@ msgstr ""
 "Op sommige websites heeft de datumselectie in een boekproces een klein "
 "lettertype. Zet deze optie aan om dit op te lossen."
 
-#: src/Settings.php:71
+#: src/Settings.php:75
 msgid "Used in prices, such as 100,00."
 msgstr "Gebruikt in prijzen, zoals 100,00."
 
-#: src/Settings.php:116 src/Settings.php:125 src/Settings.php:134
-#: src/Settings.php:146
+#: src/Settings.php:120 src/Settings.php:129 src/Settings.php:138
+#: src/Settings.php:150
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Je hebt niet genoeg rechten om deze pagina te bekijken."
 
-#: src/Settings.php:197
+#: src/Settings.php:201
 msgid "No theme"
 msgstr "Geen thema"
 
-#: src/Settings.php:201
+#: src/Settings.php:205
 msgid "Basic theme"
 msgstr "Basisthema"
 
-#: src/Settings.php:205
+#: src/Settings.php:209
 msgid "BP Green"
 msgstr "BP Groen"
 
-#: src/Settings.php:209
+#: src/Settings.php:213
 msgid "Reasonably Red"
 msgstr "Redelijk Rood"
 
-#: src/Settings.php:213
+#: src/Settings.php:217
 msgid "Recras Blue"
 msgstr "Recras Blauw"
 
-#: src/Settings.php:279 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:283 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr "Recras-instellingen"
 
-#: src/Settings.php:285 src/admin/documentation.php:6
+#: src/Settings.php:289 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr "Recrasnaam"
 
-#: src/Settings.php:286 src/admin/documentation.php:8
+#: src/Settings.php:290 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr "Valutasymbool"
 
-#: src/Settings.php:287 src/admin/documentation.php:10
+#: src/Settings.php:291 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr "Decimaalscheiding"
 
-#: src/Settings.php:288 src/admin/documentation.php:12
+#: src/Settings.php:292 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr "Kalender-widget gebruiken voor contactformulieren"
 
-#: src/Settings.php:289
+#: src/Settings.php:293
 msgid "Fix book process datepicker styling"
 msgstr "Styling boekproces-datumselectie oplossen"
 
-#: src/Settings.php:290 src/admin/documentation.php:16
+#: src/Settings.php:294 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr "Thema voor Recras-integraties"
 
-#: src/Settings.php:291 src/admin/documentation.php:26
+#: src/Settings.php:295 src/admin/documentation.php:26
 msgid "Enable Google Analytics integration?"
 msgstr "Google Analytics-integratie inschakelen?"
 
-#: src/Settings.php:320
+#: src/Settings.php:324
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr "Bekijk voor meer informatie over deze instellingen de %s-pagina."

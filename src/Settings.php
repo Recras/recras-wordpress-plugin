@@ -13,7 +13,11 @@ class Settings
     public static function addInputAnalytics(array $args): void
     {
         self::addInputCheckbox($args);
-        self::infoText(__('Enabling this will send events from online booking of packages and voucher sales to Google Analytics.', Plugin::TEXT_DOMAIN));
+        self::infoText(
+            __('Enabling this will send events from <strong>online booking of packages</strong> and <strong>voucher sales</strong> to Google Analytics.', Plugin::TEXT_DOMAIN) .
+            '<br>' .
+            __('This option is <strong>not needed when using book processes</strong>. GA is integrated automatically for them.', Plugin::TEXT_DOMAIN)
+        );
     }
 
 
