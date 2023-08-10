@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Based on https://github.com/wp-cli/scaffold-command/blob/master/templates/install-wp-tests.sh
-# Last updated: 2021-08-08
+# Based on https://github.com/wp-cli/scaffold-command/blob/main/templates/install-wp-tests.sh
+# Last updated: 2023-08-08
 # Usage: $0 [db-name] [db-user] [db-pass] [db-host] [wp-version] [skip-db-create]
 
 DB_NAME=${1-wptest}
@@ -91,7 +91,7 @@ install_wp() {
 		tar --strip-components=1 -zxmf $TMPDIR/wordpress.tar.gz -C $WP_CORE_DIR
 	fi
 
-	download https://raw.github.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR/wp-content/db.php
+	download https://raw.githubusercontent.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR/wp-content/db.php
 }
 
 install_test_suite() {
