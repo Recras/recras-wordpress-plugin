@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.3
-Stable tag: 5.5.1
+Stable tag: 5.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 5.5.2 =
+* **No functional changes**
+* Updated "Tested up to" version to 6.3
+* **Deprecation notice**: we plan on removing support for Composer Installers in version 6.0 of the plugin. Please let us know if you use this to install our plugin!
+
 = 5.5.1 =
 * Fix "previous/next month" not being visible in a book process when using Elementor
 
@@ -89,27 +94,16 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Add option to fix BP date picker styling
 * Plugin now requires PHP 7.2 or higher
 
-= 5.4.0 =
-* Thank-you page list is now better split into pages and posts
-* "Basic theme" is now the default instead of "No theme"
-* Disabled displaying errors in WP debug mode
-* Fix shortcode example for book process initial value
+= 5.4 (highlights) =
+* Small improvements and bugfixes
 
-= 5.3.1 =
-* Fix GA4 events not being sent on book process thank-you page
-
-= 5.3.0 =
+= 5.3 (highlights) =
 * Allow initial value in first widget of a book process, when the first widget is "package selection".
-* Seamless online booking integration: prevent half filled months in date selection
+* Bugfixes
 
-= 5.2.2 =
-* Time fields in contact form was limited to steps of 5 minutes, but browser UI didn't take this into account. Time fields are no longer limited to 5 minute intervals.
-
-= 5.2.1 =
-* Fix crash when using shortcodes in the wrong way
-
-= 5.2.0 =
+= 5.2 (highlights) =
 * It is now possible to integrate multiple book processes on one page
+* Small bugfixes
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.

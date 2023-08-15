@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.5.2 (2023-08-15)
+* **No functional changes compared to 5.5.1**
+* Updated "Tested up to" version to 6.3
+* **Deprecation notice**: we plan on removing support for Composer Installers in version 6.0 of the plugin. Please let us know if you use this to install our plugin!
+
 ## 5.5.1 (2023-06-27)
 * Fix "previous/next month" not being visible in a book process when using Elementor
 
