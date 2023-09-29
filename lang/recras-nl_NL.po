@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-08-03 11:49+0200\n"
-"PO-Revision-Date: 2023-08-03 11:50+0200\n"
+"POT-Creation-Date: 2023-09-29 14:56+0200\n"
+"PO-Revision-Date: 2023-09-29 14:56+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -98,7 +98,7 @@ msgid "Start time"
 msgstr "Starttijd"
 
 #: editor/form-arrangement.php:44 editor/form-booking.php:82
-#: js/gutenberg-package.js:127 src/ContactForm.php:281
+#: js/gutenberg-package.js:127 src/ContactForm.php:285
 msgid "hh:mm"
 msgstr "uu:mm"
 
@@ -180,7 +180,7 @@ msgstr "Sorry, dit is alleen beschikbaar in de Gutenberg-editor."
 msgid "Pre-fill date (requires exactly 1 package selected)"
 msgstr "Datum vooraf invullen (vereist exact 1 geselecteerd arrangement)"
 
-#: editor/form-booking.php:73 src/ContactForm.php:264 src/ContactForm.php:306
+#: editor/form-booking.php:73 src/ContactForm.php:268 src/ContactForm.php:310
 msgid "yyyy-mm-dd"
 msgstr "jjjj-mm-dd"
 
@@ -318,7 +318,7 @@ msgstr "Tekst op knop Versturen"
 
 #: editor/form-contact.php:62 editor/form-contact.php:109
 #: js/gutenberg-contactform.js:14 js/gutenberg-contactform.js:27
-#: src/ContactForm.php:114
+#: src/ContactForm.php:118
 msgid "Send"
 msgstr "Versturen"
 
@@ -504,7 +504,7 @@ msgid "Error: ID is not a number"
 msgstr "Fout: ID is geen getal"
 
 #: src/Arrangement.php:38 src/Arrangement.php:243 src/Bookprocess.php:89
-#: src/ContactForm.php:71
+#: src/ContactForm.php:71 src/ContactForm.php:75
 #, php-format
 msgid "Error: %s"
 msgstr "Fout: %s"
@@ -546,29 +546,33 @@ msgstr "Geen locatie opgegeven"
 msgid "Error: book process does not exist"
 msgstr "Fout: boekproces bestaat niet"
 
-#: src/ContactForm.php:110
+#: src/ContactForm.php:75
+msgid "Contact form might be deleted"
+msgstr "Contactformulier is mogelijk verwijderd"
+
+#: src/ContactForm.php:114
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 "Fout: arrangement is ingesteld, maar contactformulier ondersteunt geen "
 "arrangementen"
 
-#: src/ContactForm.php:372
+#: src/ContactForm.php:376
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: src/ContactForm.php:373
+#: src/ContactForm.php:377
 msgid "Male"
 msgstr "Man"
 
-#: src/ContactForm.php:374
+#: src/ContactForm.php:378
 msgid "Female"
 msgstr "Vrouw"
 
-#: src/ContactForm.php:510
+#: src/ContactForm.php:514
 msgid "(required)"
 msgstr "(verplicht)"
 
-#: src/ContactForm.php:535
+#: src/ContactForm.php:539
 msgid "Clear choice"
 msgstr "Keuze wissen"
 

@@ -71,6 +71,10 @@ class ContactForm
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
         }
 
+        if (!property_exists($form, 'naam') || !property_exists($form, 'Velden')) {
+            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), __('Contact form might be deleted', Plugin::TEXT_DOMAIN));
+        }
+
         $formTitle = $form->naam;
         $formFields = $form->Velden;
 

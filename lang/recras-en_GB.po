@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-08-03 11:49+0200\n"
-"PO-Revision-Date: 2023-08-03 11:49+0200\n"
+"POT-Creation-Date: 2023-09-29 14:56+0200\n"
+"PO-Revision-Date: 2023-09-29 14:56+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -95,7 +95,7 @@ msgid "Start time"
 msgstr ""
 
 #: editor/form-arrangement.php:44 editor/form-booking.php:82
-#: js/gutenberg-package.js:127 src/ContactForm.php:281
+#: js/gutenberg-package.js:127 src/ContactForm.php:285
 msgid "hh:mm"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Pre-fill date (requires exactly 1 package selected)"
 msgstr ""
 
-#: editor/form-booking.php:73 src/ContactForm.php:264 src/ContactForm.php:306
+#: editor/form-booking.php:73 src/ContactForm.php:268 src/ContactForm.php:310
 msgid "yyyy-mm-dd"
 msgstr ""
 
@@ -297,7 +297,7 @@ msgstr ""
 
 #: editor/form-contact.php:62 editor/form-contact.php:109
 #: js/gutenberg-contactform.js:14 js/gutenberg-contactform.js:27
-#: src/ContactForm.php:114
+#: src/ContactForm.php:118
 msgid "Send"
 msgstr ""
 
@@ -474,7 +474,7 @@ msgid "Error: ID is not a number"
 msgstr ""
 
 #: src/Arrangement.php:38 src/Arrangement.php:243 src/Bookprocess.php:89
-#: src/ContactForm.php:71
+#: src/ContactForm.php:71 src/ContactForm.php:75
 #, php-format
 msgid "Error: %s"
 msgstr ""
@@ -516,27 +516,31 @@ msgstr ""
 msgid "Error: book process does not exist"
 msgstr ""
 
-#: src/ContactForm.php:110
+#: src/ContactForm.php:75
+msgid "Contact form might be deleted"
+msgstr ""
+
+#: src/ContactForm.php:114
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 
-#: src/ContactForm.php:372
+#: src/ContactForm.php:376
 msgid "Unknown"
 msgstr ""
 
-#: src/ContactForm.php:373
+#: src/ContactForm.php:377
 msgid "Male"
 msgstr ""
 
-#: src/ContactForm.php:374
+#: src/ContactForm.php:378
 msgid "Female"
 msgstr ""
 
-#: src/ContactForm.php:510
+#: src/ContactForm.php:514
 msgid "(required)"
 msgstr ""
 
-#: src/ContactForm.php:535
+#: src/ContactForm.php:539
 msgid "Clear choice"
 msgstr ""
 
