@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.0 (2023-11-07)
+* Removed support for Composer Installers
+* Updated "Tested up to" version to 6.4
+
 ## 5.5.2 (2023-08-15)
 * **No functional changes compared to 5.5.1**
 * Updated "Tested up to" version to 6.3

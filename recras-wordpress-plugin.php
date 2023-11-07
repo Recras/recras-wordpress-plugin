@@ -2,9 +2,9 @@
 /*
 Plugin Name: Recras WordPress Plugin
 Plugin URI: https://www.recras.nl/
-Version: 5.5.2
+Version: 6.0.0
 Description: Easily integrate your Recras data into your own site
-Requires at least: 6.1
+Requires at least: 6.2
 Requires PHP: 7.2.0
 Author: Recras
 Author URI: https://www.recras.nl/
