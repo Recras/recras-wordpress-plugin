@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.1 (2023-11-27)
+* Fix warning when using PHP 8.2+
+
 ## 6.0.0 (2023-11-07)
 * Removed support for Composer Installers
 * Updated "Tested up to" version to 6.4
