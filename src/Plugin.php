@@ -14,6 +14,11 @@ class Plugin
     /** @var string */
     public $baseUrl;
 
+    /**
+     * @var Transient
+     */
+    public $transients;
+
 
     /**
      * Init all the things!
