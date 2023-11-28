@@ -17,16 +17,12 @@ class Http
 
         if ($json === false) {
             $errorMsg = curl_error($ch);
-            /*$statusCode = curl_getinfo($ch, \CURLINFO_HTTP_CODE);
-            if ($statusCode != 200) {
-                $errorMsg .= ' (HTTP ' . $statusCode . ')';
-            }*/
             throw new Exception\UrlException(sprintf(__('Error: could not retrieve data from Recras. The error message received was: %s', Plugin::TEXT_DOMAIN), $errorMsg));
         }
-        $json = json_decode($json);
-        if (is_null($json)) {
-            $errorMsg = json_last_error_msg();
-            throw new Exception\JsonParseException(sprintf(__('Error: could not parse data from Recras. The error message was: %s', Plugin::TEXT_DOMAIN), $errorMsg));
+        try {
+            $json = json_decode($json, null, 512, JSON_THROW_ON_ERROR);
+        } catch (\Exception $e) {
+            throw new Exception\JsonParseException(sprintf(__('Error: could not parse data from Recras. The error message was: %s', Plugin::TEXT_DOMAIN), $e->getMessage()));
         }
 
         curl_close($ch);

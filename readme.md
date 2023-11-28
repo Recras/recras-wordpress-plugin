@@ -1,6 +1,6 @@
 # Recras WordPress plugin
 
-[![Minimum PHP Version](https://img.shields.io/badge/php->%3D%207.2-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php->%3D%207.3-8892BF.svg)](https://php.net/)
 
 Easily integrate data from your Recras instance, such as packages and contact forms, into your own website.
 

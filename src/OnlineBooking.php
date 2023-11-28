@@ -76,8 +76,9 @@ class OnlineBooking
         }
         if ((int) $arrangementID !== 0 || (isset($libraryOptions['packageList'])) && count($libraryOptions['packageList']) === 1) {
             if (isset($attributes['product_amounts'])) {
-                $preFillAmounts = json_decode($attributes['product_amounts'], true);
-                if (!$preFillAmounts) {
+                try {
+                    $preFillAmounts = json_decode($attributes['product_amounts'], true, 2, JSON_THROW_ON_ERROR);
+                } catch (\Exception $e) {
                     return __('Error: "product_amounts" is invalid', Plugin::TEXT_DOMAIN);
                 }
                 $libraryOptions['preFillAmounts'] = $preFillAmounts;
