@@ -199,11 +199,6 @@ class Plugin
 
     public static function changeScriptMarkup(string $tag, string $handle): string
     {
-        $deferHandles = ['recrasjspolyfill', 'recrasjslibrary'];
-        if (in_array($handle, $deferHandles)) {
-            $tag = str_replace(' src=', ' defer src=', $tag);
-        }
-
         $moduleHandles = ['recrasbookprocesses'];
         if (in_array($handle, $moduleHandles)) {
             // Make sure we don't get a double type attribute
@@ -277,13 +272,12 @@ class Plugin
             wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '5.5.0');
         }
 
-        // Defer certain scripts
         // Book process script must be loaded as module
         add_filter('script_loader_tag', [$this, 'changeScriptMarkup'], 10, 2);
 
         // Polyfill for old browsers
-        wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
-        wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, false);
+        wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, ['strategy' => 'defer']);
+        wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
