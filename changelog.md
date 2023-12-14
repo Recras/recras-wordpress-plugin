@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.2 (2023-12-14)
+* Add a few more German translations
+
 ## 6.0.1 (2023-11-27)
 * Fix warning when using PHP 8.2+
 
