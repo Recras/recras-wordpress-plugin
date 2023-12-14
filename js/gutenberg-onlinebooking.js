@@ -219,7 +219,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
                 label: wp.i18n.__('Pre-fill time (requires exactly 1 package selected)', TEXT_DOMAIN),
-                help: wp.i18n.__('i.e. 14:00', TEXT_DOMAIN),
+                help: wp.i18n.__('e.g. 14:00', TEXT_DOMAIN),
             };
             optionsRedirectControl = {
                 value: redirect,
