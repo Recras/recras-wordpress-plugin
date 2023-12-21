@@ -34,7 +34,7 @@ $processes = $model->getProcesses($subdomain);
     <dt class="first-widget-only recras-hidden-input">
         <label for="hide_first_widget"><?php _e('Hide first widget?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd class="first-widget-only recras-hidden-input">
-            <dd><input type="checkbox" id="hide_first_widget">
+            <input type="checkbox" id="hide_first_widget">
 </dl>
 <button class="button button-primary" id="bp_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
 

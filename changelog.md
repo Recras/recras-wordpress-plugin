@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.3 (2023-12-21)
+* Fix checkbox without explanation when adding book process shortcode
+
 ## 6.0.2 (2023-12-14)
 * Add a few more German translations
 
