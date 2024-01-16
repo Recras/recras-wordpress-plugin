@@ -1,0 +1,14 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+.distignore
+.gitattributes
+.gitignore
+/bin
+/tests
+deploy.sh
+package.json
+package-lock.json
+phpunit.xml
+renovate.json
