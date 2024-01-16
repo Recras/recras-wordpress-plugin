@@ -8,6 +8,9 @@
 .bookprocess .react-datepicker__navigation {
     display: flex; /* Fix Elementor overriding this to block */
 }
+.bookprocess .react-datepicker__day--today::after {
+    content: unset; /* Circle around today is confusing, people might think that day is selected */
+}
 
 /*** ONLINE BOOKING ***/
 .recras-contactform-required::after {

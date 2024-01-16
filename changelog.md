@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.4 (2024-01-16)
+* Remove confusing circle around today's date in a book process
+
 ## 6.0.3 (2023-12-21)
 * Fix checkbox without explanation when adding book process shortcode
 
