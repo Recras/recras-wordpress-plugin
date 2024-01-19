@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.5 (2024-01-19)
+* Fixed not being able to add a contact form in classic editor
+
 ## 6.0.4 (2024-01-16)
 * Remove confusing circle around today's date in a book process
 

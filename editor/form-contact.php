@@ -18,8 +18,8 @@ $forms = $model->getForms($subdomain);
             <?= $forms; ?>
         <?php } elseif(is_array($forms)) { ?>
             <select id="contactform_id" required>
-                <?php foreach ($forms as $ID => $formName) { ?>
-                <option value="<?= $ID; ?>"><?= $formName; ?>
+                <?php foreach ($forms as $ID => $form) { ?>
+                <option value="<?= $ID; ?>"><?= $form->naam; ?>
                 <?php } ?>
             </select>
         <?php } ?>
