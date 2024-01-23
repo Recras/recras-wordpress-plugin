@@ -7,7 +7,6 @@
 .gitignore
 /bin
 /tests
-deploy.sh
 package.json
 package-lock.json
 phpunit.xml
