@@ -48,6 +48,8 @@ class Plugin
         // Load scripts
         add_action('admin_enqueue_scripts', [$this, 'loadAdminScripts']);
         add_action('wp_enqueue_scripts', [$this, 'loadScripts']);
+        // Editing a page with Elementor makes WP think it's not in admin mode
+        add_action('elementor/editor/before_enqueue_scripts', [$this, 'loadAdminScripts']);
 
         // Clear caches
         add_action('admin_post_clear_recras_cache', [$this, 'clearCache']);

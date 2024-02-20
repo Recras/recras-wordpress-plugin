@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.6 (2024-02-20)
+* Fix "Failed to initialize plugin" error in Elementor
+
 ## 6.0.5 (2024-01-19)
 * Fixed not being able to add a contact form in classic editor
 

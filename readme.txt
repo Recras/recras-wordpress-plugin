@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.4
-Stable tag: 6.0.5
+Stable tag: 6.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 6.0.6 =
+* Fix "Failed to initialize plugin" error in Elementor
+
 = 6.0.5 =
 * Fixed not being able to add a contact form in classic editor
 
@@ -99,18 +102,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Removed support for Composer Installers
 * Updated "Tested up to" version to 6.4
 
-= 5.5.2 =
-* **No functional changes**
-* Updated "Tested up to" version to 6.3
-* **Deprecation notice**: we plan on removing support for Composer Installers in version 6.0 of the plugin. Please let us know if you use this to install our plugin!
-
-= 5.5.1 =
-* Fix "previous/next month" not being visible in a book process when using Elementor
-
-= 5.5.0 =
+= 5.5 (highlights) =
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
-* Gutenberg contact form widget: properly show allowed packages
-* Add option to fix BP date picker styling
+* Various fixes, mostly related to book processes
+* Updated "Tested up to" version to 6.3
 * Plugin now requires PHP 7.2 or higher
 
 = 5.4 (highlights) =
@@ -119,10 +114,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = 5.3 (highlights) =
 * Allow initial value in first widget of a book process, when the first widget is "package selection".
 * Bugfixes
-
-= 5.2 (highlights) =
-* It is now possible to integrate multiple book processes on one page
-* Small bugfixes
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
