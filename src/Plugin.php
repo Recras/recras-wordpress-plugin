@@ -193,7 +193,7 @@ class Plugin
             'voucherSales' => __('Voucher sales', $this::TEXT_DOMAIN),
         ]);
         wp_enqueue_script('recras-admin');
-        wp_enqueue_style('recras-admin-style', $this->baseUrl . '/css/admin-style.css', [], '2.5.0');
+        wp_enqueue_style('recras-admin-style', $this->baseUrl . '/css/admin-style.css', [], '6.0.7');
         wp_enqueue_script('wp-api');
     }
 

@@ -3,7 +3,7 @@
     border-left: 3px solid hsl(209, 80%, 60%);
     padding-left: 1em !important;
 }
-#TB_window #adminmenumain, #TB_window #wpfooter {
+#TB_window :is(#adminmenumain, #wpfooter, .update-nag) {
     display: none;
 }
 #TB_window #wpcontent {
