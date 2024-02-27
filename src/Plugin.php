@@ -275,8 +275,6 @@ class Plugin
         // Book process script must be loaded as module
         add_filter('script_loader_tag', [$this, 'changeScriptMarkup'], 10, 2);
 
-        // Polyfill for old browsers
-        wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, ['strategy' => 'defer']);
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
 
         // Book process
