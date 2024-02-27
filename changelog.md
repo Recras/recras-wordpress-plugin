@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+* Updated "Tested up to" version to 6.5
+* Plugin now requires PHP 7.3 or higher
+* Plugin now requires WP 6.3 or higher
+* Removed script for very old browsers
+* Minor admin CSS update
+
 ## 6.0.6 (2024-02-20)
 * Fix "Failed to initialize plugin" error in Elementor
 
