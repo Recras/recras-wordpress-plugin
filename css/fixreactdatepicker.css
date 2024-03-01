@@ -45,7 +45,14 @@
     line-height: 1.7em;
     margin: 0.166em;
 }
-.bookprocess .react-datepicker__week-number.react-datepicker__week-number--clickable:hover {
+.bookprocess .react-datepicker__week-number .react-datepicker__week-number--clickable:not(.react-datepicker__week-number--selected,
+.bookprocess .react-datepicker__week-number--keyboard-selected):hover {
+    border-radius: 0.3em;
+}
+.bookprocess .react-datepicker__week-number--selected {
+    border-radius: 0.3em;
+}
+.bookprocess .react-datepicker__week-number--keyboard-selected {
     border-radius: 0.3em;
 }
 .bookprocess :is(.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name) {
@@ -54,17 +61,11 @@
     margin: 0.166em;
 }
 .bookprocess :is(
-    .react-datepicker__month--selected, .react-datepicker__month--in-selecting-range, .react-datepicker__month--in-range,
-    .react-datepicker__quarter--selected,
-    .react-datepicker__quarter--in-selecting-range,
-    .react-datepicker__quarter--in-range) {
-    border-radius: 0.3em;
-}
-.bookprocess :is(
-    .react-datepicker__day:hover,
-    .react-datepicker__month-text:hover,
-    .react-datepicker__quarter-text:hover,
-    .react-datepicker__year-text:hover) {
+    react-datepicker__day,
+    react-datepicker__month-text,
+    react-datepicker__quarter-text,
+    react-datepicker__year-text
+):hover {
     border-radius: 0.3em;
 }
 .bookprocess :is(
@@ -72,6 +73,13 @@
     .react-datepicker__month-text--highlighted,
     .react-datepicker__quarter-text--highlighted,
     .react-datepicker__year-text--highlighted) {
+    border-radius: 0.3em;
+}
+.bookprocess :is(
+    .react-datepicker__day--holidays,
+    .react-datepicker__month-text--holidays,
+    .react-datepicker__quarter-text--holidays,
+    .react-datepicker__year-text--holidays) {
     border-radius: 0.3em;
 }
 .bookprocess .react-datepicker__day--today::after {

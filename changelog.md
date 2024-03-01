@@ -6,6 +6,7 @@
 * Plugin now requires WP 6.3 or higher
 * Removed script for very old browsers
 * Minor admin CSS update
+* Update "Fix book process datepicker styling" styles to latest version
 
 ## 6.0.6 (2024-02-20)
 * Fix "Failed to initialize plugin" error in Elementor
