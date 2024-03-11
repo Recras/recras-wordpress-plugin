@@ -27,7 +27,6 @@ class Arrangement
             $showProperty = $attributes['show'];
         }
 
-
         $subdomain = Settings::getSubdomain($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();
@@ -36,6 +35,12 @@ class Arrangement
         $json = self::getPackage($subdomain, $attributes['id']);
         if (isset($json->error, $json->message)) {
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $json->message);
+        }
+        if (is_null($json) || $json == new \stdClass()) { // comparing with === does not work
+            return sprintf(
+                __('Error: Package %d does not exist or may not be presented on a website', Plugin::TEXT_DOMAIN),
+                $attributes['id']
+            );
         }
 
         switch ($showProperty) {

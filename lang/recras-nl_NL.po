@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2023-12-14 12:07+0100\n"
-"PO-Revision-Date: 2023-12-14 12:07+0100\n"
+"POT-Creation-Date: 2024-03-06 14:47+0100\n"
+"PO-Revision-Date: 2024-03-06 14:48+0100\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -21,8 +21,8 @@ msgstr ""
 #: editor/form-arrangement.php:16 editor/form-booking.php:48
 #: editor/form-contact.php:32 editor/form-package-availability.php:13
 #: js/gutenberg-availability.js:44 js/gutenberg-package.js:2
-#: js/gutenberg-package.js:50 js/gutenberg-package.js:141 src/Plugin.php:116
-#: src/Plugin.php:187
+#: js/gutenberg-package.js:50 js/gutenberg-package.js:141 src/Plugin.php:118
+#: src/Plugin.php:189
 msgid "Package"
 msgstr "Arrangement"
 
@@ -218,7 +218,7 @@ msgstr "Automatisch schalen?"
 
 #: editor/form-bookprocess.php:16 js/gutenberg-bookprocess.js:2
 #: js/gutenberg-bookprocess.js:45 js/gutenberg-bookprocess.js:59
-#: src/Plugin.php:117 src/Plugin.php:186
+#: src/Plugin.php:119 src/Plugin.php:188
 msgid "Book process"
 msgstr "Boekproces"
 
@@ -241,7 +241,7 @@ msgstr "Eerste widget verbergen?"
 
 #: editor/form-contact.php:15 js/gutenberg-contactform.js:2
 #: js/gutenberg-contactform.js:76 js/gutenberg-contactform.js:193
-#: src/Plugin.php:118 src/Plugin.php:183
+#: src/Plugin.php:120 src/Plugin.php:185
 msgid "Contact form"
 msgstr "Contactformulier"
 
@@ -323,8 +323,8 @@ msgid "Send"
 msgstr "Versturen"
 
 #: editor/form-product.php:13 js/gutenberg-product.js:2
-#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:120
-#: src/Plugin.php:189
+#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:122
+#: src/Plugin.php:191
 msgid "Product"
 msgstr "Product"
 
@@ -423,7 +423,7 @@ msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr "Vul je Recras-naam in in het %s voordat je widgets toevoegt."
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
-#: src/Plugin.php:119 src/Plugin.php:185 src/admin/documentation.php:100
+#: src/Plugin.php:121 src/Plugin.php:187 src/admin/documentation.php:100
 #: src/admin/shortcodes.php:79
 msgid "Online booking of packages"
 msgstr "Online boeking van arrangementen"
@@ -477,7 +477,7 @@ msgstr ""
 "\"Presentatie\" van het product."
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:122 src/Plugin.php:190 src/admin/documentation.php:139
+#: src/Plugin.php:124 src/Plugin.php:192 src/admin/documentation.php:139
 #: src/admin/shortcodes.php:129
 msgid "Voucher info"
 msgstr "Tegoedboninfo"
@@ -487,7 +487,7 @@ msgid "Voucher template"
 msgstr "Tegoedbon-template"
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:85
-#: src/Plugin.php:121 src/Plugin.php:191 src/admin/documentation.php:129
+#: src/Plugin.php:123 src/Plugin.php:193 src/admin/documentation.php:129
 #: src/admin/shortcodes.php:117
 msgid "Voucher sales"
 msgstr "Tegoedbonverkoop"
@@ -503,42 +503,49 @@ msgstr "Fout: geen ID ingesteld"
 msgid "Error: ID is not a number"
 msgstr "Fout: ID is geen getal"
 
-#: src/Arrangement.php:38 src/Arrangement.php:243 src/Bookprocess.php:89
+#: src/Arrangement.php:37 src/Arrangement.php:248 src/Bookprocess.php:89
 #: src/ContactForm.php:71 src/ContactForm.php:75
 #, php-format
 msgid "Error: %s"
 msgstr "Fout: %s"
 
-#: src/Arrangement.php:71 src/Arrangement.php:77
+#: src/Arrangement.php:41
+#, php-format
+msgid "Error: Package %d does not exist or may not be presented on a website"
+msgstr ""
+"Fout: arrangement %d bestaat niet of mag niet op een website weergegeven "
+"worden"
+
+#: src/Arrangement.php:76 src/Arrangement.php:82
 msgid "Error: programme is empty"
 msgstr "Fout: programma is leeg"
 
-#: src/Arrangement.php:86 src/Products.php:69 src/Vouchers.php:52
+#: src/Arrangement.php:91 src/Products.php:69 src/Vouchers.php:52
 msgid "Error: unknown option"
 msgstr "Fout: onbekende optie"
 
-#: src/Arrangement.php:145
+#: src/Arrangement.php:150
 msgid "From"
 msgstr "Van"
 
-#: src/Arrangement.php:145
+#: src/Arrangement.php:150
 msgid "Until"
 msgstr "Tot"
 
-#: src/Arrangement.php:145
+#: src/Arrangement.php:150
 msgid "Activity"
 msgstr "Activiteit"
 
-#: src/Arrangement.php:178
+#: src/Arrangement.php:183
 #, php-format
 msgid "Day %d"
 msgstr "Dag %d"
 
-#: src/Arrangement.php:296
+#: src/Arrangement.php:301
 msgid "No duration specified"
 msgstr "Geen duur opgegeven"
 
-#: src/Arrangement.php:314
+#: src/Arrangement.php:319
 msgid "No location specified"
 msgstr "Geen locatie opgegeven"
 
@@ -576,7 +583,7 @@ msgstr "(verplicht)"
 msgid "Clear choice"
 msgstr "Keuze wissen"
 
-#: src/Http.php:24
+#: src/Http.php:20
 #, php-format
 msgid ""
 "Error: could not retrieve data from Recras. The error message received was: "
@@ -584,7 +591,7 @@ msgid ""
 msgstr ""
 "Fout: kon data niet ophalen uit Recras. De ontvangen foutmelding was: %s"
 
-#: src/Http.php:29
+#: src/Http.php:25
 #, php-format
 msgid "Error: could not parse data from Recras. The error message was: %s"
 msgstr "Fout: kon data uit Recras niet verwerken. De foutmelding was: %s"
@@ -601,32 +608,32 @@ msgstr "Fout: \"prefill_date\" is een datum in het verleden"
 msgid "Error: \"prefill_time\" is not a valid time string (e.g. 14:30)"
 msgstr "Fout: \"prefill_time\" is geen geldige tijd-string (bijv. 14:30)"
 
-#: src/OnlineBooking.php:81
+#: src/OnlineBooking.php:82
 msgid "Error: \"product_amounts\" is invalid"
 msgstr "Fout: \"product_amounts\" is ongeldig"
 
-#: src/Plugin.php:83 src/Plugin.php:84
+#: src/Plugin.php:85 src/Plugin.php:86
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/Plugin.php:93 src/Plugin.php:94
+#: src/Plugin.php:95 src/Plugin.php:96
 msgid "Cache"
 msgstr "Cache"
 
-#: src/Plugin.php:101 src/Plugin.php:102 src/Settings.php:325
+#: src/Plugin.php:103 src/Plugin.php:104 src/Settings.php:325
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: src/Plugin.php:109 src/Plugin.php:110 src/admin/shortcodes.php:1
+#: src/Plugin.php:111 src/Plugin.php:112 src/admin/shortcodes.php:1
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: src/Plugin.php:164
+#: src/Plugin.php:166
 msgid "Error: you have not set your Recras name yet"
 msgstr "Fout: je hebt je Recras-naam nog niet ingesteld"
 
-#: src/Plugin.php:166
+#: src/Plugin.php:168
 msgid ""
 "Error: your Recras name has not been set yet, but you do not have the "
 "permission to set this. Please ask your site administrator to do this for "
@@ -635,139 +642,139 @@ msgstr ""
 "Fout: je Recras-naam is nog niet ingesteld, maar je hebt niet de rechten om "
 "dit zelf in te stellen. Vraag aan je websitebeheerder om dit voor je te doen."
 
-#: src/Plugin.php:184
+#: src/Plugin.php:186
 msgid "Could not connect to your Recras"
 msgstr "Kon geen verbinding maken met je Recras"
 
-#: src/Plugin.php:188
+#: src/Plugin.php:190
 msgid "Package availability"
 msgstr "Arrangement-beschikbaarheid"
 
-#: src/Plugin.php:224
+#: src/Plugin.php:221
 msgid "At least one choice is required"
 msgstr "Ten minste één keuze is vereist"
 
-#: src/Plugin.php:225
+#: src/Plugin.php:222
 msgid "Loading..."
 msgstr "Laden..."
 
-#: src/Plugin.php:226
+#: src/Plugin.php:223
 msgid "Your message was sent successfully"
 msgstr "Uw bericht is succesvol verzonden"
 
-#: src/Plugin.php:227
+#: src/Plugin.php:224
 msgid "There was an error sending your message"
 msgstr "Er was een probleem met het verzenden van uw bericht"
 
-#: src/Plugin.php:236
+#: src/Plugin.php:233
 msgid "Previous month"
 msgstr "Vorige maand"
 
-#: src/Plugin.php:237
+#: src/Plugin.php:234
 msgid "Next month"
 msgstr "Volgende maand"
 
-#: src/Plugin.php:239
+#: src/Plugin.php:236
 msgid "January"
 msgstr "Januari"
 
-#: src/Plugin.php:240
+#: src/Plugin.php:237
 msgid "February"
 msgstr "Februari"
 
-#: src/Plugin.php:241
+#: src/Plugin.php:238
 msgid "March"
 msgstr "Maart"
 
-#: src/Plugin.php:242
+#: src/Plugin.php:239
 msgid "April"
 msgstr "April"
 
-#: src/Plugin.php:243
+#: src/Plugin.php:240
 msgid "May"
 msgstr "Mei"
 
-#: src/Plugin.php:244
+#: src/Plugin.php:241
 msgid "June"
 msgstr "Juni"
 
-#: src/Plugin.php:245
+#: src/Plugin.php:242
 msgid "July"
 msgstr "Juli"
 
-#: src/Plugin.php:246
+#: src/Plugin.php:243
 msgid "August"
 msgstr "Augustus"
 
-#: src/Plugin.php:247
+#: src/Plugin.php:244
 msgid "September"
 msgstr "September"
 
-#: src/Plugin.php:248
+#: src/Plugin.php:245
 msgid "October"
 msgstr "Oktober"
 
-#: src/Plugin.php:249
+#: src/Plugin.php:246
 msgid "November"
 msgstr "November"
 
-#: src/Plugin.php:250
+#: src/Plugin.php:247
 msgid "December"
 msgstr "December"
 
-#: src/Plugin.php:253
+#: src/Plugin.php:250
 msgid "Sunday"
 msgstr "Zondag"
 
-#: src/Plugin.php:254
+#: src/Plugin.php:251
 msgid "Monday"
 msgstr "Maandag"
 
-#: src/Plugin.php:255
+#: src/Plugin.php:252
 msgid "Tuesday"
 msgstr "Dinsdag"
 
-#: src/Plugin.php:256
+#: src/Plugin.php:253
 msgid "Wednesday"
 msgstr "Woensdag"
 
-#: src/Plugin.php:257
+#: src/Plugin.php:254
 msgid "Thursday"
 msgstr "Donderdag"
 
-#: src/Plugin.php:258
+#: src/Plugin.php:255
 msgid "Friday"
 msgstr "Vrijdag"
 
-#: src/Plugin.php:259
+#: src/Plugin.php:256
 msgid "Saturday"
 msgstr "Zaterdag"
 
-#: src/Plugin.php:262
+#: src/Plugin.php:259
 msgid "Sun"
 msgstr "Zo"
 
-#: src/Plugin.php:263
+#: src/Plugin.php:260
 msgid "Mon"
 msgstr "Ma"
 
-#: src/Plugin.php:264
+#: src/Plugin.php:261
 msgid "Tue"
 msgstr "Di"
 
-#: src/Plugin.php:265
+#: src/Plugin.php:262
 msgid "Wed"
 msgstr "Wo"
 
-#: src/Plugin.php:266
+#: src/Plugin.php:263
 msgid "Thu"
 msgstr "Do"
 
-#: src/Plugin.php:267
+#: src/Plugin.php:264
 msgid "Fri"
 msgstr "Vr"
 
-#: src/Plugin.php:268
+#: src/Plugin.php:265
 msgid "Sat"
 msgstr "Za"
 
