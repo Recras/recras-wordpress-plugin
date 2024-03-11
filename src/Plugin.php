@@ -269,7 +269,8 @@ class Plugin
 
         // Fix BP date picker for sites that set HTML { font-size: 10px }
         if (get_option('recras_fix_react_datepicker')) {
-            wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '6.1.0');
+            // This version number is the react-datepicker version
+            wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '6.2.0');
         }
 
         // Book process script must be loaded as module

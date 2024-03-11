@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.5
-Stable tag: 6.0.6
+Stable tag: 6.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,15 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.1.0 =
+* Update "Fix book process datepicker styling" styles to latest version
+* Give error when trying to show information of a package that does not exist or may not be presented on a website
+* Minor admin CSS update
+* Removed script for very old browsers
+* Updated "Tested up to" version to 6.5
+* Plugin now requires PHP 7.3 or higher
+* Plugin now requires WP 6.3 or higher
 
 = 6.0.6 =
 * Fix "Failed to initialize plugin" error in Elementor
