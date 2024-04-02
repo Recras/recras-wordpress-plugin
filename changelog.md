@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Fix issue with "Fix datepicker" styling
+* Include styling fix for checkboxes/radio buttons in contact forms
 
 ## 6.1.0 (2024-03-11)
 * Update "Fix book process datepicker styling" styles to latest version

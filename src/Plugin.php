@@ -297,7 +297,7 @@ class Plugin
                     'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_styling.css'
                 );
 
-                wp_enqueue_style('recras_theme_base', $this->baseUrl . '/css/themes/base.css', [], '6.0.4');
+                wp_enqueue_style('recras_theme_base', $this->baseUrl . '/css/themes/base.css', [], '6.1.1');
                 wp_enqueue_style('recras_theme_' . $theme, $this->baseUrl . '/css/themes/' . $theme . '.css', [], $allowedThemes[$theme]['version']);
             }
         }

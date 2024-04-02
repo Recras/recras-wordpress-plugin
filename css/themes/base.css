@@ -82,3 +82,6 @@ input[type].recras-input-invalid {
 .recras-contact td {
     vertical-align: top;
 }
+.recras-contact :is(input[type="checkbox"], input[type="radio"]) {
+    margin-right: 0.5em;
+}
