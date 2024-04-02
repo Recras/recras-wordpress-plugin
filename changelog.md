@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 6.1.1 (2024-04-02)
 * Fix issue with "Fix datepicker" styling
 * Include styling fix for checkboxes/radio buttons in contact forms
 
