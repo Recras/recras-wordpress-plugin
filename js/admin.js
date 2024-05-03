@@ -24,7 +24,7 @@ function getContactFormArrangements(formID, subdomain)
     }
 
     let lastResponse;
-    fetch(`https://${subdomain}.recras.nl/api2.php/contactformulieren/${formID}/arrangementen`)
+    fetch(`https://${subdomain}.recras.nl/api2/contactformulieren/${formID}/arrangementen`)
         .then(res => {
             lastResponse = res;
             return res.json();

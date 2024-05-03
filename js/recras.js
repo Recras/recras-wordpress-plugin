@@ -53,7 +53,7 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
 
     var realFormID = formEl.getAttribute('data-formid'); // IE < 11 compatibility
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://' + subdomain + '.recras.nl/api2.php/contactformulieren/' + realFormID + '/opslaan');
+    xhr.open('POST', 'https://' + subdomain + '.recras.nl/api2/contactformulieren/' + realFormID + '/opslaan');
     xhr.send(JSON.stringify(elements));
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4) {
