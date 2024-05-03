@@ -1,7 +1,7 @@
 function removeElsWithClass(className)
 {
-    var els = document.querySelectorAll('.' + className);
-    for (var i = 0; i < els.length; i++) {
+    const els = document.querySelectorAll('.' + className);
+    for (let i = 0; i < els.length; i++) {
         els[i].parentNode.removeChild(els[i]);
     }
 }
@@ -10,10 +10,10 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
 {
     removeElsWithClass('recras-error');
 
-    var formEl = document.getElementById('recras-form' + formID);
-    var formElements = formEl.querySelectorAll('input, textarea, select');
-    var elements = {};
-    for (var i = 0; i < formElements.length; i++) {
+    const formEl = document.getElementById('recras-form' + formID);
+    const formElements = formEl.querySelectorAll('input, textarea, select');
+    let elements = {};
+    for (let i = 0; i < formElements.length; i++) {
         if (formElements[i].type === 'submit') {
             continue;
         }
@@ -21,13 +21,13 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
             formElements[i].value = null;
         }
         if (formElements[i].type === 'radio') {
-            var selected = document.querySelector('input[name="' + formElements[i].name + '"]:checked');
+            const selected = document.querySelector('input[name="' + formElements[i].name + '"]:checked');
             elements[formElements[i].name] = selected.value;
         } else if (formElements[i].type === 'checkbox') {
             elements[formElements[i].name] = [];
-            var checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
+            const checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
             if (checked.length === 0) {
-                var isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
+                const isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
                 if (isRequired) {
                     formEl
                         .querySelector('[name="' + formElements[i].name + '"]')
@@ -36,7 +36,7 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
                     return false;
                 }
             }
-            for (var j = 0; j < checked.length; j++) {
+            for (let j = 0; j < checked.length; j++) {
                 elements[formElements[i].name].push(checked[j].value);
             }
         } else {
@@ -47,19 +47,18 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
         delete elements['boeking.arrangement'];
     }
 
-    var submitEl = formEl.querySelector('[type="submit"]');
+    let submitEl = formEl.querySelector('[type="submit"]');
     submitEl.parentNode.insertAdjacentHTML('beforeend', '<img src="' + basePath + 'editor/loading.gif" alt="' + recras_l10n.loading + '" class="recras-loading">');
     submitEl.disabled = true;
 
-    var realFormID = formEl.getAttribute('data-formid'); // IE < 11 compatibility
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://' + subdomain + '.recras.nl/api2/contactformulieren/' + realFormID + '/opslaan');
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://' + subdomain + '.recras.nl/api2/contactformulieren/' + formEl.dataset.formid + '/opslaan');
     xhr.send(JSON.stringify(elements));
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4) {
             removeElsWithClass('recras-loading');
             submitEl.disabled = false;
-            var response = JSON.parse(xhr.response);
+            const response = JSON.parse(xhr.response);
             if (response.success) {
                 if (redirect) {
                     window.location = redirect;
@@ -68,8 +67,8 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
                     formEl.querySelector('[type="submit"]').parentNode.insertAdjacentHTML('beforeend', '<p class="recras-success">' + recras_l10n.sent_success + '</p>');
                 }
             } else if (response.error) {
-                var errors = response.error.messages;
-                for (var key in errors) {
+                const errors = response.error.messages;
+                for (let key in errors) {
                     if (errors.hasOwnProperty(key)) {
                         formEl.querySelector('[name="' + key + '"]').parentNode.insertAdjacentHTML('beforeend', '<span class="recras-error">' + errors[key] + '</span>');
                     }
@@ -83,15 +82,15 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
     return false;
 }
 
-var dateToString = function(date) {
-    var x = new Date(date.getTime() - (date.getTimezoneOffset() * 60 * 1000)); // Fix off-by-1 errors
-    return x.toISOString().substr(0, 10); // Format as 2018-03-13
+const dateToString = function(date) {
+    const x = new Date(date.getTime() - (date.getTimezoneOffset() * 60 * 1000)); // Fix off-by-1 errors
+    return x.toISOString().substring(0, 10); // Format as 2018-03-13
 };
 
-var initPikaday = function(dateInput) {
+const initPikaday = function(dateInput) {
     dateInput.setAttribute('type', 'text');
 
-    var pikadayOptions = {
+    let pikadayOptions = {
         firstDay: 1, // Monday
         numberOfMonths: 2,
         reposition: false,
@@ -110,8 +109,8 @@ var initPikaday = function(dateInput) {
 
 document.addEventListener('DOMContentLoaded', function(){
     if (typeof Pikaday === 'function') {
-        var dateEls = document.querySelectorAll('.recras-input-date');
-        for (var i = 0; i < dateEls.length; i++) {
+        const dateEls = document.querySelectorAll('.recras-input-date');
+        for (let i = 0; i < dateEls.length; i++) {
             initPikaday(dateEls[i]);
         }
     }

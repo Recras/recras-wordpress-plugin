@@ -92,7 +92,7 @@ class Vouchers
 <div id='" . $generatedDivID . "'></div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var voucherOptions = new RecrasOptions({
+        const voucherOptions = new RecrasOptions({
             recras_hostname: '" . $subdomain . ".recras.nl',
             element: document.getElementById('" . $generatedDivID . "'),
             locale: '" . Settings::externalLocale() . "',

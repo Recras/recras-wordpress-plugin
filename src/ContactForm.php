@@ -449,11 +449,11 @@ class ContactForm
             "' . $options['redirect']. '"
         );
     });
-    var clearRadioEls = document.querySelectorAll(".clearRadioChoice");
+    const clearRadioEls = document.querySelectorAll(".clearRadioChoice");
     if (clearRadioEls.length) {
-        for (var i = 0; i < clearRadioEls.length; i++) {
+        for (let i = 0; i < clearRadioEls.length; i++) {
             clearRadioEls[i].addEventListener("click", function() {
-                var radioElChecked = this.parentNode.querySelector("input[type=\'radio\']:checked");
+                const radioElChecked = this.parentNode.querySelector("input[type=\'radio\']:checked");
                 if (radioElChecked) {
                     radioElChecked.checked = false;
                 }

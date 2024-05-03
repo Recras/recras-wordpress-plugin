@@ -42,7 +42,7 @@ class Availability
             $html .= <<<SCRIPT
 <script>
     window.addEventListener('message', function(e) {
-        var origin = e.origin || e.originalEvent.origin;
+        const origin = e.origin || e.originalEvent.origin;
         if (origin.match(/{$subdomain}\.recras\.nl/)) {
             document.getElementById('{$iframeUID}').style.height = e.data.iframeHeight + 'px';
         }

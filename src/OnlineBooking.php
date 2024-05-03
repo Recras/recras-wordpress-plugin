@@ -127,7 +127,7 @@ class OnlineBooking
 <div id='" . $generatedDivID . "'></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var bookingOptions = new RecrasOptions({
+    const bookingOptions = new RecrasOptions({
         recras_hostname: '" . $subdomain . ".recras.nl',
         element: document.getElementById('" . $generatedDivID . "'),
         locale: '" . Settings::externalLocale() . "',
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             $html .= <<<SCRIPT
 <script>
     window.addEventListener('message', function(e) {
-        var origin = e.origin || e.originalEvent.origin;
+        const origin = e.origin || e.originalEvent.origin;
         if (origin.match(/{$subdomain}\.recras\.nl/)) {
             document.getElementById('{$iframeUID}').style.height = e.data.iframeHeight + 'px';
         }
