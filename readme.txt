@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.5
-Stable tag: 6.1.1
+Stable tag: 6.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.1.2 =
+* **No functional changes compared to 6.1.1**
+* Small technical updates
 
 = 6.1.1 =
 * Fix issue with "Fix datepicker" styling
