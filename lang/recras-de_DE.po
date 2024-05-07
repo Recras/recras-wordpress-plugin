@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2024-03-06 14:47+0100\n"
-"PO-Revision-Date: 2024-03-06 14:47+0100\n"
+"POT-Creation-Date: 2024-05-07 16:55+0200\n"
+"PO-Revision-Date: 2024-05-07 16:55+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: de_DE\n"
@@ -98,7 +98,7 @@ msgid "Start time"
 msgstr ""
 
 #: editor/form-arrangement.php:44 editor/form-booking.php:82
-#: js/gutenberg-package.js:127 src/ContactForm.php:285
+#: js/gutenberg-package.js:127 src/ContactForm.php:291
 msgid "hh:mm"
 msgstr "UU:MM"
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Pre-fill date (requires exactly 1 package selected)"
 msgstr ""
 
-#: editor/form-booking.php:73 src/ContactForm.php:268 src/ContactForm.php:310
+#: editor/form-booking.php:73 src/ContactForm.php:274 src/ContactForm.php:316
 msgid "yyyy-mm-dd"
 msgstr "JJJJ-MM-TT"
 
@@ -532,23 +532,27 @@ msgstr ""
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 
-#: src/ContactForm.php:376
+#: src/ContactForm.php:126 src/OnlineBooking.php:63 src/Vouchers.php:83
+msgid "Error: redirect is set, but is an invalid URL"
+msgstr ""
+
+#: src/ContactForm.php:382
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/ContactForm.php:377
+#: src/ContactForm.php:383
 msgid "Male"
 msgstr "Mann"
 
-#: src/ContactForm.php:378
+#: src/ContactForm.php:384
 msgid "Female"
 msgstr "Frau"
 
-#: src/ContactForm.php:514
+#: src/ContactForm.php:520
 msgid "(required)"
 msgstr "(erforderlich)"
 
-#: src/ContactForm.php:539
+#: src/ContactForm.php:545
 msgid "Clear choice"
 msgstr "Wahl löschen"
 
@@ -576,7 +580,7 @@ msgstr ""
 msgid "Error: \"prefill_time\" is not a valid time string (e.g. 14:30)"
 msgstr ""
 
-#: src/OnlineBooking.php:82
+#: src/OnlineBooking.php:88
 msgid "Error: \"product_amounts\" is invalid"
 msgstr ""
 

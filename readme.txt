@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Show error if redirect is set but invalid
+
 = 6.1.2 =
 * **No functional changes compared to 6.1.1**
 * Small technical updates

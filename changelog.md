@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased (2024-05-xx)
+* Show error if redirect is set but invalid
+
 ## 6.1.2 (2024-05-06)
 * **No functional changes compared to 6.1.1**
 * Small technical updates

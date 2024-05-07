@@ -120,7 +120,13 @@ class ContactForm
             $submitText = $attributes['submittext'];
         }
 
-        $redirect = isset($attributes['redirect']) ? $attributes['redirect'] : false;
+        $redirect = false;
+        if (isset($attributes['redirect'])) {
+            if (!filter_var($attributes['redirect'], FILTER_VALIDATE_URL)) {
+                return __('Error: redirect is set, but is an invalid URL', Plugin::TEXT_DOMAIN);
+            }
+            $redirect = $attributes['redirect'];
+        }
 
         $options = [
             'arrangement' => $arrangementID,

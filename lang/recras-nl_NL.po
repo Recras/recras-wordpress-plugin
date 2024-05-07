@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2024-03-06 14:47+0100\n"
-"PO-Revision-Date: 2024-03-06 14:48+0100\n"
+"POT-Creation-Date: 2024-05-07 16:55+0200\n"
+"PO-Revision-Date: 2024-05-07 16:55+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -98,7 +98,7 @@ msgid "Start time"
 msgstr "Starttijd"
 
 #: editor/form-arrangement.php:44 editor/form-booking.php:82
-#: js/gutenberg-package.js:127 src/ContactForm.php:285
+#: js/gutenberg-package.js:127 src/ContactForm.php:291
 msgid "hh:mm"
 msgstr "uu:mm"
 
@@ -180,7 +180,7 @@ msgstr "Sorry, dit is alleen beschikbaar in de Gutenberg-editor."
 msgid "Pre-fill date (requires exactly 1 package selected)"
 msgstr "Datum vooraf invullen (vereist exact 1 geselecteerd arrangement)"
 
-#: editor/form-booking.php:73 src/ContactForm.php:268 src/ContactForm.php:310
+#: editor/form-booking.php:73 src/ContactForm.php:274 src/ContactForm.php:316
 msgid "yyyy-mm-dd"
 msgstr "jjjj-mm-dd"
 
@@ -563,23 +563,27 @@ msgstr ""
 "Fout: arrangement is ingesteld, maar contactformulier ondersteunt geen "
 "arrangementen"
 
-#: src/ContactForm.php:376
+#: src/ContactForm.php:126 src/OnlineBooking.php:63 src/Vouchers.php:83
+msgid "Error: redirect is set, but is an invalid URL"
+msgstr "Fout: doorstuurpagina is ingesteld, maar is een ongeldige URL"
+
+#: src/ContactForm.php:382
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: src/ContactForm.php:377
+#: src/ContactForm.php:383
 msgid "Male"
 msgstr "Man"
 
-#: src/ContactForm.php:378
+#: src/ContactForm.php:384
 msgid "Female"
 msgstr "Vrouw"
 
-#: src/ContactForm.php:514
+#: src/ContactForm.php:520
 msgid "(required)"
 msgstr "(verplicht)"
 
-#: src/ContactForm.php:539
+#: src/ContactForm.php:545
 msgid "Clear choice"
 msgstr "Keuze wissen"
 
@@ -608,7 +612,7 @@ msgstr "Fout: \"prefill_date\" is een datum in het verleden"
 msgid "Error: \"prefill_time\" is not a valid time string (e.g. 14:30)"
 msgstr "Fout: \"prefill_time\" is geen geldige tijd-string (bijv. 14:30)"
 
-#: src/OnlineBooking.php:82
+#: src/OnlineBooking.php:88
 msgid "Error: \"product_amounts\" is invalid"
 msgstr "Fout: \"product_amounts\" is ongeldig"
 

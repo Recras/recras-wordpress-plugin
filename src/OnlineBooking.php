@@ -54,10 +54,16 @@ class OnlineBooking
         $libraryOptions = [
             'previewTimes' => isset($attributes['show_times']) ? (!!$attributes['show_times']) : false,
             'showDiscount' => isset($attributes['showdiscount']) ? (!!$attributes['showdiscount']) : true,
-            'redirect' => isset($attributes['redirect']) ? $attributes['redirect'] : null,
             'prefillDate' => isset($attributes['prefill_date']) ? $attributes['prefill_date'] : null,
             'prefillTime' => isset($attributes['prefill_time']) ? $attributes['prefill_time'] : null,
         ];
+
+        if (isset($attributes['redirect'])) {
+            if (!filter_var($attributes['redirect'], FILTER_VALIDATE_URL)) {
+                return __('Error: redirect is set, but is an invalid URL', Plugin::TEXT_DOMAIN);
+            }
+            $libraryOptions['redirect'] = $attributes['redirect'];
+        }
 
         if ((int) $arrangementID === 0 && isset($attributes['package_list'])) {
             if (is_string($attributes['package_list'])) {
