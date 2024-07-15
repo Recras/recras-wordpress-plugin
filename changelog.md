@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 6.1.4 (2024-07-15)
 * Fix duration of multi-day package
+* Updated "Tested up to" version to 6.6
 
 ## 6.1.3 (2024-05-27)
 * Show error if redirect is set but invalid
