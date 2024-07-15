@@ -260,21 +260,26 @@ class Arrangement
     }
 
 
-    /**
-     * Get duration of a package
-     */
-    private static function getDuration(\stdClass $json): string
+    private static function getFilteredLines(\stdClass $json): array
     {
         if (!is_array($json->regels)) {
             $json->regels = (array) $json->regels;
         }
 
-        $lines = array_filter($json->regels, function ($line) {
+        return array_filter($json->regels, function ($line) {
             return $line->begin && $line->beschrijving_templated;
         });
+    }
 
-        if (empty($lines)) {
-            return '';
+
+    /**
+     * Get duration of a package
+     */
+    private static function getDuration(\stdClass $json): string
+    {
+        $lines = self::getFilteredLines($json);
+        if (count($lines) === 0) {
+            return __('No duration specified', Plugin::TEXT_DOMAIN);
         }
 
         $firstLine = min(array_map(function ($line) {
@@ -286,7 +291,6 @@ class Arrangement
 
         $duration = (new \DateTime($firstLine))->diff(new \DateTime($lastLine));
 
-        $html = '<span class="recras-duration">';
         $durations = [];
         if ($duration->d) {
             $durations[] = $duration->d;
@@ -299,11 +303,9 @@ class Arrangement
         } else {
             $durations[] = '00';
         }
-        if (empty($durations)) {
-            $html .= __('No duration specified', Plugin::TEXT_DOMAIN);
-        } else {
-            $html .= implode(':', $durations);
-        }
+
+        $html = '<span class="recras-duration">';
+        $html .= implode(':', $durations);
         $html .= '</span>';
 
         return $html;
