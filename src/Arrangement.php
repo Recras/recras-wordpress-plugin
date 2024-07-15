@@ -72,19 +72,15 @@ class Arrangement
                 return Price::format($json->prijs_totaal_inc);
             case 'program':
             case 'programme':
-                if (!isset($json->programma)) {
-                    return __('Error: programme is empty', Plugin::TEXT_DOMAIN);
-                }
-                if (!is_array($json->programma)) {
-                    $json->programma = (array) $json->programma;
-                }
-                if (empty($json->programma)) {
+                $lines = self::getFilteredLines($json);
+
+                if (count($lines) === 0) {
                     return __('Error: programme is empty', Plugin::TEXT_DOMAIN);
                 }
 
                 $startTime = (isset($attributes['starttime']) ? $attributes['starttime'] : '00:00');
                 $showHeader = !isset($attributes['showheader']) || Settings::parseBoolean($attributes['showheader']);
-                return self::generateProgramme($json->programma, $startTime, $showHeader);
+                return self::generateProgramme($lines, $startTime, $showHeader);
             case 'title':
                 return '<span class="recras-title">' . self::displayname($json) . '</span>';
             default:
@@ -124,24 +120,51 @@ class Arrangement
         return $json->arrangement;
     }
 
-    private static function latestTime(array $programme): string
+
+    private static function formatInterval(\DateInterval $interval): string
     {
-        $last = ''; // begin and end are YYYY-MM-DD H:i:s strings, so we can safely compare them
-        foreach ($programme as $activity) {
-            if ($activity->begin) {
-                $last = ($activity->begin > $last) ? $activity->begin : $last;
-            }
-            if ($activity->eind) {
-                $last = ($activity->eind > $last) ? $activity->eind : $last;
-            }
+        $isoString = 'P';
+
+        if ($interval->days) {
+            $isoString .= $interval->format('%aD');
+        } elseif ($interval->y || $interval->m || $interval->d) {
+            $isoString .= $interval->format('%yY%mM%dD');
         }
-        return $last;
+
+        $isoString .= $interval->format('T%hH%iM%sS');
+
+        return $isoString;
     }
+
+
+    private static function linesToProgramme(array $lines, \DateTime $pckBegin): array
+    {
+        return array_values(array_map(function (\stdClass $line) use ($pckBegin) {
+            $begin = new \DateTime($line->begin);
+
+            if ($line->eind) {
+                $eind = new \DateTime($line->eind);
+                $endFormatted = self::formatInterval($pckBegin->diff($eind));
+                $duration = self::formatInterval($begin->diff($eind));
+            } else {
+                $endFormatted = null;
+                $duration = null;
+            }
+
+            return (object) [
+                'begin' => self::formatInterval($pckBegin->diff($begin)),
+                'description' => $line->beschrijving_templated,
+                'duration' => $duration,
+                'end' => $endFormatted,
+            ];
+        }, $lines));
+    }
+
 
     /**
      * Generate the programme for a package
      */
-    public static function generateProgramme(array $programme, string $startTime = '00:00', bool $showHeader = true): string
+    public static function generateProgramme(array $lines, string $startTime = '00:00', bool $showHeader = true): string
     {
         $html = '<table class="recras-programme">';
 
@@ -151,45 +174,45 @@ class Arrangement
             $html .= '</thead>';
         }
 
-        $first = reset($programme);
-        $last = self::latestTime($programme);
+        // Lines is already sorted from the API, so the first element is guaranteed the first to start
+        $first = reset($lines);
 
-        // Calculate how many days this programme spans - begin and eind are ISO8601 periods/intervals
-        $startDatetime = new \DateTime($startTime);
-        $startDatetime->add(new \DateInterval($first->begin));
+        // Convert lines to duration lines
+        $programme = self::linesToProgramme($lines, new \DateTime($first->begin));
 
-        $isMultiDay = false;
-        if ($last) {
-            $endDatetime = new \DateTime($startTime);
-            $endDatetime->add(new \DateInterval($last));
-            $isMultiDay = ($endDatetime->format('Ymd') > $startDatetime->format('Ymd'));
-        }
+        $firstInProgramme = reset($programme);
+        $startDatetime = new \DateTimeImmutable($startTime);
+        $startDatetime = $startDatetime->add(new \DateInterval($firstInProgramme->duration));
+
+        // Whether a package is multi-day can depend on the start time (i.e. a 4-hour package starting at 22:00)
+        $progEnd = end($programme);
+        $endDatetime = new \DateTime($startTime);
+        $endDatetime->add(new \DateInterval($progEnd->begin));
+        $endDatetime->add(new \DateInterval($progEnd->duration));
+        $isMultiDay = ($endDatetime->format('Ymd') > $startDatetime->format('Ymd'));
 
         $html .= '<tbody>';
         $lastDate = null;
         $day = 0;
 
         foreach ($programme as $activity) {
-            if (!$activity->omschrijving) {
-                continue;
-            }
             $startDate = new \DateTime($startTime);
             $endDate = new \DateTime($startTime);
             $timeBegin = new \DateInterval($activity->begin);
             $lineDate = $startDate->add($timeBegin);
             $startFormatted = $lineDate->format('H:i');
-            if ($isMultiDay && (is_null($lastDate) || $lineDate > $lastDate)) {
+            if ($isMultiDay && (is_null($lastDate) || $lineDate->format('Ymd') > $lastDate->format('Ymd'))) {
                 ++$day;
                 $html .= '<tr class="recras-new-day"><th colspan="3">' . sprintf(__('Day %d', Plugin::TEXT_DOMAIN), $day);
             }
 
             $html .= '<tr><td>' . $startFormatted;
             $html .= '<td>';
-            if ($activity->eind) {
-                $timeEnd = new \DateInterval($activity->eind);
+            if ($activity->end) {
+                $timeEnd = new \DateInterval($activity->end);
                 $html .= $endDate->add($timeEnd)->format('H:i');
             }
-            $html .= '<td>' . $activity->omschrijving;
+            $html .= '<td>' . $activity->description;
             $lastDate = $lineDate;
         }
         $html .= '</tbody>';
