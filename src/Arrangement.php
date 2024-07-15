@@ -265,26 +265,28 @@ class Arrangement
      */
     private static function getDuration(\stdClass $json): string
     {
-        if (!is_array($json->programma)) {
-            $json->programma = (array) $json->programma;
+        if (!is_array($json->regels)) {
+            $json->regels = (array) $json->regels;
         }
 
-        $first = reset($json->programma);
-        $last = self::latestTime($json->programma);
+        $lines = array_filter($json->regels, function ($line) {
+            return $line->begin && $line->beschrijving_templated;
+        });
 
-        $startTime = new \DateTime('00:00');
-        $startTime->add(new \DateInterval($first->begin));
-
-        if ($last) {
-            $endTime = new \DateTime('00:00');
-            $endTime->add(new \DateInterval($first->begin));
-            $endTime->add(new \DateInterval($last));
-        } else {
-            $endTime = $startTime;
+        if (empty($lines)) {
+            return '';
         }
-        $duration = $startTime->diff($endTime);
 
-        $html  = '<span class="recras-duration">';
+        $firstLine = min(array_map(function ($line) {
+            return $line->begin;
+        }, $lines));
+        $lastLine = max(array_map(function ($line) {
+            return $line->eind;
+        }, $lines));
+
+        $duration = (new \DateTime($firstLine))->diff(new \DateTime($lastLine));
+
+        $html = '<span class="recras-duration">';
         $durations = [];
         if ($duration->d) {
             $durations[] = $duration->d;
