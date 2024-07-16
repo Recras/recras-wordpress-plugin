@@ -6,10 +6,13 @@ class Transient
     private const BASE = 'recras_';
 
     /**
-     * Delete a transient. Returns 0 for success, 1 for error for easy error counting
+     * Delete a transient. Returns 0 for success/not existing, 1 for error for easy error counting
      */
     public function delete(string $name): int
     {
+        if (!$this->get($name)) {
+            return 0;
+        }
         return (delete_transient(self::BASE . $name) ? 0 : 1);
     }
 

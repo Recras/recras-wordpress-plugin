@@ -1,18 +1,18 @@
 <?php
     if (isset($_GET['msg'])) {
-        //if ($_GET['msg'] === 'success') {
+        if ($_GET['msg'] === 'success') {
 ?>
 <div class="updated notice">
     <p><?php _e('The cache was cleared.'); ?></p>
 </div>
 <?php
-        /*} elseif ($_GET['msg'] === 'error') {
+        } elseif ($_GET['msg'] === 'error') {
             ?>
 <div class="error notice">
     <p><?php _e('The selected cache could not be cleared. This could be an error, or there could be nothing to clear.'); ?></p>
 </div>
             <?php
-        }*/
+        }
     }
 ?>
 

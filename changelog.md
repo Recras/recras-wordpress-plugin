@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix wrongful error after clearing cache
+
 ## 6.1.5 (2024-07-16)
 * Fix programme of multi-day package
 
