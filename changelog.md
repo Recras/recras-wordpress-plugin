@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.1.5 (2024-07-16)
+* Fix programme of multi-day package
+
 ## 6.1.4 (2024-07-15)
 * Fix duration of multi-day package
 * Updated "Tested up to" version to 6.6
