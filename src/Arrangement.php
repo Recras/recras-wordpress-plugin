@@ -185,7 +185,14 @@ class Arrangement
         $startDatetime = $startDatetime->add(new \DateInterval($firstInProgramme->duration));
 
         // Whether a package is multi-day can depend on the start time (i.e. a 4-hour package starting at 22:00)
-        $progEnd = end($programme);
+        $progEnd = $firstInProgramme;
+        $lastEnd = null;
+        foreach ($programme as $line) {
+            if ($line->end > $lastEnd) {
+                $progEnd = $line;
+            }
+        }
+
         $endDatetime = new \DateTime($startTime);
         $endDatetime->add(new \DateInterval($progEnd->begin));
         $endDatetime->add(new \DateInterval($progEnd->duration));
