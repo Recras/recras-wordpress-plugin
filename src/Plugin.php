@@ -45,6 +45,10 @@ class Plugin
         add_action('rest_api_init', [Gutenberg::class, 'addEndpoints']);
         add_filter('block_categories_all', [Gutenberg::class, 'addCategory']);
 
+        // Elementor
+        add_action('elementor/elements/categories_registered', [Elementor::Class, 'addCategory']);
+        add_action('elementor/widgets/register', [Elementor::Class, 'addWidgets']);
+
         // Load scripts
         add_action('admin_enqueue_scripts', [$this, 'loadAdminScripts']);
         add_action('wp_enqueue_scripts', [$this, 'loadScripts']);
