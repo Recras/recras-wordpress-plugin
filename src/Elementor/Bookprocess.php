@@ -81,7 +81,12 @@ class Bookprocess extends \Elementor\Widget_Base
 
     protected function render(): void
     {
-        echo do_shortcode('[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS . ' id="' . $this->get_settings_for_display('id') . '"]');
+        $shortcode  = '[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS;
+        $shortcode .= ' id="' . $this->get_settings_for_display('id') . '"';
+        $shortcode .= ' initial_widget_value="' . $this->get_settings_for_display('initial_widget_value') . '"';
+        $shortcode .= ' hide_first_widget="' . $this->get_settings_for_display('hide_first_widget') . '"';
+        $shortcode .= ']';
+        echo do_shortcode($shortcode);
     }
 
     protected function content_template()
