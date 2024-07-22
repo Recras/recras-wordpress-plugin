@@ -46,8 +46,35 @@ class Bookprocess extends \Elementor\Widget_Base
                 'default' => count($options) === 1 ? reset($options) : null,
             ]
         );
-        //TODO: prefill first widget
-        //TODO: hide first widget
+
+        $bps = \Recras\Bookprocess::getProcesses(get_option('recras_subdomain'));
+        $bpsWithAcceptedFirstWidget = array_filter($bps, function ($bp) {
+            return in_array($bp->firstWidget, ['package']);
+        });
+
+        $this->add_control(
+            'initial_widget_value',
+            [
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label' => __('Prefill value for first widget? (optional)', Plugin::TEXT_DOMAIN),
+                'condition' => [
+                    'id' => array_map(function ($id) {
+                        return (string) $id;
+                    }, array_keys($bpsWithAcceptedFirstWidget)),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hide_first_widget',
+            [
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label' => __('Hide first widget?', Plugin::TEXT_DOMAIN),
+                'condition' => [
+                    'initial_widget_value!' => '',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
     }
@@ -61,7 +88,7 @@ class Bookprocess extends \Elementor\Widget_Base
     {
         $options = \Recras\Bookprocess::optionsForElementorWidget();
         ?>
-        TODO: Book process #{{ settings.id }} is integrated here
+        Book process #{{ settings.id }} is integrated here
         <?php
     }
 }
