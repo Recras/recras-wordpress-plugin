@@ -79,21 +79,41 @@ class Bookprocess extends \Elementor\Widget_Base
         $this->end_controls_section();
     }
 
-    protected function render(): void
-    {
-        $shortcode  = '[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS;
-        $shortcode .= ' id="' . $this->get_settings_for_display('bp_id') . '"';
-        $shortcode .= ' initial_widget_value="' . $this->get_settings_for_display('initial_widget_value') . '"';
-        $shortcode .= ' hide_first_widget="' . $this->get_settings_for_display('hide_first_widget') . '"';
-        $shortcode .= ']';
-        echo do_shortcode($shortcode);
-    }
-
-    protected function content_template()
+    private function adminRender(array $settings): string
     {
         $options = \Recras\Bookprocess::optionsForElementorWidget();
-        ?>
-        Book process #{{ settings.bp_id }} is integrated here
-        <?php
+        $html = '';
+        $html .= sprintf(
+            __('Book process "%s" is integrated here.', Plugin::TEXT_DOMAIN),
+            $options[$settings['bp_id']]
+        );
+        if ($settings['initial_widget_value']) {
+            $html .= '<br>';
+            $html .= sprintf(
+                __('It has an initial value for the first widget of "%s".', Plugin::TEXT_DOMAIN),
+                $settings['initial_widget_value']
+            );
+        }
+        if ($settings['hide_first_widget']) {
+            $html .= '<br>';
+            $html .= __('The first widget is hidden for the booker.', Plugin::TEXT_DOMAIN);
+        }
+        return $html;
+    }
+
+    protected function render(): void
+    {
+        $settings = $this->get_settings_for_display();
+        if (is_admin()) {
+            echo $this->adminRender($settings);
+            return;
+        }
+
+        $shortcode  = '[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS;
+        $shortcode .= ' id="' . $settings['bp_id'] . '"';
+        $shortcode .= ' initial_widget_value="' . $settings['initial_widget_value'] . '"';
+        $shortcode .= ' hide_first_widget="' . $settings['hide_first_widget'] . '"';
+        $shortcode .= ']';
+        echo do_shortcode($shortcode);
     }
 }
