@@ -38,7 +38,7 @@ class Bookprocess extends \Elementor\Widget_Base
 
         $options = \Recras\Bookprocess::optionsForElementorWidget();
         $this->add_control(
-            'id',
+            'bp_id',
             [
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'label' => __('Book process', Plugin::TEXT_DOMAIN),
@@ -58,7 +58,7 @@ class Bookprocess extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'label' => __('Prefill value for first widget? (optional)', Plugin::TEXT_DOMAIN),
                 'condition' => [
-                    'id' => array_map(function ($id) {
+                    'bp_id' => array_map(function ($id) {
                         return (string) $id;
                     }, array_keys($bpsWithAcceptedFirstWidget)),
                 ],
@@ -82,7 +82,7 @@ class Bookprocess extends \Elementor\Widget_Base
     protected function render(): void
     {
         $shortcode  = '[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS;
-        $shortcode .= ' id="' . $this->get_settings_for_display('id') . '"';
+        $shortcode .= ' id="' . $this->get_settings_for_display('bp_id') . '"';
         $shortcode .= ' initial_widget_value="' . $this->get_settings_for_display('initial_widget_value') . '"';
         $shortcode .= ' hide_first_widget="' . $this->get_settings_for_display('hide_first_widget') . '"';
         $shortcode .= ']';
@@ -93,7 +93,7 @@ class Bookprocess extends \Elementor\Widget_Base
     {
         $options = \Recras\Bookprocess::optionsForElementorWidget();
         ?>
-        Book process #{{ settings.id }} is integrated here
+        Book process #{{ settings.bp_id }} is integrated here
         <?php
     }
 }
