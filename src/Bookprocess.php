@@ -75,7 +75,7 @@ class Bookprocess
             return Plugin::getNoSubdomainError();
         }
 
-        if (!isset($attributes['id'])) {
+        if (empty($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }
 

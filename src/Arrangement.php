@@ -16,7 +16,7 @@ class Arrangement
             $attributes = [];
         }
 
-        if (!isset($attributes['id'])) {
+        if (empty($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
         }
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
