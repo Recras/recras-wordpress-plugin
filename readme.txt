@@ -60,11 +60,8 @@ You can enable basic Google Analytics integration for the booking of packages an
 
 == Frequently Asked Questions ==
 
-= Do you support Gutenberg? =
-Yes, since version 2.2.0! Please make sure you use the latest version of the plugin and please report any bugs you encounter.
-
 = Do you support Visual Composer, Elementor, Brizy, etc. ? =
-We do not support page builders and have no plans to do so.
+Integrating a book process is possible through Elementor. If you are creating a website through a different page builder, or want to integrate something else, please let Recras Support known. We might support it in the future.
 
 = Does the plugin support network installations? =
 Yes it does. You can set different Recras names (all settings, for that matter) for each site.
