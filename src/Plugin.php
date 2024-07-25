@@ -11,14 +11,8 @@ class Plugin
     public const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
     public const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
 
-    /** @var string */
-    public $baseUrl;
-
-    /**
-     * @var Transient
-     */
-    public $transients;
-
+    public string $baseUrl;
+    public Transient $transients;
 
     /**
      * Init all the things!
