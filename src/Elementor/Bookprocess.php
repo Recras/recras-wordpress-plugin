@@ -2,6 +2,7 @@
 
 namespace Recras\Elementor;
 
+use Recras\Arrangement;
 use Recras\Plugin;
 
 class Bookprocess extends \Elementor\Widget_Base
@@ -88,15 +89,21 @@ class Bookprocess extends \Elementor\Widget_Base
             $options[$settings['bp_id']]
         );
         if ($settings['initial_widget_value']) {
+            $packages = Arrangement::getPackages(get_option('recras_subdomain'));
             $html .= '<br>';
-            $html .= sprintf(
-                __('It has an initial value for the first widget of "%s".', Plugin::TEXT_DOMAIN),
-                $settings['initial_widget_value']
-            );
-        }
-        if ($settings['hide_first_widget']) {
-            $html .= '<br>';
-            $html .= __('The first widget is hidden for the booker.', Plugin::TEXT_DOMAIN);
+            if ($settings['hide_first_widget']) {
+                $pckId = (int) $settings['initial_widget_value'];
+                $pckName = isset($packages[$pckId]) ? $packages[$pckId]->arrangement : $pckId;
+                $html .= sprintf(
+                    __('The first widget is hidden for the booker, and has an initial value of "%s".', Plugin::TEXT_DOMAIN),
+                    $pckName
+                );
+            } else {
+                $html .= sprintf(
+                    __('It has an initial value for the first widget of "%s".', Plugin::TEXT_DOMAIN),
+                    $settings['initial_widget_value']
+                );
+            }
         }
         return $html;
     }
