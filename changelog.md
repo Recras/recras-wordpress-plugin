@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Improve error message when "id" is set, but empty
+
 ## 6.1.6 (2024-07-18)
 * Fix for multi-day packages where the last line has no end time
 * Fix wrongful error after clearing cache
