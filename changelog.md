@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Improve error message when "id" is set, but empty
+* Plugin now requires PHP 7.4 or higher
 
 ## 6.1.6 (2024-07-18)
 * Fix for multi-day packages where the last line has no end time

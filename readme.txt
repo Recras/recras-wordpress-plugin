@@ -80,6 +80,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Improve error message when "id" is set, but empty
+* Plugin now requires PHP 7.4 or higher
+
 = 6.1.6 =
 * Fix for multi-day packages where the last line has no end time
 * Fix wrongful error after clearing cache
