@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 6.2.0 (2024-07-29)
+* Added a book process widget for Elementor
 * Improve error message when "id" is set, but empty
 * Plugin now requires PHP 7.4 or higher
 

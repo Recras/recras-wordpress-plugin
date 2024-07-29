@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.6
-Stable tag: 6.1.6
+Stable tag: 6.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,7 +77,8 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= Unreleased =
+= 6.2.0 =
+* Added a book process widget for Elementor
 * Improve error message when "id" is set, but empty
 * Plugin now requires PHP 7.4 or higher
 
