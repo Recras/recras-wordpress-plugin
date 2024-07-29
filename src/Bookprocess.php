@@ -59,6 +59,16 @@ class Bookprocess
         return $processes;
     }
 
+    public static function optionsForElementorWidget()
+    {
+        $fmt = [];
+        $processes = self::getProcesses(get_option('recras_subdomain'));
+        foreach ($processes as $id => $process) {
+            $fmt[$id] = $process->name;
+        }
+        return $fmt;
+    }
+
     /**
      * Add the [recras-bookprocess] shortcode
      *
