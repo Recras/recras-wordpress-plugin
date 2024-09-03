@@ -1,5 +1,15 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "groupName": "PHPUnit",
+      "description": "Plugin runs on PHP 7.4, PHPUnit 10 does not",
+      "packageNames": [
+        "phpunit/phpunit"
+      ],
+      "allowedVersions": "<10.0.0"
+    }
   ]
 }
