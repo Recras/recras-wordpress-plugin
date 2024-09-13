@@ -9,7 +9,7 @@ class Elementor
             'recras',
             [
                 'title' => 'Recras',
-                'icon' => 'fa fa-plug', //TODO
+                'icon' => 'fa fa-plug', // Where is this used?
             ]
         );
     }

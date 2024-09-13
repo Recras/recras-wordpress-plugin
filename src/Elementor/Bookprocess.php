@@ -82,6 +82,9 @@ class Bookprocess extends \Elementor\Widget_Base
 
     private function adminRender(array $settings): string
     {
+        if (!$settings['bp_id']){
+            return __('No book process has been chosen yet. Click on this text to select a book process.', Plugin::TEXT_DOMAIN);
+        }
         $options = \Recras\Bookprocess::optionsForElementorWidget();
         $html = '';
         $html .= sprintf(
