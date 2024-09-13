@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.2.1 (2024-09-13)
+* Fix warning with Elementor book process widget
+* Update Dutch translation
+
 ## 6.2.0 (2024-07-29)
 * Added a book process widget for Elementor
 * Improve error message when "id" is set, but empty

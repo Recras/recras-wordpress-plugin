@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.6
-Stable tag: 6.2.0
+Stable tag: 6.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 6.2.1 =
+* Fix warning with Elementor book process widget
+* Update Dutch translation
+
 = 6.2.0 =
 * Added a book process widget for Elementor
 * Improve error message when "id" is set, but empty
@@ -115,27 +119,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Plugin now requires PHP 7.3 or higher
 * Plugin now requires WP 6.3 or higher
 
-= 6.0.6 =
-* Fix "Failed to initialize plugin" error in Elementor
-
-= 6.0.5 =
-* Fixed not being able to add a contact form in classic editor
-
-= 6.0.4 =
-* Remove confusing circle around today's date in a book process
-
-= 6.0.3 =
-* Fix checkbox without explanation when adding book process shortcode
-
-= 6.0.2 =
-* Add a few more German translations
-
-= 6.0.1 =
-* Fix warning when using PHP 8.2+
-
-= 6.0.0 =
-* Removed support for Composer Installers
+= 6.0 (highlights) =
+* Various small fixes
 * Updated "Tested up to" version to 6.4
+* Removed support for Composer Installers
 
 = 5.5 (highlights) =
 * Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
