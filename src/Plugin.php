@@ -7,6 +7,7 @@ class Plugin
     public const TEXT_DOMAIN = 'recras';
 
     public const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
+    public const SHORTCODE_CONTACT_FORM = 'recras-contact';
     public const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
     public const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
     public const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
@@ -131,7 +132,7 @@ class Plugin
         add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
         add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
         add_shortcode($this::SHORTCODE_BOOK_PROCESS, [Bookprocess::class, 'renderBookprocess']);
-        add_shortcode('recras-contact', [ContactForm::class, 'renderContactForm']);
+        add_shortcode($this::SHORTCODE_CONTACT_FORM, [ContactForm::class, 'renderContactForm']);
         add_shortcode('recras-package', [Arrangement::class, 'renderPackage']);
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
         add_shortcode($this::SHORTCODE_VOUCHER_SALES, [Vouchers::class, 'renderVoucherSales']);

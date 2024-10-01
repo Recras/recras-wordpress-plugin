@@ -88,7 +88,7 @@ $forms = $model->getForms($subdomain);
     });
 
     document.getElementById('contact_submit').addEventListener('click', function(){
-        let shortcode = '[recras-contact id="' + document.getElementById('contactform_id').value + '"';
+        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_CONTACT_FORM; ?> id="' + document.getElementById('contactform_id').value + '"';
 
         const options = ['showtitle', 'showlabels', 'showplaceholders'];
         for (let opt of options) {
