@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Update "Fix book process datepicker styling" styles to latest version
+* Updated "Tested up to" version to 6.7
 
 ## 6.2.1 (2024-09-13)
 * Fix warning with Elementor book process widget
