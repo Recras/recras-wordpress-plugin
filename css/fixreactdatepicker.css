@@ -38,7 +38,7 @@
     border-bottom-right-radius: 0.3em;
 }
 .bookprocess .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
-    height: calc(195px + (1.7em / 2));
+    height: calc(195px + 1.7em / 2);
 }
 
 .bookprocess .react-datepicker__week-number {
@@ -67,7 +67,7 @@
     .react-datepicker__month-text,
     .react-datepicker__quarter-text,
     .react-datepicker__year-text
-):hover {
+):not([aria-disabled=true]):hover {
     border-radius: 0.3em;
 }
 .bookprocess :is(
@@ -159,4 +159,9 @@
     margin: 0.4em;
     padding-right: 0.2em;
     padding-left: 0.2em;
+}
+.bookprocess .react-datepicker__calendar-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
 }

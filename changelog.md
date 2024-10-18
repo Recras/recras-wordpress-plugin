@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Update "Fix book process datepicker styling" styles to latest version
+
 ## 6.2.1 (2024-09-13)
 * Fix warning with Elementor book process widget
 * Update Dutch translation
