@@ -270,7 +270,7 @@ class Arrangement
      *
      * @return array|string
      */
-    public function getPackagesForContactForm(string $subdomain, int $contactformID)
+    public function getPackagesForContactForm(string $subdomain, int $contactformID, bool $includeEmpty)
     {
         $form = ContactForm::getForm($subdomain, $contactformID);
         if (is_string($form)) {
@@ -278,9 +278,10 @@ class Arrangement
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
         }
 
-        $packages = [
-            0 => '',
-        ];
+        $packages = [];
+        if ($includeEmpty) {
+            $packages[0] = '';
+        }
 
         foreach ($form->Arrangementen as $pckg) {
             $packages[$pckg->id] = $pckg->arrangement;

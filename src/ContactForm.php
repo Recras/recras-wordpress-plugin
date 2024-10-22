@@ -239,7 +239,7 @@ class ContactForm
                     // So we show only arrangements that are valid for this form.
                     if (empty($arrangementen)) {
                         $classArrangement = new Arrangement();
-                        $arrangementen = $classArrangement->getPackagesForContactForm($options['subdomain'], $formID);
+                        $arrangementen = $classArrangement->getPackagesForContactForm($options['subdomain'], $formID, !$field->verplicht);
                     }
 
                     if (isset($options['arrangement']) && isset($arrangementen[$options['arrangement']]) && $options['arrangement'] !== 0) {
@@ -255,8 +255,7 @@ class ContactForm
                             'element' => $options['singleChoiceElement'],
                             'placeholder' => $options['placeholders'],
                         ];
-                        if (count($arrangementen) === 2 && $field->verplicht) { // 1 real package + 1 empty option
-                            unset($arrangementen[0]);
+                        if (count($arrangementen) === 1 && $field->verplicht) {
                             $selectOptions['selected'] = current(array_keys($arrangementen));
                         }
                         $html .= self::generateSingleChoice($field, $arrangementen, $selectOptions);
