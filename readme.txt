@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.7
-Stable tag: 6.2.1
+Stable tag: 6.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,11 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.2.2 =
+* Update "Fix book process datepicker styling" styles to latest version
+* Updated "Tested up to" version to 6.7
+* If package in a contact form is required, don't add an empty option
 
 = 6.2.1 =
 * Fix warning with Elementor book process widget
