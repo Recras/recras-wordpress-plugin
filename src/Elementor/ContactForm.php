@@ -155,23 +155,13 @@ class ContactForm extends \Elementor\Widget_Base
             $options[$settings['cf_id']]
         );
 
-        /*if ($settings['initial_widget_value']) {
-            $packages = Arrangement::getPackages(get_option('recras_subdomain'));
+        if (isset($settings['redirect'], $settings['redirect']['url']) && !empty($settings['redirect']['url'])) {
             $html .= '<br>';
-            if ($settings['hide_first_widget']) {
-                $pckId = (int) $settings['initial_widget_value'];
-                $pckName = isset($packages[$pckId]) ? $packages[$pckId]->arrangement : $pckId;
-                $html .= sprintf(
-                    __('The first widget is hidden for the booker, and has an initial value of "%s".', Plugin::TEXT_DOMAIN),
-                    $pckName
-                );
-            } else {
-                $html .= sprintf(
-                    __('It has an initial value for the first widget of "%s".', Plugin::TEXT_DOMAIN),
-                    $settings['initial_widget_value']
-                );
-            }
-        }*/
+            $html .= sprintf(
+                __('After submitting, the user will be redirected to "%s".', Plugin::TEXT_DOMAIN),
+                $settings['redirect']['url']
+            );
+        }
         return $html;
     }
 
