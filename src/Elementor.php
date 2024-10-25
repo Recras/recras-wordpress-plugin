@@ -17,5 +17,6 @@ class Elementor
     public static function addWidgets($widgets_manager)
     {
         $widgets_manager->register(new Elementor\Bookprocess());
+        $widgets_manager->register(new Elementor\ContactForm());
     }
 }

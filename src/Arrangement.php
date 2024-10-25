@@ -290,6 +290,21 @@ class Arrangement
         return $packages;
     }
 
+    public static function getPackagesForElementor(): array
+    {
+        $pcks = self::getPackages(get_option('recras_subdomain'), false, false);
+        if (is_string($pcks)) {
+            // Error
+            return [];
+        }
+        $fmt = [];
+        foreach ($pcks as $id => $pckg) {
+            $fmt[$id] = $pckg->arrangement;
+        }
+
+        return $fmt;
+    }
+
 
     private static function getFilteredLines(\stdClass $json): array
     {

@@ -41,6 +41,16 @@ class ContactForm
         return $form;
     }
 
+    public static function optionsForElementorWidget(): array
+    {
+        $fmt = [];
+        $processes = self::getForms(get_option('recras_subdomain'));
+        foreach ($processes as $id => $process) {
+            $fmt[$id] = $process->naam;
+        }
+        return $fmt;
+    }
+
     /**
      * Add the [recras-contact] shortcode
      *
