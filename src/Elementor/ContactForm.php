@@ -143,6 +143,14 @@ class ContactForm extends \Elementor\Widget_Base
         $this->end_controls_section();
     }
 
+    private function isValidRedirect($settings): bool
+    {
+        if (isset($settings['redirect'], $settings['redirect']['url']) && !empty($settings['redirect']['url'])) {
+            return filter_var($settings['redirect']['url'], FILTER_VALIDATE_URL);
+        }
+        return false;
+    }
+
     private function adminRender(array $settings): string
     {
         if (!$settings['cf_id']){
@@ -155,7 +163,7 @@ class ContactForm extends \Elementor\Widget_Base
             $options[$settings['cf_id']]
         );
 
-        if (isset($settings['redirect'], $settings['redirect']['url']) && !empty($settings['redirect']['url'])) {
+        if ($this->isValidRedirect($settings)) {
             $html .= '<br>';
             $html .= sprintf(
                 __('After submitting, the user will be redirected to "%s".', Plugin::TEXT_DOMAIN),
@@ -181,9 +189,12 @@ class ContactForm extends \Elementor\Widget_Base
         }
 
         foreach (['showtitle', 'showlabels', 'showplaceholders'] as $option) {
-            if (isset($settings[$option]) && $settings[$option] === 'no') {
-                $shortcode .= ' ' . $option . '="no"';
+            if (empty($settings[$option])) {
+                $val = 0;
+            } else {
+                $val = ($settings[$option] === 'yes') ? 1 : 0;
             }
+            $shortcode .= ' ' . $option . '="' . $val . '"';
         }
 
         if (isset($settings['package']) && $settings['package'] > 0) {
@@ -204,7 +215,7 @@ class ContactForm extends \Elementor\Widget_Base
             echo'huh';
         }
 
-        if (isset($settings['redirect'])) {
+        if ($this->isValidRedirect($settings)) {
             $shortcode .= ' redirect="' . $settings['redirect']['url'] . '"';
         }
 
