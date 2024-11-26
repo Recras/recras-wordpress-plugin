@@ -60,8 +60,8 @@ You can enable basic Google Analytics integration for the booking of packages an
 
 == Frequently Asked Questions ==
 
-= Do you support Visual Composer, Elementor, Brizy, etc. ? =
-Integrating a book process is possible through Elementor. If you are creating a website through a different page builder, or want to integrate something else, please let Recras Support known. We might support it in the future.
+= Do you support Elementor, WPBakery/Visual Composer, Brizy, etc. ? =
+Integrating a book process is possible through Elementor. There are many different page builders but Elementor is the most used one, so we chose to only build this widget for Elementor. Using shortcodes is still possible in all other builders, of course.
 
 = Does the plugin support network installations? =
 Yes it does. You can set different Recras names (all settings, for that matter) for each site.
