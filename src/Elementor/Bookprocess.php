@@ -86,6 +86,13 @@ class Bookprocess extends \Elementor\Widget_Base
             return __('No book process has been chosen yet. Click on this text to select a book process.', Plugin::TEXT_DOMAIN);
         }
         $options = \Recras\Bookprocess::optionsForElementorWidget();
+
+        if (!array_key_exists($settings['bp_id'], $options)) {
+            return sprintf(
+                __('Book process %s cannot be found. It was either deleted from Recras, or made private.', Plugin::TEXT_DOMAIN),
+                $settings['bp_id']
+            );
+        }
         $html = '';
         $html .= sprintf(
             __('Book process "%s" is integrated here.', Plugin::TEXT_DOMAIN),
