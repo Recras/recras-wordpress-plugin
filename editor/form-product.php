@@ -37,7 +37,7 @@ $products = $model->getProducts($subdomain);
 
 <script>
     document.getElementById('product_submit').addEventListener('click', function(){
-        const shortcode = '[recras-product id="' +
+        const shortcode = '[<?= \Recras\Products::SHORTCODE; ?> id="' +
             document.getElementById('product_id').value + '" show="' +
             document.getElementById('show_what').value + '"]';
 

@@ -3,6 +3,8 @@ namespace Recras;
 
 class Availability
 {
+    public const SHORTCODE = 'recras-availability';
+
     /**
      * Add the [recras-availability] shortcode
      *

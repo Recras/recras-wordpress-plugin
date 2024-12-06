@@ -3,6 +3,7 @@ namespace Recras;
 
 class Bookprocess
 {
+    public const SHORTCODE = 'recras-bookprocess';
     /**
      * Clear book process cache (transients)
      */

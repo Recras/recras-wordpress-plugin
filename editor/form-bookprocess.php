@@ -83,7 +83,7 @@ $processes = $model->getProcesses($subdomain);
     document.getElementById('bp_submit').addEventListener('click', function() {
         const elPackage = document.getElementById('first_widget_value_package');
 
-        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_BOOK_PROCESS; ?> id="' + document.getElementById('bookprocess_id').value + '"';
+        let shortcode = '[<?= \Recras\Bookprocess::SHORTCODE; ?> id="' + document.getElementById('bookprocess_id').value + '"';
 
         let initialValue;
         if (elPackage && elPackage.value) {

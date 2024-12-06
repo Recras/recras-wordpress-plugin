@@ -3,6 +3,8 @@ namespace Recras;
 
 class Vouchers
 {
+    public const SHORTCODE_SALES = 'recras-vouchers';
+    public const SHORTCODE_INFO = 'recras-voucher-info';
     private const SHOW_DEFAULT = 'name';
 
     /**

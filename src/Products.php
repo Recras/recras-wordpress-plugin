@@ -3,6 +3,7 @@ namespace Recras;
 
 class Products
 {
+    public const SHORTCODE = 'recras-product';
     private const SHOW_DEFAULT = 'title';
 
     /**

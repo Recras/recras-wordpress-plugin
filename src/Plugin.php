@@ -6,12 +6,6 @@ class Plugin
     private const LIBRARY_VERSION = '2.0.6';
     public const TEXT_DOMAIN = 'recras';
 
-    public const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
-    public const SHORTCODE_CONTACT_FORM = 'recras-contact';
-    public const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
-    public const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
-    public const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
-
     public string $baseUrl;
     public Transient $transients;
 
@@ -129,14 +123,14 @@ class Plugin
      */
     public function addShortcodes(): void
     {
-        add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
-        add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
-        add_shortcode($this::SHORTCODE_BOOK_PROCESS, [Bookprocess::class, 'renderBookprocess']);
-        add_shortcode($this::SHORTCODE_CONTACT_FORM, [ContactForm::class, 'renderContactForm']);
-        add_shortcode('recras-package', [Arrangement::class, 'renderPackage']);
-        add_shortcode('recras-product', [Products::class, 'renderProduct']);
-        add_shortcode($this::SHORTCODE_VOUCHER_SALES, [Vouchers::class, 'renderVoucherSales']);
-        add_shortcode($this::SHORTCODE_VOUCHER_INFO, [Vouchers::class, 'renderVoucherInfo']);
+        add_shortcode(Availability::SHORTCODE, [Availability::class, 'renderAvailability']);
+        add_shortcode(OnlineBooking::SHORTCODE, [OnlineBooking::class, 'renderOnlineBooking']);
+        add_shortcode(Bookprocess::SHORTCODE, [Bookprocess::class, 'renderBookprocess']);
+        add_shortcode(ContactForm::SHORTCODE, [ContactForm::class, 'renderContactForm']);
+        add_shortcode(Arrangement::SHORTCODE, [Arrangement::class, 'renderPackage']);
+        add_shortcode(Products::SHORTCODE, [Products::class, 'renderProduct']);
+        add_shortcode(Vouchers::SHORTCODE_SALES, [Vouchers::class, 'renderVoucherSales']);
+        add_shortcode(Vouchers::SHORTCODE_INFO, [Vouchers::class, 'renderVoucherInfo']);
     }
 
 

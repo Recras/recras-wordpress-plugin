@@ -55,7 +55,7 @@ $arrangements = $model->getPackages($subdomain);
     });
 
     document.getElementById('arrangement_submit').addEventListener('click', function(){
-        let shortcode = '[recras-package id="' + document.getElementById('arrangement_id').value + '" show="' + document.getElementById('show_what').value + '"';
+        let shortcode = '[<?= \Recras\Arrangement::SHORTCODE; ?> id="' + document.getElementById('arrangement_id').value + '" show="' + document.getElementById('show_what').value + '"';
         if (document.getElementById('show_what').value === 'programme') {
             if (document.getElementById('starttime').value !== '00:00') {
                 shortcode += ' starttime="' + document.getElementById('starttime').value + '"';

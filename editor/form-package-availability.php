@@ -35,7 +35,7 @@ $arrangements = $model->getPackages($subdomain);
 
 <script>
     document.getElementById('arrangement_submit').addEventListener('click', function(){
-        let shortcode = '[recras-availability id="' + document.getElementById('arrangement_id').value + '"';
+        let shortcode = '[<?= \Recras\Availability::SHORTCODE; ?> id="' + document.getElementById('arrangement_id').value + '"';
         if (!document.getElementById('auto_resize').checked) {
             shortcode += ' autoresize=0';
         }

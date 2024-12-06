@@ -126,7 +126,7 @@ class Bookprocess extends \Elementor\Widget_Base
             return;
         }
 
-        $shortcode  = '[' . \Recras\Plugin::SHORTCODE_BOOK_PROCESS;
+        $shortcode  = '[' . \Recras\Bookprocess::SHORTCODE;
         $shortcode .= ' id="' . $settings['bp_id'] . '"';
         $shortcode .= ' initial_widget_value="' . $settings['initial_widget_value'] . '"';
         $shortcode .= ' hide_first_widget="' . $settings['hide_first_widget'] . '"';

@@ -3,6 +3,8 @@ namespace Recras;
 
 class OnlineBooking
 {
+    public const SHORTCODE = 'recras-booking';
+
     /**
      * Add the [recras-booking] shortcode
      *

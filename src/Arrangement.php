@@ -3,6 +3,7 @@ namespace Recras;
 
 class Arrangement
 {
+    public const SHORTCODE = 'recras-package';
     private const SHOW_DEFAULT = 'title';
 
     /**

@@ -142,7 +142,7 @@ $arrangements = $model->getPackages($subdomain, true);
         } else {
             packageIDsMultiple = [...selectedPackages].map(el => el.value);
         }
-        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_ONLINE_BOOKING; ?>';
+        let shortcode = '[<?= \Recras\OnlineBooking::SHORTCODE; ?>';
         if (packageIDsMultiple.length > 0 && useNewLibrary) {
             shortcode += ' package_list="' + packageIDsMultiple.join(',') + '"';
         } else if (arrangementID) {
