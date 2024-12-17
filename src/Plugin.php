@@ -17,6 +17,9 @@ class Plugin
         $this->setBaseUrl();
         $this->transients = new Transient();
 
+        // Needs to run before: Editor::addButtons, Gutenberg::addBlocks, self::loadAdminScripts
+        $this->checkOldSettings();
+
         // Init Localisation
         load_default_textdomain();
         load_plugin_textdomain($this::TEXT_DOMAIN, false, dirname(plugin_basename(__DIR__)) . '/lang');
@@ -48,8 +51,6 @@ class Plugin
         add_action('admin_post_clear_recras_cache', [$this, 'clearCache']);
 
         $this->addShortcodes();
-
-        $this->checkOldSettings();
 
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
     }
@@ -150,7 +151,7 @@ class Plugin
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                $this->transients->set($subdomain . '_show_old_online_booking', $setting->waarde === 'yes', DAY_IN_SECONDS);
+                $this->transients->set($subdomain . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
             }
         }
 
@@ -162,7 +163,7 @@ class Plugin
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                $this->transients->set($subdomain . '_show_old_voucher_sales', $setting->waarde === 'yes', DAY_IN_SECONDS);
+                $this->transients->set($subdomain . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
             }
         }
     }
@@ -207,8 +208,7 @@ class Plugin
      */
     public function loadAdminScripts(): void
     {
-        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '4.0.0', true);
-        wp_localize_script('recras-admin', 'recras_l10n', [
+        $l10n = [
             'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
             'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
             'online_booking' => __('Online booking of packages', $this::TEXT_DOMAIN),
@@ -216,9 +216,27 @@ class Plugin
             'package' => __('Package', $this::TEXT_DOMAIN),
             'package_availability' => __('Package availability', $this::TEXT_DOMAIN),
             'product' => __('Product', $this::TEXT_DOMAIN),
+            'showOnlineBooking' => 'yes',
+            'showVoucherSales' => 'yes',
             'voucherInfo' => __('Voucher info', $this::TEXT_DOMAIN),
             'voucherSales' => __('Voucher sales', $this::TEXT_DOMAIN),
-        ]);
+        ];
+
+        $subdomain = get_option('recras_subdomain');
+        if ($subdomain) {
+            $setting = $this->transients->get($subdomain . '_show_old_online_booking');
+            // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
+            if ($setting === 'no') {
+                $l10n['showOnlineBooking'] = 'no';
+            }
+            $setting = $this->transients->get($subdomain . '_show_old_voucher_sales');
+            if ($setting === 'no') {
+                $l10n['showVoucherSales'] = 'no';
+            }
+        }
+
+        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.3.0', true);
+        wp_localize_script('recras-admin', 'recras_l10n', $l10n);
         wp_enqueue_script('recras-admin');
         wp_enqueue_style('recras-admin-style', $this->baseUrl . '/css/admin-style.css', [], '6.0.7');
         wp_enqueue_script('wp-api');

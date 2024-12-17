@@ -15,13 +15,15 @@ var recrasPlugin = function(editor, url) {
         }
     });
 
-    editor.addButton('recras-booking', {
-        title: recras_l10n.online_booking,
-        image: url + '/online-booking.svg',
-        onclick: function() {
-            tb_show(recras_l10n.online_booking, 'admin.php?page=form-booking');
-        }
-    });
+    if (recras_l10n.showOnlineBooking === 'yes') {
+        editor.addButton('recras-booking', {
+            title: recras_l10n.online_booking,
+            image: url + '/online-booking.svg',
+            onclick: function() {
+                tb_show(recras_l10n.online_booking, 'admin.php?page=form-booking');
+            }
+        });
+    }
 
     editor.addButton('recras-bookprocess', {
         title: recras_l10n.bookprocess,
@@ -47,13 +49,15 @@ var recrasPlugin = function(editor, url) {
         }
     });
 
-    editor.addButton('recras-voucher-sales', {
-        title: recras_l10n.voucherSales,
-        image: url + '/vouchers.svg',
-        onclick: function() {
-            tb_show(recras_l10n.product, 'admin.php?page=form-voucher-sales');
-        }
-    });
+    if (recras_l10n.showVoucherSales === 'yes') {
+        editor.addButton('recras-voucher-sales', {
+            title: recras_l10n.voucherSales,
+            image: url + '/vouchers.svg',
+            onclick: function () {
+                tb_show(recras_l10n.product, 'admin.php?page=form-voucher-sales');
+            }
+        });
+    }
 
     editor.addButton('recras-voucher-info', {
         title: recras_l10n.voucherInfo,
