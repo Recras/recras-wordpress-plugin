@@ -17,7 +17,7 @@ class Plugin
         $this->setBaseUrl();
         $this->transients = new Transient();
 
-        // Needs to run before: Editor::addButtons, Gutenberg::addBlocks, self::loadAdminScripts
+        // Needs to run before: Gutenberg::addBlocks, self::loadAdminScripts
         $this->checkOldSettings();
 
         // Init Localisation

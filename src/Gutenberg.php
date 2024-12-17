@@ -7,6 +7,8 @@ class Gutenberg
 
     public static function addBlocks(): void
     {
+        global $recrasPlugin;
+
         $globalScriptName = 'recras-gutenberg-global';
         $globalStyleName = 'recras-gutenberg';
         wp_register_script(
@@ -68,6 +70,20 @@ class Gutenberg
                 'version' => '5.4.0',
             ],
         ];
+
+        $subdomain = get_option('recras_subdomain');
+        if ($subdomain) {
+            $setting = $recrasPlugin->transients->get($subdomain . '_show_old_online_booking');
+            // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
+            if ($setting === 'no') {
+                unset($gutenbergBlocks['onlinebooking']);
+            }
+            $setting = $recrasPlugin->transients->get($subdomain . '_show_old_voucher_sales');
+            if ($setting === 'no') {
+                unset($gutenbergBlocks['voucher-sales']);
+            }
+        }
+
         foreach ($gutenbergBlocks as $key => $block) {
             $handle = 'recras-gutenberg-' . $key;
             wp_register_script(
