@@ -49,6 +49,8 @@ class Plugin
 
         $this->addShortcodes();
 
+        $this->checkOldSettings();
+
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
     }
 
@@ -121,7 +123,7 @@ class Plugin
     /**
      * Register our shortcodes
      */
-    public function addShortcodes(): void
+    private function addShortcodes(): void
     {
         add_shortcode(Availability::SHORTCODE, [Availability::class, 'renderAvailability']);
         add_shortcode(OnlineBooking::SHORTCODE, [OnlineBooking::class, 'renderOnlineBooking']);
@@ -131,6 +133,38 @@ class Plugin
         add_shortcode(Products::SHORTCODE, [Products::class, 'renderProduct']);
         add_shortcode(Vouchers::SHORTCODE_SALES, [Vouchers::class, 'renderVoucherSales']);
         add_shortcode(Vouchers::SHORTCODE_INFO, [Vouchers::class, 'renderVoucherInfo']);
+    }
+
+    private function checkOldSettings(): void
+    {
+        $subdomain = get_option('recras_subdomain');
+        if (!$subdomain) {
+            return;
+        }
+
+        $setting = $this->transients->get($subdomain . '_show_old_online_booking');
+        if ($setting === false) {
+            try {
+                $setting = Http::get($subdomain, 'instellingen/allow_online_package_booking');
+            } catch (\Exception $e) {
+                return;
+            }
+            if (is_object($setting) && property_exists($setting, 'waarde')) {
+                $this->transients->set($subdomain . '_show_old_online_booking', $setting->waarde === 'yes', DAY_IN_SECONDS);
+            }
+        }
+
+        $setting = $this->transients->get($subdomain . '_show_old_voucher_sales');
+        if ($setting === false) {
+            try {
+                $setting = Http::get($subdomain, 'instellingen/allow_old_vouchers_sales');
+            } catch (\Exception $e) {
+                return;
+            }
+            if (is_object($setting) && property_exists($setting, 'waarde')) {
+                $this->transients->set($subdomain . '_show_old_voucher_sales', $setting->waarde === 'yes', DAY_IN_SECONDS);
+            }
+        }
     }
 
 

@@ -24,8 +24,9 @@ class Transient
         return get_transient(self::BASE . $name);
     }
 
-    public function set(string $name, $value): bool
+    // HOUR_IN_SECONDS is defined by WordPress
+    public function set(string $name, $value, int $expiration = HOUR_IN_SECONDS): bool
     {
-        return set_transient(self::BASE . $name, $value, HOUR_IN_SECONDS);
+        return set_transient(self::BASE . $name, $value, $expiration);
     }
 }
