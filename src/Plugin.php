@@ -222,17 +222,11 @@ class Plugin
             'voucherSales' => __('Voucher sales', $this::TEXT_DOMAIN),
         ];
 
-        $subdomain = get_option('recras_subdomain');
-        if ($subdomain) {
-            $setting = $this->transients->get($subdomain . '_show_old_online_booking');
-            // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
-            if ($setting === 'no') {
-                $l10n['showOnlineBooking'] = 'no';
-            }
-            $setting = $this->transients->get($subdomain . '_show_old_voucher_sales');
-            if ($setting === 'no') {
-                $l10n['showVoucherSales'] = 'no';
-            }
+        if (!Settings::allowOnlinePackageBooking()) {
+            $l10n['showOnlineBooking'] = 'no';
+        }
+        if (!Settings::allowOldVoucherSales()) {
+            $l10n['showVoucherSales'] = 'no';
         }
 
         wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.3.0', true);

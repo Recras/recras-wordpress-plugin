@@ -114,6 +114,33 @@ class Settings
     }
 
 
+    public static function allowOnlinePackageBooking(): bool
+    {
+        global $recrasPlugin;
+
+        $subdomain = get_option('recras_subdomain');
+        if (!$subdomain) {
+            return true;
+        }
+        $setting = $recrasPlugin->transients->get($subdomain . '_show_old_online_booking');
+        // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
+        return ($setting === 'no') ? false : true;
+    }
+
+
+    public static function allowOldVoucherSales(): bool
+    {
+        global $recrasPlugin;
+
+        $subdomain = get_option('recras_subdomain');
+        if (!$subdomain) {
+            return true;
+        }
+        $setting = $recrasPlugin->transients->get($subdomain . '_show_old_voucher_sales');
+        // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
+        return ($setting === 'no') ? false : true;
+    }
+
     public static function clearCache(): void
     {
         if (!current_user_can('edit_pages')) {
