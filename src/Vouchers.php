@@ -62,6 +62,11 @@ class Vouchers
      */
     public static function renderVoucherSales($attributes): string
     {
+        if (!Settings::allowOldVoucherSales()) {
+            error_log('The old method of selling vouchers is integrated on your website, but is disabled in your Recras');
+            return '';
+        }
+
         if (is_string($attributes)) {
             $attributes = [];
         }
