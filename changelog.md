@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.2.3 (2025-01-06)
+* Fix error in Elementor when book process cannot be found
+
 ## 6.2.2 (2024-10-24)
 * Update "Fix book process datepicker styling" styles to latest version
 * Updated "Tested up to" version to 6.7
