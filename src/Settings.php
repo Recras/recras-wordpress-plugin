@@ -141,7 +141,29 @@ class Settings
         return ($setting === 'no') ? false : true;
     }
 
-    public static function clearCache(): void
+    /**
+     * Clear voucher template cache (transients)
+     */
+    public static function clearCache(): int
+    {
+        global $recrasPlugin;
+
+        $subdomain = get_option('recras_subdomain');
+        $errors = 0;
+        if ($recrasPlugin->transients->get($subdomain . '_show_old_online_booking')) {
+            $errors = $recrasPlugin->transients->delete($subdomain . '_show_old_online_booking');
+        }
+        if ($recrasPlugin->transients->get($subdomain . '_show_old_voucher_sales')) {
+            $errors = $recrasPlugin->transients->delete($subdomain . '_show_old_voucher_sales');
+        }
+
+        return $errors;
+    }
+
+    /**
+     * Admin page to clear the cache
+     */
+    public static function clearCachePage(): void
     {
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));

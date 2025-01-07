@@ -92,7 +92,7 @@ class Plugin
             __('Cache', $this::TEXT_DOMAIN),
             'edit_pages',
             Settings::PAGE_CACHE,
-            ['\Recras\Settings', 'clearCache']
+            ['\Recras\Settings', 'clearCachePage']
         );
         add_submenu_page(
             'recras',
@@ -177,6 +177,7 @@ class Plugin
         $errors += Bookprocess::clearCache();
         $errors += ContactForm::clearCache();
         $errors += Products::clearCache();
+        $errors += Settings::clearCache();
         $errors += Vouchers::clearCache();
 
         $pageUrl = 'admin.php?page=' . Settings::PAGE_CACHE . '&msg=' . Plugin::getStatusMessage($errors);
