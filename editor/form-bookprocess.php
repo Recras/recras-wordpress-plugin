@@ -66,8 +66,6 @@ $processes = $model->getProcesses($subdomain);
                 case 'package':
                     showToggleEls();
                     elPackage.style.display = 'inline-block';
-                    elDate.style.display = 'none';
-                    elDate.value = '';
                     break;
                 default:
                     hideToggleEls();

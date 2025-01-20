@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix console message
+
 ## 6.3.0 (2025-01-13)
 * The plugin now hides certain blocks/editor buttons, when they're not available in your Recras instance
 * Plugin now requires WP 6.5 or higher
