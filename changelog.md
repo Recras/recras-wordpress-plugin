@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 6.3.1 (2025-02-04)
 * Fix console message
 
 ## 6.3.0 (2025-01-13)
