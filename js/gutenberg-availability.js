@@ -32,6 +32,12 @@ registerGutenbergBlock('recras/availability', {
         } = props;
 
         let retval = [];
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Availability calendar', TEXT_DOMAIN)));
+
+        if (packages.length === 0) {
+            retval.push(recrasHelper.elementText(wp.i18n.__('No suitable packages found', TEXT_DOMAIN)));
+            return retval;
+        }
         const optionsPackageControl = {
             value: id,
             onChange: function(newVal) {
@@ -53,7 +59,6 @@ registerGutenbergBlock('recras/availability', {
             label: wp.i18n.__('Auto resize iframe', TEXT_DOMAIN),
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Availability calendar', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsPackageControl));
         retval.push(createEl(compToggleControl, optionsAutoresizeControl));
         return retval;
