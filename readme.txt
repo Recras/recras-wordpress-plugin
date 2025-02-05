@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.7
-Stable tag: 6.3.1
+Stable tag: 6.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.3.2 =
+* Hide "Package availability" widget when it's not available in your Recras instance
+* "Package availability" widget: hide packages where availability API is disabled
 
 = 6.3.1 =
 * Fix console message

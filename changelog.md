@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.3.2 (2025-02-05)
+* Hide "Package availability" widget when it's not available in your Recras instance
+* "Package availability" widget: hide packages where availability API is disabled
+
 ## 6.3.1 (2025-02-04)
 * Fix console message
 
