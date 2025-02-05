@@ -16,7 +16,7 @@ registerGutenbergBlock('recras/availability', {
 
     edit: withSelect((select) => {
         return {
-            packages: select('recras/store').fetchPackages(true, false),
+            packages: select('recras/store').fetchPackagesForAvailability(),
         }
     })(props => {
         if (!recrasOptions.subdomain) {

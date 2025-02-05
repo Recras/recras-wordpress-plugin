@@ -223,6 +223,10 @@ const recrasStore = registerStore('recras/store', {
             const { packages } = state;
             return packages;
         },
+        fetchPackagesForAvailability(state) {
+            const { packages } = state;
+            return packages;
+        },
         fetchPagesPosts(state) {
             const { pagesPosts } = state;
             return pagesPosts;
@@ -266,6 +270,14 @@ const recrasStore = registerStore('recras/store', {
             if (mapSelect) {
                 packages = Object.values(packages).map(mapPackage);
             }
+
+            return recrasActions.setPackages(packages);
+        },
+        * fetchPackagesForAvailability() {
+            let packages = yield recrasActions.fetchAPI('recras/packages');
+            packages = Object.values(packages);
+            packages = packages.filter(p => p.mag_beschikbaarheidskalender_api);
+            packages = packages.map(mapPackage);
 
             return recrasActions.setPackages(packages);
         },
