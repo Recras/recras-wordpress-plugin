@@ -7,15 +7,15 @@ var recrasPlugin = function(editor, url) {
         }
     });
 
-    editor.addButton('recras-availability', {
-        title: recras_l10n.package_availability,
-        image: url + '/availability.svg',
-        onclick: function() {
-            tb_show(recras_l10n.package_availability, 'admin.php?page=form-package-availability');
-        }
-    });
-
     if (recras_l10n.showOnlineBooking === 'yes') {
+        editor.addButton('recras-availability', {
+            title: recras_l10n.package_availability,
+            image: url + '/availability.svg',
+            onclick: function() {
+                tb_show(recras_l10n.package_availability, 'admin.php?page=form-package-availability');
+            }
+        });
+
         editor.addButton('recras-booking', {
             title: recras_l10n.online_booking,
             image: url + '/online-booking.svg',

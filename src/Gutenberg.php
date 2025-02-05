@@ -70,6 +70,7 @@ class Gutenberg
         ];
 
         if (!Settings::allowOnlinePackageBooking()) {
+            unset($gutenbergBlocks['availability']);
             unset($gutenbergBlocks['onlinebooking']);
         }
         if (!Settings::allowOldVoucherSales()) {
