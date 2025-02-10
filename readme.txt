@@ -102,56 +102,13 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Improve error message when "id" is set, but empty
 * Plugin now requires PHP 7.4 or higher
 
-= 6.1.6 =
-* Fix for multi-day packages where the last line has no end time
-* Fix wrongful error after clearing cache
-
-= 6.1.5 =
-* Fix programme of multi-day package
-
-= 6.1.4 =
-* Fix duration of multi-day package
-* Updated "Tested up to" version to 6.6
-* Plugin now requires WP 6.4 or higher
-
-= 6.1.3 =
-* Show error if redirect is set but invalid
-* Small technical update
-
-= 6.1.2 =
-* **No functional changes compared to 6.1.1**
-* Small technical updates
-
-= 6.1.1 =
-* Fix issue with "Fix datepicker" styling
-* Include styling fix for checkboxes/radio buttons in contact forms
-
-= 6.1.0 =
-* Update "Fix book process datepicker styling" styles to latest version
-* Give error when trying to show information of a package that does not exist or may not be presented on a website
-* Minor admin CSS update
+= 6.1 (highlights) =
+* Various small fixes and improvements
 * Removed script for very old browsers
-* Updated "Tested up to" version to 6.5
-* Plugin now requires PHP 7.3 or higher
-* Plugin now requires WP 6.3 or higher
 
 = 6.0 (highlights) =
 * Various small fixes
-* Updated "Tested up to" version to 6.4
 * Removed support for Composer Installers
-
-= 5.5 (highlights) =
-* Make online booking of packages look better on narrow pages on large screens (i.e. desktop)
-* Various fixes, mostly related to book processes
-* Updated "Tested up to" version to 6.3
-* Plugin now requires PHP 7.2 or higher
-
-= 5.4 (highlights) =
-* Small improvements and bugfixes
-
-= 5.3 (highlights) =
-* Allow initial value in first widget of a book process, when the first widget is "package selection".
-* Bugfixes
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
