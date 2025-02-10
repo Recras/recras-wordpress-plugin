@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-02-05 14:03+0100\n"
-"PO-Revision-Date: 2025-02-05 14:03+0100\n"
+"POT-Creation-Date: 2025-02-10 14:16+0100\n"
+"PO-Revision-Date: 2025-02-10 14:16+0100\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -354,7 +354,6 @@ msgid "Show quantity input (will be set to 1 if not shown)"
 msgstr ""
 
 #: js/gutenberg-availability.js:2 js/gutenberg-availability.js:35
-#: src/admin/documentation.php:120 src/admin/shortcodes.php:106
 msgid "Availability calendar"
 msgstr ""
 
@@ -397,18 +396,17 @@ msgstr ""
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr ""
 
-#: js/gutenberg-global.js:46 src/Settings.php:211
+#: js/gutenberg-global.js:46 src/Settings.php:209
 msgid "Recras → Settings menu"
 msgstr ""
 
-#: js/gutenberg-global.js:48 src/Settings.php:210
+#: js/gutenberg-global.js:48 src/Settings.php:208
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr ""
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
-#: src/Plugin.php:117 src/Plugin.php:215 src/admin/documentation.php:100
-#: src/admin/shortcodes.php:79
+#: src/Plugin.php:117 src/Plugin.php:215
 msgid "Online booking of packages"
 msgstr ""
 
@@ -453,8 +451,8 @@ msgid ""
 msgstr ""
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:120 src/Plugin.php:222 src/admin/documentation.php:139
-#: src/admin/shortcodes.php:129
+#: src/Plugin.php:120 src/Plugin.php:222 src/admin/documentation.php:102
+#: src/admin/shortcodes.php:79
 msgid "Voucher info"
 msgstr ""
 
@@ -463,8 +461,7 @@ msgid "Voucher template"
 msgstr ""
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:85
-#: src/Plugin.php:119 src/Plugin.php:223 src/admin/documentation.php:129
-#: src/admin/shortcodes.php:117
+#: src/Plugin.php:119 src/Plugin.php:223 src/admin/documentation.php:98
 msgid "Voucher sales"
 msgstr ""
 
@@ -625,7 +622,7 @@ msgstr ""
 msgid "Cache"
 msgstr ""
 
-#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:374
+#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:372
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr ""
@@ -787,90 +784,84 @@ msgstr ""
 
 #: src/Settings.php:17
 msgid ""
-"Enabling this will send events from <strong>online booking of packages</"
-"strong> and <strong>voucher sales</strong> to Google Analytics."
-msgstr ""
-
-#: src/Settings.php:19
-msgid ""
 "This option is <strong>not needed when using book processes</strong>. GA is "
 "integrated automatically for them."
 msgstr ""
 
-#: src/Settings.php:53
+#: src/Settings.php:51
 msgid ""
 "Not all browsers have a built-in date picker. Enable this to use a custom "
 "widget."
 msgstr ""
 
-#: src/Settings.php:59
+#: src/Settings.php:57
 msgid ""
 "On some websites, the date picker in a book process has a tiny font. Enable "
 "this to fix this."
 msgstr ""
 
-#: src/Settings.php:75
+#: src/Settings.php:73
 msgid "Used in prices, such as 100,00."
 msgstr ""
 
-#: src/Settings.php:169 src/Settings.php:178 src/Settings.php:187
-#: src/Settings.php:199
+#: src/Settings.php:167 src/Settings.php:176 src/Settings.php:185
+#: src/Settings.php:197
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/Settings.php:250
+#: src/Settings.php:248
 msgid "No theme"
 msgstr ""
 
-#: src/Settings.php:254
+#: src/Settings.php:252
 msgid "Basic theme"
 msgstr ""
 
-#: src/Settings.php:258
+#: src/Settings.php:256
 msgid "BP Green"
 msgstr ""
 
-#: src/Settings.php:262
+#: src/Settings.php:260
 msgid "Reasonably Red"
 msgstr ""
 
-#: src/Settings.php:266
+#: src/Settings.php:264
 msgid "Recras Blue"
 msgstr ""
 
-#: src/Settings.php:332 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:330 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr ""
 
-#: src/Settings.php:338 src/admin/documentation.php:6
+#: src/Settings.php:336 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr ""
 
-#: src/Settings.php:339 src/admin/documentation.php:8
+#: src/Settings.php:337 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr ""
 
-#: src/Settings.php:340 src/admin/documentation.php:10
+#: src/Settings.php:338 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr ""
 
-#: src/Settings.php:341 src/admin/documentation.php:12
+#: src/Settings.php:339 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr ""
 
-#: src/Settings.php:342
+#: src/Settings.php:340
 msgid "Fix book process datepicker styling"
 msgstr ""
 
-#: src/Settings.php:343 src/admin/documentation.php:16
+#: src/Settings.php:341 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr ""
 
-#: src/Settings.php:344 src/admin/documentation.php:26
-msgid "Enable Google Analytics integration?"
+#: src/Settings.php:342
+msgid "Enable Google Analytics integration? (deprecated)"
 msgstr ""
 
-#: src/Settings.php:373
+#: src/Settings.php:371
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr ""
@@ -900,19 +891,19 @@ msgid ""
 "a price increase) it is recommended you clear the Recras cache."
 msgstr ""
 
-#: src/admin/documentation.php:32 src/admin/shortcodes.php:4
+#: src/admin/documentation.php:30 src/admin/shortcodes.php:4
 msgid "Packages"
 msgstr ""
 
-#: src/admin/documentation.php:57 src/admin/shortcodes.php:30
+#: src/admin/documentation.php:55 src/admin/shortcodes.php:30
 msgid "Book processes"
 msgstr ""
 
-#: src/admin/documentation.php:66 src/admin/shortcodes.php:42
+#: src/admin/documentation.php:64 src/admin/shortcodes.php:42
 msgid "Contact forms"
 msgstr ""
 
-#: src/admin/documentation.php:82 src/admin/shortcodes.php:60
+#: src/admin/documentation.php:80 src/admin/shortcodes.php:60
 msgid "Products"
 msgstr ""
 

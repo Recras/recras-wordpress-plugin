@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-02-05 14:03+0100\n"
-"PO-Revision-Date: 2025-02-05 14:03+0100\n"
+"POT-Creation-Date: 2025-02-10 14:17+0100\n"
+"PO-Revision-Date: 2025-02-10 14:17+0100\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -375,7 +375,6 @@ msgid "Show quantity input (will be set to 1 if not shown)"
 msgstr "Toon aantal-invoer (wordt op 1 gezet indien verborgen)"
 
 #: js/gutenberg-availability.js:2 js/gutenberg-availability.js:35
-#: src/admin/documentation.php:120 src/admin/shortcodes.php:106
 msgid "Availability calendar"
 msgstr "Beschikbaarheidskalender"
 
@@ -419,18 +418,17 @@ msgstr "bijv. https://www.recras.nl/bedankt/"
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr "Bedanktpagina (optioneel, laat leeg om niet door te sturen)"
 
-#: js/gutenberg-global.js:46 src/Settings.php:211
+#: js/gutenberg-global.js:46 src/Settings.php:209
 msgid "Recras → Settings menu"
 msgstr "menu Recras → Instellingen"
 
-#: js/gutenberg-global.js:48 src/Settings.php:210
+#: js/gutenberg-global.js:48 src/Settings.php:208
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr "Vul je Recras-naam in in het %s voordat je widgets toevoegt."
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
-#: src/Plugin.php:117 src/Plugin.php:215 src/admin/documentation.php:100
-#: src/admin/shortcodes.php:79
+#: src/Plugin.php:117 src/Plugin.php:215
 msgid "Online booking of packages"
 msgstr "Online boeking van arrangementen"
 
@@ -483,8 +481,8 @@ msgstr ""
 "\"Presentatie\" van het product."
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:120 src/Plugin.php:222 src/admin/documentation.php:139
-#: src/admin/shortcodes.php:129
+#: src/Plugin.php:120 src/Plugin.php:222 src/admin/documentation.php:102
+#: src/admin/shortcodes.php:79
 msgid "Voucher info"
 msgstr "Tegoedboninfo"
 
@@ -493,8 +491,7 @@ msgid "Voucher template"
 msgstr "Tegoedbon-template"
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:85
-#: src/Plugin.php:119 src/Plugin.php:223 src/admin/documentation.php:129
-#: src/admin/shortcodes.php:117
+#: src/Plugin.php:119 src/Plugin.php:223 src/admin/documentation.php:98
 msgid "Voucher sales"
 msgstr "Tegoedbonverkoop"
 
@@ -666,7 +663,7 @@ msgstr "Instellingen"
 msgid "Cache"
 msgstr "Cache"
 
-#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:374
+#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:372
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
@@ -830,21 +827,13 @@ msgstr "Fout: product bestaat niet"
 
 #: src/Settings.php:17
 msgid ""
-"Enabling this will send events from <strong>online booking of packages</"
-"strong> and <strong>voucher sales</strong> to Google Analytics."
-msgstr ""
-"Dit aanzetten stuurt events van <strong>online boeken van arrangementen</"
-"strong> en <strong>tegoedbonverkoop</strong> naar Google Analytics."
-
-#: src/Settings.php:19
-msgid ""
 "This option is <strong>not needed when using book processes</strong>. GA is "
 "integrated automatically for them."
 msgstr ""
 "Deze optie is <strong>niet nodig bij het gebruik van boekprocessen</strong>. "
 "GA wordt daar automatisch geïntegreerd."
 
-#: src/Settings.php:53
+#: src/Settings.php:51
 msgid ""
 "Not all browsers have a built-in date picker. Enable this to use a custom "
 "widget."
@@ -852,7 +841,7 @@ msgstr ""
 "Niet alle browsers hebben een ingebouwde datumkiezer. Vink dit aan om een "
 "eigen widget te gebruiken."
 
-#: src/Settings.php:59
+#: src/Settings.php:57
 msgid ""
 "On some websites, the date picker in a book process has a tiny font. Enable "
 "this to fix this."
@@ -860,68 +849,68 @@ msgstr ""
 "Op sommige websites heeft de datumselectie in een boekproces een klein "
 "lettertype. Zet deze optie aan om dit op te lossen."
 
-#: src/Settings.php:75
+#: src/Settings.php:73
 msgid "Used in prices, such as 100,00."
 msgstr "Gebruikt in prijzen, zoals 100,00."
 
-#: src/Settings.php:169 src/Settings.php:178 src/Settings.php:187
-#: src/Settings.php:199
+#: src/Settings.php:167 src/Settings.php:176 src/Settings.php:185
+#: src/Settings.php:197
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Je hebt niet genoeg rechten om deze pagina te bekijken."
 
-#: src/Settings.php:250
+#: src/Settings.php:248
 msgid "No theme"
 msgstr "Geen thema"
 
-#: src/Settings.php:254
+#: src/Settings.php:252
 msgid "Basic theme"
 msgstr "Basisthema"
 
-#: src/Settings.php:258
+#: src/Settings.php:256
 msgid "BP Green"
 msgstr "BP Groen"
 
-#: src/Settings.php:262
+#: src/Settings.php:260
 msgid "Reasonably Red"
 msgstr "Redelijk Rood"
 
-#: src/Settings.php:266
+#: src/Settings.php:264
 msgid "Recras Blue"
 msgstr "Recras Blauw"
 
-#: src/Settings.php:332 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:330 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr "Recras-instellingen"
 
-#: src/Settings.php:338 src/admin/documentation.php:6
+#: src/Settings.php:336 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr "Recrasnaam"
 
-#: src/Settings.php:339 src/admin/documentation.php:8
+#: src/Settings.php:337 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr "Valutasymbool"
 
-#: src/Settings.php:340 src/admin/documentation.php:10
+#: src/Settings.php:338 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr "Decimaalscheiding"
 
-#: src/Settings.php:341 src/admin/documentation.php:12
+#: src/Settings.php:339 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr "Kalender-widget gebruiken voor contactformulieren"
 
-#: src/Settings.php:342
+#: src/Settings.php:340
 msgid "Fix book process datepicker styling"
 msgstr "Styling boekproces-datumselectie oplossen"
 
-#: src/Settings.php:343 src/admin/documentation.php:16
+#: src/Settings.php:341 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr "Thema voor Recras-integraties"
 
-#: src/Settings.php:344 src/admin/documentation.php:26
-msgid "Enable Google Analytics integration?"
-msgstr "Google Analytics-integratie inschakelen?"
+#: src/Settings.php:342
+msgid "Enable Google Analytics integration? (deprecated)"
+msgstr "Google Analytics-integratie inschakelen? (verouderd)"
 
-#: src/Settings.php:373
+#: src/Settings.php:371
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr "Bekijk voor meer informatie over deze instellingen de %s-pagina."
@@ -957,25 +946,32 @@ msgstr ""
 "maakt (bijv. een prijsverhoging) dan is het aan te raden om de Recras-cache "
 "te wissen."
 
-#: src/admin/documentation.php:32 src/admin/shortcodes.php:4
+#: src/admin/documentation.php:30 src/admin/shortcodes.php:4
 msgid "Packages"
 msgstr "Arrangementen"
 
-#: src/admin/documentation.php:57 src/admin/shortcodes.php:30
+#: src/admin/documentation.php:55 src/admin/shortcodes.php:30
 msgid "Book processes"
 msgstr "Boekprocessen"
 
-#: src/admin/documentation.php:66 src/admin/shortcodes.php:42
+#: src/admin/documentation.php:64 src/admin/shortcodes.php:42
 msgid "Contact forms"
 msgstr "Contactformulieren"
 
-#: src/admin/documentation.php:82 src/admin/shortcodes.php:60
+#: src/admin/documentation.php:80 src/admin/shortcodes.php:60
 msgid "Products"
 msgstr "Producten"
 
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid ""
+#~ "Enabling this will send events from <strong>online booking of packages</"
+#~ "strong> and <strong>voucher sales</strong> to Google Analytics."
+#~ msgstr ""
+#~ "Dit aanzetten stuurt events van <strong>online boeken van arrangementen</"
+#~ "strong> en <strong>tegoedbonverkoop</strong> naar Google Analytics."
 
 #~ msgid "Use calendar widget"
 #~ msgstr "Kalender-widget gebruiken"
