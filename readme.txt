@@ -25,7 +25,7 @@ Widgets can be added to your site in three ways. Using Gutenberg blocks (recomme
 = Date picker for contact forms =
 By default, date pickers in contact forms use the browser date picker. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin. You can enable this on the Recras → Settings page.
 
-**Note**: this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration or in book processes.
+**Note**: this setting only applies to standalone contact forms, not to contact forms used in the old online booking of packages integration or in book processes.
 
 = Styling =
 No custom styling is applied by default, so it will integrate with your site easily. If you want to apply custom styling, see `css/style.css` for all available classes. Be sure to include these styles in your own theme, this stylesheet is not loaded by the plugin!
