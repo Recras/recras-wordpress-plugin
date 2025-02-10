@@ -14,8 +14,6 @@ class Settings
     {
         self::addInputCheckbox($args);
         self::infoText(
-            __('Enabling this will send events from <strong>online booking of packages</strong> and <strong>voucher sales</strong> to Google Analytics.', Plugin::TEXT_DOMAIN) .
-            '<br>' .
             __('This option is <strong>not needed when using book processes</strong>. GA is integrated automatically for them.', Plugin::TEXT_DOMAIN)
         );
     }
@@ -341,7 +339,7 @@ class Settings
         self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
         self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputFixDatepicker']);
         self::addField('recras_theme', __('Theme for Recras integrations', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
-        self::addField('recras_enable_analytics', __('Enable Google Analytics integration?', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
+        self::addField('recras_enable_analytics', __('Enable Google Analytics integration? (deprecated)', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
     }
 
 

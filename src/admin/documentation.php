@@ -11,10 +11,10 @@
     <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
     <dt><?= __('Use calendar widget for contact forms', \Recras\Plugin::TEXT_DOMAIN);?></dt>
     <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
-        <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in the seamless online booking integration or in book processes.
+        <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in book processes.
     </dd>
     <dt><?= __('Theme for Recras integrations', \Recras\Plugin::TEXT_DOMAIN);?></dt>
-    <dd>Which theme is used for online booking of packages and book processes.
+    <dd>Which theme is used for book processes.
         <ol class="recrasOptionsList">
             <li>No theme - leaves it up to you to properly style it.
             <li>Basic theme - sets some default styling to make it look a bit nicer. You can still override everything with your own CSS.
@@ -23,8 +23,6 @@
             <li>Reasonably Red - is a theme with red accents
         </ol>
     </dd>
-    <dt><?= __('Enable Google Analytics integration?', \Recras\Plugin::TEXT_DOMAIN);?></dt>
-    <dd>You can enable Google Analytics integration. This will only work if there is a global <code>ga</code> JavaScript object. This should almost always be the case, but if you find out it doesn't work, please contact us!</dd>
 </dl>
 
 
@@ -97,43 +95,8 @@
 </ol>
 
 <hr>
-<h2><?php _e('Online booking of packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Online booking of packages can be integrated using the Recras/Online booking of packages block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-    <li>Integration method - choose seamless for a more modern experience. Choosing iframe uses the setting in your Recras.
-    <li>Pre-filled package - entering a single package here will skip the package selection step. Packages can also be pre-filled using the URL parameter <code>package</code>, i.e. <code>
-        <?php
-        $requestScheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
-        echo $requestScheme . '://' . $_SERVER['HTTP_HOST'];
-        ?>/your-online-booking-page/?package=42</code> to pre-fill the package with ID 42. You can also select multiple packages (seamless method only) to limit the package selection to those packages.
-	<li>Preview times in programme - whether or not you want to preview times in the programme. Note: this is only available for the seamless online booking method.
-	<li>Pre-fill amounts - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. When enabled, this gives you the ability to pre-fill the amounts form. This can be useful, for example, for packages where you always have a fixed amount.
-	<li>Show discount fields - <strong>Note:</strong> this is only available for the seamless online booking method. When disabled, the discount fields are hidden.
-    <li>Pre-fill date - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain date.
-    <li>Pre-fill time - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain time.
-    <li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the seamless integration.
-	<li>Auto resize iframe - enabled by default. Disable this if you have more than one Recras iframe on your page. Note: this is only available for the old iframe booking method.
-</ol>
-
-<hr>
-<h2><?php _e('Availability calendar', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Availability calendars can be added using the Recras/Availability calendar block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-calendar-alt"></span> icon in the Classic Editor.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Package - what package to use for the availability calendar
-	<li>Auto resize iframe - enabled by default. Disable this if you have more than one Recras iframe on your page
-</ol>
-
-<hr>
 <h2><?php _e('Voucher sales', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Voucher sales can be integrated using the Recras/Voucher sales block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Voucher template - when selected, this will skip the template selection step
-	<li>Thank-you page - a page/post that the user is redirected to, after submitting the form successfully.
-    <li>Show quantity input - if unselected, the quantity input is hidden. The customer will only be able to buy 1 voucher at a time.
-</ol>
+<p>Voucher sales can be integrated using a book process.</p>
 
 <hr>
 <h2><?php _e('Voucher info', \Recras\Plugin::TEXT_DOMAIN); ?></h2>

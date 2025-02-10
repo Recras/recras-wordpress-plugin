@@ -76,56 +76,6 @@
 
 
 <hr>
-<h2><?php _e('Online booking of packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Online booking of packages can be added using the <kbd>recras-booking</kbd> shortcode.</p>
-<p>The following options are available. Some options are only available depending on the chosen integration method.</p>
-<ol class="recrasOptionsList">
-    <li>Integration method - <kbd>use_new_library</kbd>. Value is either <kbd>1</kbd> (recommended, for seamless integration) or <kbd>0</kbd> (discouraged, for iframe integration)
-    <li>Pre-filled package - <kbd>id</kbd> for a single package, or <kbd>package_list</kbd> for multiple packages. The latter case is only available for the seamless integration, and should be a comma-separated list of id's
-    <li>Preview times in programme - <kbd>previewTimes</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
-</ol>
-
-<h3>Options for seamless integration</h3>
-<ol class="recrasOptionsList">
-    <li>Show discount fields - <kbd>showdiscount</kbd>, value is either <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
-    <li>Pre-fill amounts - <kbd>product_amounts</kbd>, value is a valid JSON-object of line id's (as seen in the generated HTML) as keys and amounts as values. If you don't know what JSON is or how to find the line id's, contact your web developer.
-    <li>Pre-fill date - <kbd>prefill_date</kbd>, value is an ISO 8601 string
-    <li>Pre-fill time - <kbd>prefill_time</kbd>, value is a 24-hour time string
-    <li>Thank-you page - <kbd>redirect</kbd>
-</ol>
-
-<h3>Options for iframe integration</h3>
-<ol class="recrasOptionsList">
-    <li>Auto resize iframe - <kbd>autoresize</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
-</ol>
-
-<p>Example: <kbd>[recras-booking use_new_library="1" package_list="9,83" redirect="https://www.recras.com/contact/"]</kbd></p>
-
-
-<hr>
-<h2><?php _e('Availability calendar', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Availability calendars can be added using the <kbd>recras-availability</kbd> shortcode.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Package - <kbd>id</kbd>
-	<li>Auto resize iframe - <kbd>autoresize</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
-</ol>
-<p>Example: <kbd>[recras-availability id="18" autoresize="1"]</kbd></p>
-
-
-<hr>
-<h2><?php _e('Voucher sales', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Voucher sales can be added using the <kbd>recras-vouchers</kbd> shortcode.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Voucher template - <kbd>id</kbd>
-	<li>Thank-you page - <kbd>redirect</kbd>
-    <li>Show quantity input - <kbd>showquantity</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
-</ol>
-<p>Example: <kbd>[recras-vouchers id="12" redirect="https://www.recras.com/contact/"]</kbd></p>
-
-
-<hr>
 <h2><?php _e('Voucher info', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
 <p>Voucher info can be added using the <kbd>recras-voucher-info</kbd> shortcode.</p>
 <p>The following options are available:</p>

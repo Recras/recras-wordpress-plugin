@@ -14,13 +14,10 @@ With this plugin, you can easily integrate data from your [Recras](https://recra
 To get started, go to the Recras → Settings page and enter your Recras name. For example, if you log in to Recras at `https://mysite.recras.nl/` then your Recras name is `mysite`. That's all there is to it! You can now use widgets to retrieve data. All data is retrieved via a secured connection (HTTPS) to ensure data integrity. Other than the request parameters, no data is sent to the Recras servers.
 
 This plugin consists of the following "widgets". To use them, you first need to set your Recras name (see paragraph above).
-* Availability calendar
 * Book processes
 * Contact forms
-* Online booking of packages
 * Packages
 * Products
-* Voucher sales
 * Voucher info
 
 Widgets can be added to your site in three ways. Using Gutenberg blocks (recommended), using the buttons in the "classic editor" (limited functionality), or by entering the shortcode manually (discouraged).
