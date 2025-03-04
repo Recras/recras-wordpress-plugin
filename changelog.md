@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.3.3 (2025-03-04)
+* Update "Fix book process datepicker styling" styles to latest version
+* Remove outdated documentation
+
 ## 6.3.2 (2025-02-05)
 * Hide "Package availability" widget when it's not available in your Recras instance
 * "Package availability" widget: hide packages where availability API is disabled
