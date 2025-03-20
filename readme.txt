@@ -1,7 +1,7 @@
 === Recras WordPress plugin ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 6.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
