@@ -237,21 +237,6 @@ class Plugin
         wp_enqueue_script('wp-api');
     }
 
-    public static function changeScriptMarkup(string $tag, string $handle): string
-    {
-        $moduleHandles = ['recrasbookprocesses'];
-        if (in_array($handle, $moduleHandles)) {
-            // Make sure we don't get a double type attribute
-            $tag = strtr($tag, [
-                'type="text/javascript"' => '',
-                "type='text/javascript'" => '',
-            ]);
-            $tag = str_replace(' src=', ' type="module" src=', $tag);
-        }
-
-        return $tag;
-    }
-
     /**
      * Load the general script and localisation
      */
@@ -312,9 +297,6 @@ class Plugin
             // This version number is the react-datepicker version
             wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '7.4.0');
         }
-
-        // Book process script must be loaded as module
-        add_filter('script_loader_tag', [$this, 'changeScriptMarkup'], 10, 2);
 
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
 

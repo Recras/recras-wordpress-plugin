@@ -19,10 +19,10 @@ class Bookprocess
 
     public static function enqueueScripts(string $subdomain): void
     {
-        wp_enqueue_script(
+        wp_enqueue_script_module(
             'recrasbookprocesses',
             'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess.mjs',
-            [], false, true
+            [], false
         );
 
         wp_enqueue_style(
