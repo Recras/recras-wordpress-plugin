@@ -126,6 +126,7 @@ registerGutenbergBlock('recras/package', {
                 },
                 placeholder: wp.i18n.__('hh:mm', TEXT_DOMAIN),
                 label: wp.i18n.__('Start time', TEXT_DOMAIN),
+                type: 'time',
             };
             optionsShowHeaderControl = {
                 checked: showheader,
