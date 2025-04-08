@@ -4,6 +4,7 @@ namespace Recras;
 class Bookprocess
 {
     public const SHORTCODE = 'recras-bookprocess';
+
     /**
      * Clear book process cache (transients)
      */
@@ -12,9 +13,7 @@ class Bookprocess
         global $recrasPlugin;
 
         $subdomain = get_option('recras_subdomain');
-        $status = $recrasPlugin->transients->delete($subdomain . '_bookprocesses');
-        $status += $recrasPlugin->transients->delete($subdomain . '_bookprocesses_v2');
-        return $status;
+        return $recrasPlugin->transients->delete($subdomain . '_bookprocesses_v2');
     }
 
     public static function enqueueScripts(string $subdomain): void
