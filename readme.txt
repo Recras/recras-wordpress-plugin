@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.8
-Stable tag: 6.3.3
+Stable tag: 6.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,13 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.3.4 =
+* Improve choosing a start time when displaying package programme
+* Fix display of voucher templates with a validity set to a certain date, instead of a number of days
+* Load book process script differently
+* Updated "Tested up to" version to 6.8
+* Plugin now requires WP 6.6 or higher
 
 = 6.3.3 =
 * Update "Fix book process datepicker styling" styles to latest version

@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.3.4 (2025-04-08)
+* Improve choosing a start time when displaying package programme
+* Fix display of voucher templates with a validity set to a certain date, instead of a number of days
+* Load book process script differently
+* Updated "Tested up to" version to 6.8
+* Plugin now requires WP 6.6 or higher
+
 ## 6.3.3 (2025-03-04)
 * Update "Fix book process datepicker styling" styles to latest version
 * Remove outdated documentation
