@@ -25,7 +25,7 @@ $templates = $model->getTemplates($subdomain);
     <dd><select id="show_what" required>
             <option value="name"><?php _e('Name', \Recras\Plugin::TEXT_DOMAIN); ?>
             <option value="price"><?php _e('Price', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="validity"><?php _e('Number of days valid', \Recras\Plugin::TEXT_DOMAIN); ?>
+            <option value="validity"><?php _e('Validity', \Recras\Plugin::TEXT_DOMAIN); ?>
         </select>
 </dl>
 <button class="button button-primary" id="voucher_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>

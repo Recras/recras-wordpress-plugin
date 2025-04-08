@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-02-10 14:16+0100\n"
-"PO-Revision-Date: 2025-02-10 14:16+0100\n"
+"POT-Creation-Date: 2025-04-08 15:16+0200\n"
+"PO-Revision-Date: 2025-04-08 15:18+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: de_DE\n"
@@ -17,17 +17,18 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: tests\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
 
 #: editor/form-arrangement.php:16 editor/form-booking.php:48
 #: editor/form-contact.php:32 editor/form-package-availability.php:13
 #: js/gutenberg-availability.js:50 js/gutenberg-package.js:2
-#: js/gutenberg-package.js:50 js/gutenberg-package.js:141 src/Plugin.php:114
+#: js/gutenberg-package.js:50 js/gutenberg-package.js:142 src/Plugin.php:114
 #: src/Plugin.php:217
 msgid "Package"
 msgstr "Arrangement"
 
 #: editor/form-arrangement.php:26 js/gutenberg-onlinebooking.js:311
-#: js/gutenberg-onlinebooking.js:331 js/gutenberg-package.js:144
+#: js/gutenberg-onlinebooking.js:331 js/gutenberg-package.js:145
 msgid ""
 "If you are not seeing certain packages, make sure in Recras \"May be "
 "presented on a website (via API)\" is enabled on the tab \"Extra settings\" "
@@ -58,7 +59,7 @@ msgstr "Dauer"
 
 #: editor/form-arrangement.php:33 js/gutenberg-package.js:95
 msgid "Starting location"
-msgstr ""
+msgstr "Empfangsort"
 
 #: editor/form-arrangement.php:34 js/gutenberg-package.js:79
 msgid "Minimum number of persons"
@@ -102,7 +103,7 @@ msgstr ""
 msgid "hh:mm"
 msgstr "UU:MM"
 
-#: editor/form-arrangement.php:45 js/gutenberg-package.js:137
+#: editor/form-arrangement.php:45 js/gutenberg-package.js:138
 msgid "Show header?"
 msgstr ""
 
@@ -345,8 +346,8 @@ msgid "Price"
 msgstr "Preis"
 
 #: editor/form-voucher-info.php:28 js/gutenberg-voucher-info.js:70
-msgid "Number of days valid"
-msgstr ""
+msgid "Validity"
+msgstr "Gültigkeit"
 
 #: editor/form-voucher-sales.php:19
 msgid "No pre-filled template"
@@ -468,18 +469,18 @@ msgstr ""
 msgid "Voucher sales"
 msgstr ""
 
-#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:90
+#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:89
 #: src/ContactForm.php:57 src/Products.php:21 src/Vouchers.php:22
 msgid "Error: no ID set"
 msgstr ""
 
-#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:94
+#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:93
 #: src/ContactForm.php:60 src/OnlineBooking.php:25 src/Products.php:24
-#: src/Vouchers.php:25 src/Vouchers.php:75
+#: src/Vouchers.php:25 src/Vouchers.php:78
 msgid "Error: ID is not a number"
 msgstr ""
 
-#: src/Arrangement.php:38 src/Arrangement.php:279 src/Bookprocess.php:100
+#: src/Arrangement.php:38 src/Arrangement.php:279 src/Bookprocess.php:99
 #: src/ContactForm.php:72 src/ContactForm.php:76
 #, php-format
 msgid "Error: %s"
@@ -494,7 +495,7 @@ msgstr ""
 msgid "Error: programme is empty"
 msgstr ""
 
-#: src/Arrangement.php:88 src/Products.php:70 src/Vouchers.php:54
+#: src/Arrangement.php:88 src/Products.php:70 src/Vouchers.php:57
 msgid "Error: unknown option"
 msgstr ""
 
@@ -523,7 +524,7 @@ msgstr ""
 msgid "No location specified"
 msgstr ""
 
-#: src/Bookprocess.php:104
+#: src/Bookprocess.php:103
 msgid "Error: book process does not exist"
 msgstr ""
 
@@ -535,7 +536,7 @@ msgstr ""
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 
-#: src/ContactForm.php:127 src/OnlineBooking.php:70 src/Vouchers.php:90
+#: src/ContactForm.php:127 src/OnlineBooking.php:70 src/Vouchers.php:93
 msgid "Error: redirect is set, but is an invalid URL"
 msgstr ""
 
@@ -653,131 +654,131 @@ msgstr ""
 msgid "Package availability"
 msgstr "Arrangement-Verfügbarkeit"
 
-#: src/Plugin.php:261
+#: src/Plugin.php:246
 msgid "At least one choice is required"
 msgstr ""
 
-#: src/Plugin.php:262
+#: src/Plugin.php:247
 msgid "Loading..."
 msgstr "Laden..."
 
-#: src/Plugin.php:263
+#: src/Plugin.php:248
 msgid "Your message was sent successfully"
 msgstr ""
 
-#: src/Plugin.php:264
+#: src/Plugin.php:249
 msgid "There was an error sending your message"
 msgstr ""
 
-#: src/Plugin.php:273
+#: src/Plugin.php:258
 msgid "Previous month"
 msgstr "Vorheriger Monat"
 
-#: src/Plugin.php:274
+#: src/Plugin.php:259
 msgid "Next month"
 msgstr "Nächsten Monat"
 
-#: src/Plugin.php:276
+#: src/Plugin.php:261
 msgid "January"
 msgstr "Januar"
 
-#: src/Plugin.php:277
+#: src/Plugin.php:262
 msgid "February"
 msgstr "Februar"
 
-#: src/Plugin.php:278
+#: src/Plugin.php:263
 msgid "March"
 msgstr "März"
 
-#: src/Plugin.php:279
+#: src/Plugin.php:264
 msgid "April"
 msgstr "April"
 
-#: src/Plugin.php:280
+#: src/Plugin.php:265
 msgid "May"
 msgstr "Mai"
 
-#: src/Plugin.php:281
+#: src/Plugin.php:266
 msgid "June"
 msgstr "Juni"
 
-#: src/Plugin.php:282
+#: src/Plugin.php:267
 msgid "July"
 msgstr "Juli"
 
-#: src/Plugin.php:283
+#: src/Plugin.php:268
 msgid "August"
 msgstr "August"
 
-#: src/Plugin.php:284
+#: src/Plugin.php:269
 msgid "September"
 msgstr "September"
 
-#: src/Plugin.php:285
+#: src/Plugin.php:270
 msgid "October"
 msgstr "Oktober"
 
-#: src/Plugin.php:286
+#: src/Plugin.php:271
 msgid "November"
 msgstr "November"
 
-#: src/Plugin.php:287
+#: src/Plugin.php:272
 msgid "December"
 msgstr "Dezember"
 
-#: src/Plugin.php:290
+#: src/Plugin.php:275
 msgid "Sunday"
 msgstr "Sonntag"
 
-#: src/Plugin.php:291
+#: src/Plugin.php:276
 msgid "Monday"
 msgstr "Montag"
 
-#: src/Plugin.php:292
+#: src/Plugin.php:277
 msgid "Tuesday"
 msgstr "Dienstag"
 
-#: src/Plugin.php:293
+#: src/Plugin.php:278
 msgid "Wednesday"
 msgstr "Mittwoch"
 
-#: src/Plugin.php:294
+#: src/Plugin.php:279
 msgid "Thursday"
 msgstr "Donnerstag"
 
-#: src/Plugin.php:295
+#: src/Plugin.php:280
 msgid "Friday"
 msgstr "Freitag"
 
-#: src/Plugin.php:296
+#: src/Plugin.php:281
 msgid "Saturday"
 msgstr "Samstag"
 
-#: src/Plugin.php:299
+#: src/Plugin.php:284
 msgid "Sun"
 msgstr "So"
 
-#: src/Plugin.php:300
+#: src/Plugin.php:285
 msgid "Mon"
 msgstr "Mo"
 
-#: src/Plugin.php:301
+#: src/Plugin.php:286
 msgid "Tue"
 msgstr "Di"
 
-#: src/Plugin.php:302
+#: src/Plugin.php:287
 msgid "Wed"
 msgstr "Mi"
 
-#: src/Plugin.php:303
+#: src/Plugin.php:288
 msgid "Thu"
 msgstr "Do"
 
-#: src/Plugin.php:304
+#: src/Plugin.php:289
 msgid "Fri"
 msgstr "Fr"
 
-#: src/Plugin.php:305
+#: src/Plugin.php:290
 msgid "Sat"
 msgstr "Sa"
 

@@ -67,7 +67,7 @@ registerGutenbergBlock('recras/voucher-info', {
                 },
                 {
                     value: 'validity',
-                    label: wp.i18n.__('Number of days valid', TEXT_DOMAIN),
+                    label: wp.i18n.__('Validity', TEXT_DOMAIN),
                 },
             ],
             label: wp.i18n.__('Property to show', TEXT_DOMAIN),

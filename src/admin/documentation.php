@@ -107,6 +107,6 @@
 	<li>Property to show - <strong>required</strong> what property to show. This can be any of the following:<ol>
         <li>Name
         <li>Price
-        <li>Number of days valid
+        <li>Validity (number of days, or date)
     </ol>
 </ol>

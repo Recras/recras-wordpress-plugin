@@ -49,6 +49,9 @@ class Vouchers
             case 'price':
                 return Price::format($template->price);
             case 'validity':
+                if ($template->expiration_date) {
+                    return wp_date(get_option('date_format'), strtotime($template->expiration_date));
+                }
                 return $template->expire_days;
             default:
                 return __('Error: unknown option', Plugin::TEXT_DOMAIN);

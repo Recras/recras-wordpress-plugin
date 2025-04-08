@@ -84,7 +84,7 @@
 	<li>Property to show - <kbd>show</kbd>. Value is any of the following:<ol>
         <li>Name - <kbd>name</kbd>
         <li>Price - <kbd>price</kbd>
-        <li>Number of days valid - <kbd>validity</kbd>
+        <li>Validity (number of days, or date) - <kbd>validity</kbd>
     </ol>
 </ol>
 <p>Example: <kbd>[recras-voucher-info id="81" show="price"]</kbd></p>
