@@ -58,9 +58,9 @@ class Plugin
     private function addClassicEditorSubmenuPage(string $title, string $slug, callable $callable): void
     {
         add_submenu_page(
-            null,
+            '',
             $title,
-            null,
+            '',
             'publish_posts',
             $slug,
             $callable
