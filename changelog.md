@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.3.5 (2025-06-05)
+* Fix warning when using PHP 8.4
+
 ## 6.3.4 (2025-04-08)
 * Improve choosing a start time when displaying package programme
 * Fix display of voucher templates with a validity set to a certain date, instead of a number of days
