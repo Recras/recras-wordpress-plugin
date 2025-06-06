@@ -10,10 +10,8 @@ class Bookprocess
      */
     public static function clearCache(): int
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
-        return $recrasPlugin->transients->delete($subdomain . '_bookprocesses_v2');
+        return Transient::delete($subdomain . '_bookprocesses_v2');
     }
 
     public static function enqueueScripts(string $subdomain): void
@@ -37,16 +35,14 @@ class Bookprocess
      */
     public static function getProcesses(string $subdomain)
     {
-        global $recrasPlugin;
-
-        $json = $recrasPlugin->transients->get($subdomain . '_bookprocesses_v2');
+        $json = Transient::get($subdomain . '_bookprocesses_v2');
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'bookprocesses/book');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            $recrasPlugin->transients->set($subdomain . '_bookprocesses_v2', $json);
+            Transient::set($subdomain . '_bookprocesses_v2', $json);
         }
 
         $processes = [];

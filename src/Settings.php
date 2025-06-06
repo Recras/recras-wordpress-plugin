@@ -114,13 +114,11 @@ class Settings
 
     public static function allowOnlinePackageBooking(): bool
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
         if (!$subdomain) {
             return true;
         }
-        $setting = $recrasPlugin->transients->get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($subdomain . '_show_old_online_booking');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -128,13 +126,11 @@ class Settings
 
     public static function allowOldVoucherSales(): bool
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
         if (!$subdomain) {
             return true;
         }
-        $setting = $recrasPlugin->transients->get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -144,15 +140,13 @@ class Settings
      */
     public static function clearCache(): int
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
         $errors = 0;
-        if ($recrasPlugin->transients->get($subdomain . '_show_old_online_booking')) {
-            $errors = $recrasPlugin->transients->delete($subdomain . '_show_old_online_booking');
+        if (Transient::get($subdomain . '_show_old_online_booking')) {
+            $errors = Transient::delete($subdomain . '_show_old_online_booking');
         }
-        if ($recrasPlugin->transients->get($subdomain . '_show_old_voucher_sales')) {
-            $errors = $recrasPlugin->transients->delete($subdomain . '_show_old_voucher_sales');
+        if (Transient::get($subdomain . '_show_old_voucher_sales')) {
+            $errors = Transient::delete($subdomain . '_show_old_voucher_sales');
         }
 
         return $errors;

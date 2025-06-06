@@ -95,19 +95,17 @@ class Arrangement
      */
     public static function clearCache(): int
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
         $errors = 0;
 
         $packages = array_keys(self::getPackages($subdomain));
         foreach ($packages as $id) {
             $name = $subdomain . '_arrangement_' . $id;
-            if ($recrasPlugin->transients->get($name)) {
-                $errors += $recrasPlugin->transients->delete($name);
+            if (Transient::get($name)) {
+                $errors += Transient::delete($name);
             }
         }
-        $errors += $recrasPlugin->transients->delete($subdomain . '_arrangements');
+        $errors += Transient::delete($subdomain . '_arrangements');
 
         return $errors;
     }
@@ -237,16 +235,14 @@ class Arrangement
      */
     public static function getPackages(string $subdomain, bool $onlyOnline = false, bool $includeEmpty = true)
     {
-        global $recrasPlugin;
-
-        $json = $recrasPlugin->transients->get($subdomain . '_arrangements');
+        $json = Transient::get($subdomain . '_arrangements');
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'arrangementen');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            $recrasPlugin->transients->set($subdomain . '_arrangements', $json);
+            Transient::set($subdomain . '_arrangements', $json);
         }
 
         $packages = [];
@@ -363,16 +359,14 @@ class Arrangement
      */
     public static function getPackage(string $subdomain, int $id)
     {
-        global $recrasPlugin;
-
-        $json = $recrasPlugin->transients->get($subdomain . '_arrangement_' . $id);
+        $json = Transient::get($subdomain . '_arrangement_' . $id);
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'arrangementen/' . $id);
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            $recrasPlugin->transients->set($subdomain . '_arrangement_' . $id, $json);
+            Transient::set($subdomain . '_arrangement_' . $id, $json);
         }
         return $json;
     }

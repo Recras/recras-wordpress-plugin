@@ -15,7 +15,6 @@ class Plugin
     public function __construct()
     {
         $this->setBaseUrl();
-        $this->transients = new Transient();
 
         // Needs to run before: Gutenberg::addBlocks, self::loadAdminScripts
         $this->checkOldSettings();
@@ -143,7 +142,7 @@ class Plugin
             return;
         }
 
-        $setting = $this->transients->get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($subdomain . '_show_old_online_booking');
         if ($setting === false) {
             try {
                 $setting = Http::get($subdomain, 'instellingen/allow_online_package_booking');
@@ -151,11 +150,11 @@ class Plugin
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                $this->transients->set($subdomain . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($subdomain . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
             }
         }
 
-        $setting = $this->transients->get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
         if ($setting === false) {
             try {
                 $setting = Http::get($subdomain, 'instellingen/allow_old_vouchers_sales');
@@ -163,7 +162,7 @@ class Plugin
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                $this->transients->set($subdomain . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($subdomain . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
             }
         }
     }

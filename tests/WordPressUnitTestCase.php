@@ -5,14 +5,10 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
 {
     public function setUp(): void
     {
-        global $recrasPlugin;
-
         $transient = $this->createMock(Transient::class);
         $transient->method('delete')->willReturn(0); // 0 indicates no error
         $transient->method('set')->willReturn(true);
         $transient->method('get')->will($this->returnCallback([&$this, 'transientGetCallback']));
-
-        $recrasPlugin->transients = $transient;
     }
 
     public function createPostAndGetContent(string $content): string

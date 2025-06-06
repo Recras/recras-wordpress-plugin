@@ -25,9 +25,7 @@ class ContactForm
      */
     public static function getForm(string $subdomain, int $id)
     {
-        global $recrasPlugin;
-
-        $form = $recrasPlugin->transients->get($subdomain . '_contactform_' . $id . '_v2');
+        $form = Transient::get($subdomain . '_contactform_' . $id . '_v2');
         if ($form === false) {
             try {
                 $form = Http::get($subdomain, 'contactformulieren/' . $id . '?embed=Velden');
@@ -37,7 +35,7 @@ class ContactForm
             if (isset($form->error, $form->message)) {
                 return $form->message;
             }
-            $recrasPlugin->transients->set($subdomain . '_contactform_' . $id . '_v2', $form);
+            Transient::set($subdomain . '_contactform_' . $id . '_v2', $form);
         }
         return $form;
     }
@@ -150,8 +148,6 @@ class ContactForm
      */
     public static function clearCache(): int
     {
-        global $recrasPlugin;
-
         $subdomain = get_option('recras_subdomain');
         $errors = 0;
 
@@ -159,8 +155,8 @@ class ContactForm
         foreach ($forms as $id) {
             $errors += self::deleteTransients($subdomain, $id);
         }
-        if ($recrasPlugin->transients->get($subdomain . '_contactforms')) {
-            $errors += $recrasPlugin->transients->delete($subdomain . '_contactforms');
+        if (Transient::get($subdomain . '_contactforms')) {
+            $errors += Transient::delete($subdomain . '_contactforms');
         }
 
         return $errors;
@@ -172,13 +168,11 @@ class ContactForm
      */
     private static function deleteTransients(string $subdomain, int $formID): int
     {
-        global $recrasPlugin;
-
         $errors = 0;
 
         $name = $subdomain . '_contactform_' . $formID . '_v2';
-        if ($recrasPlugin->transients->get($name)) {
-            $errors += $recrasPlugin->transients->delete($name);
+        if (Transient::get($name)) {
+            $errors += Transient::delete($name);
         }
 
         return $errors;
@@ -634,16 +628,14 @@ class ContactForm
      */
     public static function getForms(string $subdomain)
     {
-        global $recrasPlugin;
-
-        $json = $recrasPlugin->transients->get($subdomain . '_contactforms');
+        $json = Transient::get($subdomain . '_contactforms');
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'contactformulieren');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            $recrasPlugin->transients->set($subdomain . '_contactforms', $json);
+            Transient::set($subdomain . '_contactforms', $json);
         }
 
         $forms = [];
