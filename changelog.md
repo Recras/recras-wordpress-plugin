@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.3.6 (2025-06-12)
+* Fix errors when using WP CLI for certain things
+
 ## 6.3.5 (2025-06-05)
 * Fix warning when using PHP 8.4
 
