@@ -24,3 +24,10 @@
     vertical-align: middle;
     width: 1em;
 }
+
+p.description.recrasAdminError {
+    background: #fee;
+    border: 1px solid currentColor;
+    color: #800;
+    padding: 0.5em;
+}

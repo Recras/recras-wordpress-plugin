@@ -86,6 +86,14 @@ class Settings
         }
 
         printf('<input type="text" name="%s" id="%s" value="%s">.recras.nl', $field, $field, $value);
+        $arr = wp_remote_get('https://' . $value . '.recras.nl/');
+        if ($arr instanceof \WP_Error) {
+            self::infoText(__('Subdomain not found!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+        } elseif (is_array($arr) && isset($arr['http_response']) && $arr['http_response'] instanceof \WP_HTTP_Requests_Response) {
+            if ($arr['http_response']->get_status() === 404) {
+                self::infoText(__('Error fetching subdomain!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+            }
+        }
     }
 
 
@@ -262,9 +270,9 @@ class Settings
     }
 
 
-    private static function infoText($text): void
+    private static function infoText(string $text, string $extraClass = ''): void
     {
-        echo '<p class="description">' . $text . '</p>';
+        echo '<p class="description' . ($extraClass ? ' ' . $extraClass : '') . '">' . $text . '</p>';
     }
 
 

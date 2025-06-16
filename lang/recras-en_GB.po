@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-06-16 15:54+0200\n"
-"PO-Revision-Date: 2025-06-16 15:54+0200\n"
+"POT-Creation-Date: 2025-06-16 16:00+0200\n"
+"PO-Revision-Date: 2025-06-16 16:00+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -397,11 +397,11 @@ msgstr ""
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr ""
 
-#: js/gutenberg-global.js:46 src/Settings.php:203
+#: js/gutenberg-global.js:46 src/Settings.php:211
 msgid "Recras → Settings menu"
 msgstr ""
 
-#: js/gutenberg-global.js:48 src/Settings.php:202
+#: js/gutenberg-global.js:48 src/Settings.php:210
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr ""
@@ -623,7 +623,7 @@ msgstr ""
 msgid "Cache"
 msgstr ""
 
-#: src/Plugin.php:98 src/Plugin.php:99 src/Settings.php:366
+#: src/Plugin.php:98 src/Plugin.php:99 src/Settings.php:374
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr ""
@@ -805,64 +805,72 @@ msgstr ""
 msgid "Used in prices, such as 100,00."
 msgstr ""
 
-#: src/Settings.php:161 src/Settings.php:170 src/Settings.php:179
-#: src/Settings.php:191
+#: src/Settings.php:91
+msgid "Subdomain not found!"
+msgstr ""
+
+#: src/Settings.php:94
+msgid "Error fetching subdomain!"
+msgstr ""
+
+#: src/Settings.php:169 src/Settings.php:178 src/Settings.php:187
+#: src/Settings.php:199
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/Settings.php:242
+#: src/Settings.php:250
 msgid "No theme"
 msgstr ""
 
-#: src/Settings.php:246
+#: src/Settings.php:254
 msgid "Basic theme"
 msgstr ""
 
-#: src/Settings.php:250
+#: src/Settings.php:258
 msgid "BP Green"
 msgstr ""
 
-#: src/Settings.php:254
+#: src/Settings.php:262
 msgid "Reasonably Red"
 msgstr ""
 
-#: src/Settings.php:258
+#: src/Settings.php:266
 msgid "Recras Blue"
 msgstr ""
 
-#: src/Settings.php:324 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:332 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr ""
 
-#: src/Settings.php:330 src/admin/documentation.php:6
+#: src/Settings.php:338 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr ""
 
-#: src/Settings.php:331 src/admin/documentation.php:8
+#: src/Settings.php:339 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr ""
 
-#: src/Settings.php:332 src/admin/documentation.php:10
+#: src/Settings.php:340 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr ""
 
-#: src/Settings.php:333 src/admin/documentation.php:12
+#: src/Settings.php:341 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr ""
 
-#: src/Settings.php:334
+#: src/Settings.php:342
 msgid "Fix book process datepicker styling"
 msgstr ""
 
-#: src/Settings.php:335 src/admin/documentation.php:16
+#: src/Settings.php:343 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr ""
 
-#: src/Settings.php:336
+#: src/Settings.php:344
 msgid "Enable Google Analytics integration? (deprecated)"
 msgstr ""
 
-#: src/Settings.php:365
+#: src/Settings.php:373
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr ""
