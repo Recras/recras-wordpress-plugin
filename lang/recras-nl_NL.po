@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-04-08 15:18+0200\n"
-"PO-Revision-Date: 2025-04-08 15:18+0200\n"
+"POT-Creation-Date: 2025-06-16 15:54+0200\n"
+"PO-Revision-Date: 2025-06-16 15:55+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -22,8 +22,8 @@ msgstr ""
 #: editor/form-arrangement.php:16 editor/form-booking.php:48
 #: editor/form-contact.php:32 editor/form-package-availability.php:13
 #: js/gutenberg-availability.js:50 js/gutenberg-package.js:2
-#: js/gutenberg-package.js:50 js/gutenberg-package.js:142 src/Plugin.php:114
-#: src/Plugin.php:217
+#: js/gutenberg-package.js:50 js/gutenberg-package.js:142 src/Plugin.php:113
+#: src/Plugin.php:216
 msgid "Package"
 msgstr "Arrangement"
 
@@ -99,7 +99,7 @@ msgid "Start time"
 msgstr "Starttijd"
 
 #: editor/form-arrangement.php:44 editor/form-booking.php:82
-#: js/gutenberg-package.js:127 src/ContactForm.php:291
+#: js/gutenberg-package.js:127 src/ContactForm.php:285
 msgid "hh:mm"
 msgstr "uu:mm"
 
@@ -181,7 +181,7 @@ msgstr "Sorry, dit is alleen beschikbaar in de Gutenberg-editor."
 msgid "Pre-fill date (requires exactly 1 package selected)"
 msgstr "Datum vooraf invullen (vereist exact 1 geselecteerd arrangement)"
 
-#: editor/form-booking.php:73 src/ContactForm.php:274 src/ContactForm.php:316
+#: editor/form-booking.php:73 src/ContactForm.php:268 src/ContactForm.php:310
 msgid "yyyy-mm-dd"
 msgstr "jjjj-mm-dd"
 
@@ -220,7 +220,7 @@ msgstr "Automatisch schalen?"
 #: editor/form-bookprocess.php:16 js/gutenberg-bookprocess.js:2
 #: js/gutenberg-bookprocess.js:45 js/gutenberg-bookprocess.js:59
 #: src/Elementor/Bookprocess.php:17 src/Elementor/Bookprocess.php:35
-#: src/Elementor/Bookprocess.php:45 src/Plugin.php:115 src/Plugin.php:216
+#: src/Elementor/Bookprocess.php:45 src/Plugin.php:114 src/Plugin.php:215
 msgid "Book process"
 msgstr "Boekproces"
 
@@ -244,7 +244,7 @@ msgstr "Eerste widget verbergen?"
 
 #: editor/form-contact.php:15 js/gutenberg-contactform.js:2
 #: js/gutenberg-contactform.js:76 js/gutenberg-contactform.js:193
-#: src/Plugin.php:116 src/Plugin.php:213
+#: src/Plugin.php:115 src/Plugin.php:212
 msgid "Contact form"
 msgstr "Contactformulier"
 
@@ -321,13 +321,13 @@ msgstr "Tekst op knop Versturen"
 
 #: editor/form-contact.php:62 editor/form-contact.php:109
 #: js/gutenberg-contactform.js:14 js/gutenberg-contactform.js:27
-#: src/ContactForm.php:119
+#: src/ContactForm.php:117
 msgid "Send"
 msgstr "Versturen"
 
 #: editor/form-product.php:13 js/gutenberg-product.js:2
-#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:118
-#: src/Plugin.php:219
+#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:117
+#: src/Plugin.php:218
 msgid "Product"
 msgstr "Product"
 
@@ -419,17 +419,17 @@ msgstr "bijv. https://www.recras.nl/bedankt/"
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr "Bedanktpagina (optioneel, laat leeg om niet door te sturen)"
 
-#: js/gutenberg-global.js:46 src/Settings.php:209
+#: js/gutenberg-global.js:46 src/Settings.php:203
 msgid "Recras → Settings menu"
 msgstr "menu Recras → Instellingen"
 
-#: js/gutenberg-global.js:48 src/Settings.php:208
+#: js/gutenberg-global.js:48 src/Settings.php:202
 #, javascript-format, php-format
 msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr "Vul je Recras-naam in in het %s voordat je widgets toevoegt."
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
-#: src/Plugin.php:117 src/Plugin.php:215
+#: src/Plugin.php:116 src/Plugin.php:214
 msgid "Online booking of packages"
 msgstr "Online boeking van arrangementen"
 
@@ -482,7 +482,7 @@ msgstr ""
 "\"Presentatie\" van het product."
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:120 src/Plugin.php:222 src/admin/documentation.php:102
+#: src/Plugin.php:119 src/Plugin.php:221 src/admin/documentation.php:102
 #: src/admin/shortcodes.php:79
 msgid "Voucher info"
 msgstr "Tegoedboninfo"
@@ -492,23 +492,23 @@ msgid "Voucher template"
 msgstr "Tegoedbon-template"
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:85
-#: src/Plugin.php:119 src/Plugin.php:223 src/admin/documentation.php:98
+#: src/Plugin.php:118 src/Plugin.php:222 src/admin/documentation.php:98
 msgid "Voucher sales"
 msgstr "Tegoedbonverkoop"
 
-#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:89
-#: src/ContactForm.php:57 src/Products.php:21 src/Vouchers.php:22
+#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:85
+#: src/ContactForm.php:55 src/Products.php:21 src/Vouchers.php:22
 msgid "Error: no ID set"
 msgstr "Fout: geen ID ingesteld"
 
-#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:93
-#: src/ContactForm.php:60 src/OnlineBooking.php:25 src/Products.php:24
+#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:89
+#: src/ContactForm.php:58 src/OnlineBooking.php:25 src/Products.php:24
 #: src/Vouchers.php:25 src/Vouchers.php:78
 msgid "Error: ID is not a number"
 msgstr "Fout: ID is geen getal"
 
-#: src/Arrangement.php:38 src/Arrangement.php:279 src/Bookprocess.php:99
-#: src/ContactForm.php:72 src/ContactForm.php:76
+#: src/Arrangement.php:38 src/Arrangement.php:275 src/Bookprocess.php:95
+#: src/ContactForm.php:70 src/ContactForm.php:74
 #, php-format
 msgid "Error: %s"
 msgstr "Fout: %s"
@@ -528,66 +528,66 @@ msgstr "Fout: programma is leeg"
 msgid "Error: unknown option"
 msgstr "Fout: onbekende optie"
 
-#: src/Arrangement.php:174
+#: src/Arrangement.php:172
 msgid "From"
 msgstr "Van"
 
-#: src/Arrangement.php:174
+#: src/Arrangement.php:172
 msgid "Until"
 msgstr "Tot"
 
-#: src/Arrangement.php:174
+#: src/Arrangement.php:172
 msgid "Activity"
 msgstr "Activiteit"
 
-#: src/Arrangement.php:214
+#: src/Arrangement.php:212
 #, php-format
 msgid "Day %d"
 msgstr "Dag %d"
 
-#: src/Arrangement.php:314
+#: src/Arrangement.php:310
 msgid "No duration specified"
 msgstr "Geen duur opgegeven"
 
-#: src/Arrangement.php:355
+#: src/Arrangement.php:351
 msgid "No location specified"
 msgstr "Geen locatie opgegeven"
 
-#: src/Bookprocess.php:103
+#: src/Bookprocess.php:99
 msgid "Error: book process does not exist"
 msgstr "Fout: boekproces bestaat niet"
 
-#: src/ContactForm.php:76
+#: src/ContactForm.php:74
 msgid "Contact form might be deleted"
 msgstr "Contactformulier is mogelijk verwijderd"
 
-#: src/ContactForm.php:115
+#: src/ContactForm.php:113
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 "Fout: arrangement is ingesteld, maar contactformulier ondersteunt geen "
 "arrangementen"
 
-#: src/ContactForm.php:127 src/OnlineBooking.php:70 src/Vouchers.php:93
+#: src/ContactForm.php:125 src/OnlineBooking.php:70 src/Vouchers.php:93
 msgid "Error: redirect is set, but is an invalid URL"
 msgstr "Fout: doorstuurpagina is ingesteld, maar is een ongeldige URL"
 
-#: src/ContactForm.php:382
+#: src/ContactForm.php:376
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: src/ContactForm.php:383
+#: src/ContactForm.php:377
 msgid "Male"
 msgstr "Man"
 
-#: src/ContactForm.php:384
+#: src/ContactForm.php:378
 msgid "Female"
 msgstr "Vrouw"
 
-#: src/ContactForm.php:520
+#: src/ContactForm.php:514
 msgid "(required)"
 msgstr "(verplicht)"
 
-#: src/ContactForm.php:545
+#: src/ContactForm.php:539
 msgid "Clear choice"
 msgstr "Keuze wissen"
 
@@ -656,28 +656,28 @@ msgstr "Fout: \"prefill_time\" is geen geldige tijd-string (bijv. 14:30)"
 msgid "Error: \"product_amounts\" is invalid"
 msgstr "Fout: \"product_amounts\" is ongeldig"
 
-#: src/Plugin.php:81 src/Plugin.php:82
+#: src/Plugin.php:80 src/Plugin.php:81
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/Plugin.php:91 src/Plugin.php:92
+#: src/Plugin.php:90 src/Plugin.php:91
 msgid "Cache"
 msgstr "Cache"
 
-#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:372
+#: src/Plugin.php:98 src/Plugin.php:99 src/Settings.php:366
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: src/Plugin.php:107 src/Plugin.php:108 src/admin/shortcodes.php:1
+#: src/Plugin.php:106 src/Plugin.php:107 src/admin/shortcodes.php:1
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: src/Plugin.php:195
+#: src/Plugin.php:194
 msgid "Error: you have not set your Recras name yet"
 msgstr "Fout: je hebt je Recras-naam nog niet ingesteld"
 
-#: src/Plugin.php:197
+#: src/Plugin.php:196
 msgid ""
 "Error: your Recras name has not been set yet, but you do not have the "
 "permission to set this. Please ask your site administrator to do this for "
@@ -686,139 +686,139 @@ msgstr ""
 "Fout: je Recras-naam is nog niet ingesteld, maar je hebt niet de rechten om "
 "dit zelf in te stellen. Vraag aan je websitebeheerder om dit voor je te doen."
 
-#: src/Plugin.php:214
+#: src/Plugin.php:213
 msgid "Could not connect to your Recras"
 msgstr "Kon geen verbinding maken met je Recras"
 
-#: src/Plugin.php:218
+#: src/Plugin.php:217
 msgid "Package availability"
 msgstr "Arrangement-beschikbaarheid"
 
-#: src/Plugin.php:246
+#: src/Plugin.php:245
 msgid "At least one choice is required"
 msgstr "Ten minste één keuze is vereist"
 
-#: src/Plugin.php:247
+#: src/Plugin.php:246
 msgid "Loading..."
 msgstr "Laden..."
 
-#: src/Plugin.php:248
+#: src/Plugin.php:247
 msgid "Your message was sent successfully"
 msgstr "Uw bericht is succesvol verzonden"
 
-#: src/Plugin.php:249
+#: src/Plugin.php:248
 msgid "There was an error sending your message"
 msgstr "Er was een probleem met het verzenden van uw bericht"
 
-#: src/Plugin.php:258
+#: src/Plugin.php:257
 msgid "Previous month"
 msgstr "Vorige maand"
 
-#: src/Plugin.php:259
+#: src/Plugin.php:258
 msgid "Next month"
 msgstr "Volgende maand"
 
-#: src/Plugin.php:261
+#: src/Plugin.php:260
 msgid "January"
 msgstr "Januari"
 
-#: src/Plugin.php:262
+#: src/Plugin.php:261
 msgid "February"
 msgstr "Februari"
 
-#: src/Plugin.php:263
+#: src/Plugin.php:262
 msgid "March"
 msgstr "Maart"
 
-#: src/Plugin.php:264
+#: src/Plugin.php:263
 msgid "April"
 msgstr "April"
 
-#: src/Plugin.php:265
+#: src/Plugin.php:264
 msgid "May"
 msgstr "Mei"
 
-#: src/Plugin.php:266
+#: src/Plugin.php:265
 msgid "June"
 msgstr "Juni"
 
-#: src/Plugin.php:267
+#: src/Plugin.php:266
 msgid "July"
 msgstr "Juli"
 
-#: src/Plugin.php:268
+#: src/Plugin.php:267
 msgid "August"
 msgstr "Augustus"
 
-#: src/Plugin.php:269
+#: src/Plugin.php:268
 msgid "September"
 msgstr "September"
 
-#: src/Plugin.php:270
+#: src/Plugin.php:269
 msgid "October"
 msgstr "Oktober"
 
-#: src/Plugin.php:271
+#: src/Plugin.php:270
 msgid "November"
 msgstr "November"
 
-#: src/Plugin.php:272
+#: src/Plugin.php:271
 msgid "December"
 msgstr "December"
 
-#: src/Plugin.php:275
+#: src/Plugin.php:274
 msgid "Sunday"
 msgstr "Zondag"
 
-#: src/Plugin.php:276
+#: src/Plugin.php:275
 msgid "Monday"
 msgstr "Maandag"
 
-#: src/Plugin.php:277
+#: src/Plugin.php:276
 msgid "Tuesday"
 msgstr "Dinsdag"
 
-#: src/Plugin.php:278
+#: src/Plugin.php:277
 msgid "Wednesday"
 msgstr "Woensdag"
 
-#: src/Plugin.php:279
+#: src/Plugin.php:278
 msgid "Thursday"
 msgstr "Donderdag"
 
-#: src/Plugin.php:280
+#: src/Plugin.php:279
 msgid "Friday"
 msgstr "Vrijdag"
 
-#: src/Plugin.php:281
+#: src/Plugin.php:280
 msgid "Saturday"
 msgstr "Zaterdag"
 
-#: src/Plugin.php:284
+#: src/Plugin.php:283
 msgid "Sun"
 msgstr "Zo"
 
-#: src/Plugin.php:285
+#: src/Plugin.php:284
 msgid "Mon"
 msgstr "Ma"
 
-#: src/Plugin.php:286
+#: src/Plugin.php:285
 msgid "Tue"
 msgstr "Di"
 
-#: src/Plugin.php:287
+#: src/Plugin.php:286
 msgid "Wed"
 msgstr "Wo"
 
-#: src/Plugin.php:288
+#: src/Plugin.php:287
 msgid "Thu"
 msgstr "Do"
 
-#: src/Plugin.php:289
+#: src/Plugin.php:288
 msgid "Fri"
 msgstr "Vr"
 
-#: src/Plugin.php:290
+#: src/Plugin.php:289
 msgid "Sat"
 msgstr "Za"
 
@@ -836,11 +836,11 @@ msgstr ""
 
 #: src/Settings.php:51
 msgid ""
-"Not all browsers have a built-in date picker. Enable this to use a custom "
-"widget."
+"Use this setting if you want to be able to style the date picker in contact "
+"forms."
 msgstr ""
-"Niet alle browsers hebben een ingebouwde datumkiezer. Vink dit aan om een "
-"eigen widget te gebruiken."
+"Gebruik deze instelling als je de datumselectie in contactformulieren wilt "
+"kunnen opmaken."
 
 #: src/Settings.php:57
 msgid ""
@@ -854,64 +854,64 @@ msgstr ""
 msgid "Used in prices, such as 100,00."
 msgstr "Gebruikt in prijzen, zoals 100,00."
 
-#: src/Settings.php:167 src/Settings.php:176 src/Settings.php:185
-#: src/Settings.php:197
+#: src/Settings.php:161 src/Settings.php:170 src/Settings.php:179
+#: src/Settings.php:191
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Je hebt niet genoeg rechten om deze pagina te bekijken."
 
-#: src/Settings.php:248
+#: src/Settings.php:242
 msgid "No theme"
 msgstr "Geen thema"
 
-#: src/Settings.php:252
+#: src/Settings.php:246
 msgid "Basic theme"
 msgstr "Basisthema"
 
-#: src/Settings.php:256
+#: src/Settings.php:250
 msgid "BP Green"
 msgstr "BP Groen"
 
-#: src/Settings.php:260
+#: src/Settings.php:254
 msgid "Reasonably Red"
 msgstr "Redelijk Rood"
 
-#: src/Settings.php:264
+#: src/Settings.php:258
 msgid "Recras Blue"
 msgstr "Recras Blauw"
 
-#: src/Settings.php:330 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:324 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr "Recras-instellingen"
 
-#: src/Settings.php:336 src/admin/documentation.php:6
+#: src/Settings.php:330 src/admin/documentation.php:6
 msgid "Recras name"
 msgstr "Recrasnaam"
 
-#: src/Settings.php:337 src/admin/documentation.php:8
+#: src/Settings.php:331 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr "Valutasymbool"
 
-#: src/Settings.php:338 src/admin/documentation.php:10
+#: src/Settings.php:332 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr "Decimaalscheiding"
 
-#: src/Settings.php:339 src/admin/documentation.php:12
+#: src/Settings.php:333 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr "Kalender-widget gebruiken voor contactformulieren"
 
-#: src/Settings.php:340
+#: src/Settings.php:334
 msgid "Fix book process datepicker styling"
 msgstr "Styling boekproces-datumselectie oplossen"
 
-#: src/Settings.php:341 src/admin/documentation.php:16
+#: src/Settings.php:335 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr "Thema voor Recras-integraties"
 
-#: src/Settings.php:342
+#: src/Settings.php:336
 msgid "Enable Google Analytics integration? (deprecated)"
 msgstr "Google Analytics-integratie inschakelen? (verouderd)"
 
-#: src/Settings.php:371
+#: src/Settings.php:365
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr "Bekijk voor meer informatie over deze instellingen de %s-pagina."
@@ -966,6 +966,13 @@ msgstr "Producten"
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid ""
+#~ "Not all browsers have a built-in date picker. Enable this to use a custom "
+#~ "widget."
+#~ msgstr ""
+#~ "Niet alle browsers hebben een ingebouwde datumkiezer. Vink dit aan om een "
+#~ "eigen widget te gebruiken."
 
 #~ msgid "Number of days valid"
 #~ msgstr "Aantal dagen geldig"

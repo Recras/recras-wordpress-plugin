@@ -48,7 +48,7 @@ class Settings
     public static function addInputDatepicker(array $args): void
     {
         self::addInputCheckbox($args);
-        self::infoText(__('Not all browsers have a built-in date picker. Enable this to use a custom widget.', Plugin::TEXT_DOMAIN));
+        self::infoText(__('Use this setting if you want to be able to style the date picker in contact forms.', Plugin::TEXT_DOMAIN));
     }
 
     public static function addInputFixDatepicker(array $args): void
