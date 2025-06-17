@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.3.7 (2025-06-17)
+* Show error on settings page if subdomain appears invalid
+* Add caching hint to book process script
+
 ## 6.3.6 (2025-06-12)
 * Fix errors when using WP CLI for certain things
 
