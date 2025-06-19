@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .bookprocess .react-datepicker {
     font-size: 0.8em;
     border-radius: 0.3em;
@@ -17,18 +18,22 @@
 .bookprocess :is(.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header) {
     font-size: 0.944em;
 }
+
 .bookprocess .react-datepicker__year {
     margin: 0.4em;
 }
+
 .bookprocess .react-datepicker__year .react-datepicker__year-text {
     width: 4em;
 }
+
 .bookprocess .react-datepicker__month {
     margin: 0.4em;
 }
 .bookprocess .react-datepicker__month :is(.react-datepicker__month-text, .react-datepicker__quarter-text) {
     width: 4em;
 }
+
 .bookprocess .react-datepicker__time-container--with-today-button {
     border-radius: 0.3em;
 }
@@ -71,14 +76,16 @@
     .react-datepicker__day--highlighted,
     .react-datepicker__month-text--highlighted,
     .react-datepicker__quarter-text--highlighted,
-    .react-datepicker__year-text--highlighted) {
+    .react-datepicker__year-text--highlighted
+) {
     border-radius: 0.3em;
 }
 .bookprocess :is(
     .react-datepicker__day--holidays,
     .react-datepicker__month-text--holidays,
     .react-datepicker__quarter-text--holidays,
-    .react-datepicker__year-text--holidays) {
+    .react-datepicker__year-text--holidays
+) {
     border-radius: 0.3em;
 }
 .bookprocess :is(
@@ -91,14 +98,16 @@
     .react-datepicker__quarter-text--in-range,
     .react-datepicker__year-text--selected,
     .react-datepicker__year-text--in-selecting-range,
-    .react-datepicker__year-text--in-range) {
+    .react-datepicker__year-text--in-range
+) {
     border-radius: 0.3em;
 }
 .bookprocess :is(
     .react-datepicker__day--keyboard-selected,
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__quarter-text--keyboard-selected,
-    .react-datepicker__year-text--keyboard-selected) {
+    .react-datepicker__year-text--keyboard-selected
+) {
     border-radius: 0.3em;
 }
 
@@ -108,26 +117,30 @@
 .bookprocess :is(
     .react-datepicker__year-read-view,
     .react-datepicker__month-read-view,
-    .react-datepicker__month-year-read-view) {
+    .react-datepicker__month-year-read-view
+) {
     border-radius: 0.3em;
 }
 .bookprocess :is(
     .react-datepicker__year-dropdown,
     .react-datepicker__month-dropdown,
-    .react-datepicker__month-year-dropdown) {
+    .react-datepicker__month-year-dropdown
+) {
     border-radius: 0.3em;
 }
 .bookprocess :is(
     .react-datepicker__year-option:first-of-type,
     .react-datepicker__month-option:first-of-type,
-    .react-datepicker__month-year-option:first-of-type) {
+    .react-datepicker__month-year-option:first-of-type
+) {
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
 }
 .bookprocess :is(
     .react-datepicker__year-option:last-of-type,
     .react-datepicker__month-option:last-of-type,
-    .react-datepicker__month-year-option:last-of-type) {
+    .react-datepicker__month-year-option:last-of-type
+) {
     border-bottom-left-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
 }
