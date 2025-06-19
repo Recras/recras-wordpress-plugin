@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.3.8 (2025-06-19)
+* Update "Fix book process datepicker styling" styles to latest version
+* Small technical update
+
 ## 6.3.7 (2025-06-17)
 * Show error on settings page if subdomain appears invalid
 * Add caching hint to book process script
