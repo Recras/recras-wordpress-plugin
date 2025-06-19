@@ -18,7 +18,7 @@ class Bookprocess
     {
         wp_enqueue_script_module(
             'recrasbookprocesses',
-            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess.mjs',
+            'https://' . $subdomain . '.recras.nl/bookprocess/dist/index.js',
             [],
             date('Ymd') // Hint at caching for 1 day
         );
