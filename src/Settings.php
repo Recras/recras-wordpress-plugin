@@ -166,7 +166,7 @@ class Settings
     public static function clearCachePage(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
         }
         require_once(__DIR__ . '/admin/cache.php');
     }
@@ -175,7 +175,7 @@ class Settings
     public static function documentation(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
         }
         require_once(__DIR__ . '/admin/documentation.php');
     }
@@ -184,7 +184,7 @@ class Settings
     public static function shortcodes(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
         }
         require_once(__DIR__ . '/admin/shortcodes.php');
     }
@@ -196,7 +196,7 @@ class Settings
     public static function editSettings(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
         }
         require_once(__DIR__ . '/admin/settings.php');
     }
