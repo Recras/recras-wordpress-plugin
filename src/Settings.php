@@ -234,7 +234,7 @@ class Settings
     /**
      * Get the Recras instance, which can be set in the shortcode attributes or as global setting
      */
-    public static function getInstance(array $attributes): string
+    public static function getInstance(array $attributes = []): string
     {
         if (isset($attributes['recrasname'])) {
             $name = $attributes['recrasname'];

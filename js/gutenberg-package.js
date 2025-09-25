@@ -23,7 +23,7 @@ registerGutenbergBlock('recras/package', {
             packages: select('recras/store').fetchPackages(true, false),
         }
     })(props => {
-        if (!recrasOptions.subdomain) {
+        if (!recrasOptions.instance) {
             return recrasHelper.elementNoRecrasName();
         }
 

@@ -19,7 +19,7 @@ registerGutenbergBlock('recras/product', {
             products: select('recras/store').fetchProducts(),
         }
     })(props => {
-        if (!recrasOptions.subdomain) {
+        if (!recrasOptions.instance) {
             return recrasHelper.elementNoRecrasName();
         }
 
