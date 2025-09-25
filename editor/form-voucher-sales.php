@@ -1,12 +1,12 @@
 <?php
-$subdomain = get_option('recras_subdomain');
-if (!$subdomain) {
+$instance = \Recras\Settings::getInstance();
+if (!$instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
 $model = new \Recras\Vouchers();
-$templates = $model->getTemplates($subdomain);
+$templates = $model->getTemplates($instance);
 ?>
 
 <dl>

@@ -95,17 +95,17 @@ class Arrangement
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = Settings::getInstance();
         $errors = 0;
 
-        $packages = array_keys(self::getPackages($subdomain));
+        $packages = array_keys(self::getPackages($instance));
         foreach ($packages as $id) {
-            $name = $subdomain . '_arrangement_' . $id;
+            $name = $instance . '_arrangement_' . $id;
             if (Transient::get($name)) {
                 $errors += Transient::delete($name);
             }
         }
-        $errors += Transient::delete($subdomain . '_arrangements');
+        $errors += Transient::delete($instance . '_arrangements');
 
         return $errors;
     }

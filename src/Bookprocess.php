@@ -10,8 +10,8 @@ class Bookprocess
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
-        return Transient::delete($subdomain . '_bookprocesses_v2');
+        $instance = Settings::getInstance();
+        return Transient::delete($instance . '_bookprocesses_v2');
     }
 
     public static function enqueueScripts(string $subdomain): void
@@ -56,10 +56,11 @@ class Bookprocess
         return $processes;
     }
 
-    public static function optionsForElementorWidget()
+    public static function optionsForElementorWidget(): array
     {
+        $instance = Settings::getInstance();
         $fmt = [];
-        $processes = self::getProcesses(get_option('recras_subdomain'));
+        $processes = self::getProcesses($instance);
         foreach ($processes as $id => $process) {
             $fmt[$id] = $process->name;
         }

@@ -152,7 +152,7 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
                 $this->contactForm(),
             ];
         }
-        if (preg_match('~^([a-z]+)_products_v2$~', $name)) {
+        if (preg_match('~^([a-z]+)_products$~', $name)) {
             return $this->products();
         }
         if (preg_match('~^([a-z]+)_voucher_templates$~', $name)) {

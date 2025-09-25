@@ -126,10 +126,10 @@ class Vouchers
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_voucher_templates')) {
-            $errors = Transient::delete($subdomain . '_voucher_templates');
+        if (Transient::get($instance . '_voucher_templates')) {
+            $errors = Transient::delete($instance . '_voucher_templates');
         }
 
         return $errors;

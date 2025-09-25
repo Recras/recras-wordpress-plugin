@@ -138,32 +138,32 @@ class Plugin
 
     private function checkOldSettings(): void
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = \Recras\Settings::getInstance();
+        if (!$instance) {
             return;
         }
 
-        $setting = Transient::get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($instance . '_show_old_online_booking');
         if ($setting === false) {
             try {
-                $setting = Http::get($subdomain, 'instellingen/allow_online_package_booking');
+                $setting = Http::get($instance, 'instellingen/allow_online_package_booking');
             } catch (\Exception $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                Transient::set($subdomain . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($instance . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
             }
         }
 
-        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($instance . '_show_old_voucher_sales');
         if ($setting === false) {
             try {
-                $setting = Http::get($subdomain, 'instellingen/allow_old_vouchers_sales');
+                $setting = Http::get($instance, 'instellingen/allow_old_vouchers_sales');
             } catch (\Exception $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                Transient::set($subdomain . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($instance . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
             }
         }
     }

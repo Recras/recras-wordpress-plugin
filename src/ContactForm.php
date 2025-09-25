@@ -148,15 +148,15 @@ class ContactForm
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = \Recras\Settings::getInstance();
         $errors = 0;
 
-        $forms = array_keys(self::getForms($subdomain));
+        $forms = array_keys(self::getForms($instance));
         foreach ($forms as $id) {
-            $errors += self::deleteTransients($subdomain, $id);
+            $errors += self::deleteTransients($instance, $id);
         }
-        if (Transient::get($subdomain . '_contactforms')) {
-            $errors += Transient::delete($subdomain . '_contactforms');
+        if (Transient::get($instance . '_contactforms')) {
+            $errors += Transient::delete($instance . '_contactforms');
         }
 
         return $errors;

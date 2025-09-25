@@ -1,12 +1,12 @@
 <?php
-$subdomain = get_option('recras_subdomain');
-if (!$subdomain) {
+$instance = \Recras\Settings::getInstance();
+if (!$instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($subdomain);
+$arrangements = $model->getPackages($instance);
 ?>
 
 <dl>

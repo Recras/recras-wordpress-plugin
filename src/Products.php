@@ -77,10 +77,10 @@ class Products
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = \Recras\Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_products_v2')) {
-            $errors = Transient::delete($subdomain . '_products_v2');
+        if (Transient::get($instance . '_products')) {
+            $errors = Transient::delete($instance . '_products');
         }
 
         return $errors;
@@ -122,7 +122,7 @@ class Products
      */
     public static function getProducts(string $subdomain)
     {
-        $json = Transient::get($subdomain . '_products_v2');
+        $json = Transient::get($subdomain . '_products');
         if ($json === false) {
             try {
                 $json = Http::get($subdomain, 'producten');
@@ -130,7 +130,7 @@ class Products
                 return $e->getMessage();
             }
 
-            Transient::set($subdomain . '_products_v2', $json);
+            Transient::set($subdomain . '_products', $json);
         }
 
         $products = [];

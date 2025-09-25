@@ -122,11 +122,11 @@ class Settings
 
     public static function allowOnlinePackageBooking(): bool
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = Settings::getInstance();
+        if (!$instance) {
             return true;
         }
-        $setting = Transient::get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($instance . '_show_old_online_booking');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -134,11 +134,11 @@ class Settings
 
     public static function allowOldVoucherSales(): bool
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = \Recras\Settings::getInstance();
+        if (!$instance) {
             return true;
         }
-        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($instance . '_show_old_voucher_sales');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -148,13 +148,13 @@ class Settings
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = \Recras\Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_show_old_online_booking')) {
-            $errors = Transient::delete($subdomain . '_show_old_online_booking');
+        if (Transient::get($instance . '_show_old_online_booking')) {
+            $errors = Transient::delete($instance . '_show_old_online_booking');
         }
-        if (Transient::get($subdomain . '_show_old_voucher_sales')) {
-            $errors = Transient::delete($subdomain . '_show_old_voucher_sales');
+        if (Transient::get($instance . '_show_old_voucher_sales')) {
+            $errors = Transient::delete($instance . '_show_old_voucher_sales');
         }
 
         return $errors;
@@ -247,6 +247,7 @@ class Settings
         if ($domain) {
             return $domain;
         }
+        // Legacy option
         $subdomain = get_option('recras_subdomain');
         if ($subdomain) {
             $domain = $subdomain . '.recras.nl';
@@ -326,6 +327,7 @@ class Settings
 
     public static function maybeUpdateSettings(): void
     {
+        // 6.4.0 : Subdomains were replaced with instance names (i.e. demo -> demo.recras.nl)
         $domain = get_option('recras_domain');
         if ($domain) {
             return;

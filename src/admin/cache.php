@@ -17,9 +17,6 @@
 ?>
 
 <h1><?php _e('Clear Recras cache', \Recras\Plugin::TEXT_DOMAIN); ?></h1>
-<?php
-    $subdomain = get_option('recras_subdomain');
-?>
 
 <p><?php _e('Data coming from your Recras (contact forms, packages, products, voucher templates) is cached for up to 24 hours. If you make important changes (i.e. a price increase) it is recommended you clear the Recras cache.', \Recras\Plugin::TEXT_DOMAIN); ?></p>
 

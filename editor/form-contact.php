@@ -1,15 +1,15 @@
 <?php
-$subdomain = get_option('recras_subdomain');
-if (!$subdomain) {
+$instance = \Recras\Settings::getInstance();
+if (!$instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($subdomain);
+$arrangements = $model->getPackages($instance);
 
 $model = new \Recras\ContactForm();
-$forms = $model->getForms($subdomain);
+$forms = $model->getForms($instance);
 ?>
 <dl>
     <dt><label for="contactform_id"><?php _e('Contact form', \Recras\Plugin::TEXT_DOMAIN); ?></label>

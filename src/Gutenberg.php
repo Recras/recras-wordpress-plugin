@@ -131,31 +131,36 @@ class Gutenberg
 
     public static function getBookprocesses()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Bookprocess();
-        return $model->getProcesses(get_option('recras_subdomain'));
+        return $model->getProcesses($instance);
     }
 
     public static function getContactForms()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new ContactForm();
-        return $model->getForms(get_option('recras_subdomain'));
+        return $model->getForms($instance);
     }
 
     public static function getPackages()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Arrangement();
-        return $model->getPackages(get_option('recras_subdomain'), false, false);
+        return $model->getPackages($instance, false, false);
     }
 
     public static function getProducts()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Products();
-        return $model->getProducts(get_option('recras_subdomain'));
+        return $model->getProducts($instance);
     }
 
     public static function getVouchers()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Vouchers();
-        return $model->getTemplates(get_option('recras_subdomain'));
+        return $model->getTemplates($instance);
     }
 }
