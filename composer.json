@@ -5,7 +5,7 @@
     "license": "MIT",
     "support": {
         "email": "support@recras.nl",
-        "wiki": "https://www.recras.nl/en/koppeling/wordpress/"
+        "wiki": "https://www.recras.com/en/integration/wordpress-plugin//"
     },
     "require": {
         "ext-ctype": "*",
