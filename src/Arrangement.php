@@ -30,7 +30,7 @@ class Arrangement
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         $json = self::getPackage($subdomain, $attributes['id']);

@@ -27,7 +27,7 @@ class OnlineBooking
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         $arrangementID = isset($attributes['id']) ? $attributes['id'] : null;

@@ -26,7 +26,7 @@ class Availability
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
         $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
 

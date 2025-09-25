@@ -30,7 +30,7 @@ class Products
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         $products = self::getProducts($subdomain);

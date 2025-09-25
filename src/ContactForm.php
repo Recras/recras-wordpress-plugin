@@ -60,7 +60,7 @@ class ContactForm
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         // Get basic info for the form

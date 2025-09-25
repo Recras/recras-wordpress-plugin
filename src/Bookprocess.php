@@ -79,7 +79,7 @@ class Bookprocess
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         if (empty($attributes['id'])) {

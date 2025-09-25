@@ -187,15 +187,14 @@ class Plugin
 
 
     /**
-     * Get error message if no subdomain has been entered yet
+     * Get error message if no domain has been entered yet
      */
-    public static function getNoSubdomainError(): string
+    public static function noInstanceError(): string
     {
         if (current_user_can('manage_options')) {
-            return __('Error: you have not set your Recras name yet', Plugin::TEXT_DOMAIN);
-        } else {
-            return __('Error: your Recras name has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
+            return __('Error: you have not set your Recras domain yet', Plugin::TEXT_DOMAIN);
         }
+        return __('Error: your Recras name has not domain set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
     }
 
     public static function getStatusMessage(int $errors): string

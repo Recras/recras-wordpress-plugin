@@ -27,7 +27,7 @@ class Vouchers
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         $model = new Vouchers();
@@ -80,7 +80,7 @@ class Vouchers
 
         $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+            return Plugin::noInstanceError();
         }
 
         $extraOptions = [];
