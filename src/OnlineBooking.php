@@ -118,7 +118,7 @@ class OnlineBooking
             $extraOptions[] = 'package_id: [' . join(',', $libraryOptions['packageList']) . ']';
         }
 
-        if ($libraryOptions['redirect']) {
+        if (isset($libraryOptions['redirect'])) {
             $extraOptions[] = "redirect_url: '" . $libraryOptions['redirect'] . "'";
         }
 
