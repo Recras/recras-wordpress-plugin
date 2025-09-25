@@ -194,7 +194,7 @@ class Plugin
         if (current_user_can('manage_options')) {
             return __('Error: you have not set your Recras domain yet', Plugin::TEXT_DOMAIN);
         }
-        return __('Error: your Recras name has not domain set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
+        return __('Error: your Recras domain has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
     }
 
     public static function getStatusMessage(int $errors): string

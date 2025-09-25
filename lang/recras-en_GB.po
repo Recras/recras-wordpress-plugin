@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-06-16 16:00+0200\n"
-"PO-Revision-Date: 2025-06-16 16:00+0200\n"
+"POT-Creation-Date: 2025-09-25 15:51+0200\n"
+"PO-Revision-Date: 2025-09-25 15:51+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: editor/form-arrangement.php:16 editor/form-booking.php:48
 #: editor/form-contact.php:32 editor/form-package-availability.php:13
 #: js/gutenberg-availability.js:50 js/gutenberg-package.js:2
-#: js/gutenberg-package.js:50 js/gutenberg-package.js:142 src/Plugin.php:113
+#: js/gutenberg-package.js:50 js/gutenberg-package.js:142 src/Plugin.php:114
 #: src/Plugin.php:216
 msgid "Package"
 msgstr ""
@@ -210,7 +210,7 @@ msgstr ""
 #: editor/form-bookprocess.php:16 js/gutenberg-bookprocess.js:2
 #: js/gutenberg-bookprocess.js:45 js/gutenberg-bookprocess.js:59
 #: src/Elementor/Bookprocess.php:17 src/Elementor/Bookprocess.php:35
-#: src/Elementor/Bookprocess.php:45 src/Plugin.php:114 src/Plugin.php:215
+#: src/Elementor/Bookprocess.php:45 src/Plugin.php:115 src/Plugin.php:215
 msgid "Book process"
 msgstr ""
 
@@ -225,13 +225,13 @@ msgid ""
 msgstr ""
 
 #: editor/form-bookprocess.php:35 js/gutenberg-bookprocess.js:99
-#: src/Elementor/Bookprocess.php:73
+#: src/Elementor/Bookprocess.php:74
 msgid "Hide first widget?"
 msgstr ""
 
 #: editor/form-contact.php:15 js/gutenberg-contactform.js:2
 #: js/gutenberg-contactform.js:76 js/gutenberg-contactform.js:193
-#: src/Plugin.php:115 src/Plugin.php:212
+#: src/Plugin.php:116 src/Plugin.php:212
 msgid "Contact form"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgid "Send"
 msgstr ""
 
 #: editor/form-product.php:13 js/gutenberg-product.js:2
-#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:117
+#: js/gutenberg-product.js:48 js/gutenberg-product.js:102 src/Plugin.php:118
 #: src/Plugin.php:218
 msgid "Product"
 msgstr ""
@@ -374,7 +374,7 @@ msgstr ""
 msgid "Enter date in YYYY-MM-DD format. Leave empty to not prefill."
 msgstr ""
 
-#: js/gutenberg-bookprocess.js:87 src/Elementor/Bookprocess.php:60
+#: js/gutenberg-bookprocess.js:87 src/Elementor/Bookprocess.php:61
 msgid "Prefill value for first widget? (optional)"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgid "Please enter your Recras name in the %s before adding widgets."
 msgstr ""
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
-#: src/Plugin.php:116 src/Plugin.php:214
+#: src/Plugin.php:117 src/Plugin.php:214
 msgid "Online booking of packages"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgid ""
 msgstr ""
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:119 src/Plugin.php:221 src/admin/documentation.php:102
+#: src/Plugin.php:120 src/Plugin.php:221 src/admin/documentation.php:102
 #: src/admin/shortcodes.php:79
 msgid "Voucher info"
 msgstr ""
@@ -462,22 +462,22 @@ msgid "Voucher template"
 msgstr ""
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:85
-#: src/Plugin.php:118 src/Plugin.php:222 src/admin/documentation.php:98
+#: src/Plugin.php:119 src/Plugin.php:222 src/admin/documentation.php:98
 msgid "Voucher sales"
 msgstr ""
 
-#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:85
+#: src/Arrangement.php:21 src/Availability.php:20 src/Bookprocess.php:87
 #: src/ContactForm.php:55 src/Products.php:21 src/Vouchers.php:22
 msgid "Error: no ID set"
 msgstr ""
 
-#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:89
+#: src/Arrangement.php:24 src/Availability.php:23 src/Bookprocess.php:91
 #: src/ContactForm.php:58 src/OnlineBooking.php:25 src/Products.php:24
 #: src/Vouchers.php:25 src/Vouchers.php:78
 msgid "Error: ID is not a number"
 msgstr ""
 
-#: src/Arrangement.php:38 src/Arrangement.php:275 src/Bookprocess.php:95
+#: src/Arrangement.php:38 src/Arrangement.php:275 src/Bookprocess.php:97
 #: src/ContactForm.php:70 src/ContactForm.php:74
 #, php-format
 msgid "Error: %s"
@@ -521,7 +521,7 @@ msgstr ""
 msgid "No location specified"
 msgstr ""
 
-#: src/Bookprocess.php:99
+#: src/Bookprocess.php:101
 msgid "Error: book process does not exist"
 msgstr ""
 
@@ -557,32 +557,32 @@ msgstr ""
 msgid "Clear choice"
 msgstr ""
 
-#: src/Elementor/Bookprocess.php:86
+#: src/Elementor/Bookprocess.php:87
 msgid ""
 "No book process has been chosen yet. Click on this text to select a book "
 "process."
 msgstr ""
 
-#: src/Elementor/Bookprocess.php:92
+#: src/Elementor/Bookprocess.php:93
 #, php-format
 msgid ""
 "Book process %s cannot be found. It was either deleted from Recras, or made "
 "private."
 msgstr ""
 
-#: src/Elementor/Bookprocess.php:98
+#: src/Elementor/Bookprocess.php:99
 #, php-format
 msgid "Book process \"%s\" is integrated here."
 msgstr ""
 
-#: src/Elementor/Bookprocess.php:108
+#: src/Elementor/Bookprocess.php:110
 #, php-format
 msgid ""
 "The first widget is hidden for the booker, and has an initial value of "
 "\"%s\"."
 msgstr ""
 
-#: src/Elementor/Bookprocess.php:113
+#: src/Elementor/Bookprocess.php:115
 #, php-format
 msgid "It has an initial value for the first widget of \"%s\"."
 msgstr ""
@@ -615,30 +615,30 @@ msgstr ""
 msgid "Error: \"product_amounts\" is invalid"
 msgstr ""
 
-#: src/Plugin.php:80 src/Plugin.php:81
+#: src/Plugin.php:81 src/Plugin.php:82
 msgid "Settings"
 msgstr ""
 
-#: src/Plugin.php:90 src/Plugin.php:91
+#: src/Plugin.php:91 src/Plugin.php:92
 msgid "Cache"
 msgstr ""
 
-#: src/Plugin.php:98 src/Plugin.php:99 src/Settings.php:374
+#: src/Plugin.php:99 src/Plugin.php:100 src/Settings.php:403
 #: src/admin/documentation.php:1
 msgid "Documentation"
 msgstr ""
 
-#: src/Plugin.php:106 src/Plugin.php:107 src/admin/shortcodes.php:1
+#: src/Plugin.php:107 src/Plugin.php:108 src/admin/shortcodes.php:1
 msgid "Shortcodes"
 msgstr ""
 
-#: src/Plugin.php:194
-msgid "Error: you have not set your Recras name yet"
+#: src/Plugin.php:195
+msgid "Error: you have not set your Recras domain yet"
 msgstr ""
 
-#: src/Plugin.php:196
+#: src/Plugin.php:197
 msgid ""
-"Error: your Recras name has not been set yet, but you do not have the "
+"Error: your Recras domain has not been set yet, but you do not have the "
 "permission to set this. Please ask your site administrator to do this for "
 "you."
 msgstr ""
@@ -806,11 +806,11 @@ msgid "Used in prices, such as 100,00."
 msgstr ""
 
 #: src/Settings.php:91
-msgid "Subdomain not found!"
+msgid "Instance not found!"
 msgstr ""
 
 #: src/Settings.php:94
-msgid "Error fetching subdomain!"
+msgid "Error fetching instance!"
 msgstr ""
 
 #: src/Settings.php:169 src/Settings.php:178 src/Settings.php:187
@@ -818,59 +818,59 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/Settings.php:250
+#: src/Settings.php:265
 msgid "No theme"
 msgstr ""
 
-#: src/Settings.php:254
+#: src/Settings.php:269
 msgid "Basic theme"
 msgstr ""
 
-#: src/Settings.php:258
+#: src/Settings.php:273
 msgid "BP Green"
 msgstr ""
 
-#: src/Settings.php:262
+#: src/Settings.php:277
 msgid "Reasonably Red"
 msgstr ""
 
-#: src/Settings.php:266
+#: src/Settings.php:281
 msgid "Recras Blue"
 msgstr ""
 
-#: src/Settings.php:332 src/admin/documentation.php:4 src/admin/settings.php:1
+#: src/Settings.php:363 src/admin/documentation.php:4 src/admin/settings.php:1
 msgid "Recras settings"
 msgstr ""
 
-#: src/Settings.php:338 src/admin/documentation.php:6
-msgid "Recras name"
+#: src/Settings.php:369
+msgid "Recras domain"
 msgstr ""
 
-#: src/Settings.php:339 src/admin/documentation.php:8
+#: src/Settings.php:370 src/admin/documentation.php:8
 msgid "Currency symbol"
 msgstr ""
 
-#: src/Settings.php:340 src/admin/documentation.php:10
+#: src/Settings.php:371 src/admin/documentation.php:10
 msgid "Decimal separator"
 msgstr ""
 
-#: src/Settings.php:341 src/admin/documentation.php:12
+#: src/Settings.php:372 src/admin/documentation.php:12
 msgid "Use calendar widget for contact forms"
 msgstr ""
 
-#: src/Settings.php:342
+#: src/Settings.php:373
 msgid "Fix book process datepicker styling"
 msgstr ""
 
-#: src/Settings.php:343 src/admin/documentation.php:16
+#: src/Settings.php:374 src/admin/documentation.php:16
 msgid "Theme for Recras integrations"
 msgstr ""
 
-#: src/Settings.php:344
+#: src/Settings.php:375
 msgid "Enable Google Analytics integration? (deprecated)"
 msgstr ""
 
-#: src/Settings.php:373
+#: src/Settings.php:402
 #, php-format
 msgid "For more information on these options, please see the %s page."
 msgstr ""
@@ -889,15 +889,19 @@ msgid ""
 "could be nothing to clear."
 msgstr ""
 
-#: src/admin/cache.php:19 src/admin/cache.php:27
+#: src/admin/cache.php:19 src/admin/cache.php:24
 msgid "Clear Recras cache"
 msgstr ""
 
-#: src/admin/cache.php:24
+#: src/admin/cache.php:21
 msgid ""
 "Data coming from your Recras (contact forms, packages, products, voucher "
 "templates) is cached for up to 24 hours. If you make important changes (i.e. "
 "a price increase) it is recommended you clear the Recras cache."
+msgstr ""
+
+#: src/admin/documentation.php:6
+msgid "Recras name"
 msgstr ""
 
 #: src/admin/documentation.php:30 src/admin/shortcodes.php:4
