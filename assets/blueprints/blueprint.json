@@ -19,7 +19,7 @@
     {
       "step": "setSiteOptions",
       "options": {
-        "recras_subdomain": "demo"
+        "recras_domain": "demo.recras.nl"
       }
     }
   ]

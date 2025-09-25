@@ -301,12 +301,12 @@ class Plugin
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
-        $subdomain = Settings::getInstance([]);
+        $instance = Settings::getInstance([]);
         wp_enqueue_style(
             'recras_bookprocesses_base',
-            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
+            'https://' . $instance . '/bookprocess/bookprocess_base.css'
         );
-        Bookprocess::enqueueScripts($subdomain);
+        Bookprocess::enqueueScripts($instance);
 
         // Integration theme
         $theme = get_option('recras_theme');
@@ -315,7 +315,7 @@ class Plugin
             if ($theme !== 'none' && array_key_exists($theme, $allowedThemes)) {
                 wp_enqueue_style(
                     'recras_bookprocesses_styling',
-                    'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_styling.css'
+                    'https://' . $instance . '/bookprocess/bookprocess_styling.css'
                 );
 
                 wp_enqueue_style('recras_theme_base', $this->baseUrl . '/css/themes/base.css', [], '6.1.1');
@@ -346,7 +346,8 @@ class Plugin
         delete_option('recras_fix_react_datepicker');
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
-        delete_option('recras_subdomain');
+        delete_option('recras_subdomain'); // Legacy since 2025-09
+        delete_option('recras_domain');
         delete_option('recras_theme');
     }
 }

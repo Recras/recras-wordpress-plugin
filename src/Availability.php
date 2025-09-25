@@ -23,28 +23,24 @@ class Availability
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-
-        $subdomain = Settings::getInstance($attributes);
-        if (!$subdomain) {
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
             return Plugin::noInstanceError();
         }
         $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
 
-
         // We don't need this data, but it's useful to check if the package actually exists
-        Arrangement::getPackage($subdomain, $attributes['id']);
+        Arrangement::getPackage($instance, $attributes['id']);
 
-
-        $url = 'https://' . $subdomain . '.recras.nl/api/arrangementbeschikbaarheid/id/' . $attributes['id'];
+        $url = 'https://' . $instance . '/api/arrangementbeschikbaarheid/id/' . $attributes['id'];
         $iframeUID = uniqid('rpai'); // Recras Package Availability Iframe
-        $html = '';
-        $html .= '<iframe src="' . $url . '" style="width:100%;height:250px" frameborder=0 scrolling="auto" id="' . $iframeUID . '"></iframe>';
+        $html = '<iframe src="' . $url . '" style="width:100%;height:250px" frameborder=0 scrolling="auto" id="' . $iframeUID . '"></iframe>';
         if ($enableResize) {
             $html .= <<<SCRIPT
 <script>
     window.addEventListener('message', function(e) {
         const origin = e.origin || e.originalEvent.origin;
-        if (origin.match(/{$subdomain}\.recras\.nl/)) {
+        if (origin.match(/{$instance}/)) {
             document.getElementById('{$iframeUID}').style.height = e.data.iframeHeight + 'px';
         }
     });

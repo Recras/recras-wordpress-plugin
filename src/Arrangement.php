@@ -28,12 +28,12 @@ class Arrangement
             $showProperty = $attributes['show'];
         }
 
-        $subdomain = Settings::getInstance($attributes);
-        if (!$subdomain) {
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
             return Plugin::noInstanceError();
         }
 
-        $json = self::getPackage($subdomain, $attributes['id']);
+        $json = self::getPackage($instance, $attributes['id']);
         if (isset($json->error, $json->message)) {
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $json->message);
         }
@@ -53,7 +53,7 @@ class Arrangement
                 if (!$json->image_filename) {
                     return '';
                 }
-                return '<img src="https://' . $subdomain . '.recras.nl' . $json->image_filename . '" alt="' . htmlspecialchars(self::displayname($json)) . '">';
+                return '<img src="https://' . $instance . '.recras.nl' . $json->image_filename . '" alt="' . htmlspecialchars(self::displayname($json)) . '">';
             case 'image_url':
                 if (!$json->image_filename) {
                     return '';
@@ -233,16 +233,16 @@ class Arrangement
      *
      * @return array|string
      */
-    public static function getPackages(string $subdomain, bool $onlyOnline = false, bool $includeEmpty = true)
+    public static function getPackages(string $instance, bool $onlyOnline = false, bool $includeEmpty = true)
     {
-        $json = Transient::get($subdomain . '_arrangements');
+        $json = Transient::get($instance . '_arrangements');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'arrangementen');
+                $json = Http::get($instance, 'arrangementen');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_arrangements', $json);
+            Transient::set($instance . '_arrangements', $json);
         }
 
         $packages = [];
@@ -267,9 +267,9 @@ class Arrangement
      *
      * @return array|string
      */
-    public function getPackagesForContactForm(string $subdomain, int $contactformID, bool $includeEmpty)
+    public function getPackagesForContactForm(string $instance, int $contactformID, bool $includeEmpty)
     {
-        $form = ContactForm::getForm($subdomain, $contactformID);
+        $form = ContactForm::getForm($instance, $contactformID);
         if (is_string($form)) {
             // Not a form, but an error
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
@@ -357,16 +357,16 @@ class Arrangement
     /**
      * @return object|string
      */
-    public static function getPackage(string $subdomain, int $id)
+    public static function getPackage(string $instance, int $id)
     {
-        $json = Transient::get($subdomain . '_arrangement_' . $id);
+        $json = Transient::get($instance . '_arrangement_' . $id);
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'arrangementen/' . $id);
+                $json = Http::get($instance, 'arrangementen/' . $id);
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_arrangement_' . $id, $json);
+            Transient::set($instance . '_arrangement_' . $id, $json);
         }
         return $json;
     }

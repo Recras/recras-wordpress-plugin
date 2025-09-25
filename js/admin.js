@@ -15,7 +15,7 @@ function disableNotAllowed(packageIDs)
  * Get packages that are valid for a given contact form
  *
  * @param {Number} formID
- * @param {String} subdomain
+ * @param {String} instance
  */
 function getContactFormArrangements(formID, instance)
 {

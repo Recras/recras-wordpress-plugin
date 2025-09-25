@@ -14,18 +14,18 @@ class Bookprocess
         return Transient::delete($instance . '_bookprocesses_v2');
     }
 
-    public static function enqueueScripts(string $subdomain): void
+    public static function enqueueScripts(string $instance): void
     {
         wp_enqueue_script_module(
             'recrasbookprocesses',
-            'https://' . $subdomain . '.recras.nl/bookprocess/dist/index.js',
+            'https://' . $instance . '/bookprocess/dist/index.js',
             [],
             date('Ymd') // Hint at caching for 1 day
         );
 
         wp_enqueue_style(
             'recrasreactdatepicker',
-            'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
+            'https://' . $instance . '/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
         );
     }
 
@@ -34,16 +34,16 @@ class Bookprocess
      *
      * @return array|string
      */
-    public static function getProcesses(string $subdomain)
+    public static function getProcesses(string $instance)
     {
-        $json = Transient::get($subdomain . '_bookprocesses_v2');
+        $json = Transient::get($instance . '_bookprocesses_v2');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'bookprocesses/book');
+                $json = Http::get($instance, 'bookprocesses/book');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_bookprocesses_v2', $json);
+            Transient::set($instance . '_bookprocesses_v2', $json);
         }
 
         $processes = [];
@@ -78,8 +78,8 @@ class Bookprocess
             $attributes = [];
         }
 
-        $subdomain = Settings::getInstance($attributes);
-        if (!$subdomain) {
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
             return Plugin::noInstanceError();
         }
 
@@ -91,7 +91,7 @@ class Bookprocess
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $processes = self::getProcesses($subdomain);
+        $processes = self::getProcesses($instance);
         if (is_string($processes)) {
             // Not a form, but an error
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $processes);
@@ -113,7 +113,7 @@ class Bookprocess
             <section
                 class="bookprocess" 
                 data-id="' . $attributes['id'] . '" 
-                data-url="https://' . $subdomain . '.recras.nl"
+                data-url="https://' . $instance . '.recras.nl"
                 ' . $initialWidgetValueHtml . '
             ></section>
         ' . $extraCSS;

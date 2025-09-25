@@ -23,19 +23,19 @@ class ContactForm
      *
      * @return object|string
      */
-    public static function getForm(string $subdomain, int $id)
+    public static function getForm(string $instance, int $id)
     {
-        $form = Transient::get($subdomain . '_contactform_' . $id . '_v2');
+        $form = Transient::get($instance . '_contactform_' . $id . '_v2');
         if ($form === false) {
             try {
-                $form = Http::get($subdomain, 'contactformulieren/' . $id . '?embed=Velden');
+                $form = Http::get($instance, 'contactformulieren/' . $id . '?embed=Velden');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
             if (isset($form->error, $form->message)) {
                 return $form->message;
             }
-            Transient::set($subdomain . '_contactform_' . $id . '_v2', $form);
+            Transient::set($instance . '_contactform_' . $id . '_v2', $form);
         }
         return $form;
     }
@@ -58,13 +58,13 @@ class ContactForm
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getInstance($attributes);
-        if (!$subdomain) {
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
             return Plugin::noInstanceError();
         }
 
         // Get basic info for the form
-        $form = self::getForm($subdomain, $attributes['id']);
+        $form = self::getForm($instance, $attributes['id']);
         if (is_string($form)) {
             // Not a form, but an error
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
@@ -135,7 +135,7 @@ class ContactForm
             'redirect' => $redirect,
             'showLabels' => $showLabels,
             'singleChoiceElement' => $singleChoiceElement,
-            'subdomain' => $subdomain,
+            'instance' => $instance,
             'submitText' => $submitText,
         ];
 
@@ -166,11 +166,11 @@ class ContactForm
     /**
      * Delete transients belonging to a contact form
      */
-    private static function deleteTransients(string $subdomain, int $formID): int
+    private static function deleteTransients(string $instance, int $formID): int
     {
         $errors = 0;
 
-        $name = $subdomain . '_contactform_' . $formID . '_v2';
+        $name = $instance . '_contactform_' . $formID . '_v2';
         if (Transient::get($name)) {
             $errors += Transient::delete($name);
         }
@@ -231,10 +231,10 @@ class ContactForm
                     $html .= self::generateSubTag($options['element']);
 
                     // It is possible that a package was valid for this contact form in the past, but not in the present.
-                    // So we show only arrangements that are valid for this form.
+                    // So we show only packages that are valid for this form.
                     if (empty($arrangementen)) {
                         $classArrangement = new Arrangement();
-                        $arrangementen = $classArrangement->getPackagesForContactForm($options['subdomain'], $formID, !$field->verplicht);
+                        $arrangementen = $classArrangement->getPackagesForContactForm($options['instance'], $formID, !$field->verplicht);
                     }
 
                     if (isset($options['arrangement']) && isset($arrangementen[$options['arrangement']]) && $options['arrangement'] !== 0) {
@@ -415,7 +415,7 @@ class ContactForm
                     ]);
                     break;
                 case 'contact.website':
-                    /* We deliberately do not use `input[type=url]` because it's not very user friendly.
+                    /* We deliberately do not use `input[type=url]` because it's not very user-friendly.
                      * It requires a protocol and we cannot expect "regular people" to enter this.
                      * Parsing a website (which can be a domain, a subdomain, or a page on a domain)
                      *   is very tricky so we're just using a regular text field without any constraints
@@ -444,7 +444,7 @@ class ContactForm
         e.preventDefault();
         return submitRecrasForm(
             "' . $generatedFormID . '",
-            "' . $options['subdomain'] . '",
+            "' . $options['instance'] . '",
             "' . $recrasPlugin->baseUrl . '/",
             "' . $options['redirect']. '"
         );
@@ -626,16 +626,16 @@ class ContactForm
      *
      * @return array|string
      */
-    public static function getForms(string $subdomain)
+    public static function getForms(string $instance)
     {
-        $json = Transient::get($subdomain . '_contactforms');
+        $json = Transient::get($instance . '_contactforms');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'contactformulieren');
+                $json = Http::get($instance, 'contactformulieren');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_contactforms', $json);
+            Transient::set($instance . '_contactforms', $json);
         }
 
         $forms = [];

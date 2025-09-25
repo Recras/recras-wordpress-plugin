@@ -75,7 +75,7 @@ class Settings
 
 
     /**
-     * Add a subdomain input field
+     * Add an instance input field
      */
     public static function addInputDomain(array $args): void
     {
@@ -378,7 +378,7 @@ class Settings
 
 
     /**
-     * Sanitize user inputted subdomain
+     * Sanitize user inputted instance name
      *
      * @return string|false
      */

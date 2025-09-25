@@ -9,6 +9,7 @@ class PluginTest extends WordPressUnitTestCase
         $result = $plugin->sanitizeDomain('foo@bar.recras.nl');
         $this->assertFalse($result, 'Subdomain with invalid characters should be invalid');
     }
+
     function testInvalidExtension(): void
     {
         $plugin = new Settings();
