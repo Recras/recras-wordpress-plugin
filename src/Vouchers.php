@@ -106,7 +106,7 @@ class Vouchers
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const voucherOptions = new RecrasOptions({
-            recras_hostname: '" . $instance . ".recras.nl',
+            recras_hostname: '" . $instance . "',
             element: document.getElementById('" . $generatedDivID . "'),
             locale: '" . Settings::externalLocale() . "',
         " . join(",\n", $extraOptions) . "});

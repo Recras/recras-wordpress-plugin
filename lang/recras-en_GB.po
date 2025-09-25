@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2025-09-25 15:51+0200\n"
-"PO-Revision-Date: 2025-09-25 15:51+0200\n"
+"POT-Creation-Date: 2025-09-25 15:57+0200\n"
+"PO-Revision-Date: 2025-09-25 15:57+0200\n"
 "Last-Translator: Sander de Jong <sander@recras.nl>\n"
 "Language-Team: Recras\n"
 "Language: en_GB\n"
@@ -403,7 +403,7 @@ msgstr ""
 
 #: js/gutenberg-global.js:48 src/Settings.php:210
 #, javascript-format, php-format
-msgid "Please enter your Recras name in the %s before adding widgets."
+msgid "Please enter your Recras domain in the %s before adding widgets."
 msgstr ""
 
 #: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:299
@@ -842,7 +842,7 @@ msgstr ""
 msgid "Recras settings"
 msgstr ""
 
-#: src/Settings.php:369
+#: src/Settings.php:369 src/admin/documentation.php:6
 msgid "Recras domain"
 msgstr ""
 
@@ -898,10 +898,6 @@ msgid ""
 "Data coming from your Recras (contact forms, packages, products, voucher "
 "templates) is cached for up to 24 hours. If you make important changes (i.e. "
 "a price increase) it is recommended you clear the Recras cache."
-msgstr ""
-
-#: src/admin/documentation.php:6
-msgid "Recras name"
 msgstr ""
 
 #: src/admin/documentation.php:30 src/admin/shortcodes.php:4

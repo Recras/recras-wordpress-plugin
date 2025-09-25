@@ -113,7 +113,7 @@ class Bookprocess
             <section
                 class="bookprocess" 
                 data-id="' . $attributes['id'] . '" 
-                data-url="https://' . $instance . '.recras.nl"
+                data-url="https://' . $instance . '"
                 ' . $initialWidgetValueHtml . '
             ></section>
         ' . $extraCSS;

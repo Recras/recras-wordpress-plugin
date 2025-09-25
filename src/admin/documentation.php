@@ -3,8 +3,8 @@
 
 <h2><?php _e('Recras settings', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
 <dl>
-    <dt><?= __('Recras name', \Recras\Plugin::TEXT_DOMAIN);?></dt>
-    <dd>If you log in to Recras at <code>https://mysite.recras.nl/</code> then your Recras name is <code>mysite</code>.</dd>
+    <dt><?= __('Recras domain', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dd>If you log in to Recras at <code>https://mycompany.recras.com/</code> then your Recras domain is <code>mycompany.recras.com</code>.</dd>
     <dt><?= __('Currency symbol', \Recras\Plugin::TEXT_DOMAIN);?></dt>
     <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
     <dt><?= __('Decimal separator', \Recras\Plugin::TEXT_DOMAIN);?></dt>

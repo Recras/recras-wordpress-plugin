@@ -45,7 +45,7 @@ const recrasHelper = {
     elementNoRecrasName: () => {
         const settingsLink = `<a href="${ recrasOptions.settingsPage }" target="_blank">${ wp.i18n.__('Recras → Settings menu', TEXT_DOMAIN) }</a>`;
         return [
-            recrasHelper.elementInfo(wp.i18n.sprintf(wp.i18n.__('Please enter your Recras name in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
+            recrasHelper.elementInfo(wp.i18n.sprintf(wp.i18n.__('Please enter your Recras domain in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
         ];
     },
     elementOption: (value, label) => {

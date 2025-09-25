@@ -207,7 +207,7 @@ class Settings
         echo '<p class="recrasInfoText">';
         $settingsLink = admin_url('admin.php?page=' . self::OPTION_PAGE);
         printf(
-            __('Please enter your Recras name in the %s before adding widgets.', Plugin::TEXT_DOMAIN),
+            __('Please enter your Recras domain in the %s before adding widgets.', Plugin::TEXT_DOMAIN),
             '<a href="' . $settingsLink . '" target="_blank">' . __('Recras → Settings menu', Plugin::TEXT_DOMAIN) . '</a>'
         );
         echo '</p>';

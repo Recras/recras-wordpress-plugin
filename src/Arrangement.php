@@ -53,7 +53,7 @@ class Arrangement
                 if (!$json->image_filename) {
                     return '';
                 }
-                return '<img src="https://' . $instance . '.recras.nl' . $json->image_filename . '" alt="' . htmlspecialchars(self::displayname($json)) . '">';
+                return '<img src="https://' . $instance . $json->image_filename . '" alt="' . htmlspecialchars(self::displayname($json)) . '">';
             case 'image_url':
                 if (!$json->image_filename) {
                     return '';

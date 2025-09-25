@@ -11,9 +11,9 @@ Easily integrate data from your Recras instance, such as packages and contact fo
 == Description ==
 With this plugin, you can easily integrate data from your [Recras](https://recras.nl/) instance, such as packages and contact forms, into your own website.
 
-To get started, go to the Recras → Settings page and enter your Recras name. For example, if you log in to Recras at `https://mysite.recras.nl/` then your Recras name is `mysite`. That's all there is to it! You can now use widgets to retrieve data. All data is retrieved via a secured connection (HTTPS) to ensure data integrity. Other than the request parameters, no data is sent to the Recras servers.
+To get started, go to the Recras → Settings page and enter your Recras domain. For example, if you log in to Recras at `https://mycompany.recras.com/` then enter `mycompany.recras.com`. That's all there is to it! You can now use widgets to retrieve data. All data is retrieved via a secured connection (HTTPS) to ensure data integrity. Other than the request parameters, no data is sent to the Recras servers.
 
-This plugin consists of the following "widgets". To use them, you first need to set your Recras name (see paragraph above).
+This plugin consists of the following "widgets". To use them, you first need to set your Recras domain (see paragraph above).
 * Book processes
 * Contact forms
 * Packages
@@ -61,7 +61,7 @@ You can enable basic Google Analytics integration for the booking of packages an
 Integrating a book process is possible through Elementor. There are many different page builders but Elementor is the most used one, so we chose to only build this widget for Elementor. Using shortcodes is still possible in all other builders, of course.
 
 = Does the plugin support network installations? =
-Yes it does. You can set different Recras names (all settings, for that matter) for each site.
+Yes it does. You can set different Recras domains (all settings, for that matter) for each site.
 
 = Can the plugin be installed as "must use plugin" ? =
 No. "Must use" plugins don't appear in the update notifications nor show their update status on the plugins page (direct quote from the <a href="https://wordpress.org/support/article/must-use-plugins/">WordPress documentation</a>) which is reason enough for us not to support this.
