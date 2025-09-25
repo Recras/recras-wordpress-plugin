@@ -229,7 +229,7 @@ class Plugin
             $l10n['showVoucherSales'] = 'no';
         }
 
-        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.3.0', true);
+        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.4.0', true);
         wp_localize_script('recras-admin', 'recras_l10n', $l10n);
         wp_enqueue_script('recras-admin');
         wp_enqueue_style('recras-admin-style', $this->baseUrl . '/css/admin-style.css', [], '6.0.7');
@@ -325,7 +325,7 @@ class Plugin
 
         // Generic functionality & localisation script
         $scriptName = 'recras-frontend';
-        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '6.1.2', true);
+        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '6.4.0', true);
         wp_localize_script($scriptName, 'recras_l10n', $localisation);
         wp_enqueue_script($scriptName);
     }

@@ -82,9 +82,9 @@ $forms = $model->getForms($instance);
     const DEFAULT_SINGLE_CHOICE_ELEMENT = 'select';
 
     // Check which arrangements are available
-    getContactFormArrangements(document.getElementById('contactform_id').value, '<?php echo $subdomain; ?>');
+    getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $instance; ?>');
     document.getElementById('contactform_id').addEventListener('change', function(){
-        getContactFormArrangements(document.getElementById('contactform_id').value, '<?php echo $subdomain; ?>');
+        getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $instance; ?>');
     });
 
     document.getElementById('contact_submit').addEventListener('click', function(){

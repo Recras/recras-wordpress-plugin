@@ -17,14 +17,14 @@ function disableNotAllowed(packageIDs)
  * @param {Number} formID
  * @param {String} subdomain
  */
-function getContactFormArrangements(formID, subdomain)
+function getContactFormArrangements(formID, instance)
 {
     if (!formID) {
         return false;
     }
 
     let lastResponse;
-    fetch(`https://${subdomain}.recras.nl/api2/contactformulieren/${formID}/arrangementen`)
+    fetch(`https://${instance}/api2/contactformulieren/${formID}/arrangementen`)
         .then(res => {
             lastResponse = res;
             return res.json();

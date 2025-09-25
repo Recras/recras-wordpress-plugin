@@ -6,13 +6,14 @@ function removeElsWithClass(className)
     }
 }
 
-function submitRecrasForm(formID, subdomain, basePath, redirect)
+function submitRecrasForm(formID, instance, basePath, redirect)
 {
     removeElsWithClass('recras-error');
 
     const formEl = document.getElementById('recras-form' + formID);
     const formElements = formEl.querySelectorAll('input, textarea, select');
     let elements = {};
+
     for (let i = 0; i < formElements.length; i++) {
         if (formElements[i].type === 'submit') {
             continue;
@@ -52,7 +53,7 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
     submitEl.disabled = true;
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://' + subdomain + '.recras.nl/api2/contactformulieren/' + formEl.dataset.formid + '/opslaan');
+    xhr.open('POST', 'https://' + instance + '/api2/contactformulieren/' + formEl.dataset.formid + '/opslaan');
     xhr.send(JSON.stringify(elements));
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4) {
