@@ -30,6 +30,7 @@ class Plugin
         add_action('init', [Settings::class, 'registerSettings']);
         add_action('admin_init', [Settings::class, 'registerSettingsPage']);
         add_action('admin_init', [Editor::class, 'addButtons']);
+        add_action('plugins_loaded', [Settings::class, 'maybeUpdateSettings']);
 
         // Gutenberg
         add_action('init', [Gutenberg::class, 'addBlocks']);
@@ -301,7 +302,7 @@ class Plugin
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
-        $subdomain = Settings::getSubdomain([]);
+        $subdomain = Settings::getInstance([]);
         wp_enqueue_style(
             'recras_bookprocesses_base',
             'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'

@@ -25,7 +25,7 @@ class Vouchers
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
+        $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();
         }
@@ -78,7 +78,7 @@ class Vouchers
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
+        $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();
         }

@@ -28,7 +28,7 @@ class Products
             $showProperty = $attributes['show'];
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
+        $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();
         }

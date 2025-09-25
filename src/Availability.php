@@ -24,7 +24,7 @@ class Availability
         }
 
 
-        $subdomain = Settings::getSubdomain($attributes);
+        $subdomain = Settings::getInstance($attributes);
         if (!$subdomain) {
             return Plugin::getNoSubdomainError();
         }
