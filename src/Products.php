@@ -28,12 +28,12 @@ class Products
             $showProperty = $attributes['show'];
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
-        if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
+            return Plugin::noInstanceError();
         }
 
-        $products = self::getProducts($subdomain);
+        $products = self::getProducts($instance);
         if (!isset($products[$attributes['id']])) {
             return __('Error: product does not exist', Plugin::TEXT_DOMAIN);
         }
@@ -77,10 +77,10 @@ class Products
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = \Recras\Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_products_v2')) {
-            $errors = Transient::delete($subdomain . '_products_v2');
+        if (Transient::get($instance . '_products')) {
+            $errors = Transient::delete($instance . '_products');
         }
 
         return $errors;
@@ -120,17 +120,17 @@ class Products
      *
      * @return array|string
      */
-    public static function getProducts(string $subdomain)
+    public static function getProducts(string $instance)
     {
-        $json = Transient::get($subdomain . '_products_v2');
+        $json = Transient::get($instance . '_products');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'producten');
+                $json = Http::get($instance, 'producten');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
 
-            Transient::set($subdomain . '_products_v2', $json);
+            Transient::set($instance . '_products', $json);
         }
 
         $products = [];

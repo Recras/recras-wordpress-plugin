@@ -25,13 +25,13 @@ class Vouchers
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
-        if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
+            return Plugin::noInstanceError();
         }
 
         $model = new Vouchers();
-        $templates = $model->getTemplates($subdomain);
+        $templates = $model->getTemplates($instance);
 
         if (!isset($templates[$attributes['id']])) {
             return __('Error: template does not exist', Plugin::TEXT_DOMAIN);
@@ -78,9 +78,9 @@ class Vouchers
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
-        if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
+            return Plugin::noInstanceError();
         }
 
         $extraOptions = [];
@@ -106,7 +106,7 @@ class Vouchers
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const voucherOptions = new RecrasOptions({
-            recras_hostname: '" . $subdomain . ".recras.nl',
+            recras_hostname: '" . $instance . "',
             element: document.getElementById('" . $generatedDivID . "'),
             locale: '" . Settings::externalLocale() . "',
         " . join(",\n", $extraOptions) . "});
@@ -126,10 +126,10 @@ class Vouchers
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_voucher_templates')) {
-            $errors = Transient::delete($subdomain . '_voucher_templates');
+        if (Transient::get($instance . '_voucher_templates')) {
+            $errors = Transient::delete($instance . '_voucher_templates');
         }
 
         return $errors;
@@ -139,16 +139,16 @@ class Vouchers
     /**
      * @return array|string
      */
-    public function getTemplates(string $subdomain): array
+    public function getTemplates(string $instance): array
     {
-        $json = Transient::get($subdomain . '_voucher_templates');
+        $json = Transient::get($instance . '_voucher_templates');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'voucher_templates');
+                $json = Http::get($instance, 'voucher_templates');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_voucher_templates', $json);
+            Transient::set($instance . '_voucher_templates', $json);
         }
 
         $templates = [];

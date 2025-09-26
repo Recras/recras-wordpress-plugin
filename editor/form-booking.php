@@ -1,12 +1,12 @@
 <?php
-$subdomain = get_option('recras_subdomain');
-if (!$subdomain) {
+$instance = \Recras\Settings::getInstance();
+if (!$instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($subdomain, true);
+$arrangements = $model->getPackages($instance, true);
 ?>
 <dl>
     <dt><label><?php _e('Integration method', \Recras\Plugin::TEXT_DOMAIN); ?></label>

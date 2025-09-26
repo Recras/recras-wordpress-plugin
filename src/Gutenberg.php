@@ -24,7 +24,7 @@ class Gutenberg
         wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
         wp_localize_script($globalScriptName, 'recrasOptions', [
             'settingsPage' => admin_url('admin.php?page=' . Settings::OPTION_PAGE),
-            'subdomain' => get_option('recras_subdomain'),
+            'instance' => Settings::getInstance(),
         ]);
 
         wp_register_style(
@@ -37,35 +37,35 @@ class Gutenberg
         $gutenbergBlocks = [
             'availability' => [
                 'callback' => [Availability::class, 'renderAvailability'],
-                'version' => '6.3.2',
+                'version' => '6.4.0',
             ],
             'bookprocess' => [
                 'callback' => [Bookprocess::class, 'renderBookprocess'],
-                'version' => '5.3.0',
+                'version' => '6.4.0',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
-                'version' => '5.5.0',
+                'version' => '6.4.0',
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '5.4.0',
+                'version' => '6.4.0',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],
-                'version' => '4.1.3',
+                'version' => '6.4.0',
             ],
             'product' => [
                 'callback' => [Products::class, 'renderProduct'],
-                'version' => '4.1.3',
+                'version' => '6.4.0',
             ],
             'voucher-info' => [
                 'callback' => [Vouchers::class, 'renderVoucherInfo'],
-                'version' => '5.0.5',
+                'version' => '6.4.0',
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '5.4.0',
+                'version' => '6.4.0',
             ],
         ];
 
@@ -131,31 +131,36 @@ class Gutenberg
 
     public static function getBookprocesses()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Bookprocess();
-        return $model->getProcesses(get_option('recras_subdomain'));
+        return $model->getProcesses($instance);
     }
 
     public static function getContactForms()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new ContactForm();
-        return $model->getForms(get_option('recras_subdomain'));
+        return $model->getForms($instance);
     }
 
     public static function getPackages()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Arrangement();
-        return $model->getPackages(get_option('recras_subdomain'), false, false);
+        return $model->getPackages($instance, false, false);
     }
 
     public static function getProducts()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Products();
-        return $model->getProducts(get_option('recras_subdomain'));
+        return $model->getProducts($instance);
     }
 
     public static function getVouchers()
     {
+        $instance = \Recras\Settings::getInstance();
         $model = new Vouchers();
-        return $model->getTemplates(get_option('recras_subdomain'));
+        return $model->getTemplates($instance);
     }
 }

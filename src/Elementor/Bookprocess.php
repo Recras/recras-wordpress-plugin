@@ -48,7 +48,8 @@ class Bookprocess extends \Elementor\Widget_Base
             ]
         );
 
-        $bps = \Recras\Bookprocess::getProcesses(get_option('recras_subdomain'));
+        $instance = \Recras\Settings::getInstance();
+        $bps = \Recras\Bookprocess::getProcesses($instance);
         $bpsWithAcceptedFirstWidget = array_filter($bps, function ($bp) {
             return in_array($bp->firstWidget, ['package']);
         });
@@ -99,7 +100,8 @@ class Bookprocess extends \Elementor\Widget_Base
             $options[$settings['bp_id']]
         );
         if ($settings['initial_widget_value']) {
-            $packages = Arrangement::getPackages(get_option('recras_subdomain'));
+            $instance = \Recras\Settings::getInstance();
+            $packages = Arrangement::getPackages($instance);
             $html .= '<br>';
             if ($settings['hide_first_widget']) {
                 $pckId = (int) $settings['initial_widget_value'];

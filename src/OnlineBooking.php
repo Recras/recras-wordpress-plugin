@@ -25,9 +25,9 @@ class OnlineBooking
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
-        if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
+            return Plugin::noInstanceError();
         }
 
         $arrangementID = isset($attributes['id']) ? $attributes['id'] : null;
@@ -39,7 +39,7 @@ class OnlineBooking
 
         if (!$useJSLibrary) {
             $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
-            return self::generateIframe($subdomain, $arrangementID, $enableResize);
+            return self::generateIframe($instance, $arrangementID, $enableResize);
         }
 
         if (isset($attributes['prefill_date'])) {
@@ -98,11 +98,11 @@ class OnlineBooking
             }
         }
 
-        return self::generateBookingForm($subdomain, $arrangementID, $libraryOptions);
+        return self::generateBookingForm($instance, $arrangementID, $libraryOptions);
     }
 
 
-    private static function generateBookingForm(string $subdomain, int $arrangementID = null, array $libraryOptions = []): string
+    private static function generateBookingForm(string $instance, int $arrangementID = null, array $libraryOptions = []): string
     {
         $generatedDivID = uniqid('B');
         $extraOptions = [];
@@ -118,7 +118,7 @@ class OnlineBooking
             $extraOptions[] = 'package_id: [' . join(',', $libraryOptions['packageList']) . ']';
         }
 
-        if ($libraryOptions['redirect']) {
+        if (isset($libraryOptions['redirect'])) {
             $extraOptions[] = "redirect_url: '" . $libraryOptions['redirect'] . "'";
         }
 
@@ -141,7 +141,7 @@ class OnlineBooking
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookingOptions = new RecrasOptions({
-        recras_hostname: '" . $subdomain . ".recras.nl',
+        recras_hostname: '" . $instance . "',
         element: document.getElementById('" . $generatedDivID . "'),
         locale: '" . Settings::externalLocale() . "',
         autoScroll: false,
@@ -156,22 +156,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return $html;
     }
 
-    private static function generateIframe(string $subdomain, int $arrangementID = null, bool $enableResize = true): string
+    private static function generateIframe(string $instance, int $arrangementID = null, bool $enableResize = true): string
     {
-        $url = 'https://' . $subdomain . '.recras.nl/onlineboeking';
+        $url = 'https://' . $instance . '/onlineboeking';
         if ($arrangementID) {
             $url .= '/step1/arrangement/' . $arrangementID;
         }
 
         $iframeUID = uniqid('robi'); // Recras Online Boeking Iframe
-        $html = '';
-        $html .= '<iframe src="' . $url . '" style="width:100%;height:450px" frameborder=0 scrolling="auto" id="' . $iframeUID . '" sandbox="allow-scripts allow-forms allow-top-navigation"></iframe>';
+        $html = '<iframe src="' . $url . '" style="width:100%;height:450px" frameborder=0 scrolling="auto" id="' . $iframeUID . '" sandbox="allow-scripts allow-forms allow-top-navigation"></iframe>';
         if ($enableResize) {
             $html .= <<<SCRIPT
 <script>
     window.addEventListener('message', function(e) {
         const origin = e.origin || e.originalEvent.origin;
-        if (origin.match(/{$subdomain}\.recras\.nl/)) {
+        if (origin.match(/{$instance}/)) {
             document.getElementById('{$iframeUID}').style.height = e.data.iframeHeight + 'px';
         }
     });

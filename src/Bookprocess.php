@@ -10,22 +10,22 @@ class Bookprocess
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
-        return Transient::delete($subdomain . '_bookprocesses_v2');
+        $instance = Settings::getInstance();
+        return Transient::delete($instance . '_bookprocesses_v2');
     }
 
-    public static function enqueueScripts(string $subdomain): void
+    public static function enqueueScripts(string $instance): void
     {
         wp_enqueue_script_module(
             'recrasbookprocesses',
-            'https://' . $subdomain . '.recras.nl/bookprocess/dist/index.js',
+            'https://' . $instance . '/bookprocess/dist/index.js',
             [],
             date('Ymd') // Hint at caching for 1 day
         );
 
         wp_enqueue_style(
             'recrasreactdatepicker',
-            'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
+            'https://' . $instance . '/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
         );
     }
 
@@ -34,16 +34,16 @@ class Bookprocess
      *
      * @return array|string
      */
-    public static function getProcesses(string $subdomain)
+    public static function getProcesses(string $instance)
     {
-        $json = Transient::get($subdomain . '_bookprocesses_v2');
+        $json = Transient::get($instance . '_bookprocesses_v2');
         if ($json === false) {
             try {
-                $json = Http::get($subdomain, 'bookprocesses/book');
+                $json = Http::get($instance, 'bookprocesses/book');
             } catch (\Exception $e) {
                 return $e->getMessage();
             }
-            Transient::set($subdomain . '_bookprocesses_v2', $json);
+            Transient::set($instance . '_bookprocesses_v2', $json);
         }
 
         $processes = [];
@@ -56,10 +56,11 @@ class Bookprocess
         return $processes;
     }
 
-    public static function optionsForElementorWidget()
+    public static function optionsForElementorWidget(): array
     {
+        $instance = Settings::getInstance();
         $fmt = [];
-        $processes = self::getProcesses(get_option('recras_subdomain'));
+        $processes = self::getProcesses($instance);
         foreach ($processes as $id => $process) {
             $fmt[$id] = $process->name;
         }
@@ -77,9 +78,9 @@ class Bookprocess
             $attributes = [];
         }
 
-        $subdomain = Settings::getSubdomain($attributes);
-        if (!$subdomain) {
-            return Plugin::getNoSubdomainError();
+        $instance = Settings::getInstance($attributes);
+        if (!$instance) {
+            return Plugin::noInstanceError();
         }
 
         if (empty($attributes['id'])) {
@@ -90,7 +91,7 @@ class Bookprocess
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
         }
 
-        $processes = self::getProcesses($subdomain);
+        $processes = self::getProcesses($instance);
         if (is_string($processes)) {
             // Not a form, but an error
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $processes);
@@ -112,7 +113,7 @@ class Bookprocess
             <section
                 class="bookprocess" 
                 data-id="' . $attributes['id'] . '" 
-                data-url="https://' . $subdomain . '.recras.nl"
+                data-url="https://' . $instance . '"
                 ' . $initialWidgetValueHtml . '
             ></section>
         ' . $extraCSS;

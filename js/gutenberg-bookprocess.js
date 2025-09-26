@@ -21,7 +21,7 @@ registerGutenbergBlock('recras/bookprocess', {
             bookprocesses: select('recras/store').fetchBookprocesses(),
         }
     })(props => {
-        if (!recrasOptions.subdomain) {
+        if (!recrasOptions.instance) {
             return recrasHelper.elementNoRecrasName();
         }
 

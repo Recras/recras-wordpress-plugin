@@ -38,7 +38,7 @@ registerGutenbergBlock('recras/onlinebooking', {
             pagesPosts: select('recras/store').fetchPagesPosts(),
         }
     })(props => {
-        if (!recrasOptions.subdomain) {
+        if (!recrasOptions.instance) {
             return recrasHelper.elementNoRecrasName();
         }
 

@@ -30,6 +30,7 @@ class Plugin
         add_action('init', [Settings::class, 'registerSettings']);
         add_action('admin_init', [Settings::class, 'registerSettingsPage']);
         add_action('admin_init', [Editor::class, 'addButtons']);
+        add_action('plugins_loaded', [Settings::class, 'maybeUpdateSettings']);
 
         // Gutenberg
         add_action('init', [Gutenberg::class, 'addBlocks']);
@@ -137,32 +138,32 @@ class Plugin
 
     private function checkOldSettings(): void
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = \Recras\Settings::getInstance();
+        if (!$instance) {
             return;
         }
 
-        $setting = Transient::get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($instance . '_show_old_online_booking');
         if ($setting === false) {
             try {
-                $setting = Http::get($subdomain, 'instellingen/allow_online_package_booking');
+                $setting = Http::get($instance, 'instellingen/allow_online_package_booking');
             } catch (\Exception $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                Transient::set($subdomain . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($instance . '_show_old_online_booking', $setting->waarde, DAY_IN_SECONDS);
             }
         }
 
-        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($instance . '_show_old_voucher_sales');
         if ($setting === false) {
             try {
-                $setting = Http::get($subdomain, 'instellingen/allow_old_vouchers_sales');
+                $setting = Http::get($instance, 'instellingen/allow_old_vouchers_sales');
             } catch (\Exception $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
-                Transient::set($subdomain . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
+                Transient::set($instance . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
             }
         }
     }
@@ -186,15 +187,14 @@ class Plugin
 
 
     /**
-     * Get error message if no subdomain has been entered yet
+     * Get error message if no domain has been entered yet
      */
-    public static function getNoSubdomainError(): string
+    public static function noInstanceError(): string
     {
         if (current_user_can('manage_options')) {
-            return __('Error: you have not set your Recras name yet', Plugin::TEXT_DOMAIN);
-        } else {
-            return __('Error: your Recras name has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
+            return __('Error: you have not set your Recras domain yet', Plugin::TEXT_DOMAIN);
         }
+        return __('Error: your Recras domain has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
     }
 
     public static function getStatusMessage(int $errors): string
@@ -229,7 +229,7 @@ class Plugin
             $l10n['showVoucherSales'] = 'no';
         }
 
-        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.3.0', true);
+        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '6.4.0', true);
         wp_localize_script('recras-admin', 'recras_l10n', $l10n);
         wp_enqueue_script('recras-admin');
         wp_enqueue_style('recras-admin-style', $this->baseUrl . '/css/admin-style.css', [], '6.0.7');
@@ -301,12 +301,12 @@ class Plugin
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
-        $subdomain = Settings::getSubdomain([]);
+        $instance = Settings::getInstance([]);
         wp_enqueue_style(
             'recras_bookprocesses_base',
-            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
+            'https://' . $instance . '/bookprocess/bookprocess_base.css'
         );
-        Bookprocess::enqueueScripts($subdomain);
+        Bookprocess::enqueueScripts($instance);
 
         // Integration theme
         $theme = get_option('recras_theme');
@@ -315,7 +315,7 @@ class Plugin
             if ($theme !== 'none' && array_key_exists($theme, $allowedThemes)) {
                 wp_enqueue_style(
                     'recras_bookprocesses_styling',
-                    'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_styling.css'
+                    'https://' . $instance . '/bookprocess/bookprocess_styling.css'
                 );
 
                 wp_enqueue_style('recras_theme_base', $this->baseUrl . '/css/themes/base.css', [], '6.1.1');
@@ -325,7 +325,7 @@ class Plugin
 
         // Generic functionality & localisation script
         $scriptName = 'recras-frontend';
-        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '6.1.2', true);
+        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '6.4.0', true);
         wp_localize_script($scriptName, 'recras_l10n', $localisation);
         wp_enqueue_script($scriptName);
     }
@@ -346,7 +346,8 @@ class Plugin
         delete_option('recras_fix_react_datepicker');
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
-        delete_option('recras_subdomain');
+        delete_option('recras_subdomain'); // Legacy since 2025-09
+        delete_option('recras_domain');
         delete_option('recras_theme');
     }
 }

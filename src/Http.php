@@ -9,9 +9,9 @@ class Http
      * @throws Exception\JsonParseException
      * @throws Exception\UrlException
      */
-    public static function get(string $subdomain, string $uri)
+    public static function get(string $instance, string $uri)
     {
-        $ch = curl_init('https://' . $subdomain . '.recras.nl/api2/' . $uri);
+        $ch = curl_init('https://' . $instance . '/api2/' . $uri);
         curl_setopt($ch, \CURLOPT_RETURNTRANSFER, 1);
         $json = curl_exec($ch);
 

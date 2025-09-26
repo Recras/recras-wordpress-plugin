@@ -75,9 +75,9 @@ class Settings
 
 
     /**
-     * Add a subdomain input field
+     * Add an instance input field
      */
-    public static function addInputSubdomain(array $args): void
+    public static function addInputDomain(array $args): void
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -85,13 +85,13 @@ class Settings
             $value = 'demo';
         }
 
-        printf('<input type="text" name="%s" id="%s" value="%s">.recras.nl', $field, $field, $value);
-        $arr = wp_remote_get('https://' . $value . '.recras.nl/');
+        printf('<input type="text" name="%s" id="%s" value="%s" placeholder="demo.recras.nl">', $field, $field, $value);
+        $arr = wp_remote_get('https://' . $value . '/');
         if ($arr instanceof \WP_Error) {
-            self::infoText(__('Subdomain not found!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+            self::infoText(__('Instance not found!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
         } elseif (is_array($arr) && isset($arr['http_response']) && $arr['http_response'] instanceof \WP_HTTP_Requests_Response) {
             if ($arr['http_response']->get_status() === 404) {
-                self::infoText(__('Error fetching subdomain!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+                self::infoText(__('Error fetching instance!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
             }
         }
     }
@@ -122,11 +122,11 @@ class Settings
 
     public static function allowOnlinePackageBooking(): bool
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = Settings::getInstance();
+        if (!$instance) {
             return true;
         }
-        $setting = Transient::get($subdomain . '_show_old_online_booking');
+        $setting = Transient::get($instance . '_show_old_online_booking');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -134,11 +134,11 @@ class Settings
 
     public static function allowOldVoucherSales(): bool
     {
-        $subdomain = get_option('recras_subdomain');
-        if (!$subdomain) {
+        $instance = \Recras\Settings::getInstance();
+        if (!$instance) {
             return true;
         }
-        $setting = Transient::get($subdomain . '_show_old_voucher_sales');
+        $setting = Transient::get($instance . '_show_old_voucher_sales');
         // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
         return ($setting === 'no') ? false : true;
     }
@@ -148,13 +148,13 @@ class Settings
      */
     public static function clearCache(): int
     {
-        $subdomain = get_option('recras_subdomain');
+        $instance = \Recras\Settings::getInstance();
         $errors = 0;
-        if (Transient::get($subdomain . '_show_old_online_booking')) {
-            $errors = Transient::delete($subdomain . '_show_old_online_booking');
+        if (Transient::get($instance . '_show_old_online_booking')) {
+            $errors = Transient::delete($instance . '_show_old_online_booking');
         }
-        if (Transient::get($subdomain . '_show_old_voucher_sales')) {
-            $errors = Transient::delete($subdomain . '_show_old_voucher_sales');
+        if (Transient::get($instance . '_show_old_voucher_sales')) {
+            $errors = Transient::delete($instance . '_show_old_voucher_sales');
         }
 
         return $errors;
@@ -207,7 +207,7 @@ class Settings
         echo '<p class="recrasInfoText">';
         $settingsLink = admin_url('admin.php?page=' . self::OPTION_PAGE);
         printf(
-            __('Please enter your Recras name in the %s before adding widgets.', Plugin::TEXT_DOMAIN),
+            __('Please enter your Recras domain in the %s before adding widgets.', Plugin::TEXT_DOMAIN),
             '<a href="' . $settingsLink . '" target="_blank">' . __('Recras → Settings menu', Plugin::TEXT_DOMAIN) . '</a>'
         );
         echo '</p>';
@@ -232,14 +232,29 @@ class Settings
 
 
     /**
-     * Get the Recras subdomain, which can be set in the shortcode attributes or as global setting
+     * Get the Recras instance, which can be set in the shortcode attributes or as global setting
      */
-    public static function getSubdomain(array $attributes): string
+    public static function getInstance(array $attributes = []): string
     {
         if (isset($attributes['recrasname'])) {
-            return $attributes['recrasname'];
+            $name = $attributes['recrasname'];
+            if (strpos($name, '.recras.') === false) {
+                $name .= '.recras.nl';
+            }
+            return $name;
         }
-        return get_option('recras_subdomain');
+        $domain = get_option('recras_domain');
+        if ($domain) {
+            return $domain;
+        }
+        // Legacy option
+        $subdomain = get_option('recras_subdomain');
+        if ($subdomain) {
+            $domain = $subdomain . '.recras.nl';
+            update_option('recras_domain', $domain);
+            return $domain;
+        }
+        return '';
     }
 
 
@@ -310,12 +325,28 @@ class Settings
         ]);
     }
 
+    public static function maybeUpdateSettings(): void
+    {
+        // 6.4.0 : Subdomains were replaced with instance names (i.e. demo -> demo.recras.nl)
+        $domain = get_option('recras_domain');
+        if ($domain) {
+            return;
+        }
+
+        $subdomain = get_option('recras_subdomain');
+        if ($subdomain) {
+            update_option('recras_domain', $subdomain . '.recras.nl');
+            delete_option('recras_subdomain');
+        }
+    }
+
     /**
      * Register plugin settings
      */
     public static function registerSettings(): void
     {
-        self::registerSetting('recras_subdomain', 'demo', 'string', [__CLASS__, 'sanitizeSubdomain']);
+        self::registerSetting('recras_subdomain', 'demo'); // Legacy since 2025-09
+        self::registerSetting('recras_domain', 'demo.recras.nl', 'string', [__CLASS__, 'sanitizeDomain']);
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
@@ -335,7 +366,7 @@ class Settings
         );
         self::registerSettings();
 
-        self::addField('recras_subdomain', __('Recras name', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputSubdomain']);
+        self::addField('recras_domain', __('Recras domain', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDomain']);
         self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
         self::addField('recras_decimal', __('Decimal separator', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDecimal']);
         self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
@@ -347,20 +378,18 @@ class Settings
 
 
     /**
-     * Sanitize user inputted subdomain
+     * Sanitize user inputted instance name
      *
      * @return string|false
      */
-    public static function sanitizeSubdomain(string $subdomain)
+    public static function sanitizeDomain(string $domain)
     {
-        // RFC 1034 section 3.5 - http://tools.ietf.org/html/rfc1034#section-3.5
-        if (strlen($subdomain) > 63) {
+        $subdomainRegex = '^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?';
+        $domainRegex = '\.recras\.(nl|com)$';
+        if (!preg_match('/' . $subdomainRegex . $domainRegex . '/', $domain)) {
             return false;
         }
-        if (!preg_match('/^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?$/', $subdomain)) {
-            return false;
-        }
-        return $subdomain;
+        return $domain;
     }
 
 

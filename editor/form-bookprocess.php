@@ -1,12 +1,12 @@
 <?php
-$subdomain = get_option('recras_subdomain');
-if (!$subdomain) {
+$instance = \Recras\Settings::getInstance();
+if (!$instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
 $model = new \Recras\Bookprocess();
-$processes = $model->getProcesses($subdomain);
+$processes = $model->getProcesses($instance);
 ?>
 <style id="bookprocess_style">
     .recras-hidden-input { display: none; }

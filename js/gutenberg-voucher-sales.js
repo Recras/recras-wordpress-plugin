@@ -22,7 +22,7 @@ registerGutenbergBlock('recras/voucher-sales', {
             voucherTemplates: select('recras/store').fetchVoucherTemplates(true),
         }
     })(props => {
-        if (!recrasOptions.subdomain) {
+        if (!recrasOptions.instance) {
             return recrasHelper.elementNoRecrasName();
         }
 

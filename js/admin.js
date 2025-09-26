@@ -15,16 +15,16 @@ function disableNotAllowed(packageIDs)
  * Get packages that are valid for a given contact form
  *
  * @param {Number} formID
- * @param {String} subdomain
+ * @param {String} instance
  */
-function getContactFormArrangements(formID, subdomain)
+function getContactFormArrangements(formID, instance)
 {
     if (!formID) {
         return false;
     }
 
     let lastResponse;
-    fetch(`https://${subdomain}.recras.nl/api2/contactformulieren/${formID}/arrangementen`)
+    fetch(`https://${instance}/api2/contactformulieren/${formID}/arrangementen`)
         .then(res => {
             lastResponse = res;
             return res.json();
