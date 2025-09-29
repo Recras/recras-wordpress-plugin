@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.8
-Stable tag: 6.3.8
+Stable tag: 6.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,8 +74,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= (unreleased) =
+= 6.4.0 =
 * Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
+* Plugin now requires WP 6.7 or higher
 
 = 6.3.8 =
 * Update "Fix book process datepicker styling" styles to latest version
