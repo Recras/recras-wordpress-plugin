@@ -16,7 +16,7 @@ class Plugin
     {
         $this->setBaseUrl();
 
-        // Needs to run before: Gutenberg::addBlocks, self::loadAdminScripts
+        // Needs to run before: Gutenberg::addBlocks, self::loadAdminScripts, self::loadScripts
         $this->checkOldSettings();
 
         // Init Localisation
@@ -297,7 +297,9 @@ class Plugin
             wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '8.4.0');
         }
 
-        wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
+        if (Settings::allowOnlinePackageBooking() || Settings::allowOldVoucherSales()) {
+            wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
+        }
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
