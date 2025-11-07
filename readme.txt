@@ -1,7 +1,7 @@
 === Recras WordPress plugin ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 6.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -74,6 +74,8 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 6.4.1 =
+
 = 6.4.0 =
 * Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
 * Plugin now requires WP 6.7 or higher
@@ -114,22 +116,11 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * The plugin now hides certain blocks/editor buttons, when they're not available in your Recras instance
 * Plugin now requires WP 6.5 or higher
 
-= 6.2.3 =
-* Fix error in Elementor when book process cannot be found
-
-= 6.2.2 =
-* Update "Fix book process datepicker styling" styles to latest version
-* Updated "Tested up to" version to 6.7
-* If package in a contact form is required, don't add an empty option
-
-= 6.2.1 =
-* Fix warning with Elementor book process widget
-* Update Dutch translation
-
-= 6.2.0 =
+= 6.2 (highlights) =
 * Added a book process widget for Elementor
-* Improve error message when "id" is set, but empty
 * Plugin now requires PHP 7.4 or higher
+* Updated "Tested up to" version to 6.7
+* Various small fixes and improvements
 
 = 6.1 (highlights) =
 * Various small fixes and improvements
