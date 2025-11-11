@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.4.1 (2025-11-11)
+* Don't load old script when it's not needed
+* Updated "Tested up to" version to 6.9
+* Update "Fix book process datepicker styling" styles to latest version
+
 ## 6.4.0 (2025-09-29)
 * Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
 * Plugin now requires WP 6.7 or higher

@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.9
-Stable tag: 6.4.0
+Stable tag: 6.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 == Changelog ==
 
 = 6.4.1 =
+* Don't load old script when it's not needed
+* Updated "Tested up to" version to 6.9
+* Update "Fix book process datepicker styling" styles to latest version
 
 = 6.4.0 =
 * Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
