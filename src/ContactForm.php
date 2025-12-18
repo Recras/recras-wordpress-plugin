@@ -454,8 +454,8 @@ class ContactForm
     });
     const clearRadioEls = document.querySelectorAll(".clearRadioChoice");
     if (clearRadioEls.length) {
-        for (let i = 0; i < clearRadioEls.length; i++) {
-            clearRadioEls[i].addEventListener("click", function() {
+        for (let el of clearRadioEls) {
+            el.addEventListener("click", function() {
                 const radioElChecked = this.parentNode.querySelector("input[type=\'radio\']:checked");
                 if (radioElChecked) {
                     radioElChecked.checked = false;

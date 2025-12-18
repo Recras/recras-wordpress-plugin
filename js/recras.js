@@ -1,8 +1,8 @@
 function removeElsWithClass(className)
 {
     const els = document.querySelectorAll('.' + className);
-    for (let i = 0; i < els.length; i++) {
-        els[i].parentNode.removeChild(els[i]);
+    for (let el of els) {
+        el.parentNode.removeChild(el);
     }
 }
 
@@ -14,34 +14,34 @@ function submitRecrasForm(formID, instance, basePath, redirect)
     const formElements = formEl.querySelectorAll('input, textarea, select');
     let elements = {};
 
-    for (let i = 0; i < formElements.length; i++) {
-        if (formElements[i].type === 'submit') {
+    for (let el of formElements) {
+        if (el.type === 'submit') {
             continue;
         }
-        if (formElements[i].value === '' && formElements[i].required === false) {
-            formElements[i].value = null;
+        if (el.value === '' && el.required === false) {
+            el.value = null;
         }
-        if (formElements[i].type === 'radio') {
-            const selected = document.querySelector('input[name="' + formElements[i].name + '"]:checked');
-            elements[formElements[i].name] = selected.value;
-        } else if (formElements[i].type === 'checkbox') {
-            elements[formElements[i].name] = [];
-            const checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
+        if (el.type === 'radio') {
+            const selected = document.querySelector('input[name="' + el.name + '"]:checked');
+            elements[el.name] = selected.value;
+        } else if (el.type === 'checkbox') {
+            elements[el.name] = [];
+            const checked = document.querySelectorAll('input[name="' + el.name + '"]:checked');
             if (checked.length === 0) {
-                const isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
+                const isRequired = document.querySelector('input[name="' + el.name + '"][data-required="1"]');
                 if (isRequired) {
                     formEl
-                        .querySelector('[name="' + formElements[i].name + '"]')
+                        .querySelector('[name="' + el.name + '"]')
                         .parentNode
                         .insertAdjacentHTML('beforeend', '<span class="recras-error">' + recras_l10n.checkboxRequired + '</span>');
                     return false;
                 }
             }
-            for (let j = 0; j < checked.length; j++) {
-                elements[formElements[i].name].push(checked[j].value);
+            for (let c of checked) {
+                elements[el.name].push(c.value);
             }
         } else {
-            elements[formElements[i].name] = formElements[i].value;
+            elements[el.name] = el.value;
         }
     }
     if (elements['boeking.arrangement'] === '0') {
@@ -55,7 +55,7 @@ function submitRecrasForm(formID, instance, basePath, redirect)
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://' + instance + '/api2/contactformulieren/' + formEl.dataset.formid + '/opslaan');
     xhr.send(JSON.stringify(elements));
-    xhr.onreadystatechange = function(){
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             removeElsWithClass('recras-loading');
             submitEl.disabled = false;
@@ -111,8 +111,8 @@ const initPikaday = function(dateInput) {
 document.addEventListener('DOMContentLoaded', function(){
     if (typeof Pikaday === 'function') {
         const dateEls = document.querySelectorAll('.recras-input-date');
-        for (let i = 0; i < dateEls.length; i++) {
-            initPikaday(dateEls[i]);
+        for (let el of dateEls) {
+            initPikaday(el);
         }
     }
 });
