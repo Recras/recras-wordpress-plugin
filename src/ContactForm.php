@@ -23,10 +23,10 @@ class ContactForm
      *
      * @return object|string
      */
-    public static function getForm(string $instance, int $id)
+    public static function getForm(string $instance, int $id, bool $useCache = true)
     {
         $form = Transient::get($instance . '_contactform_' . $id . '_v2');
-        if ($form === false) {
+        if ($form === false || !$useCache) {
             try {
                 $form = Http::get($instance, 'contactformulieren/' . $id . '?embed=Velden');
             } catch (\Exception $e) {
@@ -64,7 +64,7 @@ class ContactForm
         }
 
         // Get basic info for the form
-        $form = self::getForm($instance, $attributes['id']);
+        $form = self::getForm($instance, $attributes['id'], false);
         if (is_string($form)) {
             // Not a form, but an error
             /* translators: Error message */
@@ -139,7 +139,7 @@ class ContactForm
             'submitText' => $submitText,
         ];
 
-        return self::generateForm($attributes['id'], $formFields, $options);
+        return self::generateForm($attributes['id'], $formFields, $form->nonce ?? null, $options);
     }
 
 
@@ -205,7 +205,7 @@ class ContactForm
     /**
      * Generate a contact form
      */
-    public static function generateForm(int $formID, array $formFields, array $options): string
+    public static function generateForm(int $formID, array $formFields, ?string $nonce = null, array $options): string
     {
         global $recrasPlugin;
         $arrangementen = [];
@@ -436,6 +436,9 @@ class ContactForm
             //$html .= print_r($field, true); //DEBUG
         }
         $html .= self::generateEndTag($options['element']);
+        if ($nonce) {
+            $html .= '<input type="hidden" name="nonce" value="' . $nonce . '">';
+        }
 
         $html .= '<input type="submit" value="' . $options['submitText'] . '">';
         $html .= '</form>';
