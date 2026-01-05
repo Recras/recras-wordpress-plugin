@@ -10,7 +10,7 @@ $templates = $model->getTemplates($instance);
 ?>
 
 <dl>
-    <dt><label for="template_id"><?php _e('Template', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="template_id"><?php esc_html_e('Template', 'recras'); ?></label>
     <dd><?php if (is_string($templates)) { ?>
             <input type="number" id="template_id" min="0" required>
             <?= $templates; ?>
@@ -21,14 +21,14 @@ $templates = $model->getTemplates($instance);
                 <?php } ?>
             </select>
         <?php } ?>
-    <dt><label for="show_what"><?php _e('Show what?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="show_what"><?php esc_html_e('Show what?', 'recras'); ?></label>
     <dd><select id="show_what" required>
-            <option value="name"><?php _e('Name', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="price"><?php _e('Price', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="validity"><?php _e('Validity', \Recras\Plugin::TEXT_DOMAIN); ?>
+            <option value="name"><?php esc_html_e('Name', 'recras'); ?>
+            <option value="price"><?php esc_html_e('Price', 'recras'); ?>
+            <option value="validity"><?php esc_html_e('Validity', 'recras'); ?>
         </select>
 </dl>
-<button class="button button-primary" id="voucher_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="voucher_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){

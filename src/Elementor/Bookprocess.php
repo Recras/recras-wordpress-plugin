@@ -14,7 +14,7 @@ class Bookprocess extends \Elementor\Widget_Base
 
     public function get_title(): string
     {
-        return __('Book process', Plugin::TEXT_DOMAIN);
+        return __('Book process', 'recras');
     }
 
     public function get_icon(): string
@@ -32,7 +32,7 @@ class Bookprocess extends \Elementor\Widget_Base
         $this->start_controls_section(
             'content',
             [
-                'label' => __('Book process', Plugin::TEXT_DOMAIN),
+                'label' => __('Book process', 'recras'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ],
         );
@@ -42,7 +42,7 @@ class Bookprocess extends \Elementor\Widget_Base
             'bp_id',
             [
                 'type' => \Elementor\Controls_Manager::SELECT2,
-                'label' => __('Book process', Plugin::TEXT_DOMAIN),
+                'label' => __('Book process', 'recras'),
                 'options' => $options,
                 'default' => count($options) === 1 ? reset($options) : null,
             ]
@@ -58,7 +58,7 @@ class Bookprocess extends \Elementor\Widget_Base
             'initial_widget_value',
             [
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'label' => __('Prefill value for first widget? (optional)', Plugin::TEXT_DOMAIN),
+                'label' => __('Prefill value for first widget? (optional)', 'recras'),
                 'condition' => [
                     'bp_id' => array_map(function ($id) {
                         return (string) $id;
@@ -71,7 +71,7 @@ class Bookprocess extends \Elementor\Widget_Base
             'hide_first_widget',
             [
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label' => __('Hide first widget?', Plugin::TEXT_DOMAIN),
+                'label' => __('Hide first widget?', 'recras'),
                 'condition' => [
                     'initial_widget_value!' => '',
                 ],
@@ -84,19 +84,21 @@ class Bookprocess extends \Elementor\Widget_Base
     private function adminRender(array $settings): string
     {
         if (!$settings['bp_id']){
-            return __('No book process has been chosen yet. Click on this text to select a book process.', Plugin::TEXT_DOMAIN);
+            return __('No book process has been chosen yet. Click on this text to select a book process.', 'recras');
         }
         $options = \Recras\Bookprocess::optionsForElementorWidget();
 
         if (!array_key_exists($settings['bp_id'], $options)) {
             return sprintf(
-                __('Book process %s cannot be found. It was either deleted from Recras, or made private.', Plugin::TEXT_DOMAIN),
+                /* translators: Book process ID */
+                __('Book process %s cannot be found. It was either deleted from Recras, or made private.', 'recras'),
                 $settings['bp_id']
             );
         }
         $html = '';
         $html .= sprintf(
-            __('Book process "%s" is integrated here.', Plugin::TEXT_DOMAIN),
+            /* translators: Book process ID */
+            __('Book process "%s" is integrated here.', 'recras'),
             $options[$settings['bp_id']]
         );
         if ($settings['initial_widget_value']) {
@@ -107,12 +109,14 @@ class Bookprocess extends \Elementor\Widget_Base
                 $pckId = (int) $settings['initial_widget_value'];
                 $pckName = isset($packages[$pckId]) ? $packages[$pckId]->arrangement : $pckId;
                 $html .= sprintf(
-                    __('The first widget is hidden for the booker, and has an initial value of "%s".', Plugin::TEXT_DOMAIN),
+                    /* translators: Widget initial value */
+                    __('The first widget is hidden for the booker, and has an initial value of "%s".', 'recras'),
                     $pckName
                 );
             } else {
                 $html .= sprintf(
-                    __('It has an initial value for the first widget of "%s".', Plugin::TEXT_DOMAIN),
+                    /* translators: Widget initial value */
+                    __('It has an initial value for the first widget of "%s".', 'recras'),
                     $settings['initial_widget_value']
                 );
             }

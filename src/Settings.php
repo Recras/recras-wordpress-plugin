@@ -14,7 +14,7 @@ class Settings
     {
         self::addInputCheckbox($args);
         self::infoText(
-            __('This option is <strong>not needed when using book processes</strong>. GA is integrated automatically for them.', Plugin::TEXT_DOMAIN)
+            __('This option is <strong>not needed when using book processes</strong>. GA is integrated automatically for them.', 'recras')
         );
     }
 
@@ -48,15 +48,8 @@ class Settings
     public static function addInputDatepicker(array $args): void
     {
         self::addInputCheckbox($args);
-        self::infoText(__('Use this setting if you want to be able to style the date picker in contact forms.', Plugin::TEXT_DOMAIN));
+        self::infoText(__('Use this setting if you want to be able to style the date picker in contact forms.', 'recras'));
     }
-
-    public static function addInputFixDatepicker(array $args): void
-    {
-        self::addInputCheckbox($args);
-        self::infoText(__('On some websites, the date picker in a book process has a tiny font. Enable this to fix this.', Plugin::TEXT_DOMAIN));
-    }
-
 
     /**
      * Add a decimal separator input field
@@ -70,7 +63,7 @@ class Settings
         }
 
         printf('<input type="text" name="%s" id="%s" value="%s" size="2" maxlength="1">', $field, $field, $value);
-        self::infoText(__('Used in prices, such as 100,00.', Plugin::TEXT_DOMAIN));
+        self::infoText(__('Used in prices, such as 100,00.', 'recras'));
     }
 
 
@@ -88,10 +81,10 @@ class Settings
         printf('<input type="text" name="%s" id="%s" value="%s" placeholder="demo.recras.nl">', $field, $field, $value);
         $arr = wp_remote_get('https://' . $value . '/');
         if ($arr instanceof \WP_Error) {
-            self::infoText(__('Instance not found!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+            self::infoText(__('Instance not found!', 'recras'), 'recrasAdminError');
         } elseif (is_array($arr) && isset($arr['http_response']) && $arr['http_response'] instanceof \WP_HTTP_Requests_Response) {
             if ($arr['http_response']->get_status() === 404) {
-                self::infoText(__('Error fetching instance!', Plugin::TEXT_DOMAIN), 'recrasAdminError');
+                self::infoText(__('Error fetching instance!', 'recras'), 'recrasAdminError');
             }
         }
     }
@@ -166,7 +159,7 @@ class Settings
     public static function clearCachePage(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
+            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
         }
         require_once(__DIR__ . '/admin/cache.php');
     }
@@ -175,7 +168,7 @@ class Settings
     public static function documentation(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
+            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
         }
         require_once(__DIR__ . '/admin/documentation.php');
     }
@@ -184,7 +177,7 @@ class Settings
     public static function shortcodes(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
+            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
         }
         require_once(__DIR__ . '/admin/shortcodes.php');
     }
@@ -196,7 +189,7 @@ class Settings
     public static function editSettings(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.'), '', 401);
+            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
         }
         require_once(__DIR__ . '/admin/settings.php');
     }
@@ -207,8 +200,9 @@ class Settings
         echo '<p class="recrasInfoText">';
         $settingsLink = admin_url('admin.php?page=' . self::OPTION_PAGE);
         printf(
-            __('Please enter your Recras domain in the %s before adding widgets.', Plugin::TEXT_DOMAIN),
-            '<a href="' . $settingsLink . '" target="_blank">' . __('Recras → Settings menu', Plugin::TEXT_DOMAIN) . '</a>'
+            /* translators: Link to Settings menu */
+            __('Please enter your Recras domain in the %s before adding widgets.', 'recras'),
+            '<a href="' . $settingsLink . '" target="_blank">' . __('Recras → Settings menu', 'recras') . '</a>'
         );
         echo '</p>';
     }
@@ -237,7 +231,10 @@ class Settings
     public static function getInstance(array $attributes = []): string
     {
         if (isset($attributes['recrasname'])) {
-            $name = $attributes['recrasname'];
+            $name = sanitize_text_field($attributes['recrasname']);
+            if (!preg_match('/^[a-z0-9.-]+$/', $name)) {
+                return '';
+            }
             if (strpos($name, '.recras.') === false) {
                 $name .= '.recras.nl';
             }
@@ -262,23 +259,23 @@ class Settings
     {
         return [
             'none' => [
-                'name' => __('No theme', Plugin::TEXT_DOMAIN),
+                'name' => __('No theme', 'recras'),
                 'version' => null,
             ],
             'basic' => [
-                'name' => __('Basic theme', Plugin::TEXT_DOMAIN),
+                'name' => __('Basic theme', 'recras'),
                 'version' => '5.5.0',
             ],
             'bpgreen' => [
-                'name' => __('BP Green', Plugin::TEXT_DOMAIN),
+                'name' => __('BP Green', 'recras'),
                 'version' => '5.5.0',
             ],
             'reasonablyred' => [
-                'name' => __('Reasonably Red', Plugin::TEXT_DOMAIN),
+                'name' => __('Reasonably Red', 'recras'),
                 'version' => '5.5.0',
             ],
             'recrasblue' => [
-                'name' => __('Recras Blue', Plugin::TEXT_DOMAIN),
+                'name' => __('Recras Blue', 'recras'),
                 'version' => '5.5.0',
             ],
         ];
@@ -350,7 +347,6 @@ class Settings
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
-        self::registerSetting('recras_fix_react_datepicker', false, 'boolean');
         self::registerSetting('recras_theme', 'basic');
         self::registerSetting('recras_enable_analytics', false, 'boolean');
     }
@@ -360,19 +356,18 @@ class Settings
     {
         \add_settings_section(
             self::OPTION_SECTION,
-            __('Recras settings', Plugin::TEXT_DOMAIN),
+            __('Recras settings', 'recras'),
             [__CLASS__, 'settingsHelp'],
             self::OPTION_PAGE
         );
         self::registerSettings();
 
-        self::addField('recras_domain', __('Recras domain', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDomain']);
-        self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
-        self::addField('recras_decimal', __('Decimal separator', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDecimal']);
-        self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputDatepicker']);
-        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputFixDatepicker']);
-        self::addField('recras_theme', __('Theme for Recras integrations', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
-        self::addField('recras_enable_analytics', __('Enable Google Analytics integration? (deprecated)', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
+        self::addField('recras_domain', __('Recras domain', 'recras'), [__CLASS__, 'addInputDomain']);
+        self::addField('recras_currency', __('Currency symbol', 'recras'), [__CLASS__, 'addInputCurrency']);
+        self::addField('recras_decimal', __('Decimal separator', 'recras'), [__CLASS__, 'addInputDecimal']);
+        self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', 'recras'), [__CLASS__, 'addInputDatepicker']);
+        self::addField('recras_theme', __('Theme for Recras integrations', 'recras'), [__CLASS__, 'addInputTheme']);
+        self::addField('recras_enable_analytics', __('Enable Google Analytics integration? (deprecated)', 'recras'), [__CLASS__, 'addInputAnalytics']);
     }
 
 
@@ -399,8 +394,9 @@ class Settings
     public static function settingsHelp(): void
     {
         printf(
-            __('For more information on these options, please see the %s page.', Plugin::TEXT_DOMAIN),
-            '<a href="' . admin_url('admin.php?page=' . self::PAGE_DOCS) . '">' . __('Documentation', Plugin::TEXT_DOMAIN) . '</a>'
+            /* translators: link to Documentation page */
+            __('For more information on these options, please see the %s page.', 'recras'),
+            '<a href="' . admin_url('admin.php?page=' . self::PAGE_DOCS) . '">' . __('Documentation', 'recras') . '</a>'
         );
     }
 }

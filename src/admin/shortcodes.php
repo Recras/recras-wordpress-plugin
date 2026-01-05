@@ -1,7 +1,7 @@
-<h1><?php _e('Shortcodes', \Recras\Plugin::TEXT_DOMAIN); ?></h1>
+<h1><?php esc_html_e('Shortcodes', 'recras'); ?></h1>
 
 
-<h2><?php _e('Packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Packages', 'recras'); ?></h2>
 <p>Packages can be added using the <kbd>[recras-package]</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -27,7 +27,7 @@
 
 
 <hr>
-<h2><?php _e('Book processes', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Book processes', 'recras'); ?></h2>
 <p>Book processes can be added using the <kbd>[recras-bookprocess]</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -39,7 +39,7 @@
 
 
 <hr>
-<h2><?php _e('Contact forms', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Contact forms', 'recras'); ?></h2>
 <p>Contact forms can be added using the <kbd>[recras-contact]</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -57,7 +57,7 @@
 
 
 <hr>
-<h2><?php _e('Products', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Products', 'recras'); ?></h2>
 <p>Products can be added using the <kbd>recras-product</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -76,7 +76,7 @@
 
 
 <hr>
-<h2><?php _e('Voucher info', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Voucher info', 'recras'); ?></h2>
 <p>Voucher info can be added using the <kbd>recras-voucher-info</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">

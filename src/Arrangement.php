@@ -18,10 +18,10 @@ class Arrangement
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
         $showProperty = self::SHOW_DEFAULT;
         if (isset($attributes['show']) && in_array($attributes['show'], self::getValidOptions())) {
@@ -35,11 +35,13 @@ class Arrangement
 
         $json = self::getPackage($instance, $attributes['id']);
         if (isset($json->error, $json->message)) {
-            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $json->message);
+            /* translators: Error message */
+            return sprintf(__('Error: %s', 'recras'), $json->message);
         }
         if (is_null($json) || $json == new \stdClass()) { // comparing with === does not work
             return sprintf(
-                __('Error: Package %d does not exist or may not be presented on a website', Plugin::TEXT_DOMAIN),
+                /* translators: Package ID */
+                __('Error: Package %d does not exist or may not be presented on a website', 'recras'),
                 $attributes['id']
             );
         }
@@ -76,7 +78,7 @@ class Arrangement
                 $lines = self::getFilteredLines($json);
 
                 if (count($lines) === 0) {
-                    return __('Error: programme is empty', Plugin::TEXT_DOMAIN);
+                    return __('Error: programme is empty', 'recras');
                 }
 
                 $startTime = (isset($attributes['starttime']) ? $attributes['starttime'] : '00:00');
@@ -85,7 +87,7 @@ class Arrangement
             case 'title':
                 return '<span class="recras-title">' . self::displayname($json) . '</span>';
             default:
-                return __('Error: unknown option', Plugin::TEXT_DOMAIN);
+                return __('Error: unknown option', 'recras');
         }
     }
 
@@ -169,7 +171,7 @@ class Arrangement
 
         if ($showHeader) {
             $html .= '<thead>';
-            $html .= '<tr><th>' . __('From', Plugin::TEXT_DOMAIN) . '<th>' . __('Until', Plugin::TEXT_DOMAIN) . '<th>' . __('Activity', Plugin::TEXT_DOMAIN);
+            $html .= '<tr><th>' . __('From', 'recras') . '<th>' . __('Until', 'recras') . '<th>' . __('Activity', 'recras');
             $html .= '</thead>';
         }
 
@@ -209,7 +211,8 @@ class Arrangement
             $startFormatted = $lineDate->format('H:i');
             if ($isMultiDay && (is_null($lastDate) || $lineDate->format('Ymd') > $lastDate->format('Ymd'))) {
                 ++$day;
-                $html .= '<tr class="recras-new-day"><th colspan="3">' . sprintf(__('Day %d', Plugin::TEXT_DOMAIN), $day);
+                /* translators: Day number */
+                $html .= '<tr class="recras-new-day"><th colspan="3">' . sprintf(__('Day %d', 'recras'), $day);
             }
 
             $html .= '<tr><td>' . $startFormatted;
@@ -272,7 +275,8 @@ class Arrangement
         $form = ContactForm::getForm($instance, $contactformID);
         if (is_string($form)) {
             // Not a form, but an error
-            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
+            /* translators: Error message */
+            return sprintf(__('Error: %s', 'recras'), $form);
         }
 
         $packages = [];
@@ -307,7 +311,7 @@ class Arrangement
     {
         $lines = self::getFilteredLines($json);
         if (count($lines) === 0) {
-            return __('No duration specified', Plugin::TEXT_DOMAIN);
+            return __('No duration specified', 'recras');
         }
 
         $firstLine = min(array_map(function ($line) {
@@ -348,7 +352,7 @@ class Arrangement
         if (isset($json->ontvangstlocatie)) {
             $location = $json->ontvangstlocatie;
         } else {
-            $location = __('No location specified', Plugin::TEXT_DOMAIN);
+            $location = __('No location specified', 'recras');
         }
         return '<span class="recras-location">' . $location . '</span>';
     }

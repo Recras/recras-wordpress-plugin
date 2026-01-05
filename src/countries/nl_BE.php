@@ -1,5 +1,5 @@
 <?php
-$countries = [
+$recras_countries = [
     'AF' => 'Afghanistan',
     'AX' => 'Åland',
     'AL' => 'Albanië',

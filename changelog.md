@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.4.2 (2025-12-22)
+* Removed the need for the "Fix book process datepicker styling" setting
+
 ## 6.4.1 (2025-11-11)
 * Don't load old script when it's not needed
 * Updated "Tested up to" version to 6.9

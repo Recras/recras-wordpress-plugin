@@ -1,19 +1,19 @@
-<h1><?php _e('Documentation', \Recras\Plugin::TEXT_DOMAIN); ?></h1>
+<h1><?php esc_html_e('Documentation', 'recras'); ?></h1>
 
 
-<h2><?php _e('Recras settings', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Recras settings', 'recras'); ?></h2>
 <dl>
-    <dt><?= __('Recras domain', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dt><?= __('Recras domain', 'recras');?></dt>
     <dd>If you log in to Recras at <code>https://mycompany.recras.com/</code> then your Recras domain is <code>mycompany.recras.com</code>.</dd>
-    <dt><?= __('Currency symbol', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dt><?= __('Currency symbol', 'recras');?></dt>
     <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
-    <dt><?= __('Decimal separator', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dt><?= __('Decimal separator', 'recras');?></dt>
     <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
-    <dt><?= __('Use calendar widget for contact forms', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dt><?= __('Use calendar widget for contact forms', 'recras');?></dt>
     <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
         <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in book processes.
     </dd>
-    <dt><?= __('Theme for Recras integrations', \Recras\Plugin::TEXT_DOMAIN);?></dt>
+    <dt><?= __('Theme for Recras integrations', 'recras');?></dt>
     <dd>Which theme is used for book processes.
         <ol class="recrasOptionsList">
             <li>No theme - leaves it up to you to properly style it.
@@ -27,7 +27,7 @@
 
 
 <hr>
-<h2><?php _e('Packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Packages', 'recras'); ?></h2>
 <p>Packages can be added using the Recras/Package block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-clipboard"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -52,7 +52,7 @@
 
 
 <hr>
-<h2><?php _e('Book processes', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Book processes', 'recras'); ?></h2>
 <p>Book processes can be added using the Recras/Book process block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-editor-ul"></span> icon in the Classic Editor.</p>
 <p>The following option is available:</p>
 <ol class="recrasOptionsList">
@@ -61,7 +61,7 @@
 
 
 <hr>
-<h2><?php _e('Contact forms', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Contact forms', 'recras'); ?></h2>
 <p>Contact forms can be added using the Recras/Contact form block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-email"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -77,7 +77,7 @@
 </ol>
 
 <hr>
-<h2><?php _e('Products', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Products', 'recras'); ?></h2>
 <p>Products can be added using the Recras/Product block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-cart"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
@@ -95,11 +95,11 @@
 </ol>
 
 <hr>
-<h2><?php _e('Voucher sales', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Voucher sales', 'recras'); ?></h2>
 <p>Voucher sales can be integrated using a book process.</p>
 
 <hr>
-<h2><?php _e('Voucher info', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<h2><?php esc_html_e('Voucher info', 'recras'); ?></h2>
 <p>Voucher info can be integrated using the Recras/Voucher info block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">

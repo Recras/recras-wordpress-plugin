@@ -22,7 +22,7 @@ class OnlineBooking
         }
 
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $instance = Settings::getInstance($attributes);
@@ -44,17 +44,17 @@ class OnlineBooking
 
         if (isset($attributes['prefill_date'])) {
             if (!preg_match('/^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])$/', $attributes['prefill_date'])) {
-                return __('Error: "prefill_date" is not a valid ISO 8601 string', Plugin::TEXT_DOMAIN);
+                return __('Error: "prefill_date" is not a valid ISO 8601 string', 'recras');
             }
 
             $today = date('Y-m-d');
             if ($attributes['prefill_date'] < $today) {
-                return __('Error: "prefill_date" is a date in the past', Plugin::TEXT_DOMAIN);
+                return __('Error: "prefill_date" is a date in the past', 'recras');
             }
         }
         if (isset($attributes['prefill_time'])) {
             if (!preg_match('/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/', $attributes['prefill_time'])) {
-                return __('Error: "prefill_time" is not a valid time string (e.g. 14:30)', Plugin::TEXT_DOMAIN);
+                return __('Error: "prefill_time" is not a valid time string (e.g. 14:30)', 'recras');
             }
         }
 
@@ -67,7 +67,7 @@ class OnlineBooking
 
         if (isset($attributes['redirect'])) {
             if (!filter_var($attributes['redirect'], FILTER_VALIDATE_URL)) {
-                return __('Error: redirect is set, but is an invalid URL', Plugin::TEXT_DOMAIN);
+                return __('Error: redirect is set, but is an invalid URL', 'recras');
             }
             $libraryOptions['redirect'] = $attributes['redirect'];
         }
@@ -92,7 +92,7 @@ class OnlineBooking
                 try {
                     $preFillAmounts = json_decode($attributes['product_amounts'], true, 2, JSON_THROW_ON_ERROR);
                 } catch (\Exception $e) {
-                    return __('Error: "product_amounts" is invalid', Plugin::TEXT_DOMAIN);
+                    return __('Error: "product_amounts" is invalid', 'recras');
                 }
                 $libraryOptions['preFillAmounts'] = $preFillAmounts;
             }
@@ -141,7 +141,7 @@ class OnlineBooking
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const bookingOptions = new RecrasOptions({
-        recras_hostname: '" . $instance . "',
+        recras_hostname: '" . esc_js($instance) . "',
         element: document.getElementById('" . $generatedDivID . "'),
         locale: '" . Settings::externalLocale() . "',
         autoScroll: false,

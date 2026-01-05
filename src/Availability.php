@@ -17,10 +17,10 @@ class Availability
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $instance = Settings::getInstance($attributes);

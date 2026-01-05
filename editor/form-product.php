@@ -10,7 +10,7 @@ $products = $model->getProducts($instance);
 ?>
 
 <dl>
-    <dt><label for="product_id"><?php _e('Product', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="product_id"><?php esc_html_e('Product', 'recras'); ?></label>
     <dd><?php if (is_string($products)) { ?>
             <input type="number" id="product_id" min="0" required>
             <?= $products; ?>
@@ -21,19 +21,19 @@ $products = $model->getProducts($instance);
             <?php } ?>
             </select>
         <?php } ?>
-    <dt><label for="show_what"><?php _e('Show what?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="show_what"><?php esc_html_e('Show what?', 'recras'); ?></label>
     <dd><select id="show_what" required>
-            <option value="title"><?php _e('Title', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="description"><?php _e('Description (short)', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="description_long"><?php _e('Description (long)', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="duration"><?php _e('Duration', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="image_tag"><?php _e('Image tag', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="image_url"><?php _e('Image URL', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="minimum_amount"><?php _e('Minimum amount', \Recras\Plugin::TEXT_DOMAIN); ?>
-            <option value="price_incl_vat"><?php _e('Price (incl. VAT)', \Recras\Plugin::TEXT_DOMAIN); ?>
+            <option value="title"><?php esc_html_e('Title', 'recras'); ?>
+            <option value="description"><?php esc_html_e('Description (short)', 'recras'); ?>
+            <option value="description_long"><?php esc_html_e('Description (long)', 'recras'); ?>
+            <option value="duration"><?php esc_html_e('Duration', 'recras'); ?>
+            <option value="image_tag"><?php esc_html_e('Image tag', 'recras'); ?>
+            <option value="image_url"><?php esc_html_e('Image URL', 'recras'); ?>
+            <option value="minimum_amount"><?php esc_html_e('Minimum amount', 'recras'); ?>
+            <option value="price_incl_vat"><?php esc_html_e('Price (incl. VAT)', 'recras'); ?>
         </select>
 </dl>
-<button class="button button-primary" id="product_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="product_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     document.getElementById('product_submit').addEventListener('click', function(){

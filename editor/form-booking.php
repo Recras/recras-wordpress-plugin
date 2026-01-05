@@ -9,29 +9,29 @@ $model = new \Recras\Arrangement();
 $arrangements = $model->getPackages($instance, true);
 ?>
 <dl>
-    <dt><label><?php _e('Integration method', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label><?php esc_html_e('Integration method', 'recras'); ?></label>
         <dd>
             <label>
                 <input type="radio" id="use_new_library_yes" name="integration_method" value="jslibrary" checked>
-                <?php _e('Seamless (recommended)', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <?php esc_html_e('Seamless (recommended)', 'recras'); ?>
             </label>
             <br>
             <label>
                 <input type="radio" id="use_new_library_no" name="integration_method" value="iframe">
-                <?php _e('iframe (uses setting in your Recras)', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <?php esc_html_e('iframe (uses setting in your Recras)', 'recras'); ?>
             </label>
         <p class="recras-notice">
             <?php
-            _e('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', \Recras\Plugin::TEXT_DOMAIN);
+            _e('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', 'recras');
             ?>
             <br>
             <?php
-            _e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', \Recras\Plugin::TEXT_DOMAIN);
+            _e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', 'recras');
             ?>
         </p>
 
     <dt id="pack_sel_label">
-        <label for="package_selection"><?php _e('Package selection', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <label for="package_selection"><?php esc_html_e('Package selection', 'recras'); ?></label>
     <dd id="pack_sel_input">
         <?php unset($arrangements[0]); ?>
         <select multiple id="package_selection">
@@ -41,11 +41,11 @@ $arrangements = $model->getPackages($instance, true);
         </select>
         <p class="recras-notice">
             <?php
-            _e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', \Recras\Plugin::TEXT_DOMAIN);
+            _e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', 'recras');
             ?>
         </p>
     <dt id="pack_one_label" style="display: none;">
-        <label for="arrangement_id"><?php _e('Package', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
     <dd id="pack_one_input" style="display: none;">
         <?php if (is_string($arrangements)) { ?>
             <input type="number" id="arrangement_id" min="0">
@@ -53,56 +53,56 @@ $arrangements = $model->getPackages($instance, true);
         <?php } elseif(is_array($arrangements)) { ?>
             <?php unset($arrangements[0]); ?>
             <select id="arrangement_id" required>
-                <option value="0"><?php _e('No pre-filled package', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <option value="0"><?php esc_html_e('No pre-filled package', 'recras'); ?>
                 <?php foreach ($arrangements as $ID => $arrangement) { ?>
                 <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
                 <?php } ?>
             </select>
         <?php } ?>
 
-    <dt><label for="show_times"><?php _e('Preview times in programme', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="show_times"><?php esc_html_e('Preview times in programme', 'recras'); ?></label>
         <dd><input type="checkbox" id="show_times">
-    <dt><label><?php _e('Pre-fill amounts (requires pre-filled package)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
-        <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
-    <dt><label for="prefill_date"><?php _e('Pre-fill date (requires exactly 1 package selected)',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+    <dt><label><?php esc_html_e('Pre-fill amounts (requires pre-filled package)', 'recras'); ?></label>
+        <dd><strong><?php esc_html_e('Sorry, this is only available using the Gutenberg editor.', 'recras'); ?></strong>
+    <dt><label for="prefill_date"><?php esc_html_e('Pre-fill date (requires exactly 1 package selected)','recras' ); ?></label>
         <dd><input
             type="date"
             id="prefill_date"
             min="<?= date('Y-m-d') ?>"
             pattern="<?= \Recras\ContactForm::PATTERN_DATE; ?>"
-            placeholder="<?= __('yyyy-mm-dd', \Recras\Plugin::TEXT_DOMAIN); ?>"
+            placeholder="<?= __('yyyy-mm-dd', 'recras'); ?>"
             disabled
         >
-    <dt><label for="prefill_time"><?php _e('Pre-fill time (requires exactly 1 package selected)',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+    <dt><label for="prefill_time"><?php esc_html_e('Pre-fill time (requires exactly 1 package selected)','recras' ); ?></label>
         <dd><input
             type="time"
             id="prefill_time"
             pattern="<?= \Recras\ContactForm::PATTERN_TIME; ?>"
             step="300"
-            placeholder="<?= __('hh:mm', \Recras\Plugin::TEXT_DOMAIN); ?>"
+            placeholder="<?= __('hh:mm', 'recras'); ?>"
             disabled
         >
-    <dt><label for="redirect_page"><?php _e('Thank-you page', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="redirect_page"><?php esc_html_e('Thank-you page', 'recras'); ?></label>
         <dd><select id="redirect_page">
-            <option value=""><?php _e("Don't redirect", \Recras\Plugin::TEXT_DOMAIN); ?>
-            <optgroup label="<?php _e('Pages', \Recras\Plugin::TEXT_DOMAIN); ?>">
+            <option value=""><?php esc_html_e("Don't redirect", 'recras'); ?>
+            <optgroup label="<?php esc_html_e('Pages', 'recras'); ?>">
                 <?php foreach (get_pages() as $page) { ?>
                 <option value="<?= get_permalink($page->ID); ?>"><?= htmlspecialchars($page->post_title); ?>
                     <?php } ?>
             </optgroup>
-            <optgroup label="<?php _e('Posts', \Recras\Plugin::TEXT_DOMAIN); ?>">
+            <optgroup label="<?php esc_html_e('Posts', 'recras'); ?>">
                 <?php foreach (get_posts() as $post) { ?>
                 <option value="<?= get_permalink($post->ID); ?>"><?= htmlspecialchars($post->post_title); ?>
                     <?php } ?>
             </optgroup>
         </select>
-    <dt><label for="show_discounts"><?php _e('Show discount fields', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="show_discounts"><?php esc_html_e('Show discount fields', 'recras'); ?></label>
         <dd><input type="checkbox" id="show_discounts" checked>
-    <dt><label for="auto_resize"><?php _e('Automatic resize?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="auto_resize"><?php esc_html_e('Automatic resize?', 'recras'); ?></label>
         <dd><input type="checkbox" id="auto_resize" disabled>
 
 </dl>
-<button class="button button-primary" id="booking_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="booking_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     [...document.querySelectorAll('[name="integration_method"]')].forEach(function(el) {

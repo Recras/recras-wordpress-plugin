@@ -52,10 +52,10 @@ class ContactForm
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $instance = Settings::getInstance($attributes);
@@ -67,11 +67,13 @@ class ContactForm
         $form = self::getForm($instance, $attributes['id']);
         if (is_string($form)) {
             // Not a form, but an error
-            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
+            /* translators: Error message */
+            return sprintf(__('Error: %s', 'recras'), $form);
         }
 
         if (!property_exists($form, 'naam') || !property_exists($form, 'Velden')) {
-            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), __('Contact form might be deleted', Plugin::TEXT_DOMAIN));
+            /* translators: Error message */
+            return sprintf(__('Error: %s', 'recras'), __('Contact form might be deleted', 'recras'));
         }
 
         $formTitle = $form->naam;
@@ -110,11 +112,11 @@ class ContactForm
                 }
             }
             if (!$fieldFound) {
-                return __('Error: package is set, but contact form does not support packages', Plugin::TEXT_DOMAIN);
+                return __('Error: package is set, but contact form does not support packages', 'recras');
             }
         }
 
-        $submitText = __('Send', Plugin::TEXT_DOMAIN);
+        $submitText = __('Send', 'recras');
         if (isset($attributes['submittext'])) {
             $submitText = $attributes['submittext'];
         }
@@ -122,7 +124,7 @@ class ContactForm
         $redirect = false;
         if (isset($attributes['redirect'])) {
             if (!filter_var($attributes['redirect'], FILTER_VALIDATE_URL)) {
-                return __('Error: redirect is set, but is an invalid URL', Plugin::TEXT_DOMAIN);
+                return __('Error: redirect is set, but is an invalid URL', 'recras');
             }
             $redirect = $attributes['redirect'];
         }
@@ -265,7 +267,7 @@ class ContactForm
                             'class' => 'recras-input-date',
                             'min' => date('Y-m-d'),
                             'pattern' => self::PATTERN_DATE,
-                            'placeholder' => __('yyyy-mm-dd', Plugin::TEXT_DOMAIN),
+                            'placeholder' => __('yyyy-mm-dd', 'recras'),
                             'type' => 'date',
                         ]);
                     break;
@@ -282,7 +284,7 @@ class ContactForm
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                             'class' => 'recras-input-time',
                             'pattern' => self::PATTERN_TIME,
-                            'placeholder' => __('hh:mm', Plugin::TEXT_DOMAIN),
+                            'placeholder' => __('hh:mm', 'recras'),
                             'type' => 'time',
                         ]);
                     break;
@@ -307,7 +309,7 @@ class ContactForm
                                     'maxlength' => 10,
                                 ],
                                 'pattern' => self::PATTERN_DATE,
-                                'placeholder' => __('yyyy-mm-dd', Plugin::TEXT_DOMAIN),
+                                'placeholder' => __('yyyy-mm-dd', 'recras'),
                                 'type' => 'date',
                             ]);
                             break;
@@ -344,14 +346,14 @@ class ContactForm
                     }
 
                     require_once(__DIR__ . '/countries/' . $locale . '.php');
-                    assert(is_array($countries));
+                    assert(is_array($recras_countries));
 
                     $selectOptions = [];
-                    if (isset($countryCode) && array_key_exists($countryCode, $countries)) {
+                    if (isset($countryCode) && array_key_exists($countryCode, $recras_countries)) {
                         $selectOptions['selected'] = $countryCode;
                     }
 
-                    $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $countries, $selectOptions);
+                    $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $recras_countries, $selectOptions);
                     break;
                 //contact.soort_klant is handled below
                 case 'contactpersoon.email1':
@@ -373,9 +375,9 @@ class ContactForm
                     break;
                 case 'contactpersoon.geslacht':
                     $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, [
-                        'onbekend' => __('Unknown', Plugin::TEXT_DOMAIN),
-                        'man' => __('Male', Plugin::TEXT_DOMAIN),
-                        'vrouw' => __('Female', Plugin::TEXT_DOMAIN),
+                        'onbekend' => __('Unknown', 'recras'),
+                        'man' => __('Male', 'recras'),
+                        'vrouw' => __('Female', 'recras'),
                     ], [
                         'element' => $options['singleChoiceElement'],
                         'placeholder' => $options['placeholders'],
@@ -511,7 +513,7 @@ class ContactForm
         }
         $html .= '<label for="field' . $field->id . '">' . $field->naam;
         if ($field->verplicht) {
-            $html .= '<span class="recras-required" aria-label="' . __('(required)', Plugin::TEXT_DOMAIN) . '">*</span>';
+            $html .= '<span class="recras-required" aria-label="' . __('(required)', 'recras') . '">*</span>';
         }
         $html .= '</label>';
 
@@ -536,7 +538,7 @@ class ContactForm
         }
 
         if (!$field->verplicht) {
-            $html .= '<button type="button" class="clearRadioChoice">' . __('Clear choice', Plugin::TEXT_DOMAIN) . '</button>';
+            $html .= '<button type="button" class="clearRadioChoice">' . __('Clear choice', 'recras') . '</button>';
         }
 
         return $html;

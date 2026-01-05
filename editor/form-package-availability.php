@@ -10,7 +10,7 @@ $arrangements = $model->getPackages($instance);
 ?>
 
 <dl>
-    <dt><label for="arrangement_id"><?php _e('Package', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
     <dd><?php if (is_string($arrangements)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
             <?= $arrangements; ?>
@@ -28,10 +28,10 @@ $arrangements = $model->getPackages($instance);
                 ?>
             </select>
         <?php } ?>
-    <dt><label for="auto_resize"><?php _e('Automatic resize?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="auto_resize"><?php esc_html_e('Automatic resize?', 'recras'); ?></label>
         <dd><input type="checkbox" id="auto_resize" checked>
 </dl>
-<button class="button button-primary" id="arrangement_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="arrangement_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     document.getElementById('arrangement_submit').addEventListener('click', function(){

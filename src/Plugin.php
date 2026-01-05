@@ -21,7 +21,7 @@ class Plugin
 
         // Init Localisation
         load_default_textdomain();
-        load_plugin_textdomain($this::TEXT_DOMAIN, false, dirname(plugin_basename(__DIR__)) . '/lang');
+        load_plugin_textdomain('recras', false, dirname(plugin_basename(__DIR__)) . '/lang');
 
         // Add admin menu pages
         add_action('admin_menu', [&$this, 'addMenuItems']);
@@ -78,8 +78,8 @@ class Plugin
         if (current_user_can('manage_options')) {
             add_submenu_page(
                 'recras',
-                __('Settings', $this::TEXT_DOMAIN),
-                __('Settings', $this::TEXT_DOMAIN),
+                __('Settings', 'recras'),
+                __('Settings', 'recras'),
                 'manage_options',
                 'recras',
                 ['\Recras\Settings', 'editSettings']
@@ -88,36 +88,36 @@ class Plugin
 
         add_submenu_page(
             'recras',
-            __('Cache', $this::TEXT_DOMAIN),
-            __('Cache', $this::TEXT_DOMAIN),
+            __('Cache', 'recras'),
+            __('Cache', 'recras'),
             'edit_pages',
             Settings::PAGE_CACHE,
             ['\Recras\Settings', 'clearCachePage']
         );
         add_submenu_page(
             'recras',
-            __('Documentation', $this::TEXT_DOMAIN),
-            __('Documentation', $this::TEXT_DOMAIN),
+            __('Documentation', 'recras'),
+            __('Documentation', 'recras'),
             'edit_pages',
             Settings::PAGE_DOCS,
             ['\Recras\Settings', 'documentation']
         );
         add_submenu_page(
             'recras',
-            __('Shortcodes', $this::TEXT_DOMAIN),
-            __('Shortcodes', $this::TEXT_DOMAIN),
+            __('Shortcodes', 'recras'),
+            __('Shortcodes', 'recras'),
             'edit_pages',
             Settings::PAGE_SHORTCODES,
             ['\Recras\Settings', 'shortcodes']
         );
 
-        $this->addClassicEditorSubmenuPage(__('Package', $this::TEXT_DOMAIN), 'form-arrangement', [Arrangement::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Book process', $this::TEXT_DOMAIN), 'form-bookprocess', [Bookprocess::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Contact form', $this::TEXT_DOMAIN), 'form-contact', [ContactForm::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Online booking of packages', $this::TEXT_DOMAIN), 'form-booking', [OnlineBooking::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Product', $this::TEXT_DOMAIN), 'form-product', [Products::class, 'showForm']);
-        $this->addClassicEditorSubmenuPage(__('Voucher sales', $this::TEXT_DOMAIN), 'form-voucher-sales', [Vouchers::class, 'showSalesForm']);
-        $this->addClassicEditorSubmenuPage(__('Voucher info', $this::TEXT_DOMAIN), 'form-voucher-info', [Vouchers::class, 'showInfoForm']);
+        $this->addClassicEditorSubmenuPage(__('Package', 'recras'), 'form-arrangement', [Arrangement::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Book process', 'recras'), 'form-bookprocess', [Bookprocess::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Contact form', 'recras'), 'form-contact', [ContactForm::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Online booking of packages', 'recras'), 'form-booking', [OnlineBooking::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Product', 'recras'), 'form-product', [Products::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Voucher sales', 'recras'), 'form-voucher-sales', [Vouchers::class, 'showSalesForm']);
+        $this->addClassicEditorSubmenuPage(__('Voucher info', 'recras'), 'form-voucher-info', [Vouchers::class, 'showInfoForm']);
     }
 
 
@@ -192,9 +192,9 @@ class Plugin
     public static function noInstanceError(): string
     {
         if (current_user_can('manage_options')) {
-            return __('Error: you have not set your Recras domain yet', Plugin::TEXT_DOMAIN);
+            return __('Error: you have not set your Recras domain yet', 'recras');
         }
-        return __('Error: your Recras domain has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', Plugin::TEXT_DOMAIN);
+        return __('Error: your Recras domain has not been set yet, but you do not have the permission to set this. Please ask your site administrator to do this for you.', 'recras');
     }
 
     public static function getStatusMessage(int $errors): string
@@ -209,17 +209,17 @@ class Plugin
     public function loadAdminScripts(): void
     {
         $l10n = [
-            'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
-            'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
-            'online_booking' => __('Online booking of packages', $this::TEXT_DOMAIN),
-            'bookprocess' => __('Book process', $this::TEXT_DOMAIN),
-            'package' => __('Package', $this::TEXT_DOMAIN),
-            'package_availability' => __('Package availability', $this::TEXT_DOMAIN),
-            'product' => __('Product', $this::TEXT_DOMAIN),
+            'contact_form' => __('Contact form', 'recras'),
+            'no_connection' => __('Could not connect to your Recras', 'recras'),
+            'online_booking' => __('Online booking of packages', 'recras'),
+            'bookprocess' => __('Book process', 'recras'),
+            'package' => __('Package', 'recras'),
+            'package_availability' => __('Package availability', 'recras'),
+            'product' => __('Product', 'recras'),
             'showOnlineBooking' => 'yes',
             'showVoucherSales' => 'yes',
-            'voucherInfo' => __('Voucher info', $this::TEXT_DOMAIN),
-            'voucherSales' => __('Voucher sales', $this::TEXT_DOMAIN),
+            'voucherInfo' => __('Voucher info', 'recras'),
+            'voucherSales' => __('Voucher sales', 'recras'),
         ];
 
         if (!Settings::allowOnlinePackageBooking()) {
@@ -242,10 +242,10 @@ class Plugin
     public function loadScripts(): void
     {
         $localisation = [
-            'checkboxRequired' => __('At least one choice is required', $this::TEXT_DOMAIN),
-            'loading' => __('Loading...', $this::TEXT_DOMAIN),
-            'sent_success' => __('Your message was sent successfully', $this::TEXT_DOMAIN),
-            'sent_error' => __('There was an error sending your message', $this::TEXT_DOMAIN),
+            'checkboxRequired' => __('At least one choice is required', 'recras'),
+            'loading' => __('Loading...', 'recras'),
+            'sent_success' => __('Your message was sent successfully', 'recras'),
+            'sent_error' => __('There was an error sending your message', 'recras'),
         ];
 
         // Add Pikaday scripts and Pikaday localisation if the site has "Use calendar widget" enabled
@@ -254,47 +254,41 @@ class Plugin
             wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css', [], false); // ver=false because it's already in the URL
 
             $localisation['pikaday'] = [
-                'previousMonth' => __('Previous month', $this::TEXT_DOMAIN),
-                'nextMonth' => __('Next month', $this::TEXT_DOMAIN),
+                'previousMonth' => __('Previous month', 'recras'),
+                'nextMonth' => __('Next month', 'recras'),
                 'months' => [
-                    __('January', $this::TEXT_DOMAIN),
-                    __('February', $this::TEXT_DOMAIN),
-                    __('March', $this::TEXT_DOMAIN),
-                    __('April', $this::TEXT_DOMAIN),
-                    __('May', $this::TEXT_DOMAIN),
-                    __('June', $this::TEXT_DOMAIN),
-                    __('July', $this::TEXT_DOMAIN),
-                    __('August', $this::TEXT_DOMAIN),
-                    __('September', $this::TEXT_DOMAIN),
-                    __('October', $this::TEXT_DOMAIN),
-                    __('November', $this::TEXT_DOMAIN),
-                    __('December', $this::TEXT_DOMAIN),
+                    __('January', 'recras'),
+                    __('February', 'recras'),
+                    __('March', 'recras'),
+                    __('April', 'recras'),
+                    __('May', 'recras'),
+                    __('June', 'recras'),
+                    __('July', 'recras'),
+                    __('August', 'recras'),
+                    __('September', 'recras'),
+                    __('October', 'recras'),
+                    __('November', 'recras'),
+                    __('December', 'recras'),
                 ],
                 'weekdays' => [
-                    __('Sunday', $this::TEXT_DOMAIN),
-                    __('Monday', $this::TEXT_DOMAIN),
-                    __('Tuesday', $this::TEXT_DOMAIN),
-                    __('Wednesday', $this::TEXT_DOMAIN),
-                    __('Thursday', $this::TEXT_DOMAIN),
-                    __('Friday', $this::TEXT_DOMAIN),
-                    __('Saturday', $this::TEXT_DOMAIN),
+                    __('Sunday', 'recras'),
+                    __('Monday', 'recras'),
+                    __('Tuesday', 'recras'),
+                    __('Wednesday', 'recras'),
+                    __('Thursday', 'recras'),
+                    __('Friday', 'recras'),
+                    __('Saturday', 'recras'),
                 ],
                 'weekdaysShort' => [
-                    __('Sun', $this::TEXT_DOMAIN),
-                    __('Mon', $this::TEXT_DOMAIN),
-                    __('Tue', $this::TEXT_DOMAIN),
-                    __('Wed', $this::TEXT_DOMAIN),
-                    __('Thu', $this::TEXT_DOMAIN),
-                    __('Fri', $this::TEXT_DOMAIN),
-                    __('Sat', $this::TEXT_DOMAIN),
+                    __('Sun', 'recras'),
+                    __('Mon', 'recras'),
+                    __('Tue', 'recras'),
+                    __('Wed', 'recras'),
+                    __('Thu', 'recras'),
+                    __('Fri', 'recras'),
+                    __('Sat', 'recras'),
                 ],
             ];
-        }
-
-        // Fix BP date picker for sites that set HTML { font-size: 10px }
-        if (get_option('recras_fix_react_datepicker')) {
-            // This version number is the react-datepicker version
-            wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '8.9.0');
         }
 
         if (Settings::allowOnlinePackageBooking() || Settings::allowOldVoucherSales()) {
@@ -345,7 +339,7 @@ class Plugin
     {
         delete_option('recras_currency');
         delete_option('recras_datetimepicker');
-        delete_option('recras_fix_react_datepicker');
+        delete_option('recras_fix_react_datepicker'); // Removed as of 2026-01
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
         delete_option('recras_subdomain'); // Legacy since 2025-09

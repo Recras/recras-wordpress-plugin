@@ -18,10 +18,10 @@ class Products
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
         $showProperty = self::SHOW_DEFAULT;
         if (isset($attributes['show']) && in_array($attributes['show'], self::getValidOptions())) {
@@ -35,7 +35,7 @@ class Products
 
         $products = self::getProducts($instance);
         if (!isset($products[$attributes['id']])) {
-            return __('Error: product does not exist', Plugin::TEXT_DOMAIN);
+            return __('Error: product does not exist', 'recras');
         }
         $product = $products[$attributes['id']];
 
@@ -67,7 +67,7 @@ class Products
             case 'title':
                 return '<span class="recras-title">' . self::displayname($product) . '</span>';
             default:
-                return __('Error: unknown option', Plugin::TEXT_DOMAIN);
+                return __('Error: unknown option', 'recras');
         }
     }
 

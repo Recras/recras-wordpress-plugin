@@ -21,7 +21,7 @@ class Gutenberg
             '6.3.2',
             true
         );
-        wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
+        wp_set_script_translations($globalScriptName, 'recras', plugin_dir_path(__DIR__) . 'lang');
         wp_localize_script($globalScriptName, 'recrasOptions', [
             'settingsPage' => admin_url('admin.php?page=' . Settings::OPTION_PAGE),
             'instance' => Settings::getInstance(),

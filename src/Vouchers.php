@@ -19,10 +19,10 @@ class Vouchers
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $instance = Settings::getInstance($attributes);
@@ -34,7 +34,7 @@ class Vouchers
         $templates = $model->getTemplates($instance);
 
         if (!isset($templates[$attributes['id']])) {
-            return __('Error: template does not exist', Plugin::TEXT_DOMAIN);
+            return __('Error: template does not exist', 'recras');
         }
 
         $showProperty = self::SHOW_DEFAULT;
@@ -54,7 +54,7 @@ class Vouchers
                 }
                 return $template->expire_days;
             default:
-                return __('Error: unknown option', Plugin::TEXT_DOMAIN);
+                return __('Error: unknown option', 'recras');
         }
     }
 
@@ -75,7 +75,7 @@ class Vouchers
         }
 
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $instance = Settings::getInstance($attributes);
@@ -90,7 +90,7 @@ class Vouchers
 
         if (isset($attributes['redirect'])) {
             if (!filter_var($attributes['redirect'], FILTER_VALIDATE_URL)) {
-                return __('Error: redirect is set, but is an invalid URL', Plugin::TEXT_DOMAIN);
+                return __('Error: redirect is set, but is an invalid URL', 'recras');
             }
             $extraOptions[] = "redirect_url: '" . $attributes['redirect'] . "'";
         }
@@ -106,7 +106,7 @@ class Vouchers
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const voucherOptions = new RecrasOptions({
-            recras_hostname: '" . $instance . "',
+            recras_hostname: '" . esc_js($instance) . "',
             element: document.getElementById('" . $generatedDivID . "'),
             locale: '" . Settings::externalLocale() . "',
         " . join(",\n", $extraOptions) . "});

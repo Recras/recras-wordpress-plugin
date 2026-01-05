@@ -10,36 +10,36 @@ $templates = $model->getTemplates($instance);
 ?>
 
 <dl>
-    <dt><label for="template_id"><?php _e('Template', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="template_id"><?php esc_html_e('Template', 'recras'); ?></label>
     <dd><?php if (is_string($templates)) { ?>
             <input type="number" id="template_id" min="0">
             <?= $templates; ?>
         <?php } elseif(is_array($templates)) { ?>
             <select id="template_id" required>
-                <option value="0"><?php _e('No pre-filled template', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <option value="0"><?php esc_html_e('No pre-filled template', 'recras'); ?>
                 <?php foreach ($templates as $ID => $template) { ?>
                 <option value="<?= $ID; ?>"><?= $template->name; ?>
                 <?php } ?>
             </select>
         <?php } ?>
-    <dt><label for="redirect_page"><?php _e('Thank-you page', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="redirect_page"><?php esc_html_e('Thank-you page', 'recras'); ?></label>
     <dd><select id="redirect_page">
-            <option value=""><?php _e("Don't redirect", \Recras\Plugin::TEXT_DOMAIN); ?>
-            <optgroup label="<?php _e('Pages', \Recras\Plugin::TEXT_DOMAIN); ?>">
+            <option value=""><?php esc_html_e("Don't redirect", 'recras'); ?>
+            <optgroup label="<?php esc_html_e('Pages', 'recras'); ?>">
                 <?php foreach (get_pages() as $page) { ?>
                 <option value="<?= get_permalink($page->ID); ?>"><?= htmlspecialchars($page->post_title); ?>
                 <?php } ?>
             </optgroup>
-            <optgroup label="<?php _e('Posts', \Recras\Plugin::TEXT_DOMAIN); ?>">
+            <optgroup label="<?php esc_html_e('Posts', 'recras'); ?>">
                 <?php foreach (get_posts() as $post) { ?>
                 <option value="<?= get_permalink($post->ID); ?>"><?= htmlspecialchars($post->post_title); ?>
                 <?php } ?>
             </optgroup>
         </select>
-    <dt><label for="show_quantity"><?php _e('Show quantity input (will be set to 1 if not shown)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="show_quantity"><?php esc_html_e('Show quantity input (will be set to 1 if not shown)', 'recras'); ?></label>
     <dd><input type="checkbox" id="show_quantity" checked>
 </dl>
-<button class="button button-primary" id="voucher_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="voucher_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){

@@ -13,7 +13,7 @@ $processes = $model->getProcesses($instance);
 </style>
 
 <dl>
-    <dt><label for="bookprocess_id"><?php _e('Book process', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dt><label for="bookprocess_id"><?php esc_html_e('Book process', 'recras'); ?></label>
         <dd><?php if (is_string($processes)) { ?>
             <input type="number" id="bookprocess_id" min="1" required>
             <?= $processes; ?>
@@ -25,18 +25,18 @@ $processes = $model->getProcesses($instance);
             </select>
         <?php } ?>
     <dt class="first-widget-only recras-hidden-input">
-        <label><?php _e('Initial value for first widget', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <label><?php esc_html_e('Initial value for first widget', 'recras'); ?></label>
         <dd class="first-widget-only recras-hidden-input">
             <input id="first_widget_value_package" type="number" min="1" step="1">
             <p class="recras-notice">
-                <?php _e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <?php esc_html_e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', 'recras'); ?>
             </p>
     <dt class="first-widget-only recras-hidden-input">
-        <label for="hide_first_widget"><?php _e('Hide first widget?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <label for="hide_first_widget"><?php esc_html_e('Hide first widget?', 'recras'); ?></label>
         <dd class="first-widget-only recras-hidden-input">
             <input type="checkbox" id="hide_first_widget">
 </dl>
-<button class="button button-primary" id="bp_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
+<button class="button button-primary" id="bp_submit"><?php esc_html_e('Insert shortcode', 'recras'); ?></button>
 
 <script>
     function bpIdChange () {

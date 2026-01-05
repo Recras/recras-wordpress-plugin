@@ -84,21 +84,22 @@ class Bookprocess
         }
 
         if (empty($attributes['id'])) {
-            return __('Error: no ID set', Plugin::TEXT_DOMAIN);
+            return __('Error: no ID set', 'recras');
         }
 
         if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
-            return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
+            return __('Error: ID is not a number', 'recras');
         }
 
         $processes = self::getProcesses($instance);
         if (is_string($processes)) {
             // Not a form, but an error
-            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $processes);
+            /* translators: Error message */
+            return sprintf(__('Error: %s', 'recras'), $processes);
         }
 
         if (!isset($processes[$attributes['id']])) {
-            return __('Error: book process does not exist', Plugin::TEXT_DOMAIN);
+            return __('Error: book process does not exist', 'recras');
         }
 
         $initialWidgetValueHtml = '';
