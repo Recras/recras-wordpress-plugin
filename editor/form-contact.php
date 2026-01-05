@@ -15,11 +15,11 @@ $recras_forms = $recras_forms_model->getForms($recras_instance);
     <dt><label for="contactform_id"><?php esc_html_e('Contact form', 'recras'); ?></label>
         <dd><?php if (is_string($recras_forms)) { ?>
             <input type="number" id="contactform_id" min="0" required>
-            <?= $recras_forms; ?>
-        <?php } elseif(is_array($recras_forms)) { ?>
+            <?= esc_html($recras_forms); ?>
+        <?php } elseif (is_array($recras_forms)) { ?>
             <select id="contactform_id" required>
                 <?php foreach ($recras_forms as $recras_form_id => $recras_form) { ?>
-                <option value="<?= $recras_form_id; ?>"><?= $recras_form->naam; ?>
+                <option value="<?= esc_html($recras_form_id); ?>"><?= esc_html($recras_form->naam); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -32,11 +32,11 @@ $recras_forms = $recras_forms_model->getForms($recras_instance);
     <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
         <dd><?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
-            <?= $recras_packages; ?>
-        <?php } elseif(is_array($recras_packages)) { ?>
+            <?= esc_html($recras_packages); ?>
+        <?php } elseif (is_array($recras_packages)) { ?>
             <select id="arrangement_id" required>
                 <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
-                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
+                <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -65,12 +65,12 @@ $recras_forms = $recras_forms_model->getForms($recras_instance);
                 <option value=""><?php esc_html_e("Don't redirect", 'recras'); ?>
                 <optgroup label="<?php esc_html_e('Pages', 'recras'); ?>">
                     <?php foreach (get_pages() as $page) { ?>
-                    <option value="<?= get_permalink($page->ID); ?>"><?= htmlspecialchars($page->post_title); ?>
+                    <option value="<?= esc_html(get_permalink($page->ID)); ?>"><?= esc_html($page->post_title); ?>
                     <?php } ?>
                 </optgroup>
                 <optgroup label="<?php esc_html_e('Posts', 'recras'); ?>">
                     <?php foreach (get_posts() as $post) { ?>
-                    <option value="<?= get_permalink($post->ID); ?>"><?= htmlspecialchars($post->post_title); ?>
+                    <option value="<?= esc_html(get_permalink($post->ID)); ?>"><?= esc_html($post->post_title); ?>
                     <?php } ?>
                 </optgroup>
             </select>
@@ -82,13 +82,13 @@ $recras_forms = $recras_forms_model->getForms($recras_instance);
     const DEFAULT_SINGLE_CHOICE_ELEMENT = 'select';
 
     // Check which arrangements are available
-    getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $recras_instance; ?>');
+    getContactFormArrangements(document.getElementById('contactform_id').value, '<?= esc_js($recras_instance); ?>');
     document.getElementById('contactform_id').addEventListener('change', function(){
-        getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $recras_instance; ?>');
+        getContactFormArrangements(document.getElementById('contactform_id').value, '<?= esc_js($recras_instance); ?>');
     });
 
     document.getElementById('contact_submit').addEventListener('click', function(){
-        let shortcode = '[<?= \Recras\ContactForm::SHORTCODE; ?> id="' + document.getElementById('contactform_id').value + '"';
+        let shortcode = '[<?= esc_js(\Recras\ContactForm::SHORTCODE); ?> id="' + document.getElementById('contactform_id').value + '"';
 
         const options = ['showtitle', 'showlabels', 'showplaceholders'];
         for (let opt of options) {

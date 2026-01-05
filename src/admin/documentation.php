@@ -3,17 +3,17 @@
 
 <h2><?php esc_html_e('Recras settings', 'recras'); ?></h2>
 <dl>
-    <dt><?= __('Recras domain', 'recras');?></dt>
+    <dt><?php esc_html_e('Recras domain', 'recras');?></dt>
     <dd>If you log in to Recras at <code>https://mycompany.recras.com/</code> then your Recras domain is <code>mycompany.recras.com</code>.</dd>
-    <dt><?= __('Currency symbol', 'recras');?></dt>
+    <dt><?php esc_html_e('Currency symbol', 'recras');?></dt>
     <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
-    <dt><?= __('Decimal separator', 'recras');?></dt>
+    <dt><?php esc_html_e('Decimal separator', 'recras');?></dt>
     <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
-    <dt><?= __('Use calendar widget for contact forms', 'recras');?></dt>
+    <dt><?php esc_html_e('Use calendar widget for contact forms', 'recras');?></dt>
     <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
         <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in book processes.
     </dd>
-    <dt><?= __('Theme for Recras integrations', 'recras');?></dt>
+    <dt><?php esc_html_e('Theme for Recras integrations', 'recras');?></dt>
     <dd>Which theme is used for book processes.
         <ol class="recrasOptionsList">
             <li>No theme - leaves it up to you to properly style it.

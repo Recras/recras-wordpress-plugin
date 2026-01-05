@@ -13,12 +13,12 @@ $recras_vts = $recras_vts_model->getTemplates($recras_instance);
     <dt><label for="template_id"><?php esc_html_e('Template', 'recras'); ?></label>
     <dd><?php if (is_string($recras_vts)) { ?>
             <input type="number" id="template_id" min="0">
-            <?= $recras_vts; ?>
+            <?= esc_html($recras_vts); ?>
         <?php } elseif(is_array($recras_vts)) { ?>
             <select id="template_id" required>
                 <option value="0"><?php esc_html_e('No pre-filled template', 'recras'); ?>
                 <?php foreach ($recras_vts as $recras_voucher_template_id => $recras_voucher_template) { ?>
-                <option value="<?= $recras_voucher_template_id; ?>"><?= $recras_voucher_template->name; ?>
+                <option value="<?= esc_html($recras_voucher_template_id); ?>"><?= esc_html($recras_voucher_template->name); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -27,12 +27,12 @@ $recras_vts = $recras_vts_model->getTemplates($recras_instance);
             <option value=""><?php esc_html_e("Don't redirect", 'recras'); ?>
             <optgroup label="<?php esc_html_e('Pages', 'recras'); ?>">
                 <?php foreach (get_pages() as $page) { ?>
-                <option value="<?= get_permalink($page->ID); ?>"><?= htmlspecialchars($page->post_title); ?>
+                <option value="<?= esc_html(get_permalink($page->ID)); ?>"><?= esc_html($page->post_title); ?>
                 <?php } ?>
             </optgroup>
             <optgroup label="<?php esc_html_e('Posts', 'recras'); ?>">
                 <?php foreach (get_posts() as $post) { ?>
-                <option value="<?= get_permalink($post->ID); ?>"><?= htmlspecialchars($post->post_title); ?>
+                <option value="<?= esc_html(get_permalink($post->ID)); ?>"><?= esc_html($post->post_title); ?>
                 <?php } ?>
             </optgroup>
         </select>
@@ -44,7 +44,7 @@ $recras_vts = $recras_vts_model->getTemplates($recras_instance);
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){
         const templateID = document.getElementById('template_id').value;
-        let shortcode = '[<?= \Recras\Vouchers::SHORTCODE_SALES; ?>';
+        let shortcode = '[<?= esc_js(\Recras\Vouchers::SHORTCODE_SALES); ?>';
 
         if (templateID !== '0') {
             shortcode += ' id="' + templateID + '"';

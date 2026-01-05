@@ -16,11 +16,11 @@ $recras_bps = $recras_bp_model->getProcesses($recras_instance);
     <dt><label for="bookprocess_id"><?php esc_html_e('Book process', 'recras'); ?></label>
         <dd><?php if (is_string($recras_bps)) { ?>
             <input type="number" id="bookprocess_id" min="1" required>
-            <?= $recras_bps; ?>
+            <?= esc_html($recras_bps); ?>
         <?php } elseif (is_array($recras_bps)) { ?>
             <select id="bookprocess_id" required>
                 <?php foreach ($recras_bps as $recras_bp_id => $recras_bp) { ?>
-                <option value="<?= $recras_bp_id; ?>"><?= $recras_bp->name; ?>
+                <option value="<?= esc_html($recras_bp_id); ?>"><?= esc_html($recras_bp->name); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -81,7 +81,7 @@ $recras_bps = $recras_bp_model->getProcesses($recras_instance);
     document.getElementById('bp_submit').addEventListener('click', function() {
         const elPackage = document.getElementById('first_widget_value_package');
 
-        let shortcode = '[<?= \Recras\Bookprocess::SHORTCODE; ?> id="' + document.getElementById('bookprocess_id').value + '"';
+        let shortcode = '[<?= esc_js(\Recras\Bookprocess::SHORTCODE); ?> id="' + document.getElementById('bookprocess_id').value + '"';
 
         let initialValue;
         if (elPackage && elPackage.value) {

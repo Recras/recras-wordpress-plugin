@@ -32,7 +32,7 @@ class OnlineBooking
 
         $arrangementID = isset($attributes['id']) ? $attributes['id'] : null;
         if (!$arrangementID && isset($_GET['package'])) {
-            $arrangementID = $_GET['package'];
+            $arrangementID = (int) $_GET['package'];
         }
 
         $useJSLibrary = isset($attributes['use_new_library']) ? (!!$attributes['use_new_library']) : false;

@@ -16,11 +16,11 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance);
     <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
         <dd><?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
-            <?= $recras_packages; ?>
+            <?= esc_html($recras_packages); ?>
         <?php } elseif (is_array($recras_packages)) { ?>
             <select id="arrangement_id" required>
             <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
-                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
+                <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
             <?php } ?>
             </select>
             <p><?php esc_html_e('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', 'recras'); ?></p>
@@ -55,7 +55,7 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance);
     });
 
     document.getElementById('arrangement_submit').addEventListener('click', function(){
-        let shortcode = '[<?= \Recras\Arrangement::SHORTCODE; ?> id="' + document.getElementById('arrangement_id').value + '" show="' + document.getElementById('show_what').value + '"';
+        let shortcode = '[<?= esc_js(\Recras\Arrangement::SHORTCODE); ?> id="' + document.getElementById('arrangement_id').value + '" show="' + document.getElementById('show_what').value + '"';
         if (document.getElementById('show_what').value === 'programme') {
             if (document.getElementById('starttime').value !== '00:00') {
                 shortcode += ' starttime="' + document.getElementById('starttime').value + '"';

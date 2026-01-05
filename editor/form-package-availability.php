@@ -13,7 +13,7 @@ $recras_packages = $recras_package_model->getPackages($recras_instance);
     <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
     <dd><?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
-            <?= $recras_packages; ?>
+            <?= esc_html($recras_packages); ?>
         <?php } elseif(is_array($recras_packages)) { ?>
             <select id="arrangement_id" required>
             <?php
@@ -22,7 +22,7 @@ $recras_packages = $recras_package_model->getPackages($recras_instance);
                         continue;
                     }
                 ?>
-                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
+                <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
                 <?php
                 }
                 ?>
@@ -35,7 +35,7 @@ $recras_packages = $recras_package_model->getPackages($recras_instance);
 
 <script>
     document.getElementById('arrangement_submit').addEventListener('click', function(){
-        let shortcode = '[<?= \Recras\Availability::SHORTCODE; ?> id="' + document.getElementById('arrangement_id').value + '"';
+        let shortcode = '[<?= esc_js(\Recras\Availability::SHORTCODE); ?> id="' + document.getElementById('arrangement_id').value + '"';
         if (!document.getElementById('auto_resize').checked) {
             shortcode += ' autoresize=0';
         }

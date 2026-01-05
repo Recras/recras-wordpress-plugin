@@ -24,13 +24,13 @@ class Settings
      */
     public static function addInputCurrency(array $args): void
     {
-        $field = $args['field'];
-        $value = get_option($field);
-        if (!$value) {
-            $value = '€';
+        $recras_field = $args['field'];
+        $recras_value = get_option($recras_field);
+        if (!$recras_value) {
+            $recras_value = '€';
         }
 
-        printf('<input type="text" name="%s" id="%s" value="%s">', $field, $field, $value);
+        printf('<input type="text" name="%s" id="%s" value="%s">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
     }
 
 
@@ -39,10 +39,10 @@ class Settings
      */
     public static function addInputCheckbox(array $args): void
     {
-        $field = $args['field'];
-        $value = get_option($field);
+        $recras_field = $args['field'];
+        $recras_value = get_option($recras_field);
 
-        printf('<input type="checkbox" name="%s" id="%s" value="1"%s>', $field, $field, ($value ? ' checked' : ''));
+        printf('<input type="checkbox" name="%s" id="%s" value="1"%s>', esc_html($recras_field), esc_html($recras_field), ($recras_value ? ' checked' : ''));
     }
 
     public static function addInputDatepicker(array $args): void
@@ -56,13 +56,13 @@ class Settings
      */
     public static function addInputDecimal(array $args): void
     {
-        $field = $args['field'];
-        $value = get_option($field);
-        if (!$value) {
-            $value = '.';
+        $recras_field = $args['field'];
+        $recras_value = get_option($recras_field);
+        if (!$recras_value) {
+            $recras_value = '.';
         }
 
-        printf('<input type="text" name="%s" id="%s" value="%s" size="2" maxlength="1">', $field, $field, $value);
+        printf('<input type="text" name="%s" id="%s" value="%s" size="2" maxlength="1">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
         self::infoText(__('Used in prices, such as 100,00.', 'recras'));
     }
 
@@ -72,14 +72,14 @@ class Settings
      */
     public static function addInputDomain(array $args): void
     {
-        $field = $args['field'];
-        $value = get_option($field);
-        if (!$value) {
-            $value = 'demo';
+        $recras_field = $args['field'];
+        $recras_value = get_option($recras_field);
+        if (!$recras_value) {
+            $recras_value = 'demo';
         }
 
-        printf('<input type="text" name="%s" id="%s" value="%s" placeholder="demo.recras.nl">', $field, $field, $value);
-        $arr = wp_remote_get('https://' . $value . '/');
+        printf('<input type="text" name="%s" id="%s" value="%s" placeholder="demo.recras.nl">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
+        $arr = wp_remote_get('https://' . $recras_value . '/');
         if ($arr instanceof \WP_Error) {
             self::infoText(__('Instance not found!', 'recras'), 'recrasAdminError');
         } elseif (is_array($arr) && isset($arr['http_response']) && $arr['http_response'] instanceof \WP_HTTP_Requests_Response) {
@@ -94,22 +94,22 @@ class Settings
     {
         $themes = self::getThemes();
 
-        $field = $args['field'];
-        $value = get_option($field);
-        if (!$value) {
-            $value = 'none';
+        $recras_field = $args['field'];
+        $recras_value = get_option($recras_field);
+        if (!$recras_value) {
+            $recras_value = 'none';
         }
 
-        $html = '<select name="' . $field . '" id="' . $field . '">';
+        $html = '<select name="' . $recras_field . '" id="' . $recras_field . '">';
         foreach ($themes as $key => $theme) {
             $selText = '';
-            if ($value === $key) {
+            if ($recras_value === $key) {
                 $selText = ' selected';
             }
             $html .= '<option value="' . $key . '"' . $selText . '>' . $theme['name'];
         }
         $html .= '</select>';
-        echo $html;
+        echo esc_html($html);
     }
 
 
@@ -159,7 +159,7 @@ class Settings
     public static function clearCachePage(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
+            wp_die(esc_html(__('You do not have sufficient permissions to access this page.', 'recras')), '', 401);
         }
         require_once(__DIR__ . '/admin/cache.php');
     }
@@ -168,7 +168,7 @@ class Settings
     public static function documentation(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
+            wp_die(esc_html(__('You do not have sufficient permissions to access this page.', 'recras')), '', 401);
         }
         require_once(__DIR__ . '/admin/documentation.php');
     }
@@ -177,7 +177,7 @@ class Settings
     public static function shortcodes(): void
     {
         if (!current_user_can('edit_pages')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
+            wp_die(esc_html(__('You do not have sufficient permissions to access this page.', 'recras')), '', 401);
         }
         require_once(__DIR__ . '/admin/shortcodes.php');
     }
@@ -189,7 +189,7 @@ class Settings
     public static function editSettings(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'recras'), '', 401);
+            wp_die(esc_html(__('You do not have sufficient permissions to access this page.', 'recras')), '', 401);
         }
         require_once(__DIR__ . '/admin/settings.php');
     }
@@ -201,8 +201,8 @@ class Settings
         $settingsLink = admin_url('admin.php?page=' . self::OPTION_PAGE);
         printf(
             /* translators: Link to Settings menu */
-            __('Please enter your Recras domain in the %s before adding widgets.', 'recras'),
-            '<a href="' . $settingsLink . '" target="_blank">' . __('Recras → Settings menu', 'recras') . '</a>'
+            esc_html(__('Please enter your Recras domain in the %s before adding widgets.', 'recras')),
+            '<a href="' . esc_html($settingsLink) . '" target="_blank">' . esc_html(__('Recras → Settings menu', 'recras')) . '</a>'
         );
         echo '</p>';
     }
@@ -284,18 +284,18 @@ class Settings
 
     private static function infoText(string $text, string $extraClass = ''): void
     {
-        echo '<p class="description' . ($extraClass ? ' ' . $extraClass : '') . '">' . $text . '</p>';
+        echo '<p class="description' . esc_html($extraClass ? ' ' . $extraClass : '') . '">' . esc_html($text) . '</p>';
     }
 
 
     /**
      * Parse a boolean value
-     * @param bool|string $value
+     * @param bool|string $recras_value
      */
-    public static function parseBoolean($value): bool
+    public static function parseBoolean($recras_value): bool
     {
         $falseValues = [false, 'false', 0, '0', 'no'];
-        if (isset($value) && in_array($value, $falseValues, true)) {
+        if (isset($recras_value) && in_array($recras_value, $falseValues, true)) {
             // Without strict=true, in_array(true, $falseValues) is true!
             return false;
         }
@@ -393,10 +393,10 @@ class Settings
      */
     public static function settingsHelp(): void
     {
-        printf(
+        echo esc_html(sprintf(
             /* translators: link to Documentation page */
-            __('For more information on these options, please see the %s page.', 'recras'),
+            esc_html(__('For more information on these options, please see the %s page.', 'recras')),
             '<a href="' . admin_url('admin.php?page=' . self::PAGE_DOCS) . '">' . __('Documentation', 'recras') . '</a>'
-        );
+        ));
     }
 }

@@ -98,12 +98,10 @@ class ContactForm
 
         $arrangementID = isset($attributes['arrangement']) ? $attributes['arrangement'] : null;
         if (!$arrangementID && isset($_GET['package'])) {
-            $arrangementID = $_GET['package'];
+            $arrangementID = (int) $_GET['package'];
         }
 
         if ($arrangementID) {
-            $arrangementID = (int) $arrangementID;
-
             // Check if the contact form supports setting a package
             $fieldFound = false;
             foreach ($formFields as $field) {

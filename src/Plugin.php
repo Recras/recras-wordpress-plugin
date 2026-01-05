@@ -250,8 +250,8 @@ class Plugin
 
         // Add Pikaday scripts and Pikaday localisation if the site has "Use calendar widget" enabled
         if (get_option('recras_datetimepicker')) {
-            wp_enqueue_script('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js', [], false, true); // ver=false because it's already in the URL
-            wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css', [], false); // ver=false because it's already in the URL
+            wp_enqueue_script('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js', [], '1.8.2', true);
+            wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css', [], '1.8.2');
 
             $localisation['pikaday'] = [
                 'previousMonth' => __('Previous month', 'recras'),
@@ -297,7 +297,7 @@ class Plugin
 
         // Book process
         // We should load the `_base` stylesheet before the `_styling` stylesheet, so the styling gets priority over the base
-        $instance = Settings::getInstance([]);
+        $instance = Settings::getInstance();
         wp_enqueue_style(
             'recras_bookprocesses_base',
             'https://' . $instance . '/bookprocess/bookprocess_base.css'

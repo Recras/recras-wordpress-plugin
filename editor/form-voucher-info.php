@@ -13,11 +13,11 @@ $recras_voucher_templates = $recras_vouchers_model->getTemplates($recras_instanc
     <dt><label for="template_id"><?php esc_html_e('Template', 'recras'); ?></label>
     <dd><?php if (is_string($recras_voucher_templates)) { ?>
             <input type="number" id="template_id" min="0" required>
-            <?= $recras_voucher_templates; ?>
+            <?= esc_html($recras_voucher_templates); ?>
         <?php } elseif (is_array($recras_voucher_templates)) { ?>
             <select id="template_id" required>
                 <?php foreach ($recras_voucher_templates as $recras_vt_id => $recras_voucher_template) { ?>
-                <option value="<?= $recras_vt_id; ?>"><?= $recras_voucher_template->name; ?>
+                <option value="<?= esc_html($recras_vt_id); ?>"><?= esc_html($recras_voucher_template->name); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -32,7 +32,7 @@ $recras_voucher_templates = $recras_vouchers_model->getTemplates($recras_instanc
 
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){
-        let shortcode = '[<?= \Recras\Vouchers::SHORTCODE_INFO; ?>';
+        let shortcode = '[<?= esc_js(\Recras\Vouchers::SHORTCODE_INFO); ?>';
         shortcode += ' id="' + document.getElementById('template_id').value + '"';
         shortcode += ' show="' + document.getElementById('show_what').value + '"';
         shortcode += ']';

@@ -22,11 +22,11 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
             </label>
         <p class="recras-notice">
             <?php
-            _e('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', 'recras');
+            esc_html_e('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', 'recras');
             ?>
             <br>
             <?php
-            _e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', 'recras');
+            esc_html_e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', 'recras');
             ?>
         </p>
 
@@ -36,12 +36,12 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
         <?php unset($recras_packages[0]); ?>
         <select multiple id="package_selection">
             <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
-            <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
+            <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
             <?php } ?>
         </select>
         <p class="recras-notice">
             <?php
-            _e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', 'recras');
+            esc_html_e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', 'recras');
             ?>
         </p>
     <dt id="pack_one_label" style="display: none;">
@@ -49,13 +49,13 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
     <dd id="pack_one_input" style="display: none;">
         <?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0">
-            <?= $recras_packages; ?>
+            <?= esc_html($recras_packages); ?>
         <?php } elseif(is_array($recras_packages)) { ?>
             <?php unset($recras_packages[0]); ?>
             <select id="arrangement_id" required>
                 <option value="0"><?php esc_html_e('No pre-filled package', 'recras'); ?>
                 <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
-                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
+                <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -68,18 +68,18 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
         <dd><input
             type="date"
             id="prefill_date"
-            min="<?= date('Y-m-d') ?>"
-            pattern="<?= \Recras\ContactForm::PATTERN_DATE; ?>"
-            placeholder="<?= __('yyyy-mm-dd', 'recras'); ?>"
+            min="<?= esc_html(date('Y-m-d')); ?>"
+            pattern="<?= esc_html(\Recras\ContactForm::PATTERN_DATE); ?>"
+            placeholder="<?= esc_html(__('yyyy-mm-dd', 'recras')); ?>"
             disabled
         >
     <dt><label for="prefill_time"><?php esc_html_e('Pre-fill time (requires exactly 1 package selected)','recras' ); ?></label>
         <dd><input
             type="time"
             id="prefill_time"
-            pattern="<?= \Recras\ContactForm::PATTERN_TIME; ?>"
+            pattern="<?= esc_html(\Recras\ContactForm::PATTERN_TIME); ?>"
             step="300"
-            placeholder="<?= __('hh:mm', 'recras'); ?>"
+            placeholder="<?= esc_html(__('hh:mm', 'recras')); ?>"
             disabled
         >
     <dt><label for="redirect_page"><?php esc_html_e('Thank-you page', 'recras'); ?></label>
@@ -87,13 +87,13 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
             <option value=""><?php esc_html_e("Don't redirect", 'recras'); ?>
             <optgroup label="<?php esc_html_e('Pages', 'recras'); ?>">
                 <?php foreach (get_pages() as $page) { ?>
-                <option value="<?= get_permalink($page->ID); ?>"><?= htmlspecialchars($page->post_title); ?>
-                    <?php } ?>
+                <option value="<?= esc_html(get_permalink($page->ID)); ?>"><?= esc_html($page->post_title); ?>
+                <?php } ?>
             </optgroup>
             <optgroup label="<?php esc_html_e('Posts', 'recras'); ?>">
                 <?php foreach (get_posts() as $post) { ?>
-                <option value="<?= get_permalink($post->ID); ?>"><?= htmlspecialchars($post->post_title); ?>
-                    <?php } ?>
+                <option value="<?= esc_html(get_permalink($post->ID)); ?>"><?= esc_html($post->post_title); ?>
+                <?php } ?>
             </optgroup>
         </select>
     <dt><label for="show_discounts"><?php esc_html_e('Show discount fields', 'recras'); ?></label>
@@ -142,7 +142,7 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
         } else {
             packageIDsMultiple = [...selectedPackages].map(el => el.value);
         }
-        let shortcode = '[<?= \Recras\OnlineBooking::SHORTCODE; ?>';
+        let shortcode = '[<?= esc_js(\Recras\OnlineBooking::SHORTCODE); ?>';
         if (packageIDsMultiple.length > 0 && useNewLibrary) {
             shortcode += ' package_list="' + packageIDsMultiple.join(',') + '"';
         } else if (arrangementID) {

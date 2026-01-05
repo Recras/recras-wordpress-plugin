@@ -20,6 +20,6 @@
 
 <p><?php esc_html_e('Data coming from your Recras (contact forms, packages, products, voucher templates) is cached for up to 24 hours. If you make important changes (i.e. a price increase) it is recommended you clear the Recras cache.', 'recras'); ?></p>
 
-<form action="<?= admin_url('admin-post.php?action=clear_recras_cache'); ?>" method="POST">
+<form action="<?= esc_html(admin_url('admin-post.php?action=clear_recras_cache')); ?>" method="POST">
     <input type="submit" value="<?php esc_html_e('Clear Recras cache', 'recras'); ?>">
 </form>

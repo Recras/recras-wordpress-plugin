@@ -128,7 +128,7 @@ class Bookprocess extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
         if (is_admin()) {
-            echo $this->adminRender($settings);
+            echo esc_html($this->adminRender($settings));
             return;
         }
 

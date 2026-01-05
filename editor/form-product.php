@@ -13,11 +13,11 @@ $recras_products = $recras_products_model->getProducts($recras_instance);
     <dt><label for="product_id"><?php esc_html_e('Product', 'recras'); ?></label>
     <dd><?php if (is_string($recras_products)) { ?>
             <input type="number" id="product_id" min="0" required>
-            <?= $recras_products; ?>
+            <?= esc_html($recras_products); ?>
         <?php } elseif(is_array($recras_products)) { ?>
             <select id="product_id" required>
             <?php foreach ($recras_products as $recras_product_id => $recras_product) { ?>
-                <option value="<?= $recras_product_id; ?>"><?= $recras_product->weergavenaam ?: $recras_product->naam; ?>
+                <option value="<?= esc_html($recras_product_id); ?>"><?= esc_html($recras_product->weergavenaam ?: $recras_product->naam); ?>
             <?php } ?>
             </select>
         <?php } ?>
@@ -37,7 +37,7 @@ $recras_products = $recras_products_model->getProducts($recras_instance);
 
 <script>
     document.getElementById('product_submit').addEventListener('click', function(){
-        const shortcode = '[<?= \Recras\Products::SHORTCODE; ?> id="' +
+        const shortcode = '[<?= esc_js(\Recras\Products::SHORTCODE); ?> id="' +
             document.getElementById('product_id').value + '" show="' +
             document.getElementById('show_what').value + '"]';
 
