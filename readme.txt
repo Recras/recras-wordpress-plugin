@@ -75,7 +75,7 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 == Changelog ==
 
 = 6.4.2 =
-* Removed the need for the "Fix book process datepicker styling" setting
+* Update "Fix book process datepicker styling" styles to latest version
 * Fixed some WP compliance issues
 
 = 6.4.1 =

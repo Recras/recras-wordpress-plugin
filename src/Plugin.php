@@ -291,6 +291,12 @@ class Plugin
             ];
         }
 
+        // Fix BP date picker for sites that set HTML { font-size: 10px }
+        if (get_option('recras_fix_react_datepicker')) {
+            // This version number is the react-datepicker version
+            wp_enqueue_style('fixreactdatepicker', $this->baseUrl . '/css/fixreactdatepicker.css', [], '8.9.0');
+        }
+
         if (Settings::allowOnlinePackageBooking() || Settings::allowOldVoucherSales()) {
             wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, ['strategy' => 'defer']);
         }
@@ -339,7 +345,7 @@ class Plugin
     {
         delete_option('recras_currency');
         delete_option('recras_datetimepicker');
-        delete_option('recras_fix_react_datepicker'); // Removed as of 2026-01
+        delete_option('recras_fix_react_datepicker');
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
         delete_option('recras_subdomain'); // Legacy since 2025-09
