@@ -1,6 +1,6 @@
 # Changelog
 
-## 6.4.2 (2025-12-22)
+## 6.4.2 (2026-01-05)
 * Removed the need for the "Fix book process datepicker styling" setting
 * Fixed some WP compliance issues
 
