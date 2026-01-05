@@ -109,7 +109,7 @@ class Settings
             $html .= '<option value="' . $key . '"' . $selText . '>' . $theme['name'];
         }
         $html .= '</select>';
-        echo esc_html($html);
+        echo $html;
     }
 
 
@@ -284,7 +284,7 @@ class Settings
 
     private static function infoText(string $text, string $extraClass = ''): void
     {
-        echo '<p class="description' . esc_html($extraClass ? ' ' . $extraClass : '') . '">' . esc_html($text) . '</p>';
+        echo '<p class="description' . esc_html($extraClass ? ' ' . $extraClass : '') . '">' . $text . '</p>';
     }
 
 
@@ -393,10 +393,10 @@ class Settings
      */
     public static function settingsHelp(): void
     {
-        echo esc_html(sprintf(
+        printf(
             /* translators: link to Documentation page */
             esc_html(__('For more information on these options, please see the %s page.', 'recras')),
             '<a href="' . admin_url('admin.php?page=' . self::PAGE_DOCS) . '">' . __('Documentation', 'recras') . '</a>'
-        ));
+        );
     }
 }
