@@ -1,4 +1,4 @@
-=== Recras WordPress plugin ===
+=== Recras ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.9

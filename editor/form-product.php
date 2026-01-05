@@ -1,23 +1,23 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Products();
-$products = $model->getProducts($instance);
+$recras_products_model = new \Recras\Products();
+$recras_products = $recras_products_model->getProducts($recras_instance);
 ?>
 
 <dl>
     <dt><label for="product_id"><?php esc_html_e('Product', 'recras'); ?></label>
-    <dd><?php if (is_string($products)) { ?>
+    <dd><?php if (is_string($recras_products)) { ?>
             <input type="number" id="product_id" min="0" required>
-            <?= $products; ?>
-        <?php } elseif(is_array($products)) { ?>
+            <?= $recras_products; ?>
+        <?php } elseif(is_array($recras_products)) { ?>
             <select id="product_id" required>
-            <?php foreach ($products as $ID => $product) { ?>
-                <option value="<?= $ID; ?>"><?= $product->weergavenaam ? $product->weergavenaam : $product->naam; ?>
+            <?php foreach ($recras_products as $recras_product_id => $recras_product) { ?>
+                <option value="<?= $recras_product_id; ?>"><?= $recras_product->weergavenaam ?: $recras_product->naam; ?>
             <?php } ?>
             </select>
         <?php } ?>

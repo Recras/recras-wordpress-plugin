@@ -1,12 +1,12 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($instance, true);
+$recras_packages_model = new \Recras\Arrangement();
+$recras_packages = $recras_packages_model->getPackages($recras_instance, true);
 ?>
 <dl>
     <dt><label><?php esc_html_e('Integration method', 'recras'); ?></label>
@@ -33,10 +33,10 @@ $arrangements = $model->getPackages($instance, true);
     <dt id="pack_sel_label">
         <label for="package_selection"><?php esc_html_e('Package selection', 'recras'); ?></label>
     <dd id="pack_sel_input">
-        <?php unset($arrangements[0]); ?>
+        <?php unset($recras_packages[0]); ?>
         <select multiple id="package_selection">
-            <?php foreach ($arrangements as $ID => $arrangement) { ?>
-            <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+            <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
+            <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
             <?php } ?>
         </select>
         <p class="recras-notice">
@@ -47,15 +47,15 @@ $arrangements = $model->getPackages($instance, true);
     <dt id="pack_one_label" style="display: none;">
         <label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
     <dd id="pack_one_input" style="display: none;">
-        <?php if (is_string($arrangements)) { ?>
+        <?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0">
-            <?= $arrangements; ?>
-        <?php } elseif(is_array($arrangements)) { ?>
-            <?php unset($arrangements[0]); ?>
+            <?= $recras_packages; ?>
+        <?php } elseif(is_array($recras_packages)) { ?>
+            <?php unset($recras_packages[0]); ?>
             <select id="arrangement_id" required>
                 <option value="0"><?php esc_html_e('No pre-filled package', 'recras'); ?>
-                <?php foreach ($arrangements as $ID => $arrangement) { ?>
-                <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+                <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
+                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
                 <?php } ?>
             </select>
         <?php } ?>

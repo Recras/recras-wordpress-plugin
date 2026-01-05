@@ -1,12 +1,12 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($instance);
+$recras_packages_model = new \Recras\Arrangement();
+$recras_packages = $recras_packages_model->getPackages($recras_instance);
 ?>
 <style id="arrangement_style">
     .programme-only { display: none; }
@@ -14,13 +14,13 @@ $arrangements = $model->getPackages($instance);
 
 <dl>
     <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
-        <dd><?php if (is_string($arrangements)) { ?>
+        <dd><?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
-            <?= $arrangements; ?>
-        <?php } elseif (is_array($arrangements)) { ?>
+            <?= $recras_packages; ?>
+        <?php } elseif (is_array($recras_packages)) { ?>
             <select id="arrangement_id" required>
-            <?php foreach ($arrangements as $ID => $arrangement) { ?>
-                <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+            <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
+                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
             <?php } ?>
             </select>
             <p><?php esc_html_e('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', 'recras'); ?></p>

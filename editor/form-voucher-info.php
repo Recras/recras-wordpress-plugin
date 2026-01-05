@@ -1,23 +1,23 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Vouchers();
-$templates = $model->getTemplates($instance);
+$recras_vouchers_model = new \Recras\Vouchers();
+$recras_voucher_templates = $recras_vouchers_model->getTemplates($recras_instance);
 ?>
 
 <dl>
     <dt><label for="template_id"><?php esc_html_e('Template', 'recras'); ?></label>
-    <dd><?php if (is_string($templates)) { ?>
+    <dd><?php if (is_string($recras_voucher_templates)) { ?>
             <input type="number" id="template_id" min="0" required>
-            <?= $templates; ?>
-        <?php } elseif (is_array($templates)) { ?>
+            <?= $recras_voucher_templates; ?>
+        <?php } elseif (is_array($recras_voucher_templates)) { ?>
             <select id="template_id" required>
-                <?php foreach ($templates as $ID => $template) { ?>
-                <option value="<?= $ID; ?>"><?= $template->name; ?>
+                <?php foreach ($recras_voucher_templates as $recras_vt_id => $recras_voucher_template) { ?>
+                <option value="<?= $recras_vt_id; ?>"><?= $recras_voucher_template->name; ?>
                 <?php } ?>
             </select>
         <?php } ?>

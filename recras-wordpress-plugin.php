@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Recras WordPress Plugin
-Plugin URI: https://www.recras.nl/
+Plugin Name: Recras
+Plugin URI: https://www.recras.com/
 Version: 6.4.1
 Description: Easily integrate your Recras data into your own site
 Requires at least: 6.7

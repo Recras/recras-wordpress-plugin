@@ -1,12 +1,12 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Bookprocess();
-$processes = $model->getProcesses($instance);
+$recras_bp_model = new \Recras\Bookprocess();
+$recras_bps = $recras_bp_model->getProcesses($recras_instance);
 ?>
 <style id="bookprocess_style">
     .recras-hidden-input { display: none; }
@@ -14,13 +14,13 @@ $processes = $model->getProcesses($instance);
 
 <dl>
     <dt><label for="bookprocess_id"><?php esc_html_e('Book process', 'recras'); ?></label>
-        <dd><?php if (is_string($processes)) { ?>
+        <dd><?php if (is_string($recras_bps)) { ?>
             <input type="number" id="bookprocess_id" min="1" required>
-            <?= $processes; ?>
-        <?php } elseif (is_array($processes)) { ?>
+            <?= $recras_bps; ?>
+        <?php } elseif (is_array($recras_bps)) { ?>
             <select id="bookprocess_id" required>
-                <?php foreach ($processes as $ID => $process) { ?>
-                <option value="<?= $ID; ?>"><?= $process->name; ?>
+                <?php foreach ($recras_bps as $recras_bp_id => $recras_bp) { ?>
+                <option value="<?= $recras_bp_id; ?>"><?= $recras_bp->name; ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -43,9 +43,9 @@ $processes = $model->getProcesses($instance);
         const elPackage = document.getElementById('first_widget_value_package');
         const elId = document.getElementById('bookprocess_id');
         <?php
-        if (is_array($processes)) {
+        if (is_array($recras_bps)) {
         ?>
-        const bookprocesses = <?= json_encode($processes); ?>;
+        const bookprocesses = <?= json_encode($recras_bps); ?>;
         <?php
         }
         ?>

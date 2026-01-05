@@ -1,25 +1,25 @@
 <?php
-$instance = \Recras\Settings::getInstance();
-if (!$instance) {
+$recras_instance = \Recras\Settings::getInstance();
+if (!$recras_instance) {
     \Recras\Settings::errorNoRecrasName();
     return;
 }
 
-$model = new \Recras\Arrangement();
-$arrangements = $model->getPackages($instance);
+$recras_packages_model = new \Recras\Arrangement();
+$recras_packages = $recras_packages_model->getPackages($recras_instance);
 
-$model = new \Recras\ContactForm();
-$forms = $model->getForms($instance);
+$recras_forms_model = new \Recras\ContactForm();
+$recras_forms = $recras_forms_model->getForms($recras_instance);
 ?>
 <dl>
     <dt><label for="contactform_id"><?php esc_html_e('Contact form', 'recras'); ?></label>
-        <dd><?php if (is_string($forms)) { ?>
+        <dd><?php if (is_string($recras_forms)) { ?>
             <input type="number" id="contactform_id" min="0" required>
-            <?= $forms; ?>
-        <?php } elseif(is_array($forms)) { ?>
+            <?= $recras_forms; ?>
+        <?php } elseif(is_array($recras_forms)) { ?>
             <select id="contactform_id" required>
-                <?php foreach ($forms as $ID => $form) { ?>
-                <option value="<?= $ID; ?>"><?= $form->naam; ?>
+                <?php foreach ($recras_forms as $recras_form_id => $recras_form) { ?>
+                <option value="<?= $recras_form_id; ?>"><?= $recras_form->naam; ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -30,13 +30,13 @@ $forms = $model->getForms($instance);
     <dt><label for="showplaceholders"><?php esc_html_e('Show placeholders?', 'recras'); ?></label>
         <dd><input type="checkbox" id="showplaceholders" checked>
     <dt><label for="arrangement_id"><?php esc_html_e('Package', 'recras'); ?></label>
-        <dd><?php if (is_string($arrangements)) { ?>
+        <dd><?php if (is_string($recras_packages)) { ?>
             <input type="number" id="arrangement_id" min="0" required>
-            <?= $arrangements; ?>
-        <?php } elseif(is_array($arrangements)) { ?>
+            <?= $recras_packages; ?>
+        <?php } elseif(is_array($recras_packages)) { ?>
             <select id="arrangement_id" required>
-                <?php foreach ($arrangements as $ID => $arrangement) { ?>
-                <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+                <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
+                <option value="<?= $recras_package_id; ?>"><?= $recras_package->arrangement; ?>
                 <?php } ?>
             </select>
         <?php } ?>
@@ -82,9 +82,9 @@ $forms = $model->getForms($instance);
     const DEFAULT_SINGLE_CHOICE_ELEMENT = 'select';
 
     // Check which arrangements are available
-    getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $instance; ?>');
+    getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $recras_instance; ?>');
     document.getElementById('contactform_id').addEventListener('change', function(){
-        getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $instance; ?>');
+        getContactFormArrangements(document.getElementById('contactform_id').value, '<?= $recras_instance; ?>');
     });
 
     document.getElementById('contact_submit').addEventListener('click', function(){
