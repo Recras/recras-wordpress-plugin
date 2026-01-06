@@ -123,20 +123,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * The plugin now hides certain blocks/editor buttons, when they're not available in your Recras instance
 * Plugin now requires WP 6.5 or higher
 
-= 6.2 (highlights) =
-* Added a book process widget for Elementor
-* Plugin now requires PHP 7.4 or higher
-* Updated "Tested up to" version to 6.7
-* Various small fixes and improvements
-
-= 6.1 (highlights) =
-* Various small fixes and improvements
-* Removed script for very old browsers
-
-= 6.0 (highlights) =
-* Various small fixes
-* Removed support for Composer Installers
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
