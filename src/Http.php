@@ -15,11 +15,9 @@ class Http
         if ($recras_response instanceof \WP_Error) {
             throw new Exception\UrlException(
                 sprintf(
-                    esc_html(
-                        /* translators: Error message */
-                        __('Error: could not retrieve data from Recras. The error message received was: %s', 'recras')
-                    ), esc_html($recras_response->get_error_message())
-                )
+                    /* translators: Error message */
+                    __('Error: could not retrieve data from Recras. The error message received was: %s', 'recras')
+                ), $recras_response->get_error_message()
             );
         }
         $json = $recras_response['body'];
@@ -29,10 +27,8 @@ class Http
         } catch (\Exception $e) {
             throw new Exception\JsonParseException(
                 sprintf(
-                    esc_html(
-                        /* translators: Error message */
-                        __('Error: could not parse data from Recras. The error message was: %s', 'recras'), $e->getMessage()
-                    )
+                    /* translators: Error message */
+                    __('Error: could not parse data from Recras. The error message was: %s', 'recras'), $e->getMessage()
                 )
             );
         }
