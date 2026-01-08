@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.5.0 (2026-01-08)
+* Add anti-spam check to contact forms
+
 ## 6.4.3 (2026-01-08)
 * Fixed error when using an invalid Recras domain
 * Updated translations
