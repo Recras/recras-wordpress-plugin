@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.4.3 (2026-01-08)
+* Fixed error when using an invalid Recras domain
+* Updated translations
+
 ## 6.4.2 (2026-01-05)
 * Update "Fix book process datepicker styling" styles to latest version
 * Fixed some WP compliance issues
