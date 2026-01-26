@@ -46,6 +46,8 @@ registerGutenbergBlock('recras/bookprocess', {
             )
         );
 
+        const bpSorted = Object.entries(bookprocesses).map(mapBookprocess).toSorted(selectSort);
+
         const optionsIDControl = {
             value: id,
             onChange: function(newVal) {
@@ -55,7 +57,7 @@ registerGutenbergBlock('recras/bookprocess', {
                     initial_widget_value: null,
                 });
             },
-            options: Object.entries(bookprocesses).map(mapBookprocess),
+            options: bpSorted,
             label: wp.i18n.__('Book process', TEXT_DOMAIN),
         };
         if (Object.keys(bookprocesses).length > 0) {

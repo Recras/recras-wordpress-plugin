@@ -31,10 +31,14 @@ registerGutenbergBlock('recras/voucher-sales', {
             redirect,
             showquantity,
         } = props.attributes;
-        const {
+        let {
             pagesPosts,
             voucherTemplates,
         } = props;
+
+        if (!Array.isArray(voucherTemplates)) {
+            voucherTemplates = [];
+        }
 
         if (pagesPosts === undefined || !pagesPosts.length) {
             return [
@@ -51,7 +55,7 @@ registerGutenbergBlock('recras/voucher-sales', {
                     id: newVal,
                 });
             },
-            options: voucherTemplates,
+            options: voucherTemplates.toSorted(selectSort),
             label: wp.i18n.__('Voucher template', TEXT_DOMAIN),
         };
         if (voucherTemplates.length === 1) {

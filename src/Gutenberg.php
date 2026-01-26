@@ -18,7 +18,7 @@ class Gutenberg
                 'wp-element',
                 'wp-i18n',
             ],
-            '6.3.2',
+            '6.5.1',
             true
         );
         wp_set_script_translations($globalScriptName, 'recras', plugin_dir_path(__DIR__) . 'lang');
@@ -41,11 +41,11 @@ class Gutenberg
             ],
             'bookprocess' => [
                 'callback' => [Bookprocess::class, 'renderBookprocess'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
@@ -53,19 +53,19 @@ class Gutenberg
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
             'product' => [
                 'callback' => [Products::class, 'renderProduct'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
             'voucher-info' => [
                 'callback' => [Vouchers::class, 'renderVoucherInfo'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '6.4.0',
+                'version' => '6.5.1',
             ],
         ];
 

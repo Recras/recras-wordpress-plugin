@@ -115,6 +115,18 @@ const mapVoucherTemplate = function(template) {
     return mapSelect(template.name, template.id);
 };
 
+const selectSort = function(a, b) {
+    // Sort by label
+    if (a.label < b.label) {
+        return -1;
+    }
+    if (a.label > b.label) {
+        return 1;
+    }
+    // Sort by ID when label is the same
+    return parseInt(a.value) < parseInt(b.value) ? 1 : -1;
+}
+
 const recrasActions = {
     fetchAPI(path) {
         return {

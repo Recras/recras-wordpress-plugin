@@ -33,9 +33,12 @@ registerGutenbergBlock('recras/package', {
             showheader,
             starttime,
         } = props.attributes;
-        const {
+        let {
             packages,
         } = props;
+        if (!Array.isArray(packages)) {
+            packages = [];
+        }
 
         let retval = [];
         const optionsIDControl = {
@@ -46,7 +49,7 @@ registerGutenbergBlock('recras/package', {
                     id: newVal,
                 });
             },
-            options: packages,
+            options: packages.toSorted(selectSort),
             label: wp.i18n.__('Package', TEXT_DOMAIN),
         };
         if (packages.length === 1) {

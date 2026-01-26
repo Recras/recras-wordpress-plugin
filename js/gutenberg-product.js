@@ -34,6 +34,8 @@ registerGutenbergBlock('recras/product', {
             products = [];
         }
 
+        const productsSorted = products.toSorted(selectSort);
+
         let optionsIDControl;
         if (products.length > 0) {
             optionsIDControl = {
@@ -44,7 +46,7 @@ registerGutenbergBlock('recras/product', {
                         id: newVal,
                     });
                 },
-                options: products,
+                options: productsSorted,
                 label: wp.i18n.__('Product', TEXT_DOMAIN),
             };
             if (products.length === 1) {

@@ -61,7 +61,7 @@ registerGutenbergBlock('recras/contactform', {
             ];
         }
 
-        const cfMapped = Object.entries(contactForms).map(mapContactForm);
+        const cfMapped = Object.entries(contactForms).map(mapContactForm).toSorted(selectSort);
         let retval = [];
         const optionsIDControl = {
             value: id,

@@ -27,9 +27,13 @@ registerGutenbergBlock('recras/voucher-info', {
             id,
             show,
         } = props.attributes;
-        const {
+        let {
             voucherTemplates,
         } = props;
+
+        if (!Array.isArray(voucherTemplates)) {
+            voucherTemplates = [];
+        }
 
         let retval = [];
         const optionsIDControl = {
@@ -40,7 +44,7 @@ registerGutenbergBlock('recras/voucher-info', {
                     id: newVal,
                 });
             },
-            options: voucherTemplates,
+            options: voucherTemplates.toSorted(selectSort),
             label: wp.i18n.__('Voucher template', TEXT_DOMAIN),
         };
         if (voucherTemplates.length === 1) {
