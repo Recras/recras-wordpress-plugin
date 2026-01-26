@@ -35,7 +35,10 @@ registerGutenbergBlock('recras/bookprocess', {
         } = props;
 
         const mapBookprocess = function(idBookprocess) {
-            return mapSelect(idBookprocess[1].name, idBookprocess[0]);
+            return mapSelect(
+                idBookprocess[1].name + ' (ID: ' + idBookprocess[0] + ')',
+                idBookprocess[0]
+            );
         };
 
         let retval = [];
