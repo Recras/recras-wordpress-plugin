@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.5.1 (2026-01-26)
+* Gutenberg editor: Add ID to book processes list
+* Gutenberg editor: sort selectable items by name instead of creation date
+* 
 ## 6.5.0 (2026-01-08)
 * Add anti-spam check to contact forms
 
