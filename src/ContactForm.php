@@ -442,7 +442,8 @@ class ContactForm
 
         $html .= '<input type="submit" value="' . $options['submitText'] . '">';
         $html .= '</form>';
-        $html .= '<script>document.addEventListener("DOMContentLoaded", function() {
+        $html .= '<script>
+const addSubmitListener' . $generatedFormID . ' = function () {
     document.getElementById("recras-form' . $generatedFormID . '").addEventListener("submit", function(e) {
         e.preventDefault();
         return submitRecrasForm(
@@ -452,6 +453,8 @@ class ContactForm
             "' . $options['redirect']. '"
         );
     });
+};
+const clearRadioButtons' . $generatedFormID . ' = function () {
     const clearRadioEls = document.querySelectorAll(".clearRadioChoice");
     if (clearRadioEls.length) {
         for (let el of clearRadioEls) {
@@ -463,7 +466,18 @@ class ContactForm
             });
         }
     }
-});</script>';
+};
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function() {
+        addSubmitListener' . $generatedFormID . '();
+        clearRadioButtons' . $generatedFormID . '();
+    });
+} else {
+    addSubmitListener' . $generatedFormID . '();
+    clearRadioButtons' . $generatedFormID . '();
+}
+</script>';
 
         return $html;
     }
