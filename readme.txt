@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.9
-Stable tag: 6.5.1
+Stable tag: 6.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 6.5.2 =
+* Fix for some contact forms not submitting when loaded in a popup
+
 = 6.5.1 =
 * Gutenberg editor: Add ID to book processes list
 * Gutenberg editor: sort selectable items by name instead of creation date
@@ -98,41 +101,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
 * Plugin now requires WP 6.7 or higher
 
-= 6.3.8 =
+= 6.3 (highlights) =
 * Update "Fix book process datepicker styling" styles to latest version
-* Small technical update
-
-= 6.3.7 =
-* Show error on settings page if subdomain appears invalid
-* Add caching hint to book process script
-
-= 6.3.6 =
-* Fix errors when using WP CLI for certain things
-
-= 6.3.5 =
-* Fix warning when using PHP 8.4
-
-= 6.3.4 =
-* Improve choosing a start time when displaying package programme
-* Fix display of voucher templates with a validity set to a certain date, instead of a number of days
-* Load book process script differently
-* Updated "Tested up to" version to 6.8
-* Plugin now requires WP 6.6 or higher
-
-= 6.3.3 =
-* Update "Fix book process datepicker styling" styles to latest version
-* Remove outdated documentation
-
-= 6.3.2 =
-* Hide "Package availability" widget when it's not available in your Recras instance
-* "Package availability" widget: hide packages where availability API is disabled
-
-= 6.3.1 =
-* Fix console message
-
-= 6.3.0 =
-* The plugin now hides certain blocks/editor buttons, when they're not available in your Recras instance
-* Plugin now requires WP 6.5 or higher
+* Several technical updates
+* Several small fixes
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
