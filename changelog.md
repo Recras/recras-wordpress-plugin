@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Styling fix for Gutenberg info texts
+
 ## 6.5.2 (2026-02-10)
 * Fix for some contact forms not submitting when loaded in a popup
 
