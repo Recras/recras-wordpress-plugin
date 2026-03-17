@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 6.5.3 (2026-03-17)
 * Styling fix for Gutenberg info texts
+* Only show contact form widget when your recras allows it
 
 ## 6.5.2 (2026-02-10)
 * Fix for some contact forms not submitting when loaded in a popup
