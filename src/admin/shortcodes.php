@@ -39,24 +39,6 @@
 
 
 <hr>
-<h2><?php esc_html_e('Contact forms', 'recras'); ?></h2>
-<p>Contact forms can be added using the <kbd>[recras-contact]</kbd> shortcode.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Contact form - <kbd>id</kbd>
-	<li>Show title? - <kbd>showtitle</kbd>
-	<li>Show labels? - <kbd>showlabels</kbd>
-	<li>Show placeholders? - <kbd>showplaceholders</kbd>
-	<li>Package - <kbd>arrangement</kbd>
-	<li>HTML element - <kbd>element</kbd>, value is one of <kbd>dl</kbd> (recommended), <kbd>ol</kbd>, <kbd>table</kbd> (discouraged)
-	<li>Element for single choices - <kbd>single_choice_element</kbd>, value is one of <kbd>select</kbd>, <kbd>radio</kbd>
-    <li>Submit button text - <kbd>submitText</kbd>
-    <li>Thank-you page - <kbd>redirect</kbd>
-</ol>
-<p>Example: <kbd>[recras-contact id="17" showtitle="0" showlabels="1" showplaceholders="1" submitText="Go!"]</kbd></p>
-
-
-<hr>
 <h2><?php esc_html_e('Products', 'recras'); ?></h2>
 <p>Products can be added using the <kbd>recras-product</kbd> shortcode.</p>
 <p>The following options are available:</p>

@@ -5,14 +5,6 @@
 <dl>
     <dt><?php esc_html_e('Recras domain', 'recras');?></dt>
     <dd>If you log in to Recras at <code>https://mycompany.recras.com/</code> then your Recras domain is <code>mycompany.recras.com</code>.</dd>
-    <dt><?php esc_html_e('Currency symbol', 'recras');?></dt>
-    <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
-    <dt><?php esc_html_e('Decimal separator', 'recras');?></dt>
-    <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
-    <dt><?php esc_html_e('Use calendar widget for contact forms', 'recras');?></dt>
-    <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
-        <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used in book processes.
-    </dd>
     <dt><?php esc_html_e('Theme for Recras integrations', 'recras');?></dt>
     <dd>Which theme is used for book processes.
         <ol class="recrasOptionsList">
@@ -22,6 +14,14 @@
             <li>BP Green - is a theme with green accents
             <li>Reasonably Red - is a theme with red accents
         </ol>
+    </dd>
+    <dt><?php esc_html_e('Currency symbol', 'recras');?></dt>
+    <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
+    <dt><?php esc_html_e('Decimal separator', 'recras');?></dt>
+    <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
+    <dt><?php esc_html_e('Use calendar widget for contact forms', 'recras');?></dt>
+    <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
+        <strong>Note:</strong> this setting only applies to standalone contact forms, which are deprecated. This does not apply to contact forms used in book processes.
     </dd>
 </dl>
 
@@ -62,19 +62,7 @@
 
 <hr>
 <h2><?php esc_html_e('Contact forms', 'recras'); ?></h2>
-<p>Contact forms can be added using the Recras/Contact form block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-email"></span> icon in the Classic Editor.</p>
-<p>The following options are available:</p>
-<ol class="recrasOptionsList">
-	<li>Contact form - <strong>required</strong> what form to use
-	<li>Show title? - show the title of the contact form or not. Enabled by default
-	<li>Show labels? - show the label for each element. Enabled by default. <strong>Note:</strong> showing labels is highly recommended. It is good for accessibility, and when they are not used it can lead to confusing results with radio buttons.
-	<li>Show placeholders? - show the placeholder for each element. Enabled by default
-	<li>Package - for forms where the user can select a package, setting this parameter will select the package automatically and hide the field for the user.
-	<li>HTML element - show the contact form as definition list (default), ordered list, or table (not recommended for accessibility reasons).
-	<li>Element for single choices - show fields where a single choice is made (i.e. Customer type) as drop-down list (default) or radio buttons.
-	<li>Submit button text - the text for the form submission button. Defaults to "Send"
-	<li>Thank-you page - a page/post that the user is redirected to, after submitting the form successfully.
-</ol>
+<p>Contact forms can be integrated using a book process.</p>
 
 <hr>
 <h2><?php esc_html_e('Products', 'recras'); ?></h2>
@@ -95,10 +83,6 @@
 </ol>
 
 <hr>
-<h2><?php esc_html_e('Voucher sales', 'recras'); ?></h2>
-<p>Voucher sales can be integrated using a book process.</p>
-
-<hr>
 <h2><?php esc_html_e('Voucher info', 'recras'); ?></h2>
 <p>Voucher info can be integrated using the Recras/Voucher info block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
@@ -110,3 +94,7 @@
         <li>Validity (number of days, or date)
     </ol>
 </ol>
+
+<hr>
+<h2><?php esc_html_e('Voucher sales', 'recras'); ?></h2>
+<p>Voucher sales can be integrated using a book process.</p>
