@@ -382,11 +382,11 @@ class Settings
         self::registerSettings();
 
         self::addField('recras_domain', __('Recras domain', 'recras'), [__CLASS__, 'addInputDomain']);
+        self::addField('recras_theme', __('Theme for Recras integrations', 'recras'), [__CLASS__, 'addInputTheme']);
+        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', 'recras'), [__CLASS__, 'addInputFixDatepicker']);
         self::addField('recras_currency', __('Currency symbol', 'recras'), [__CLASS__, 'addInputCurrency']);
         self::addField('recras_decimal', __('Decimal separator', 'recras'), [__CLASS__, 'addInputDecimal']);
-        self::addField('recras_datetimepicker', __('Use calendar widget for contact forms', 'recras'), [__CLASS__, 'addInputDatepicker']);
-        self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', 'recras'), [__CLASS__, 'addInputFixDatepicker']);
-        self::addField('recras_theme', __('Theme for Recras integrations', 'recras'), [__CLASS__, 'addInputTheme']);
+        self::addField('recras_datetimepicker', __('Use calendar widget for contact forms (deprecated)', 'recras'), [__CLASS__, 'addInputDatepicker']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration? (deprecated)', 'recras'), [__CLASS__, 'addInputAnalytics']);
     }
 

@@ -6,16 +6,16 @@ Stable tag: 6.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily integrate data from your Recras instance, such as packages and contact forms, into your own website.
+Easily integrate data from your Recras instance, such as book processes, into your own website.
 
 == Description ==
-With this plugin, you can easily integrate data from your [Recras](https://recras.nl/) instance, such as packages and contact forms, into your own website.
+With this plugin, you can easily integrate data from your [Recras](https://recras.nl/) instance, such as book processes, into your own website.
 
 To get started, go to the Recras → Settings page and enter your Recras domain. For example, if you log in to Recras at `https://mycompany.recras.com/` then enter `mycompany.recras.com`. That's all there is to it! You can now use widgets to retrieve data. All data is retrieved via a secured connection (HTTPS) to ensure data integrity. Other than the request parameters, no data is sent to the Recras servers.
 
 This plugin consists of the following "widgets". To use them, you first need to set your Recras domain (see paragraph above).
 * Book processes
-* Contact forms
+* Contact forms (deprecated)
 * Packages
 * Products
 * Voucher info
