@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/contactform', {
-    title: wp.i18n.__('Contact form', TEXT_DOMAIN),
+    title: wp.i18n.__('Contact form (deprecated)', TEXT_DOMAIN),
     apiVersion: 3,
     icon: 'email',
     category: 'recras',
@@ -191,7 +191,7 @@ registerGutenbergBlock('recras/contactform', {
             type: 'url',
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Contact form', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Contact form (deprecated)', TEXT_DOMAIN)));
 
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compToggleControl, optionsShowTitleControl));

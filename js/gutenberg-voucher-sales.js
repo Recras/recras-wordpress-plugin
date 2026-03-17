@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/voucher-sales', {
-    title: wp.i18n.__('Voucher sales', TEXT_DOMAIN),
+    title: wp.i18n.__('Voucher sales (deprecated)', TEXT_DOMAIN),
     apiVersion: 3,
     icon: 'money',
     category: 'recras',
@@ -87,7 +87,7 @@ registerGutenbergBlock('recras/voucher-sales', {
             label: wp.i18n.__('Show quantity input (will be set to 1 if not shown)', TEXT_DOMAIN),
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Voucher sales', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Voucher sales (deprecated)', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compSelectControl, optionsRedirectControl));
         retval.push(createEl(compToggleControl, optionsShowQuantityControl));

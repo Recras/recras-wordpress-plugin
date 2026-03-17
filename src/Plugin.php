@@ -221,9 +221,9 @@ class Plugin
     public function loadAdminScripts(): void
     {
         $l10n = [
-            'contact_form' => __('Contact form', 'recras'),
+            'contact_form' => __('Contact form (deprecated)', 'recras'),
             'no_connection' => __('Could not connect to your Recras', 'recras'),
-            'online_booking' => __('Online booking of packages', 'recras'),
+            'online_booking' => __('Online booking of packages (deprecated)', 'recras'),
             'bookprocess' => __('Book process', 'recras'),
             'package' => __('Package', 'recras'),
             'package_availability' => __('Package availability', 'recras'),
@@ -232,7 +232,7 @@ class Plugin
             'showOnlineBooking' => 'yes',
             'showVoucherSales' => 'yes',
             'voucherInfo' => __('Voucher info', 'recras'),
-            'voucherSales' => __('Voucher sales', 'recras'),
+            'voucherSales' => __('Voucher sales (deprecated)', 'recras'),
         ];
 
         if (!Settings::allowOldContactForms()) {
