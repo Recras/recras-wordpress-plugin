@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/contactform', {
     title: wp.i18n.__('Contact form', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'email',
     category: 'recras',
     example: {

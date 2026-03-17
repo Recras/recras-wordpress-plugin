@@ -37,35 +37,35 @@ class Gutenberg
         $gutenbergBlocks = [
             'availability' => [
                 'callback' => [Availability::class, 'renderAvailability'],
-                'version' => '6.4.0',
+                'version' => '6.5.3',
             ],
             'bookprocess' => [
                 'callback' => [Bookprocess::class, 'renderBookprocess'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '6.4.0',
+                'version' => '6.5.3',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
             'product' => [
                 'callback' => [Products::class, 'renderProduct'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
             'voucher-info' => [
                 'callback' => [Vouchers::class, 'renderVoucherInfo'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '6.5.1',
+                'version' => '6.5.3',
             ],
         ];
 

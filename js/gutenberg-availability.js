@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/availability', {
     title: wp.i18n.__('Availability calendar', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'calendar-alt',
     category: 'recras',
     example: {

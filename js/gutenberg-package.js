@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/package', {
     title: wp.i18n.__('Package', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'clipboard',
     category: 'recras',
     example: {

@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/product', {
     title: wp.i18n.__('Product', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'cart',
     category: 'recras',
     example: {

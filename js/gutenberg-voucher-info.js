@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/voucher-info', {
     title: wp.i18n.__('Voucher info', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'money',
     category: 'recras',
     example: {

@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/bookprocess', {
     title: wp.i18n.__('Book process', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'editor-ul',
     category: 'recras',
     example: {

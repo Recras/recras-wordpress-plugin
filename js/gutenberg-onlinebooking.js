@@ -1,5 +1,6 @@
 registerGutenbergBlock('recras/onlinebooking', {
     title: wp.i18n.__('Online booking of packages', TEXT_DOMAIN),
+    apiVersion: 3,
     icon: 'admin-site',
     category: 'recras',
     example: {
