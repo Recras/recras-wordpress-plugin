@@ -69,6 +69,9 @@ class Gutenberg
             ],
         ];
 
+        if (!Settings::allowOldContactForms()) {
+            unset($gutenbergBlocks['contactform']);
+        }
         if (!Settings::allowOnlinePackageBooking()) {
             unset($gutenbergBlocks['availability']);
             unset($gutenbergBlocks['onlinebooking']);

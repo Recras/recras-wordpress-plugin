@@ -119,6 +119,18 @@ class Settings
     }
 
 
+    public static function allowOldContactForms(): bool
+    {
+        $instance = Settings::getInstance();
+        if (!$instance) {
+            return true;
+        }
+        $setting = Transient::get($instance . '_show_old_contact_forms');
+        // if getting the transient fails, we want to show the button to be sure, so comparing with 'no' is safest
+        return ($setting === 'no') ? false : true;
+    }
+
+
     public static function allowOnlinePackageBooking(): bool
     {
         $instance = Settings::getInstance();

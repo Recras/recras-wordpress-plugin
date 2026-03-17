@@ -33,13 +33,15 @@ var recrasPlugin = function(editor, url) {
         }
     });
 
-    editor.addButton('recras-contact', {
-        title: recras_l10n.contact_form,
-        image: url + '/contact.svg',
-        onclick: function() {
-            tb_show(recras_l10n.contact_form, 'admin.php?page=form-contact');
-        }
-    });
+    if (recras_l10n.showContactForms) {
+        editor.addButton('recras-contact', {
+            title: recras_l10n.contact_form,
+            image: url + '/contact.svg',
+            onclick: function() {
+                tb_show(recras_l10n.contact_form, 'admin.php?page=form-contact');
+            }
+        });
+    }
 
     editor.addButton('recras-product', {
         title: recras_l10n.product,

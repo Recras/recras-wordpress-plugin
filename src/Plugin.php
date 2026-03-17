@@ -138,7 +138,7 @@ class Plugin
 
     private function checkOldSettings(): void
     {
-        $instance = \Recras\Settings::getInstance();
+        $instance = Settings::getInstance();
         if (!$instance) {
             return;
         }
@@ -164,6 +164,18 @@ class Plugin
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
                 Transient::set($instance . '_show_old_voucher_sales', $setting->waarde, DAY_IN_SECONDS);
+            }
+        }
+
+        $setting = Transient::get($instance . '_show_old_contact_forms');
+        if ($setting === false) {
+            try {
+                $setting = Http::get($instance, 'instellingen/allow_old_contact_forms');
+            } catch (\Exception $e) {
+                return;
+            }
+            if (is_object($setting) && property_exists($setting, 'waarde')) {
+                Transient::set($instance . '_show_old_contact_forms', $setting->waarde, DAY_IN_SECONDS);
             }
         }
     }
@@ -216,12 +228,16 @@ class Plugin
             'package' => __('Package', 'recras'),
             'package_availability' => __('Package availability', 'recras'),
             'product' => __('Product', 'recras'),
+            'showContactForms' => 'yes',
             'showOnlineBooking' => 'yes',
             'showVoucherSales' => 'yes',
             'voucherInfo' => __('Voucher info', 'recras'),
             'voucherSales' => __('Voucher sales', 'recras'),
         ];
 
+        if (!Settings::allowOldContactForms()) {
+            $l10n['showContactForms'] = 'no';
+        }
         if (!Settings::allowOnlinePackageBooking()) {
             $l10n['showOnlineBooking'] = 'no';
         }

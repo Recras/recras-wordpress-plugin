@@ -47,6 +47,11 @@ class ContactForm
      */
     public static function renderContactForm($attributes): string
     {
+        if (!Settings::allowOldContactForms()) {
+            error_log('Old contact forms is integrated on your website, but is disabled in your Recras');
+            return '';
+        }
+
         if (is_string($attributes)) {
             $attributes = [];
         }
