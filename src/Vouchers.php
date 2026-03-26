@@ -9,10 +9,8 @@ class Vouchers
 
     /**
      * Add the [voucher-info] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderVoucherInfo($attributes): string
+    public static function renderVoucherInfo(array|string $attributes): string
     {
         if (is_string($attributes)) {
             $attributes = [];
@@ -60,10 +58,8 @@ class Vouchers
 
     /**
      * Add the [recras-vouchers] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderVoucherSales($attributes): string
+    public static function renderVoucherSales(array|string $attributes): string
     {
         if (!Settings::allowOldVoucherSales()) {
             error_log('The old method of selling vouchers is integrated on your website, but is disabled in your Recras');

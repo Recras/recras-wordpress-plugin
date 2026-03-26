@@ -7,10 +7,8 @@ class Availability
 
     /**
      * Add the [recras-availability] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderAvailability($attributes): string
+    public static function renderAvailability(array|string $attributes): string
     {
         if (is_string($attributes)) {
             $attributes = [];

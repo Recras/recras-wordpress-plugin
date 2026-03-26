@@ -69,10 +69,8 @@ class Bookprocess
 
     /**
      * Add the [recras-bookprocess] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderBookprocess($attributes): string
+    public static function renderBookprocess(array|string $attributes): string
     {
         if (is_string($attributes)) {
             $attributes = [];

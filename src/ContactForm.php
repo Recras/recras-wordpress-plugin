@@ -42,10 +42,8 @@ class ContactForm
 
     /**
      * Add the [recras-contact] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderContactForm($attributes): string
+    public static function renderContactForm(array|string $attributes): string
     {
         if (!Settings::allowOldContactForms()) {
             error_log('Old contact forms is integrated on your website, but is disabled in your Recras');

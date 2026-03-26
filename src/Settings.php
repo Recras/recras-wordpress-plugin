@@ -308,9 +308,8 @@ class Settings
 
     /**
      * Parse a boolean value
-     * @param bool|string $recras_value
      */
-    public static function parseBoolean($recras_value): bool
+    public static function parseBoolean(bool|string $recras_value): bool
     {
         $falseValues = [false, 'false', 0, '0', 'no'];
         if (isset($recras_value) && in_array($recras_value, $falseValues, true)) {
