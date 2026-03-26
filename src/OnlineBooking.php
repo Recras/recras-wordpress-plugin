@@ -102,7 +102,7 @@ class OnlineBooking
     }
 
 
-    private static function generateBookingForm(string $instance, int $arrangementID = null, array $libraryOptions = []): string
+    private static function generateBookingForm(string $instance, ?int $arrangementID = null, array $libraryOptions = []): string
     {
         $generatedDivID = uniqid('B');
         $extraOptions = [];
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return $html;
     }
 
-    private static function generateIframe(string $instance, int $arrangementID = null, bool $enableResize = true): string
+    private static function generateIframe(string $instance, ?int $arrangementID = null, bool $enableResize = true): string
     {
         $url = 'https://' . $instance . '/onlineboeking';
         if ($arrangementID) {

@@ -320,7 +320,7 @@ class Settings
         return true;
     }
 
-    private static function registerSetting(string $name, $default, string $type = 'string', callable $sanitizeCallback = null): void
+    private static function registerSetting(string $name, $default, string $type = 'string', ?callable $sanitizeCallback = null): void
     {
         $options = [
             'default' => $default,
