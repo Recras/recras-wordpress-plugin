@@ -1,5 +1,9 @@
 # Changelog
 
+## Not yet released
+* Updated "Tested up to" version to 7.0
+* Plugin now requires WP 6.8 or higher
+
 ## 6.5.3 (2026-03-17)
 * Styling fix for Gutenberg info texts
 * Only show contact form widget when your recras allows it

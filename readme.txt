@@ -1,7 +1,7 @@
 === Recras ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: 6.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -73,6 +73,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= Not yet released =
+* Updated "Tested up to" version to 7.0
+* Plugin now requires WP 6.8 or higher
 
 = 6.5.3 =
 * Styling fix for Gutenberg info texts
