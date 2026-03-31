@@ -1,6 +1,6 @@
 # Changelog
 
-## Not yet released
+## 6.5.4 (2026-03-31)
 * Updated "Tested up to" version to 7.0
 * Plugin now requires WP 6.8 or higher
 * Fix warning when using PHP 8.4
