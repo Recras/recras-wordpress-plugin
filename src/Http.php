@@ -16,8 +16,9 @@ class Http
             throw new Exception\UrlException(
                 sprintf(
                     /* translators: Error message */
-                    __('Error: could not retrieve data from Recras. The error message received was: %s', 'recras')
-                ), $recras_response->get_error_message()
+                    __('Error: could not retrieve data from Recras. The error message received was: %s', 'recras'),
+                    $recras_response->get_error_message()
+                )
             );
         }
         $json = $recras_response['body'];
@@ -28,7 +29,8 @@ class Http
             throw new Exception\JsonParseException(
                 sprintf(
                     /* translators: Error message */
-                    __('Error: could not parse data from Recras. The error message was: %s', 'recras'), $e->getMessage()
+                    __('Error: could not parse data from Recras. The error message was: %s', 'recras'),
+                    $e->getMessage()
                 )
             );
         }
