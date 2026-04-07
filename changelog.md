@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.5.5 (2026-04-07)
+* Fix error when data could not be retrieved from your recras
+
 ## 6.5.4 (2026-03-31)
 * Updated "Tested up to" version to 7.0
 * Plugin now requires WP 6.8 or higher
