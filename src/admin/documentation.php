@@ -15,10 +15,6 @@
             <li>Reasonably Red - is a theme with red accents
         </ol>
     </dd>
-    <dt><?php esc_html_e('Currency symbol', 'recras');?></dt>
-    <dd>Used in prices such as € 100,00. Set to € (Euro) by default.</dd>
-    <dt><?php esc_html_e('Decimal separator', 'recras');?></dt>
-    <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
     <dt><?php esc_html_e('Use calendar widget for contact forms', 'recras');?></dt>
     <dd>By default, date pickers in contact forms use whatever the browser has available. If you want to be able to style the date picker, we recommend to enable the date picker we have included with the plugin.<br>
         <strong>Note:</strong> this setting only applies to standalone contact forms, which are deprecated. This does not apply to contact forms used in book processes.

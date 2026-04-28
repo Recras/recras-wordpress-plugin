@@ -359,10 +359,10 @@ class Plugin
 
     public static function uninstall(): void
     {
-        delete_option('recras_currency');
+        delete_option('recras_currency'); // Removed as of 2026-05
         delete_option('recras_datetimepicker');
         delete_option('recras_fix_react_datepicker');
-        delete_option('recras_decimal');
+        delete_option('recras_decimal'); // Removed as of 2026-05
         delete_option('recras_enable_analytics');
         delete_option('recras_subdomain'); // Legacy since 2025-09
         delete_option('recras_domain');

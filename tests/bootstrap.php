@@ -11,6 +11,4 @@ require_once $recras_tests_dir . '/includes/bootstrap.php';
 require_once __DIR__ . '/WordPressUnitTestCase.php';
 require dirname(__DIR__) . '/recras-wordpress-plugin.php';
 
-update_option('recras_currency', '€');
 update_option('recras_domain', 'demo.recras.nl');
-update_option('recras_decimal', '.');

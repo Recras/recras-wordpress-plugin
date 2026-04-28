@@ -13,7 +13,7 @@
   "scripts": {
     "i18n_de": "po2json lang/recras-de_DE.po lang/recras-de_DE-recras-gutenberg-global.json -f jed",
     "i18n_nl": "po2json lang/recras-nl_NL.po lang/recras-nl_NL-recras-gutenberg-global.json -f jed",
-    "i18n": "npm run i18n_de; npm run i18n_nl"
+    "i18n": "npm run i18n_de; npm run i18n_nl; wp i18n make-php lang/"
   },
   "repository": {
     "type": "git",

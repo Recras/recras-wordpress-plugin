@@ -1,6 +1,8 @@
 <?php
 namespace Recras;
 
+use NumberFormatter;
+
 class Price
 {
     /**
@@ -8,11 +10,8 @@ class Price
      */
     public static function format(float $price): string
     {
-        $currency = get_option('recras_currency');
-        $decimalSeparator = get_option('recras_decimal');
-        if ($decimalSeparator === false) {
-            $decimalSeparator = '.';
-        }
-        return '<span class="recras-price">' . $currency . ' ' . number_format($price, 2, $decimalSeparator, '') . '</span>';
+        $currency = Settings::getCurrency();
+        $fmt = new NumberFormatter(get_locale(), NumberFormatter::CURRENCY);
+        return '<span class="recras-price">' . $fmt->formatCurrency($price, $currency) . '</span>';
     }
 }

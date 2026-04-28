@@ -18,22 +18,6 @@ class Settings
         );
     }
 
-
-    /**
-     * Add a currency input field
-     */
-    public static function addInputCurrency(array $args): void
-    {
-        $recras_field = $args['field'];
-        $recras_value = get_option($recras_field);
-        if (!$recras_value) {
-            $recras_value = '€';
-        }
-
-        printf('<input type="text" name="%s" id="%s" value="%s">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
-    }
-
-
     /**
      * Add a checkbox option
      */
@@ -56,22 +40,6 @@ class Settings
         self::addInputCheckbox($args);
         self::infoText(__('On some websites, the date picker in a book process has a tiny font. Enable this to fix this.', 'recras'));
     }
-
-    /**
-     * Add a decimal separator input field
-     */
-    public static function addInputDecimal(array $args): void
-    {
-        $recras_field = $args['field'];
-        $recras_value = get_option($recras_field);
-        if (!$recras_value) {
-            $recras_value = '.';
-        }
-
-        printf('<input type="text" name="%s" id="%s" value="%s" size="2" maxlength="1">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
-        self::infoText(__('Used in prices, such as 100,00.', 'recras'));
-    }
-
 
     /**
      * Add an instance input field
@@ -242,6 +210,23 @@ class Settings
         }
     }
 
+    public static function getCurrency(): string
+    {
+        $currency = Transient::get('currency');
+        if ($currency) {
+            return $currency;
+        }
+
+        $instance = \Recras\Settings::getInstance();
+        $setting = Http::get($instance, 'instellingen/currency');
+        if ($setting->waarde) {
+            $currency = strtoupper($setting->waarde);
+            Transient::set('currency', $currency);
+            return $currency;
+        }
+        return 'EUR';
+    }
+
 
     /**
      * Get the Recras instance, which can be set in the shortcode attributes or as global setting
@@ -362,8 +347,6 @@ class Settings
     {
         self::registerSetting('recras_subdomain', 'demo'); // Legacy since 2025-09
         self::registerSetting('recras_domain', 'demo.recras.nl', 'string', [__CLASS__, 'sanitizeDomain']);
-        self::registerSetting('recras_currency', '€');
-        self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
         self::registerSetting('recras_fix_react_datepicker', false, 'boolean');
         self::registerSetting('recras_theme', 'basic');
@@ -384,8 +367,6 @@ class Settings
         self::addField('recras_domain', __('Recras domain', 'recras'), [__CLASS__, 'addInputDomain']);
         self::addField('recras_theme', __('Theme for Recras integrations', 'recras'), [__CLASS__, 'addInputTheme']);
         self::addField('recras_fix_react_datepicker', __('Fix book process datepicker styling', 'recras'), [__CLASS__, 'addInputFixDatepicker']);
-        self::addField('recras_currency', __('Currency symbol', 'recras'), [__CLASS__, 'addInputCurrency']);
-        self::addField('recras_decimal', __('Decimal separator', 'recras'), [__CLASS__, 'addInputDecimal']);
         self::addField('recras_datetimepicker', __('Use calendar widget for contact forms (deprecated)', 'recras'), [__CLASS__, 'addInputDatepicker']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration? (deprecated)', 'recras'), [__CLASS__, 'addInputAnalytics']);
     }

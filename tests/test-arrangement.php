@@ -152,17 +152,13 @@ class ArrangementTest extends WordPressUnitTestCase
 
     function testChangeDecimal(): void
     {
-        update_option('recras_decimal', ',');
         $content = $this->createPostAndGetContent('[recras-package id=7 show=price_total_excl_vat]');
         $this->assertEquals('<span class="recras-price">€ 385,66</span>' . "\n", $content, 'Should respect decimal setting');
-        update_option('recras_decimal', '.');
     }
 
     function testChangeCurrency(): void
     {
-        update_option('recras_currency', '¥');
         $content = $this->createPostAndGetContent('[recras-package id=7 show=price_total_excl_vat]');
         $this->assertEquals('<span class="recras-price">¥ 385.66</span>' . "\n", $content, 'Should respect currency setting');
-        update_option('recras_currency', '€');
     }
 }
