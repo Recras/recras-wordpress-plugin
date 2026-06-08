@@ -52,12 +52,6 @@ Self install:
 1. Upload the `recras-wordpress-plugin` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-Using Composer:
-
-1. Type `composer require recras/recras-wordpress-plugin` in your terminal
-1. The plugin will automatically be installed in the `/wp-content/plugins/` directory by using Composer Installers
-1. Activate the plugin through the 'Plugins' menu in WordPress
-
 ## Support
 
 We would appreciate it if you use [our GitHub page](https://github.com/Recras/recras-wordpress-plugin/issues) for bug reports, pull requests and general questions. If you do not have a GitHub account, you can use the Support forum on wordpress.org.
