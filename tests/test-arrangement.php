@@ -121,14 +121,14 @@ class ArrangementTest extends WordPressUnitTestCase
     function testGetArrangements(): void
     {
         $plugin = new Arrangement();
-        $arrangements = $plugin->getPackages('demo');
+        $arrangements = $plugin->getPackages('demo.recras.nl');
         $this->assertGreaterThan(0, count($arrangements), 'getArrangements should return a non-empty array');
     }
 
     function testGetOnlineArrangements(): void
     {
         $plugin = new Arrangement();
-        $packages = $plugin->getPackages('demo', true, false);
+        $packages = $plugin->getPackages('demo.recras.nl', true, false);
         $this->assertTrue(is_array($packages));
         $packagesOnline = array_filter($packages, function($p) {
             return $p->mag_online;
@@ -138,15 +138,31 @@ class ArrangementTest extends WordPressUnitTestCase
 
     function testGetFormArrangementsInvalidForm(): void
     {
+        // The API responds with an error object for a non-existing contact form
+        $filter = function () {
+            return [
+                'headers' => [],
+                'body' => json_encode(['error' => 404, 'message' => 'Contact form not found']),
+                'response' => ['code' => 404, 'message' => 'Not Found'],
+                'cookies' => [],
+                'filename' => null,
+            ];
+        };
+        add_filter('pre_http_request', $filter);
         $plugin = new Arrangement();
-        $arrangements = $plugin->getPackagesForContactForm('demo', 1337);
-        $this->assertTrue(is_string($arrangements), 'Non-existing contact form should return an error message');
+        try {
+            $this->expectException(Exception\RecrasException::class);
+            $this->expectExceptionMessage('Contact form not found');
+            $plugin->getPackagesForContactForm('demo.recras.nl', 1337, false);
+        } finally {
+            remove_filter('pre_http_request', $filter);
+        }
     }
 
     function testGetFormArrangements(): void
     {
         $plugin = new Arrangement();
-        $arrangements = $plugin->getPackagesForContactForm('demo', 1);
+        $arrangements = $plugin->getPackagesForContactForm('demo.recras.nl', 5, false);
         $this->assertGreaterThan(0, count($arrangements), 'Existing contact form should return a non-empty array');
     }
 
