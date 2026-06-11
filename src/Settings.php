@@ -87,10 +87,17 @@ class Settings
         printf('<input type="text" name="%s" id="%s" value="%s" placeholder="demo.recras.nl">', esc_html($recras_field), esc_html($recras_field), esc_html($recras_value));
         $arr = wp_remote_get('https://' . $recras_value . '/');
         if ($arr instanceof \WP_Error) {
-            self::infoText(__('Instance not found!', 'recras'), 'recrasAdminError');
+            self::infoText(
+                sprintf(
+                    /* translators: Error message */
+                    __('Could not connect to your Recras: %s', 'recras'),
+                    esc_html($arr->get_error_message())
+                ),
+                'recrasAdminError'
+            );
         } elseif (is_array($arr) && isset($arr['http_response']) && $arr['http_response'] instanceof \WP_HTTP_Requests_Response) {
             if ($arr['http_response']->get_status() === 404) {
-                self::infoText(__('Error fetching instance!', 'recras'), 'recrasAdminError');
+                self::infoText(__('Instance not found!', 'recras'), 'recrasAdminError');
             }
         }
     }
