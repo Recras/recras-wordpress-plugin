@@ -6,10 +6,18 @@ if (!$recras_instance) {
 }
 
 $recras_packages_model = new \Recras\Arrangement();
-$recras_packages = $recras_packages_model->getPackages($recras_instance);
+try {
+    $recras_packages = $recras_packages_model->getPackages($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_packages = $e->getMessage();
+}
 
 $recras_forms_model = new \Recras\ContactForm();
-$recras_forms = $recras_forms_model->getForms($recras_instance);
+try {
+    $recras_forms = $recras_forms_model->getForms($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_forms = $e->getMessage();
+}
 ?>
 <dl>
     <dt><label for="contactform_id"><?php esc_html_e('Contact form', 'recras'); ?></label>

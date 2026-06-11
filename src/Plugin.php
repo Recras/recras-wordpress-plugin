@@ -147,7 +147,7 @@ class Plugin
         if ($setting === false) {
             try {
                 $setting = Http::get($instance, 'instellingen/allow_online_package_booking');
-            } catch (\Exception $e) {
+            } catch (Exception\RecrasException $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
@@ -159,7 +159,7 @@ class Plugin
         if ($setting === false) {
             try {
                 $setting = Http::get($instance, 'instellingen/allow_old_vouchers_sales');
-            } catch (\Exception $e) {
+            } catch (Exception\RecrasException $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {
@@ -171,7 +171,7 @@ class Plugin
         if ($setting === false) {
             try {
                 $setting = Http::get($instance, 'instellingen/allow_old_contact_forms');
-            } catch (\Exception $e) {
+            } catch (Exception\RecrasException $e) {
                 return;
             }
             if (is_object($setting) && property_exists($setting, 'waarde')) {

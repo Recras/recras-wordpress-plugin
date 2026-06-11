@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_vts_model = new \Recras\Vouchers();
-$recras_vts = $recras_vts_model->getTemplates($recras_instance);
+try {
+    $recras_vts = $recras_vts_model->getTemplates($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_vts = $e->getMessage();
+}
 ?>
 
 <dl>

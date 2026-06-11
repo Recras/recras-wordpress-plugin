@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_packages_model = new \Recras\Arrangement();
-$recras_packages = $recras_packages_model->getPackages($recras_instance, true);
+try {
+    $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_packages = $e->getMessage();
+}
 ?>
 <dl>
     <dt><label><?php esc_html_e('Integration method', 'recras'); ?></label>
@@ -33,12 +37,16 @@ $recras_packages = $recras_packages_model->getPackages($recras_instance, true);
     <dt id="pack_sel_label">
         <label for="package_selection"><?php esc_html_e('Package selection', 'recras'); ?></label>
     <dd id="pack_sel_input">
+        <?php if (is_string($recras_packages)) { ?>
+            <?= esc_html($recras_packages); ?>
+        <?php } else { ?>
         <?php unset($recras_packages[0]); ?>
         <select multiple id="package_selection">
             <?php foreach ($recras_packages as $recras_package_id => $recras_package) { ?>
             <option value="<?= esc_html($recras_package_id); ?>"><?= esc_html($recras_package->arrangement); ?>
             <?php } ?>
         </select>
+        <?php } ?>
         <p class="recras-notice">
             <?php
             esc_html_e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', 'recras');

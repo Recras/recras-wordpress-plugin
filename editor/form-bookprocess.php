@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_bp_model = new \Recras\Bookprocess();
-$recras_bps = $recras_bp_model->getProcesses($recras_instance);
+try {
+    $recras_bps = $recras_bp_model->getProcesses($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_bps = $e->getMessage();
+}
 ?>
 <style id="bookprocess_style">
     .recras-hidden-input { display: none; }

@@ -32,17 +32,14 @@ class Bookprocess
     /**
      * Get book processes for a Recras instance
      *
-     * @return array|string
+     * @throws Exception\RecrasException
      */
-    public static function getProcesses(string $instance)
+    public static function getProcesses(string $instance): array
     {
         $json = Transient::get($instance . '_bookprocesses_v2');
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'bookprocesses/book');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'bookprocesses/book');
             Transient::set($instance . '_bookprocesses_v2', $json);
         }
 
@@ -60,7 +57,11 @@ class Bookprocess
     {
         $instance = Settings::getInstance();
         $fmt = [];
-        $processes = self::getProcesses($instance);
+        try {
+            $processes = self::getProcesses($instance);
+        } catch (Exception\RecrasException $e) {
+            return [];
+        }
         foreach ($processes as $id => $process) {
             $fmt[$id] = $process->name;
         }
@@ -91,11 +92,11 @@ class Bookprocess
             return __('Error: ID is not a number', 'recras');
         }
 
-        $processes = self::getProcesses($instance);
-        if (is_string($processes)) {
-            // Not a form, but an error
+        try {
+            $processes = self::getProcesses($instance);
+        } catch (Exception\RecrasException $e) {
             /* translators: Error message */
-            return sprintf(__('Error: %s', 'recras'), $processes);
+            return sprintf(__('Error: %s', 'recras'), $e->getMessage());
         }
 
         if (!isset($processes[$attributes['id']])) {

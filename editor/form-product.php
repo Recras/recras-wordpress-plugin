@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_products_model = new \Recras\Products();
-$recras_products = $recras_products_model->getProducts($recras_instance);
+try {
+    $recras_products = $recras_products_model->getProducts($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_products = $e->getMessage();
+}
 ?>
 
 <dl>

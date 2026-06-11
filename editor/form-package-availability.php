@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_package_model = new \Recras\Arrangement();
-$recras_packages = $recras_package_model->getPackages($recras_instance);
+try {
+    $recras_packages = $recras_package_model->getPackages($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_packages = $e->getMessage();
+}
 ?>
 
 <dl>
