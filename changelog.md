@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix crash when your recras could not be reached
+
 ## 6.5.5 (2026-04-07)
 * Fix error when data could not be retrieved from your recras
 

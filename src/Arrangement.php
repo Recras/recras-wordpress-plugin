@@ -361,11 +361,9 @@ class Arrangement
 
 
     /**
-     * @return \stdClass|null
-     *
      * @throws Exception\RecrasException
      */
-    public static function getPackage(string $instance, int $id)
+    public static function getPackage(string $instance, int $id): ?\stdClass
     {
         $json = Transient::get($instance . '_arrangement_' . $id);
         if ($json === false || is_string($json)) {

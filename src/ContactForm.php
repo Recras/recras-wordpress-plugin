@@ -21,11 +21,9 @@ class ContactForm
     /**
      * Get a single contact form
      *
-     * @return \stdClass
-     *
      * @throws Exception\RecrasException
      */
-    public static function getForm(string $instance, int $id, bool $useCache = true)
+    public static function getForm(string $instance, int $id, bool $useCache = true): \stdClass
     {
         $form = Transient::get($instance . '_contactform_' . $id . '_v2');
         if ($form === false || !$useCache || is_string($form)) {
