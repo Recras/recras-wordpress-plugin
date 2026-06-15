@@ -8,10 +8,8 @@ class Products
 
     /**
      * Add the [recras-product] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderProduct($attributes): string
+    public static function renderProduct(array|string $attributes): string
     {
         if (is_string($attributes)) {
             $attributes = [];

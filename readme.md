@@ -1,6 +1,6 @@
 # Recras WordPress plugin
 
-[![Minimum PHP Version](https://img.shields.io/badge/php->%3D%207.4-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php->%3D%208.0-8892BF.svg)](https://php.net/)
 
 Easily integrate data from your Recras instance, such as packages and contact forms, into your own website.
 
@@ -50,12 +50,6 @@ Easy installation (preferred):
 Self install:
 
 1. Upload the `recras-wordpress-plugin` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-
-Using Composer:
-
-1. Type `composer require recras/recras-wordpress-plugin` in your terminal
-1. The plugin will automatically be installed in the `/wp-content/plugins/` directory by using Composer Installers
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 ## Support

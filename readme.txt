@@ -49,12 +49,6 @@ You can enable basic Google Analytics integration for the booking of packages an
 1. Upload the `recras-wordpress-plugin` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-**Using Composer**
-
-1. Type `composer require recras/recras-wordpress-plugin` in your terminal
-1. The plugin will automatically be installed in the `/wp-content/plugins/` directory by using Composer Installers
-1. Activate the plugin through the 'Plugins' menu in WordPress
-
 == Frequently Asked Questions ==
 
 = Do you support Elementor, WPBakery/Visual Composer, Brizy, etc. ? =

@@ -8,10 +8,8 @@ class Arrangement
 
     /**
      * Add the [recras-package] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderPackage($attributes): string
+    public static function renderPackage(array|string $attributes): string
     {
         if (is_string($attributes)) {
             $attributes = [];

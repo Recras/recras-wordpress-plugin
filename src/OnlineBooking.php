@@ -7,10 +7,8 @@ class OnlineBooking
 
     /**
      * Add the [recras-booking] shortcode
-     *
-     * @param array|string $attributes
      */
-    public static function renderOnlineBooking($attributes): string
+    public static function renderOnlineBooking(array|string $attributes): string
     {
         if (!Settings::allowOnlinePackageBooking()) {
             error_log('Online booking of packages is integrated on your website, but is disabled in your Recras');
