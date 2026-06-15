@@ -33,7 +33,11 @@ class Arrangement
             return Plugin::noInstanceError();
         }
 
-        $json = self::getPackage($instance, $attributes['id']);
+        try {
+            $json = self::getPackage($instance, $attributes['id']);
+        } catch (Exception\RecrasException $e) {
+            return $e->getMessage();
+        }
         if (isset($json->error, $json->message)) {
             /* translators: Error message */
             return sprintf(__('Error: %s', 'recras'), $json->message);
@@ -100,8 +104,14 @@ class Arrangement
         $instance = Settings::getInstance();
         $errors = 0;
 
-        $packages = array_keys(self::getPackages($instance));
-        foreach ($packages as $id) {
+        try {
+            $packages = self::getPackages($instance);
+        } catch (Exception\RecrasException $e) {
+            // We could not enumerate the packages, so we cannot clear their transients; count as an error
+            $packages = [];
+            ++$errors;
+        }
+        foreach (array_keys($packages) as $id) {
             $name = $instance . '_arrangement_' . $id;
             if (Transient::get($name)) {
                 $errors += Transient::delete($name);
@@ -234,17 +244,14 @@ class Arrangement
     /**
      * Get packages from the Recras API
      *
-     * @return array|string
+     * @throws Exception\RecrasException
      */
-    public static function getPackages(string $instance, bool $onlyOnline = false, bool $includeEmpty = true)
+    public static function getPackages(string $instance, bool $onlyOnline = false, bool $includeEmpty = true): array
     {
         $json = Transient::get($instance . '_arrangements');
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'arrangementen');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'arrangementen');
             Transient::set($instance . '_arrangements', $json);
         }
 
@@ -268,16 +275,11 @@ class Arrangement
     /**
      * Get packages for a certain contact form from the Recras API
      *
-     * @return array|string
+     * @throws Exception\RecrasException
      */
-    public function getPackagesForContactForm(string $instance, int $contactformID, bool $includeEmpty)
+    public function getPackagesForContactForm(string $instance, int $contactformID, bool $includeEmpty): array
     {
         $form = ContactForm::getForm($instance, $contactformID);
-        if (is_string($form)) {
-            // Not a form, but an error
-            /* translators: Error message */
-            return sprintf(__('Error: %s', 'recras'), $form);
-        }
 
         $packages = [];
         if ($includeEmpty) {
@@ -359,17 +361,16 @@ class Arrangement
 
 
     /**
-     * @return object|string
+     * @return \stdClass|null
+     *
+     * @throws Exception\RecrasException
      */
     public static function getPackage(string $instance, int $id)
     {
         $json = Transient::get($instance . '_arrangement_' . $id);
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'arrangementen/' . $id);
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'arrangementen/' . $id);
             Transient::set($instance . '_arrangement_' . $id, $json);
         }
         return $json;

@@ -136,34 +136,59 @@ class Gutenberg
     {
         $instance = \Recras\Settings::getInstance();
         $model = new Bookprocess();
-        return $model->getProcesses($instance);
+        try {
+            return $model->getProcesses($instance);
+        } catch (Exception\RecrasException $e) {
+            return self::unreachableError($e);
+        }
     }
 
     public static function getContactForms()
     {
         $instance = \Recras\Settings::getInstance();
         $model = new ContactForm();
-        return $model->getForms($instance);
+        try {
+            return $model->getForms($instance);
+        } catch (Exception\RecrasException $e) {
+            return self::unreachableError($e);
+        }
     }
 
     public static function getPackages()
     {
         $instance = \Recras\Settings::getInstance();
         $model = new Arrangement();
-        return $model->getPackages($instance, false, false);
+        try {
+            return $model->getPackages($instance, false, false);
+        } catch (Exception\RecrasException $e) {
+            return self::unreachableError($e);
+        }
     }
 
     public static function getProducts()
     {
         $instance = \Recras\Settings::getInstance();
         $model = new Products();
-        return $model->getProducts($instance);
+        try {
+            return $model->getProducts($instance);
+        } catch (Exception\RecrasException $e) {
+            return self::unreachableError($e);
+        }
     }
 
     public static function getVouchers()
     {
         $instance = \Recras\Settings::getInstance();
         $model = new Vouchers();
-        return $model->getTemplates($instance);
+        try {
+            return $model->getTemplates($instance);
+        } catch (Exception\RecrasException $e) {
+            return self::unreachableError($e);
+        }
+    }
+
+    private static function unreachableError(Exception\RecrasException $e): \WP_Error
+    {
+        return new \WP_Error('recras_api_error', $e->getMessage(), ['status' => 502]);
     }
 }

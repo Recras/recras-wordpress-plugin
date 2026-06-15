@@ -21,19 +21,18 @@ class ContactForm
     /**
      * Get a single contact form
      *
-     * @return object|string
+     * @return \stdClass
+     *
+     * @throws Exception\RecrasException
      */
     public static function getForm(string $instance, int $id, bool $useCache = true)
     {
         $form = Transient::get($instance . '_contactform_' . $id . '_v2');
-        if ($form === false || !$useCache) {
-            try {
-                $form = Http::get($instance, 'contactformulieren/' . $id . '?embed=Velden');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($form === false || !$useCache || is_string($form)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $form = Http::get($instance, 'contactformulieren/' . $id . '?embed=Velden');
             if (isset($form->error, $form->message)) {
-                return $form->message;
+                throw new Exception\RecrasException($form->message);
             }
             Transient::set($instance . '_contactform_' . $id . '_v2', $form);
         }
@@ -69,11 +68,11 @@ class ContactForm
         }
 
         // Get basic info for the form
-        $form = self::getForm($instance, $attributes['id'], false);
-        if (is_string($form)) {
-            // Not a form, but an error
+        try {
+            $form = self::getForm($instance, $attributes['id'], false);
+        } catch (Exception\RecrasException $e) {
             /* translators: Error message */
-            return sprintf(__('Error: %s', 'recras'), $form);
+            return sprintf(__('Error: %s', 'recras'), $e->getMessage());
         }
 
         if (!property_exists($form, 'naam') || !property_exists($form, 'Velden')) {
@@ -156,8 +155,14 @@ class ContactForm
         $instance = \Recras\Settings::getInstance();
         $errors = 0;
 
-        $forms = array_keys(self::getForms($instance));
-        foreach ($forms as $id) {
+        try {
+            $forms = self::getForms($instance);
+        } catch (Exception\RecrasException $e) {
+            // We could not enumerate the forms, so we cannot clear their transients; count as an error
+            $forms = [];
+            ++$errors;
+        }
+        foreach (array_keys($forms) as $id) {
             $errors += self::deleteTransients($instance, $id);
         }
         if (Transient::get($instance . '_contactforms')) {
@@ -239,7 +244,12 @@ class ContactForm
                     // So we show only packages that are valid for this form.
                     if (empty($arrangementen)) {
                         $classArrangement = new Arrangement();
-                        $arrangementen = $classArrangement->getPackagesForContactForm($options['instance'], $formID, !$field->verplicht);
+                        try {
+                            $arrangementen = $classArrangement->getPackagesForContactForm($options['instance'], $formID, !$field->verplicht);
+                        } catch (Exception\RecrasException $e) {
+                            /* translators: Error message */
+                            return sprintf(__('Error: %s', 'recras'), $e->getMessage());
+                        }
                     }
 
                     if (isset($options['arrangement']) && isset($arrangementen[$options['arrangement']]) && $options['arrangement'] !== 0) {
@@ -646,17 +656,14 @@ if (document.readyState === "loading") {
     /**
      * Get forms for a Recras instance
      *
-     * @return array|string
+     * @throws Exception\RecrasException
      */
-    public static function getForms(string $instance)
+    public static function getForms(string $instance): array
     {
         $json = Transient::get($instance . '_contactforms');
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'contactformulieren');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'contactformulieren');
             Transient::set($instance . '_contactforms', $json);
         }
 

@@ -1,7 +1,7 @@
 <?php
 namespace Recras\Exception;
 
-class UrlException extends \Exception
+class UrlException extends RecrasException
 {
 
 }

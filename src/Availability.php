@@ -30,7 +30,11 @@ class Availability
         $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
 
         // We don't need this data, but it's useful to check if the package actually exists
-        Arrangement::getPackage($instance, $attributes['id']);
+        try {
+            Arrangement::getPackage($instance, $attributes['id']);
+        } catch (Exception\RecrasException $e) {
+            // The calendar below is loaded by the visitor's browser, so it might still work
+        }
 
         $url = 'https://' . $instance . '/api/arrangementbeschikbaarheid/id/' . $attributes['id'];
         $iframeUID = uniqid('rpai'); // Recras Package Availability Iframe

@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_vouchers_model = new \Recras\Vouchers();
-$recras_voucher_templates = $recras_vouchers_model->getTemplates($recras_instance);
+try {
+    $recras_voucher_templates = $recras_vouchers_model->getTemplates($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_voucher_templates = $e->getMessage();
+}
 ?>
 
 <dl>

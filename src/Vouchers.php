@@ -31,7 +31,11 @@ class Vouchers
         }
 
         $model = new Vouchers();
-        $templates = $model->getTemplates($instance);
+        try {
+            $templates = $model->getTemplates($instance);
+        } catch (Exception\RecrasException $e) {
+            return $e->getMessage();
+        }
 
         if (!isset($templates[$attributes['id']])) {
             return __('Error: template does not exist', 'recras');
@@ -137,17 +141,14 @@ class Vouchers
 
 
     /**
-     * @return array|string
+     * @throws Exception\RecrasException
      */
     public function getTemplates(string $instance): array
     {
         $json = Transient::get($instance . '_voucher_templates');
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'voucher_templates');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'voucher_templates');
             Transient::set($instance . '_voucher_templates', $json);
         }
 

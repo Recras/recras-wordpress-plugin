@@ -6,7 +6,11 @@ if (!$recras_instance) {
 }
 
 $recras_packages_model = new \Recras\Arrangement();
-$recras_packages = $recras_packages_model->getPackages($recras_instance);
+try {
+    $recras_packages = $recras_packages_model->getPackages($recras_instance);
+} catch (\Recras\Exception\RecrasException $e) {
+    $recras_packages = $e->getMessage();
+}
 ?>
 <style id="arrangement_style">
     .programme-only { display: none; }

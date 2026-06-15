@@ -33,7 +33,11 @@ class Products
             return Plugin::noInstanceError();
         }
 
-        $products = self::getProducts($instance);
+        try {
+            $products = self::getProducts($instance);
+        } catch (Exception\RecrasException $e) {
+            return $e->getMessage();
+        }
         if (!isset($products[$attributes['id']])) {
             return __('Error: product does not exist', 'recras');
         }
@@ -118,17 +122,14 @@ class Products
     /**
      * Get products from the Recras API
      *
-     * @return array|string
+     * @throws Exception\RecrasException
      */
-    public static function getProducts(string $instance)
+    public static function getProducts(string $instance): array
     {
         $json = Transient::get($instance . '_products');
-        if ($json === false) {
-            try {
-                $json = Http::get($instance, 'producten');
-            } catch (\Exception $e) {
-                return $e->getMessage();
-            }
+        if ($json === false || is_string($json)) {
+            // A string can only be an error message cached by an older plugin version; treat it as a cache miss
+            $json = Http::get($instance, 'producten');
 
             Transient::set($instance . '_products', $json);
         }

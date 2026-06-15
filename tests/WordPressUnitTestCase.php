@@ -3,14 +3,6 @@ namespace Recras;
 
 class WordPressUnitTestCase extends \WP_UnitTestCase
 {
-    public function setUp(): void
-    {
-        $transient = $this->createMock(Transient::class);
-        $transient->method('delete')->willReturn(0); // 0 indicates no error
-        $transient->method('set')->willReturn(true);
-        $transient->method('get')->will($this->returnCallback([&$this, 'transientGetCallback']));
-    }
-
     public function createPostAndGetContent(string $content): string
     {
         $post = $this->factory->post->create_and_get([
