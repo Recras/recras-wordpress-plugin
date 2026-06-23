@@ -2116,7 +2116,7 @@
         "ext-ctype": "*",
         "ext-curl": "*",
         "ext-json": "*",
-        "php": ">=7.4"
+        "php": ">=8.0"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
