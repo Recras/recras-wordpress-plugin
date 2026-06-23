@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 7.0
-Stable tag: 6.5.5
+Stable tag: 6.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 6.5.6 =
+* Fix crash when your recras could not be reached
+* Plugin now requires PHP 8.0 or higher
 
 = 6.5.5 =
 * Fix error when data could not be retrieved from your recras

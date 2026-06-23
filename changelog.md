@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 6.5.6 (2026-06-23)
 * Fix crash when your recras could not be reached
 * Plugin now requires PHP 8.0 or higher
 
