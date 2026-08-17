@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.5.8 (2026-08-17)
+* Updated "Tested up to" version to 7.1
+* Plugin now requires WP 6.9 or higher
+
 ## 6.5.7 (2026-06-23)
 * Fix incompatible requirements
 

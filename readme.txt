@@ -1,8 +1,8 @@
 === Recras ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Tested up to: 7.0
-Stable tag: 6.5.7
+Tested up to: 7.1
+Stable tag: 6.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 6.5.8 =
+* Updated "Tested up to" version to 7.1
+* Plugin now requires WP 6.9 or higher
+
 = 6.5.7 =
 * Fix incompatible requirements
 
@@ -96,28 +100,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 = 6.5.0 =
 * Add anti-spam check to contact forms
-
-= 6.4.3 =
-* Fixed error when using an invalid Recras domain
-* Updated translations
-
-= 6.4.2 =
-* Update "Fix book process datepicker styling" styles to latest version
-* Fixed some WP compliance issues
-
-= 6.4.1 =
-* Don't load old script when it's not needed
-* Updated "Tested up to" version to 6.9
-* Update "Fix book process datepicker styling" styles to latest version
-
-= 6.4.0 =
-* Instead of entering your Recras subdomain in the settings, you must now enter the full URL. This is done since Recras members from now on get a subdomain at recras.com instead of recras.nl.
-* Plugin now requires WP 6.7 or higher
-
-= 6.3 (highlights) =
-* Update "Fix book process datepicker styling" styles to latest version
-* Several technical updates
-* Several small fixes
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
