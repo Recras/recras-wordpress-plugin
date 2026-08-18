@@ -7,6 +7,7 @@ registerGutenbergBlock('recras/bookprocess', {
         attributes: {
             id: null,
             initial_widget_value: null,
+            voucher_quantity: null,
             hide_first_widget: false,
         },
     },
@@ -14,6 +15,7 @@ registerGutenbergBlock('recras/bookprocess', {
     attributes: {
         id: recrasHelper.typeString(),
         initial_widget_value: recrasHelper.typeString(),
+        voucher_quantity: recrasHelper.typeString(),
         hide_first_widget: recrasHelper.typeBoolean(false),
     },
 
@@ -29,6 +31,7 @@ registerGutenbergBlock('recras/bookprocess', {
         let {
             id,
             initial_widget_value,
+            voucher_quantity,
             hide_first_widget,
         } = props.attributes;
         const {
@@ -59,6 +62,7 @@ registerGutenbergBlock('recras/bookprocess', {
                 props.setAttributes({
                     id: newVal,
                     initial_widget_value: null,
+                    voucher_quantity: null,
                 });
             },
             options: bpSorted,
@@ -76,11 +80,19 @@ registerGutenbergBlock('recras/bookprocess', {
 
         if (id) {
             const firstWidgetType = bookprocesses[id]?.firstWidget;
-            const firstWidgetMayBePrefilled = ['package'].includes(firstWidgetType);
+            const firstWidgetMayBePrefilled = ['package', 'voucher'].includes(firstWidgetType);
             if (firstWidgetMayBePrefilled) {
-                const placeHolderText = (firstWidgetType === 'package')
-                    ? wp.i18n.__('Enter package ID. Leave empty to not prefill.', TEXT_DOMAIN)
-                    : wp.i18n.__('Enter date in YYYY-MM-DD format. Leave empty to not prefill.', TEXT_DOMAIN);
+                let labelText;
+                let placeHolderText;
+
+                if (firstWidgetType === 'package') {
+                    labelText = wp.i18n.__('Prefill package in first widget? (optional)', TEXT_DOMAIN)
+                    placeHolderText = wp.i18n.__('Enter package ID. Leave empty to not prefill.', TEXT_DOMAIN);
+                } else {
+                    labelText = wp.i18n.__('Prefill voucher template in first widget? (optional)', TEXT_DOMAIN)
+                    placeHolderText = wp.i18n.__('Enter voucher template ID. Leave empty to not prefill.', TEXT_DOMAIN);
+                }
+
                 const optionsFirstWidgetValueControl = {
                     locale: dateSettings.l10n.locale,
                     value: initial_widget_value,
@@ -90,9 +102,26 @@ registerGutenbergBlock('recras/bookprocess', {
                         });
                     },
                     placeholder: placeHolderText,
-                    label: wp.i18n.__('Prefill value for first widget? (optional)', TEXT_DOMAIN),
+                    label: labelText,
                 };
                 retval.push(createEl(compTextControl, optionsFirstWidgetValueControl));
+
+                if (initial_widget_value && firstWidgetType === 'voucher') {
+                    const optionsVoucherQuantityControl = {
+                        locale: dateSettings.l10n.locale,
+                        type: 'number',
+                        min: 1,
+                        value: voucher_quantity,
+                        onChange: function(newVal) {
+                            props.setAttributes({
+                                voucher_quantity: newVal
+                            });
+                        },
+                        placeholder: wp.i18n.__('Enter quantity', TEXT_DOMAIN),
+                        label: wp.i18n.__('Enter quantity', TEXT_DOMAIN),
+                    };
+                    retval.push(createEl(compTextControl, optionsVoucherQuantityControl));
+                }
 
                 if (initial_widget_value) {
                     const optionsHideFirstWidgetControl = {
