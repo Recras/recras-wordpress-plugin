@@ -55,7 +55,10 @@ class Bookprocess extends \Elementor\Widget_Base
             $bps = [];
         }
         $bpsWithAcceptedFirstWidget = array_filter($bps, function ($bp) {
-            return in_array($bp->firstWidget, ['package']);
+            return in_array($bp->firstWidget, ['package', 'voucher']);
+        });
+        $voucherBPs = array_filter($bps, function ($bp) {
+            return in_array($bp->firstWidget, ['voucher']);
         });
 
         $this->add_control(
@@ -67,6 +70,18 @@ class Bookprocess extends \Elementor\Widget_Base
                     'bp_id' => array_map(function ($id) {
                         return (string) $id;
                     }, array_keys($bpsWithAcceptedFirstWidget)),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'voucher_quantity',
+            [
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label' => __('Enter quantity', 'recras'),
+                'condition' => [
+                    'bp_id' => array_map(fn($id) => (string) $id, array_keys($voucherBPs)),
+                    'initial_widget_value!' => '',
                 ],
             ]
         );
@@ -143,6 +158,7 @@ class Bookprocess extends \Elementor\Widget_Base
         $shortcode  = '[' . \Recras\Bookprocess::SHORTCODE;
         $shortcode .= ' id="' . $settings['bp_id'] . '"';
         $shortcode .= ' initial_widget_value="' . $settings['initial_widget_value'] . '"';
+        $shortcode .= ' voucher_quantity="' . $settings['voucher_quantity'] . '"';
         $shortcode .= ' hide_first_widget="' . $settings['hide_first_widget'] . '"';
         $shortcode .= ']';
         echo do_shortcode($shortcode);
