@@ -105,6 +105,9 @@ class Bookprocess
         $extraCSS = '';
         if (isset($attributes['initial_widget_value'])) {
             $initialWidgetValueHtml = ' data-first-widget-value="' . $attributes['initial_widget_value'] . '"';
+            if (isset($attributes['voucher_quantity'])) {
+                $initialWidgetValueHtml .= ' data-first-widget-quantity="' . $attributes['voucher_quantity'] . '"';
+            }
             if (isset($attributes['hide_first_widget']) && Settings::parseBoolean($attributes['hide_first_widget'])) {
                 $extraCSS = '<style>.bookprocess[data-id="' . $attributes['id'] . '"] .has-initial-value { display: none; }</style>';
             }
