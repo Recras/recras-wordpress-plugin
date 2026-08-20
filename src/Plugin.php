@@ -364,7 +364,6 @@ class Plugin
         delete_option('recras_fix_react_datepicker');
         delete_option('recras_decimal');
         delete_option('recras_enable_analytics');
-        delete_option('recras_subdomain'); // Legacy since 2025-09
         delete_option('recras_domain');
         delete_option('recras_theme');
     }

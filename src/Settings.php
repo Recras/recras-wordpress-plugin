@@ -269,13 +269,6 @@ class Settings
         if ($domain) {
             return $domain;
         }
-        // Legacy option
-        $subdomain = get_option('recras_subdomain');
-        if ($subdomain) {
-            $domain = $subdomain . '.recras.nl';
-            update_option('recras_domain', $domain);
-            return $domain;
-        }
         return '';
     }
 
@@ -348,17 +341,6 @@ class Settings
 
     public static function maybeUpdateSettings(): void
     {
-        // 6.4.0 : Subdomains were replaced with instance names (i.e. demo -> demo.recras.nl)
-        $domain = get_option('recras_domain');
-        if ($domain) {
-            return;
-        }
-
-        $subdomain = get_option('recras_subdomain');
-        if ($subdomain) {
-            update_option('recras_domain', $subdomain . '.recras.nl');
-            delete_option('recras_subdomain');
-        }
     }
 
     /**
@@ -366,7 +348,6 @@ class Settings
      */
     public static function registerSettings(): void
     {
-        self::registerSetting('recras_subdomain', 'demo'); // Legacy since 2025-09
         self::registerSetting('recras_domain', 'demo.recras.nl', 'string', [__CLASS__, 'sanitizeDomain']);
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
