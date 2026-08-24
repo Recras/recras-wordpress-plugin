@@ -31,7 +31,14 @@ try {
     <dt class="first-widget-only recras-hidden-input">
         <label><?php esc_html_e('Initial value for first widget', 'recras'); ?></label>
         <dd class="first-widget-only recras-hidden-input">
-            <input id="first_widget_value_package" type="number" min="1" step="1">
+            <input id="first_widget_value" type="number" min="1" step="1">
+            <p class="recras-notice">
+                <?php esc_html_e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', 'recras'); ?>
+            </p>
+    <dt class="first-widget-only recras-hidden-input">
+        <label><?php esc_html_e('Initial quantity for voucher template', 'recras'); ?></label>
+        <dd class="first-widget-only recras-hidden-input">
+            <input id="voucher_quantity" type="number" min="1" step="1">
             <p class="recras-notice">
                 <?php esc_html_e('Please note that no validation on this value is performed. Invalid values may be ignored or may stop the book process from working properly.', 'recras'); ?>
             </p>
@@ -44,7 +51,8 @@ try {
 
 <script>
     function bpIdChange () {
-        const elPackage = document.getElementById('first_widget_value_package');
+        const elFirstWidgetId = document.getElementById('first_widget_value');
+        const elVoucherQuantity = document.getElementById('voucher_quantity');
         const elId = document.getElementById('bookprocess_id');
         <?php
         if (is_array($recras_bps)) {
@@ -69,7 +77,12 @@ try {
             switch (bookprocesses[elId.value].firstWidget) {
                 case 'package':
                     showToggleEls();
-                    elPackage.style.display = 'inline-block';
+                    elFirstWidgetId.style.display = 'inline-block';
+                    break;
+                case 'voucher':
+                    showToggleEls();
+                    elFirstWidgetId.style.display = 'inline-block';
+                    elVoucherQuantity.style.display = 'inline-block';
                     break;
                 default:
                     hideToggleEls();
@@ -83,16 +96,18 @@ try {
     bpIdChange();
 
     document.getElementById('bp_submit').addEventListener('click', function() {
-        const elPackage = document.getElementById('first_widget_value_package');
+        const elFirstWidgetId = document.getElementById('first_widget_value');
+        const elVoucherQuantity = document.getElementById('voucher_quantity');
 
         let shortcode = '[<?= esc_js(\Recras\Bookprocess::SHORTCODE); ?> id="' + document.getElementById('bookprocess_id').value + '"';
 
-        let initialValue;
-        if (elPackage && elPackage.value) {
-            initialValue = elPackage.value;
-        }
-        if (initialValue) {
-            shortcode += ' initial_widget_value="' + initialValue + '"';
+        if (elFirstWidgetId && elFirstWidgetId.value) {
+            shortcode += ' initial_widget_value="' + elFirstWidgetId.value + '"';
+
+            if (elVoucherQuantity && elVoucherQuantity.value) {
+                shortcode += ' voucher_quantity="' + elVoucherQuantity.value + '"';
+            }
+
             if (document.getElementById('hide_first_widget').checked) {
                 shortcode += ' hide_first_widget="yes"';
             }
