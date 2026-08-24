@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2026-xx-xx)
+## 6.6.0 (2026-08-24)
 * Allow pre-filling voucher template & quantity in voucher sales book processes
 
 ## 6.5.8 (2026-08-17)
