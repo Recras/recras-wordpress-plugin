@@ -54,9 +54,14 @@
 <hr>
 <h2><?php esc_html_e('Book processes', 'recras'); ?></h2>
 <p>Book processes can be added using the Recras/Book process block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-editor-ul"></span> icon in the Classic Editor.</p>
-<p>The following option is available:</p>
+<p>The following option is always available:</p>
 <ol class="recrasOptionsList">
     <li>Book process - <strong>required</strong> what process to use
+</ol>
+<p>Depending on the first widget in the book process, other options may be available:</p>
+<ol class="recrasOptionsList">
+    <li>When the first widget is "Package selection", it is possible to pre-fill a package. For this, you need to enter the ID of the package, which you can find as the first column on the packages list in your Recras. When you've done this, it will also be possible to hide this first widget.
+    <li>When the first widget is "Voucher", it is possible to pre-fill a voucher template and quantity. You will need to enter the ID of the voucher template, which you can find in the address bar of your browser when editing a voucher template. (i.e. if it says <code>https://<?= \Recras\Settings::getInstance(); ?>/v2/vouchertemplates/42</code> you will need to enter <kbd>42</kbd> here). When you've chosen a voucher template, it will also be possible to pre-fill a quantity and hide this widget.
 </ol>
 
 

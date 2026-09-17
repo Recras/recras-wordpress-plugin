@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.6.1 (2026-09-17)
+* Add pre-filling of the first widget of a book process to the documentation
+
 ## 6.6.0 (2026-08-24)
 * Allow pre-filling voucher template & quantity in voucher sales book processes
 
