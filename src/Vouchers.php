@@ -19,7 +19,7 @@ class Vouchers
         if (empty($attributes['id'])) {
             return __('Error: no ID set', 'recras');
         }
-        if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
+        if (isset($attributes['id']) && !is_int($attributes['id']) && !ctype_digit($attributes['id'])) {
             return __('Error: ID is not a number', 'recras');
         }
 
@@ -74,7 +74,7 @@ class Vouchers
             $attributes = [];
         }
 
-        if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
+        if (isset($attributes['id']) && !is_int($attributes['id']) && !ctype_digit($attributes['id'])) {
             return __('Error: ID is not a number', 'recras');
         }
 

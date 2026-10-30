@@ -54,7 +54,7 @@ class ContactForm
         if (empty($attributes['id'])) {
             return __('Error: no ID set', 'recras');
         }
-        if (!ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
+        if (!is_int($attributes['id']) && !ctype_digit($attributes['id'])) {
             return __('Error: ID is not a number', 'recras');
         }
 
