@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.6.3 (2026-10-30)
+* Fixed a few bugs
+
+## 6.6.2 (2026-10-30)
+* Not released due to a publishing error
+
 ## 6.6.1 (2026-09-17)
 * Add pre-filling of the first widget of a book process to the documentation
 
