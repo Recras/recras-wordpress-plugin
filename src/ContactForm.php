@@ -211,7 +211,7 @@ class ContactForm
     /**
      * Generate a contact form
      */
-    public static function generateForm(int $formID, array $formFields, ?string $nonce = null, array $options): string
+    public static function generateForm(int $formID, array $formFields, ?string $nonce = null, array $options = []): string
     {
         global $recrasPlugin;
         $arrangementen = [];
@@ -354,7 +354,7 @@ class ContactForm
                         $locale = 'en_GB';
                     }
 
-                    require_once(__DIR__ . '/countries/' . $locale . '.php');
+                    require(__DIR__ . '/countries/' . $locale . '.php');
                     assert(is_array($recras_countries));
 
                     $selectOptions = [];
@@ -432,8 +432,10 @@ class ContactForm
                      *   is very tricky so we're just using a regular text field without any constraints
                      */
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
-                        'autocomplete' => 'url',
                         'placeholder' => $options['placeholders'],
+                        'raw' => [
+                            'autocomplete' => 'url',
+                        ],
                     ]);
                     break;
                 default:

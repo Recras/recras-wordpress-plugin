@@ -52,7 +52,7 @@ class Plugin
 
         $this->addShortcodes();
 
-        register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
+        register_uninstall_hook(dirname(__DIR__) . '/recras-wordpress-plugin.php', [__CLASS__, 'uninstall']);
     }
 
     private function addClassicEditorSubmenuPage(string $title, string $slug, callable $callable): void

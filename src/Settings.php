@@ -263,6 +263,10 @@ class Settings
             if (strpos($name, '.recras.') === false) {
                 $name .= '.recras.nl';
             }
+            $name = self::sanitizeDomain($name);
+            if (!$name) {
+                return '';
+            }
             return $name;
         }
         $domain = get_option('recras_domain');
