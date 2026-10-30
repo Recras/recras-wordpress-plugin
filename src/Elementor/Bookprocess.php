@@ -44,7 +44,7 @@ class Bookprocess extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'label' => __('Book process', 'recras'),
                 'options' => $options,
-                'default' => count($options) === 1 ? reset($options) : null,
+                'default' => count($options) === 1 ? array_key_first($options) : null,
             ]
         );
 
