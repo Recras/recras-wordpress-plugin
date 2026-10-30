@@ -22,13 +22,13 @@ function submitRecrasForm(formID, instance, basePath, redirect)
             el.value = null;
         }
         if (el.type === 'radio') {
-            const selected = document.querySelector('input[name="' + el.name + '"]:checked');
-            elements[el.name] = selected.value;
+            const selected = formEl.querySelector('input[name="' + el.name + '"]:checked');
+            elements[el.name] = selected?.value;
         } else if (el.type === 'checkbox') {
             elements[el.name] = [];
-            const checked = document.querySelectorAll('input[name="' + el.name + '"]:checked');
+            const checked = formEl.querySelectorAll('input[name="' + el.name + '"]:checked');
             if (checked.length === 0) {
-                const isRequired = document.querySelector('input[name="' + el.name + '"][data-required="1"]');
+                const isRequired = formEl.querySelector('input[name="' + el.name + '"][data-required="1"]');
                 if (isRequired) {
                     formEl
                         .querySelector('[name="' + el.name + '"]')
