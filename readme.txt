@@ -80,38 +80,12 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = 6.6.0 =
 * Allow pre-filling voucher template & quantity in voucher sales book processes
 
-= 6.5.8 =
-* Updated "Tested up to" version to 7.1
-* Plugin now requires WP 6.9 or higher
-
-= 6.5.7 =
-* Fix incompatible requirements
-
-= 6.5.6 =
-* Fix crash when your recras could not be reached
-* Plugin now requires PHP 8.0 or higher
-
-= 6.5.5 =
-* Fix error when data could not be retrieved from your recras
-
-= 6.5.4 =
-* Updated "Tested up to" version to 7.0
-* Plugin now requires WP 6.8 or higher
-* Fix warning when using PHP 8.4
-
-= 6.5.3 =
-* Styling fix for Gutenberg info texts
-* Only show contact form widget when your recras allows it
-
-= 6.5.2 =
-* Fix for some contact forms not submitting when loaded in a popup
-
-= 6.5.1 =
-* Gutenberg editor: Add ID to book processes list
-* Gutenberg editor: sort selectable items by name instead of creation date
-
-= 6.5.0 =
+= 6.5 (highlights) =
+* Several small bug fixes
 * Add anti-spam check to contact forms
+* Plugin now requires WP 6.9 or higher
+* Updated "Tested up to" version to 7.1
+* Plugin now requires PHP 8.0 or higher
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
